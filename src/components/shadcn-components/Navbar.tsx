@@ -7,7 +7,7 @@ import ArrowRightIcon from "./ArrowRightIcon";
 
 const Navbar = () => {
   return (
-    <nav className="fixed w-full bg-black">
+    <nav className="fixed w-full bg-black font-mono">
       <div className="flex justify-around">
         <Logo />
         <div>
