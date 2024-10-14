@@ -19,7 +19,7 @@ const contactLinks: ContactLink[] = [
   {
     id: "email",
     icon: <EmailIcon />,
-    name: "mailto:info@americanlimofl.com",
+    name: "info@americanlimofl.com",
     href: "mailto:info@americanlimofl.com",
   },
 ];
