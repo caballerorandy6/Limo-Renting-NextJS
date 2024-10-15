@@ -1,15 +1,28 @@
 "use client";
 
+//React
 import { useEffect } from "react";
+
+//React Hook Form
+import { useForm } from "react-hook-form";
+
+//Interfaces
+import { FormData } from "@/lib/interfaces";
+
+//Zod
+import { formSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { date, z } from "zod";
+
+//Store Zustand
 import { useAddStopStore } from "@/store/addStopStore";
-import { useForm, SubmitHandler } from "react-hook-form";
+//import { useNameAndFlagStore } from "@/store/nameAndFlagStore";
+
+//React Hook Form
+import { SubmitHandler } from "react-hook-form";
+
+// Components
 import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
-import LocationIcon from "./LocationIcon";
-import CloseIcon from "./CloseIcon";
-import CalendarIcon from "./CalendarIcon";
 import {
   Form,
   FormControl,
@@ -28,7 +41,8 @@ import {
 } from "../ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Calendar } from "../ui/calendar";
-import { format } from "date-fns";
+
+//Utils
 import {
   cn,
   pickUpTimeArray,
@@ -36,66 +50,19 @@ import {
   generateRangeUpto50,
 } from "@/lib/utils";
 
-// Interface for form data
-interface FormData {
-  pickUpLocation: string;
-  stops: string[];
-  dropOffLocation: string;
-  dateOfService: Date;
-  pickUpTime: string;
-  typeOfService: string;
-  passengers: "";
-  firstName: string;
-  lastName: string;
-  emailAddress: string;
-  phoneNumber: string;
-}
+//Icons
+import LocationIcon from "./LocationIcon";
+import CloseIcon from "./CloseIcon";
+import CalendarIcon from "./CalendarIcon";
 
-// Zod schema
-const formSchema = z.object({
-  pickUpLocation: z.string().min(2, {
-    message: "Pick up location is required and must be at least 2 characters.",
-  }),
-  dropOffLocation: z.string().min(2, {
-    message: "Drop off location is required and must be at least 2 characters.",
-  }),
-  stops: z
-    .array(
-      z.string().min(2, {
-        message: "Stop location is required and must be at least 2 characters.",
-      })
-    )
-    .optional(),
-  dateOfService: z.date({ required_error: "Date of service is required." }),
-  pickUpTime: z.string().refine((value) => value.trim().length > 0, {
-    message: "Pick up time is required.",
-  }),
-  typeOfService: z.string().refine((value) => value.trim().length > 0, {
-    message: "Type of service is required.",
-  }),
-  passengers: z.string().refine((value) => value.trim().length > 0, {
-    message: "Number of passengers is required.",
-  }),
-  firstName: z.string().min(2, {
-    message: "First name is required and must be at least 2 characters.",
-  }),
-  lastName: z.string().min(2, {
-    message: "Last name is required and must be at least 2 characters.",
-  }),
-  emailAddress: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  phoneNumber: z
-    .string()
-    .min(10, { message: "Please enter a valid phone number with 10 digits." })
-    .max(10, {
-      message: "Please enter a valid phone number with 10 digits.",
-    }),
-});
+//Other
+import { format } from "date-fns";
 
 const FormQuote = () => {
   const { stops, addStop, removeStop } = useAddStopStore();
+  //const { countries, fetchCountries } = useNameAndFlagStore();
 
+  //useForm Hook
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -110,6 +77,7 @@ const FormQuote = () => {
       lastName: "",
       emailAddress: "",
       phoneNumber: "",
+      //countries: [],
     },
   });
 
@@ -118,24 +86,21 @@ const FormQuote = () => {
     form.setValue("stops", stops);
   }, [stops, form]);
 
+  // useEffect(() => {
+  //   fetchCountries();
+  // }, [fetchCountries]);
+
   // Form submit
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
     form.reset();
   };
 
-  // fetch phone numebers prefijes
-  const fetchPhoneNumbers = async () => {
-    const response = await fetch("https://restcountries.com/v3.1/all");
-    const data = await response.json();
-    console.log(data);
-  };
-
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-gray-600 bg-opacity-80 p-4 rounded-xl"
+        className="bg-gray-600 bg-opacity-80 p-4 rounded-xl mt-40"
       >
         <FormDescription className="text-white uppercase font-sans text-center font-bold text-2xl mb-4">
           Get an Instant Quote
@@ -251,7 +216,7 @@ const FormQuote = () => {
             control={form.control}
             name="dateOfService"
             render={({ field }) => (
-              <FormItem className="">
+              <FormItem>
                 <FormLabel className="text-white uppercase text-sm font-sans">
                   Date of Service
                 </FormLabel>
@@ -306,7 +271,7 @@ const FormQuote = () => {
                 </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl className="hover:bg-gray-200 transition-colors">
-                    <SelectTrigger className="font-mono text-gray-500">
+                    <SelectTrigger className="font-mono">
                       <SelectValue placeholder="Select a pick-up time" />
                     </SelectTrigger>
                   </FormControl>
@@ -338,7 +303,7 @@ const FormQuote = () => {
                 </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl className="hover:bg-gray-200 transition-colors">
-                    <SelectTrigger className="font-mono text-gray-500">
+                    <SelectTrigger className="font-mono">
                       <SelectValue placeholder="Select the type of service" />
                     </SelectTrigger>
                   </FormControl>
@@ -370,7 +335,7 @@ const FormQuote = () => {
                 </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl className="hover:bg-gray-200 transition-colors">
-                    <SelectTrigger className="font-mono text-gray-500">
+                    <SelectTrigger className="font-mono">
                       <SelectValue placeholder="Passengers" />
                     </SelectTrigger>
                   </FormControl>
@@ -469,6 +434,36 @@ const FormQuote = () => {
             )}
           />
 
+          {/* <div className="flex items-center justify-center"> */}
+          {/* Flag and Name - Select
+            <FormField
+              control={form.control}
+              name="countries"
+              render={({ field }) => (
+                <FormItem className="w-2/12">
+                  <Select onValueChange={field.onChange} value={field.value[0]}>
+                    <FormControl className="hover:bg-gray-200 transition-colors">
+                      <SelectTrigger className="font-mono text-gray-500">
+                        <SelectValue placeholder="Country telephone prefix is ​​required" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {countries.map((country) => (
+                        <SelectItem
+                          key={country?.flag}
+                          value={`${country?.name?.common} ${country?.flag}`}
+                          className="flex items-center justify-center font-mono cursor-pointer  hover:border hover:border-gray-500 hover:rounded"
+                        >
+                          {`${country.name?.common} ${country.flag}`}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage className="text-red-400" />
+                </FormItem>
+              )}
+            /> */}
+
           {/* Phone Number - Input */}
           <FormField
             control={form.control}
@@ -479,13 +474,13 @@ const FormQuote = () => {
                   htmlFor="phoneNumber"
                   className="text-white uppercase text-sm font-sans"
                 >
-                  Phone Number:
+                  Phone Number
                 </FormLabel>
                 <FormControl>
                   <Input
                     id="phoneNumber"
                     type="text"
-                    placeholder="Phone Number"
+                    placeholder="000-000-0000"
                     className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
                     {...field}
                   />
@@ -495,6 +490,7 @@ const FormQuote = () => {
             )}
           />
         </div>
+        {/* </div> */}
 
         {/* Submit Button */}
         <Button
