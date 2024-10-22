@@ -34,3 +34,22 @@ export interface CountryStore {
   countries: Country[];
   fetchCountries: () => Promise<void>;
 }
+
+//Button Props Interface
+export interface ButtonProps {
+  children: string;
+  icon?: JSX.Element;
+}
+
+//Info Layout Props Interface
+export interface InfoLayoutProps {
+  children: React.ReactNode;
+}
+
+export interface WhatWeOfferCardProps {
+  title: string;
+  description: string;
+  content: string;
+  icon: React.ReactNode;
+  buttonName: string;
+}

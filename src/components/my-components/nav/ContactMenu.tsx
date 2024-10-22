@@ -1,6 +1,6 @@
 import Link from "next/link";
-import PhoneRingIcon from "./PhoneRingIcon";
-import EmailIcon from "./EmailIcon";
+import PhoneRingIcon from "@/components/my-components/icons/PhoneRingIcon";
+import EmailIcon from "@/components/my-components/icons/EmailIcon";
 
 interface ContactLink {
   id: string;

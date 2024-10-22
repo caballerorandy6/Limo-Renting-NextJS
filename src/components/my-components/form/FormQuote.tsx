@@ -22,7 +22,7 @@ import { SubmitHandler } from "react-hook-form";
 
 // Components
 import { Input } from "@/components/ui/input";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import {
   Form,
   FormControl,
@@ -38,9 +38,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { Calendar } from "../ui/calendar";
+} from "../../ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
+import { Calendar } from "../../ui/calendar";
 
 //Utils
 import {
@@ -51,9 +51,9 @@ import {
 } from "@/lib/utils";
 
 //Icons
-import LocationIcon from "./LocationIcon";
-import CloseIcon from "./CloseIcon";
-import CalendarIcon from "./CalendarIcon";
+import LocationIcon from "../icons/LocationIcon";
+import CloseIcon from "../icons/CloseIcon";
+import CalendarIcon from "../icons/CalendarIcon";
 
 //Other
 import { format } from "date-fns";
@@ -100,7 +100,7 @@ const FormQuote = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-gray-600 bg-opacity-80 p-4 rounded-xl mt-40"
+        className="bg-zinc-800 bg-opacity-90 p-4 rounded-xl mt-40"
       >
         <FormDescription className="text-white uppercase font-sans text-center font-bold text-2xl mb-4">
           Get an Instant Quote
@@ -226,7 +226,7 @@ const FormQuote = () => {
                       <Button
                         variant={"calendar"}
                         className={cn(
-                          "w-full pl-3 text-left bg-white text-gray-500 flex items-center justify-between hover:bg-gray-200 transition-colors font-mono",
+                          "w-full pl-3 text-left bg-white flex items-center justify-between hover:bg-gray-200 transition-colors font-mono",
                           !field.value &&
                             "text-muted-foreground hover:text-white"
                         )}
@@ -234,9 +234,7 @@ const FormQuote = () => {
                         {field.value ? (
                           format(field.value, "PPP")
                         ) : (
-                          <span className="text-gray-500 font-mono">
-                            MM/DD/YYYY
-                          </span>
+                          <span className="font-mono">MM/DD/YYYY</span>
                         )}
                         <CalendarIcon />
                       </Button>

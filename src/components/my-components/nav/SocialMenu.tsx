@@ -1,8 +1,8 @@
 import Link from "next/link";
-import InstagramIcon from "./InstagramIcon";
-import FacebookIcon from "./FacebookIcon";
-import YelpIcon from "./YelpIcon";
-import YoutubeIcon from "./YoutubeIcon";
+import InstagramIcon from "@/components/my-components/icons/InstagramIcon";
+import FacebookIcon from "@/components/my-components/icons/FacebookIcon";
+import YelpIcon from "@/components/my-components/icons/YelpIcon";
+import YoutubeIcon from "@/components/my-components/icons/YoutubeIcon";
 
 interface SocialLink {
   id: string;

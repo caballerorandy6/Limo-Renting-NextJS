@@ -1,5 +1,10 @@
+"use client";
+
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import WeddingIcon from "../components/my-components/icons/WeddingIcon";
+import PartyIcon from "@/components/my-components/icons/PartyIcon";
+import CorporateTransferIcon from "@/components/my-components/icons/CorporateTransferIcon";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -66,6 +71,69 @@ export const typeOfServiceArray = [
   "From Seaport",
   "To Seaport",
   "Wedding",
+];
+
+export const menuArray = [
+  {
+    name: "Home",
+    url: "/",
+    id: "home",
+  },
+  {
+    name: "About",
+    url: "/info/about",
+    id: "about",
+  },
+  {
+    name: "Services",
+    url: "/info/services",
+    id: "services",
+  },
+  {
+    name: "Fleet",
+    url: "/info/fleet",
+    id: "fleet",
+  },
+  {
+    name: "Contact",
+    url: "/info/contact",
+    id: "contact",
+  },
+  {
+    name: "Reservations",
+    url: "/info/reservations",
+    id: "reservations",
+  },
+];
+
+export const whatWeOfferCardArray = [
+  {
+    title: "Weddings",
+    description: "Service - 01",
+    content:
+      "No need to stress about logistics or coordinating rides on such a momentous occasion. We’ll handle all of that, leaving you free to focus on what truly matters – celebrating love and happiness.",
+    icon: WeddingIcon,
+    buttonName: "Discover More",
+    href: "/services/weddings",
+  },
+  {
+    title: "Corporate Transfers",
+    description: "Service - 02",
+    content:
+      "Our professional chauffeurs are happy to pick you up and drop you off at the location of any corporate event, including one of the three local airports.",
+    icon: CorporateTransferIcon,
+    buttonName: "Discover More",
+    href: "/services/corporate-transfers",
+  },
+  {
+    title: "Party Bus Rentals",
+    description: "Service - 03",
+    content:
+      "Our Miami party bus has room for up to 30 passengers with bench seating on each side. You can request music to relax or party to, alcoholic beverages for those over age 21, movies, and much more.",
+    icon: PartyIcon,
+    buttonName: "Discover More",
+    href: "/services/party-bus-rentals",
+  },
 ];
 
 export const generateRangeUpto50 = () =>

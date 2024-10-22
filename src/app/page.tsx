@@ -1,11 +1,9 @@
-import Hero from "@/components/shadcn-components/Hero";
+import HomePage from "@/components/my-components/home/HomePage";
 
 export default function Home() {
   return (
-    <div className="bg-black">
-      <main>
-        <Hero />
-      </main>
-    </div>
+    <main>
+      <HomePage />
+    </main>
   );
 }
