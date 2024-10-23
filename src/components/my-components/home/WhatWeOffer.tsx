@@ -17,7 +17,7 @@ import { whatWeOfferCardArray } from "@/lib/utils";
 
 const WhatWeOffer = () => {
   return (
-    <section id="what-we-offer" className="w-full mx-auto bg-gray-100">
+    <section id="what-we-offer" className="w-full mx-auto bg-gray-100 pb-16">
       <div className="w-8/12 mx-auto pt-16">
         <div className="flex gap-4">
           <CarIcon />

@@ -19,6 +19,10 @@ export interface FormData {
   emailAddress: string;
   phoneNumber: string;
   countries: string[];
+  messageData?: boolean;
+  roundTrip?: boolean;
+  returnDate?: Date;
+  returnTime?: string;
 }
 
 //Country Interface
@@ -52,4 +56,8 @@ export interface WhatWeOfferCardProps {
   content: string;
   icon: React.ReactNode;
   buttonName: string;
+}
+
+export interface RoundTrip {
+  roundTrip: boolean;
 }

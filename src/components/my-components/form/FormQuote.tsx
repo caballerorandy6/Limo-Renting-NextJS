@@ -22,7 +22,7 @@ import { SubmitHandler } from "react-hook-form";
 
 // Components
 import { Input } from "@/components/ui/input";
-import { Button } from "../../ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -38,9 +38,14 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../ui/select";
-import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
-import { Calendar } from "../../ui/calendar";
+} from "@/components/ui/select";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { Checkbox } from "@/components/ui/checkbox";
 
 //Utils
 import {
@@ -78,8 +83,15 @@ const FormQuote = () => {
       emailAddress: "",
       phoneNumber: "",
       //countries: [],
+      messageData: false,
+      roundTrip: false,
+      returnDate: undefined,
+      returnTime: "",
     },
   });
+
+  //Acces to the roundTrip value
+  const roundTrip = form.watch("roundTrip");
 
   //  Sync stops with form values
   useEffect(() => {
@@ -100,7 +112,7 @@ const FormQuote = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-zinc-800 bg-opacity-90 p-4 rounded-xl mt-40"
+        className="bg-zinc-800 bg-opacity-90 p-4 rounded-xl mt-60 mb-12"
       >
         <FormDescription className="text-white uppercase font-sans text-center font-bold text-2xl mb-4">
           Get an Instant Quote
@@ -210,7 +222,7 @@ const FormQuote = () => {
           )}
         />
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-center">
           {/* Date of Service - Data Picker */}
           <FormField
             control={form.control}
@@ -228,7 +240,7 @@ const FormQuote = () => {
                         className={cn(
                           "w-full pl-3 text-left bg-white flex items-center justify-between hover:bg-gray-200 transition-colors font-mono",
                           !field.value &&
-                            "text-muted-foreground hover:text-white"
+                            "text-muted-foreground hover:text-black"
                         )}
                       >
                         {field.value ? (
@@ -489,6 +501,128 @@ const FormQuote = () => {
           />
         </div>
         {/* </div> */}
+
+        {/* Message and Data - Checkbox */}
+        <FormField
+          control={form.control}
+          name="messageData"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 border p-4 shadow mt-4 bg-white font-sans rounded">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel>
+                  Opt-in to receive texts with pictures and pricing. Standard
+                  messaging and data rates may apply.
+                </FormLabel>
+              </div>
+            </FormItem>
+          )}
+        />
+
+        {/* Round Trip */}
+        <FormField
+          control={form.control}
+          name="roundTrip"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 border p-4 shadow mt-4 bg-white font-sans rounded">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel>Round Trip</FormLabel>
+              </div>
+            </FormItem>
+          )}
+        />
+
+        {/* Round Trip Condition */}
+        {roundTrip && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-center">
+            {/* Return Date - Data Picker */}
+            <FormField
+              control={form.control}
+              name="returnDate"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-white uppercase text-sm font-sans">
+                    Return Date
+                  </FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"calendar"}
+                          className={cn(
+                            "w-full pl-3 text-left bg-white flex items-center justify-between hover:bg-gray-200 transition-colors font-mono",
+                            !field.value &&
+                              "text-muted-foreground hover:text-black"
+                          )}
+                        >
+                          {field.value ? (
+                            format(field.value, "PPP")
+                          ) : (
+                            <span className="font-mono">MM/DD/YYYY</span>
+                          )}
+                          <CalendarIcon />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        disabled={(date) =>
+                          date > new Date("2100-01-01") || date < new Date()
+                        }
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </FormItem>
+              )}
+            />
+
+            {/* Pick Up Time - Select */}
+            <FormField
+              control={form.control}
+              name="returnTime"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="uppercase text-white font-sans">
+                    Return Time
+                  </FormLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <FormControl className="hover:bg-gray-200 transition-colors">
+                      <SelectTrigger className="font-mono">
+                        <SelectValue placeholder="Select a return time" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {pickUpTimeArray.map((time) => (
+                        <SelectItem
+                          key={time}
+                          value={time}
+                          className="flex items-center justify-center font-mono cursor-pointer  hover:border hover:border-gray-500 hover:rounded"
+                        >
+                          {time}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
+          </div>
+        )}
 
         {/* Submit Button */}
         <Button

@@ -19,7 +19,7 @@ const Hero = () => {
           <BookNowButton>Book Now</BookNowButton>
         </div>
       </div>
-      <div className="w-3/12">
+      <div className="w-4/12">
         <FormQuote />
       </div>
     </div>

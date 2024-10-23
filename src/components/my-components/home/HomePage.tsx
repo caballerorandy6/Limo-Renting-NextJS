@@ -1,5 +1,7 @@
 import Hero from "@/components/my-components/home/Hero";
 import WhatWeOffer from "@/components/my-components/home/WhatWeOffer";
+import AboutOurCompany from "./AboutOurCompany";
+import FeaturedVehicles from "./FeaturedVehicles";
 
 const HomePage = () => {
   return (
@@ -21,6 +23,8 @@ const HomePage = () => {
         <Hero />
       </section>
       <WhatWeOffer />
+      <AboutOurCompany />
+      <FeaturedVehicles />
     </>
   );
 };

@@ -10,7 +10,7 @@ import BookNowButton from "@/components/my-components/buttons/BookNowButton";
 
 const About = () => {
   return (
-    <div className="flex justify-center gap-4 pt-36">
+    <section id="about" className="flex justify-center gap-4 pt-36">
       <div className="relative w-6/12 h-full pt-16 flex justify-center">
         <Image
           src="/limoAboutPage1.webp"
@@ -74,7 +74,7 @@ const About = () => {
         <Separator className="my-8 border border-gray-400 w-full" />
         <BookNowButton>Book a Ride</BookNowButton>
       </div>
-    </div>
+    </section>
   );
 };
 
