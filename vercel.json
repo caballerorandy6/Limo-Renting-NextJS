@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/videos/(.*).webm",
+      "source": "/(.*).webm",
       "headers": [
         {
           "key": "Cache-Control",
