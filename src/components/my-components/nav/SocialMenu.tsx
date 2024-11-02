@@ -4,14 +4,14 @@ import FacebookIcon from "@/components/my-components/icons/FacebookIcon";
 import YelpIcon from "@/components/my-components/icons/YelpIcon";
 import YoutubeIcon from "@/components/my-components/icons/YoutubeIcon";
 
-interface SocialLink {
+export interface SocialLink {
   id: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   name: string;
   href: string;
 }
 
-const socialLinks: SocialLink[] = [
+export const socialLinks: SocialLink[] = [
   {
     id: "instagram",
     icon: <InstagramIcon />,

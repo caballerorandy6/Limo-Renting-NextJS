@@ -10,7 +10,7 @@ const LearnMoreButton = ({ children, icon }: ButtonProps) => {
 
   return (
     <Button
-      className="bg-red-600 hover:bg-white text-white hover:text-red-600 transition-colors text-xl font-sans font-bold rounded-br-2xl p-8"
+      className="bg-red-600 hover:bg-black text-white transition-colors text-xl font-sans font-bold rounded-br-2xl p-8"
       onClick={() => router.push("/services")}
     >
       {children}

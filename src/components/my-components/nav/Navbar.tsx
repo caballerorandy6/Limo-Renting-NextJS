@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import SocialMenu from "./SocialMenu";
-import ContactMenu from "./ContactMenu";
-import Logo from "./Logo";
+import SocialMenu from "@/components/my-components/nav/SocialMenu";
+import ContactMenu from "@/components/my-components/nav/ContactMenu";
+import Logo from "@/components/my-components/nav/Logo";
 import BookNowButton from "../buttons/BookNowButton";
 import {
   NavigationMenu,

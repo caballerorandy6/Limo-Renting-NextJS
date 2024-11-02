@@ -12,12 +12,12 @@ const CountUpReactHome = () => {
       suffix="+"
     >
       {({ countUpRef }) => (
-        <div>
+        <>
           <span
             ref={countUpRef}
             className="relative text-4xl text-red-500 font-sans font-bold"
           ></span>
-        </div>
+        </>
       )}
     </CountUp>
   );

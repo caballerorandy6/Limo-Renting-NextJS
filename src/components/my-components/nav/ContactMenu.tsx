@@ -4,7 +4,7 @@ import EmailIcon from "@/components/my-components/icons/EmailIcon";
 
 interface ContactLink {
   id: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   name: string;
   href: string;
 }

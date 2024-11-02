@@ -7,8 +7,8 @@ const Logo = () => {
       <Image
         src="/logo.webp"
         alt="logo"
-        width={400}
-        height={400}
+        width={300}
+        height={300}
         priority
         className="w-auto h-auto"
       />

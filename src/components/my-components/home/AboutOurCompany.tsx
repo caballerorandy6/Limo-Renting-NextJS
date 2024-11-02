@@ -18,7 +18,7 @@ const AboutOurCompany = () => {
       <div className="relative w-6/12 h-full flex justify-center">
         <Image
           src="/aboutOurCompany1.webp"
-          alt="Limo About Page 1"
+          alt="About Our Company 1"
           width="200"
           height={1000}
           priority
@@ -26,7 +26,7 @@ const AboutOurCompany = () => {
         />
         <Image
           src="/aboutOurCompany2.webp"
-          alt="Limo About Page 1"
+          alt="About Our Company 2"
           width={1000}
           height={1000}
           priority
@@ -69,16 +69,14 @@ const AboutOurCompany = () => {
               </CardContent>
             </CardHeader>
           </Card>
-          <div className="flex items-center justify-center w-4/12 p-2 rounded-md">
+          <div className="flex items-center justify-center w-4/12">
             <video
-              className="object-cover w-full h-[20vh] flex items-center justify-center"
+              className="object-cover w-full h-[20vh] flex items-center justify-center rounded-xl"
               src="/aboutOurCompany.webm"
               controls
               autoPlay
-              muted
               loop
               preload="auto"
-              playsInline
               crossOrigin="anonymous"
             />
           </div>
