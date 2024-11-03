@@ -8,13 +8,7 @@ import { Carousel1 } from "@/components/my-components/home/Carousel1";
 import { Carousel2 } from "@/components/my-components/home/Carousel2";
 import { Carousel3 } from "@/components/my-components/home/Carousel3";
 import { FeaturedVehiclesCardProps } from "@/lib/interfaces";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ViewFullFleetButton from "@/components/my-components/buttons/ViewFullFleetButton";
 
 export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
