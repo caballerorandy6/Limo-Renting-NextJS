@@ -41,7 +41,7 @@ const WhatWeOffer = () => {
                   <CardTitle className="font-sans text-xl">
                     {item.title}
                   </CardTitle>
-                  <CardDescription className="font-mono ">
+                  <CardDescription className="font-mono">
                     {item.description}
                   </CardDescription>
                 </div>

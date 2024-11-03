@@ -5,10 +5,6 @@ import { twMerge } from "tailwind-merge";
 import WeddingIcon from "@/components/my-components/icons/WeddingIcon";
 import PartyIcon from "@/components/my-components/icons/PartyIcon";
 import CorporateTransferIcon from "@/components/my-components/icons/CorporateTransferIcon";
-import Car2Icon from "@/components/my-components/icons/Car2Icon";
-import CarSeatIcon from "@/components/my-components/icons/CarSeatIcon";
-import MinibarIcon from "@/components/my-components/icons/MinibarIcon";
-
 import { MenuArray } from "@/lib/interfaces";
 
 export function cn(...inputs: ClassValue[]) {
@@ -146,62 +142,23 @@ export const whatWeOfferCardArray = [
   },
 ];
 
-export const featuredVehiclesArray = [
-  {
-    title: "30 Passenger Party Bus",
-    carIcon: Car2Icon,
-    exterior: "Exterior",
-    color1: "White",
-    carSeatIcon: CarSeatIcon,
-    interior: "Interior",
-    color2: "Black Leather",
-    minibarIcon: MinibarIcon,
-    features: "Features",
-    featuresObject: "LED Minibar",
-  },
-  {
-    title: "Mercedes Executive Sprinter",
-    carIcon: Car2Icon,
-    exterior: "Exterior",
-    color1: "Black",
-    carSeatIcon: CarSeatIcon,
-    interior: "Interior",
-    color2: "Black & White Leather",
-    minibarIcon: MinibarIcon,
-    features: "Features",
-    featuresObject: "Two 40″ HD Smart TV’s",
-  },
-  {
-    title: "Cadillac Escalade Limo",
-    carIcon: Car2Icon,
-    exterior: "Exterior",
-    color1: "White",
-    carSeatIcon: CarSeatIcon,
-    interior: "Interior",
-    color2: "Black Leather",
-    minibarIcon: MinibarIcon,
-    features: "Features",
-    featuresObject: "LED Minibar",
-  },
+export const featuredVehiclesImages1: string[] = [
+  "/featuredVehicles1.webp",
+  "/featuredVehicles2.webp",
+  "/featuredVehicles3.webp",
+  "/featuredVehicles4.webp",
 ];
 
-export const featuredVehiclesImagesArray = [
-  {
-    image1: "/featuredVehicles1",
-    image2: "/featuredVehicles2",
-    image3: "/featuredVehicles3",
-    image4: "/featuredVehicles4",
-  },
-  {
-    image1: "/featuredVehicles5",
-    image2: "/featuredVehicles6",
-    image3: "/featuredVehicles7",
-    image4: "/featuredVehicles8",
-  },
-  {
-    image1: "/featuredVehicles9",
-    image2: "/featuredVehicles10",
-    image3: "/featuredVehicles11",
-    image4: "/featuredVehicles12",
-  },
+export const featuredVehiclesImages2: string[] = [
+  "/featuredVehicles5.webp",
+  "/featuredVehicles6.webp",
+  "/featuredVehicles7.webp",
+  "/featuredVehicles8.webp",
+];
+
+export const featuredVehiclesImages3: string[] = [
+  "/featuredVehicles9.webp",
+  "/featuredVehicles10.webp",
+  "/featuredVehicles11.webp",
+  "/featuredVehicles12.webp",
 ];

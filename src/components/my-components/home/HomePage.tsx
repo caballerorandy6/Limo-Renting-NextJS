@@ -1,7 +1,8 @@
 import Hero from "@/components/my-components/home/Hero";
 import WhatWeOffer from "@/components/my-components/home/WhatWeOffer";
-import AboutOurCompany from "./AboutOurCompany";
-import FeaturedVehicles from "./FeaturedVehicles";
+import AboutOurCompany from "@/components/my-components/home/AboutOurCompany";
+import FeaturedVehicles from "@/components/my-components/home/FeaturedVehicles";
+import WhyChooseUs from "@/components/my-components/home/WhyChooseUs";
 
 const HomePage = () => {
   return (
@@ -25,6 +26,7 @@ const HomePage = () => {
       <WhatWeOffer />
       <AboutOurCompany />
       <FeaturedVehicles />
+      <WhyChooseUs />
     </>
   );
 };

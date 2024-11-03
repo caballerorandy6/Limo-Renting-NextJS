@@ -3,9 +3,10 @@ import React from "react";
 const CarSeatIcon = () => {
   return (
     <svg
+      className="bg-red-500 rounded-full text-white p-2"
       xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
+      width="2.5em"
+      height="2.5em"
       viewBox="0 0 24 24"
     >
       <path

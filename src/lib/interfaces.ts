@@ -65,6 +65,7 @@ export interface RoundTrip {
 }
 
 export interface FeaturedVehiclesCardProps {
+  carousel: React.ReactNode;
   title: string;
   carIcon: React.ReactNode;
   exterior: string;
@@ -75,13 +76,6 @@ export interface FeaturedVehiclesCardProps {
   minibarIcon: React.ReactNode;
   features: string;
   featuresObject: string;
-}
-
-export interface FeaturedVehiclesImagesProps {
-  image1: string;
-  image2: string;
-  image3: string;
-  image4: string;
 }
 
 export interface MenuArray {
