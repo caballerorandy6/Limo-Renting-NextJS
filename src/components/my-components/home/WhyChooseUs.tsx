@@ -2,15 +2,10 @@ import Image from "next/image";
 
 const WhyChooseUs = () => {
   return (
-    <section id="why-choose-us" className="relative">
-      <Image
-        src="/dark.avif"
-        alt="dark"
-        width={500}
-        height={500}
-        className="object-cover w-full h-full"
-      />
-    </section>
+    <section
+      id="why-choose-us"
+      className="bg-gradient-to-tr from-slate-900 via-black  to-gray-900 min-h-screen"
+    ></section>
   );
 };
 
