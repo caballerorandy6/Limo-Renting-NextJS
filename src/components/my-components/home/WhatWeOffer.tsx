@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import CarIcon from "@/components/my-components/icons/CarIcon";
+import Heading from "../global-components/Heading";
+import Heading3 from "@/components/my-components/global-components/Heading3";
 import ViewAllServicesButton from "@/components/my-components/buttons/ViewAllServicesButton";
 import {
   Card,
@@ -19,14 +20,9 @@ const WhatWeOffer = () => {
   return (
     <section id="what-we-offer" className="w-full mx-auto bg-gray-100 pb-16">
       <div className="w-8/12 mx-auto pt-16">
-        <div className="flex gap-4">
-          <CarIcon />
-          <span className="font-mono font-bold text-xl">What We Offer</span>
-        </div>
+        <Heading>What We Offer</Heading>
         <div className="flex justify-between items-center">
-          <h1 className="text-5xl mb-6 text-black mt-2 font-sans font-semibold">
-            Our 5-Star Car Services
-          </h1>
+          <Heading3>Our 5-Star Car Services</Heading3>
           <ViewAllServicesButton>View All Services</ViewAllServicesButton>
         </div>
         <div className="flex justify-center gap-4 mt-4">

@@ -1,5 +1,3 @@
-import React from "react";
-
 //Add Stop State Interface
 export interface AddStopState {
   stops: string[];
@@ -47,11 +45,18 @@ export interface ButtonProps {
   icon?: JSX.Element;
 }
 
+//Heading Props Interface
+export interface HeadingProps {
+  children: string;
+  icon?: React.ReactNode;
+}
+
 //Info Layout Props Interface
 export interface InfoLayoutProps {
   children: React.ReactNode;
 }
 
+//What We Offer Card Props Interface
 export interface WhatWeOfferCardProps {
   title: string;
   description: string;
@@ -60,10 +65,12 @@ export interface WhatWeOfferCardProps {
   buttonName: string;
 }
 
+//Round Trip Interface
 export interface RoundTrip {
   roundTrip: boolean;
 }
 
+//Featured Vehicles Card Props Interface
 export interface FeaturedVehiclesCardProps {
   carousel: React.ReactNode;
   title: string;
@@ -78,8 +85,21 @@ export interface FeaturedVehiclesCardProps {
   featuresObject: string;
 }
 
+//Menu Array Interface
 export interface MenuArray {
   name: string;
   url: string;
   id: string;
+}
+
+//Why Choose Us Circle Props Interface
+export interface WhyChooseUsCircleProps {
+  numberInfo: string;
+  symbol: string;
+  title: string;
+  info: string;
+}
+
+export interface Heading3Props {
+  children: string;
 }

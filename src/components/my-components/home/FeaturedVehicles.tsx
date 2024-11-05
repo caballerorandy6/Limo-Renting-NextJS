@@ -3,13 +3,14 @@
 import Car2Icon from "@/components/my-components/icons/Car2Icon";
 import CarSeatIcon from "@/components/my-components/icons/CarSeatIcon";
 import MinibarIcon from "@/components/my-components/icons/MinibarIcon";
-import CarIcon from "@/components/my-components/icons/CarIcon";
 import { Carousel1 } from "@/components/my-components/home/Carousel1";
 import { Carousel2 } from "@/components/my-components/home/Carousel2";
 import { Carousel3 } from "@/components/my-components/home/Carousel3";
 import { FeaturedVehiclesCardProps } from "@/lib/interfaces";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ViewFullFleetButton from "@/components/my-components/buttons/ViewFullFleetButton";
+import Heading from "../global-components/Heading";
+import Heading3 from "@/components/my-components/global-components/Heading3";
 
 export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
   {
@@ -57,14 +58,9 @@ const FeaturedVehicles = () => {
   return (
     <section id="featured-vehicles" className="py-16 bg-gray-100">
       <div className="w-8/12 mx-auto">
-        <div className="flex gap-4">
-          <CarIcon />
-          <span className="font-mono font-bold text-xl">Featured Vehicles</span>
-        </div>
+        <Heading>Feutered Vehicles</Heading>
         <div className="flex justify-between items-center">
-          <h1 className="text-black text-5xl font-sans font-bold mt-2 mb-4">
-            Discover Our Luxury Fleet
-          </h1>
+          <Heading3>Discover Our Luxury Fleet</Heading3>
           <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
         </div>
         <div className="flex justify-center gap-4 mt-4">

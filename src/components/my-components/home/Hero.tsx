@@ -4,12 +4,12 @@ import DiscoverMoreButton from "@/components/my-components/buttons/DiscoverMoreB
 
 const Hero = () => {
   return (
-    <div className="flex justify-center items-center gap-10 relative font-sans">
+    <div className="flex justify-center items-center gap-10 relative">
       <div className="w-5/12">
-        <h1 className={`text-7xl text-white mb-6`}>
+        <h1 className="text-7xl text-white mb-6  font-sans">
           Highest Rated <span className="text-red-500">Miami</span> Limo Service
         </h1>
-        <p className="text-white mb-6">
+        <p className="text-white mb-6 font-sans">
           Our chauffeurs are 100% certified and have years of experience
           offering Miami limousine & local car services with an emphasis on
           hospitality and professionalism.

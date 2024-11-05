@@ -10,15 +10,18 @@ import BookNowButton from "@/components/my-components/buttons/BookNowButton";
 
 const About = () => {
   return (
-    <section id="about" className="flex justify-center gap-4 pt-36">
-      <div className="relative w-6/12 h-full pt-16 flex justify-center">
+    <section
+      id="about"
+      className="flex justify-center pt-48 gap-4 w-8/12 mx-auto"
+    >
+      <div className="relative w-6/12 h-full flex justify-start">
         <Image
           src="/limoAboutPage1.webp"
           alt="Limo About Page 1"
           width="200"
           height={1000}
           priority
-          className="absolute object-cover w-[50vh] h-[50vh]"
+          className="relative object-cover w-[50vh] h-[50vh]"
         />
         <Image
           src="/limoAboutPage2.webp"
@@ -26,10 +29,10 @@ const About = () => {
           width={1000}
           height={1000}
           priority
-          className="relative object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-56 left-48 rounded-br-3xl"
+          className="absolute object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-72 left-1/3 rounded-br-3xl"
         />
       </div>
-      <div className="w-4/12 pt-16">
+      <div className="w-6/12 py-16">
         <div className="flex items-center gap-4">
           <CarIcon />
           <span className="font-mono font-bold text-xl">About Us</span>
@@ -73,6 +76,7 @@ const About = () => {
         </div>
         <Separator className="my-8 border border-gray-400 w-full" />
         <BookNowButton>Book a Ride</BookNowButton>
+        {/* <div className="mb-16"></div> */}
       </div>
     </section>
   );

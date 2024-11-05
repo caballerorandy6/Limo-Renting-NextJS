@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import WeddingIcon from "@/components/my-components/icons/WeddingIcon";
 import PartyIcon from "@/components/my-components/icons/PartyIcon";
 import CorporateTransferIcon from "@/components/my-components/icons/CorporateTransferIcon";
-import { MenuArray } from "@/lib/interfaces";
+import { MenuArray, WhyChooseUsCircleProps } from "@/lib/interfaces";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -161,4 +161,25 @@ export const featuredVehiclesImages3: string[] = [
   "/featuredVehicles10.webp",
   "/featuredVehicles11.webp",
   "/featuredVehicles12.webp",
+];
+
+export const whyChooseUsArray: WhyChooseUsCircleProps[] = [
+  {
+    numberInfo: "98",
+    symbol: "%",
+    title: "Client Satisfaction",
+    info: "Client satisfaction is our top priority, evident in our commitment to excellence and our dedication.",
+  },
+  {
+    numberInfo: "1000",
+    symbol: "+",
+    title: "5-Star Review",
+    info: "Our stellar reputation speaks about the unforgettable experiences we consistently deliver.",
+  },
+  {
+    numberInfo: "100",
+    symbol: "%",
+    title: "Safe Journeys",
+    info: "Our passengers safety & enjoyment is our priority.",
+  },
 ];

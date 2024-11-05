@@ -32,7 +32,11 @@ const ContactMenu = () => {
           key={link.id}
           className=" text-white hover:text-red-500 transition-colors"
         >
-          <Link href={link.href} className="flex gap-2 items-center">
+          <Link
+            href={link.href}
+            target="_blank"
+            className="flex gap-2 items-center"
+          >
             {link.icon}
             {link.name}
           </Link>
