@@ -1,12 +1,18 @@
-import { Link } from "lucide-react";
-import { ButtonProps } from "@/lib/interfaces";
+"use client";
+
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
+import { ButtonProps } from "@/lib/interfaces";
 
 const ReviewsButton = ({ children, icon }: ButtonProps) => {
+  const router = useRouter();
+
   return (
     <Link
-      href="https://www.google.com"
-      className="bg-red-600 hover:bg-black text-white hover:text-white text-xl font-sans font-bold rounded-br-2xl p-8 w-6/12 flex items-center justify-center"
+      target="_blank"
+      className="bg-red-600 hover:bg-black text-white transition-colors text-xl font-sans font-bold rounded-br-2xl p-4 flex items-center mt-4"
+      href="https://www.google.com/search?hl=en-US&gl=us&q=American+Transportation+%26+Limo+services,+3319+NW+74th+Ave,+Miami,+FL+33122&ludocid=13424118040074998325&lsig=AB86z5X8nxH6Sx8XvpKdCR-bvzik#"
     >
       {children}
       {icon ? icon : <ArrowRightIcon />}

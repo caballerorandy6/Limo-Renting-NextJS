@@ -8,7 +8,7 @@ const WyChooseUsCircles = () => {
       {whyChooseUsArray.map((item, index) => (
         <div
           key={item.title}
-          className={`absolute flex flex-col items-center rounded-full w-[30vh] h-[30vh] font-sans bg-gray-800 ${
+          className={`absolute flex flex-col items-center rounded-full w-[30vh] h-[30vh] font-sans bg-stone-900 ${
             index === 0
               ? "left-1/4"
               : index === 1

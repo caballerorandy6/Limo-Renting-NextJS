@@ -5,7 +5,11 @@ import { twMerge } from "tailwind-merge";
 import WeddingIcon from "@/components/my-components/icons/WeddingIcon";
 import PartyIcon from "@/components/my-components/icons/PartyIcon";
 import CorporateTransferIcon from "@/components/my-components/icons/CorporateTransferIcon";
-import { MenuArray, WhyChooseUsCircleProps } from "@/lib/interfaces";
+import {
+  MenuArray,
+  PartnersTestimonialsImagesProps,
+  WhyChooseUsCircleProps,
+} from "@/lib/interfaces";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -102,7 +106,7 @@ export const menuArray: MenuArray[] = [
   },
   {
     name: "Contact",
-    url: "/info/contact",
+    url: "/info/contacts",
     id: "contact",
   },
   {
@@ -181,5 +185,38 @@ export const whyChooseUsArray: WhyChooseUsCircleProps[] = [
     symbol: "%",
     title: "Safe Journeys",
     info: "Our passengers safety & enjoyment is our priority.",
+  },
+];
+
+export const marqueeTestimonialsArray: PartnersTestimonialsImagesProps[] = [
+  {
+    src: "/testimonials1.webp",
+    alt: "Florida Limousine Association",
+    href: "https://www.floridalimousine.com/",
+  },
+  {
+    src: "/testimonials2.webp",
+    alt: "National Limousine Association",
+    href: "https://www.limo.org/",
+  },
+  {
+    src: "/testimonials3.webp",
+    alt: "Better Bussiness Bureau",
+    href: "https://www.bbb.org/search",
+  },
+  {
+    src: "/testimonials4.webp",
+    alt: "National Association of Wedding Professionals",
+    href: "https://www.nawp.com/",
+  },
+  {
+    src: "/testimonials5.webp",
+    alt: "MPI Academy",
+    href: "https://www.mpi.org/",
+  },
+  {
+    src: "/testimonials6.webp",
+    alt: "Greater Miami and Miami Beach",
+    href: "https://www.miamiandbeaches.com/",
   },
 ];

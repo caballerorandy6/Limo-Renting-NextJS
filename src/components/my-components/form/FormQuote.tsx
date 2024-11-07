@@ -112,7 +112,7 @@ const FormQuote = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-zinc-800 bg-opacity-90 p-4 rounded-xl mt-60 mb-12"
+        className="bg-zinc-800 bg-opacity-90 p-8 rounded-xl mt-60 mb-12 w-[60vh] h-[90vh]"
       >
         <FormDescription className="text-white uppercase font-sans text-center font-bold text-2xl mb-4">
           Get an Instant Quote
@@ -150,7 +150,7 @@ const FormQuote = () => {
             type="button"
             onClick={addStop}
             variant="outline"
-            className="text-blue-500 hover:text-blue-700 border-none uppercase"
+            className="text-blue-500 hover:text-blue-700 border-none uppercase font-sans font-bold"
           >
             <LocationIcon />
             Add Stop

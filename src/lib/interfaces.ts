@@ -103,3 +103,34 @@ export interface WhyChooseUsCircleProps {
 export interface Heading3Props {
   children: string;
 }
+
+export interface ReviewsProps {
+  comment: string;
+  stars: JSX.Element;
+  name: string;
+}
+
+export interface PartnersTestimonialsImagesProps {
+  src: string;
+  alt: string;
+  href: string;
+}
+
+export interface Heading4Props {
+  children: string;
+}
+
+export interface ContactInfoCardProps {
+  phoneNumberTitle: string;
+  phoneIcon: React.ReactNode;
+  hrefPhone: string;
+  phoneNumber: string;
+  emailTitle: string;
+  emailIcon: React.ReactNode;
+  hrefEmail: string;
+  email: string;
+  locationTitle: string;
+  locationFooterIcon: React.ReactNode;
+  hrefLocation: string;
+  location: string;
+}

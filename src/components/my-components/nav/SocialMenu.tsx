@@ -40,7 +40,7 @@ export const socialLinks: SocialLink[] = [
 
 const SocialMenu = () => {
   return (
-    <ul className="flex justify-center items-center gap-8 mt-10 font-bold">
+    <ul className="flex justify-center items-center gap-8 font-bold">
       {socialLinks.map((link) => (
         <li
           key={link.id}

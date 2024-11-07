@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="flex justify-around">
         <Logo />
         <div>
-          <div className="flex justify-around items-center gap-">
+          <div className="flex justify-around items-center p-4">
             <ContactMenu />
             <SocialMenu />
           </div>

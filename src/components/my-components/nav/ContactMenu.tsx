@@ -26,7 +26,7 @@ const contactLinks: ContactLink[] = [
 
 const ContactMenu = () => {
   return (
-    <ul className="flex justify-center items-center gap-8 mt-10 font-bold">
+    <ul className="flex justify-center items-center gap-8 font-bold">
       {contactLinks.map((link) => (
         <li
           key={link.id}

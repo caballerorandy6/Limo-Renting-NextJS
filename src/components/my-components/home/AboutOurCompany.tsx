@@ -17,7 +17,7 @@ const AboutOurCompany = () => {
   return (
     <section
       id="about"
-      className="flex justify-center pt-16 pb-48 gap-40 w-full mx-auto"
+      className="flex justify-center pt-16 pb-40 gap-40 w-full mx-auto"
     >
       <div className="relative w-4/12 h-full flex justify-center">
         <Image
@@ -49,7 +49,7 @@ const AboutOurCompany = () => {
       <div className="w-4/12">
         <Heading>About Our Company</Heading>
         <Heading3>The Best Limo Service</Heading3>
-        <p className="font-light font-sans text-lg mt-4">
+        <p className="font-light font-sans text-lg mt-4 mb-6">
           We offer top-quality limousine and car services while being swift and
           discreet. Our Chauffeurs are 100% certified and have years of
           experience in the field with an emphasis on hospitality and
@@ -70,10 +70,12 @@ const AboutOurCompany = () => {
             <video
               className="object-cover w-full h-[20vh] flex items-center justify-center rounded-xl"
               src="/aboutOurCompany.webm"
-              controls
               autoPlay
+              muted
+              controls
               loop
               preload="auto"
+              playsInline
               crossOrigin="anonymous"
             />
           </div>

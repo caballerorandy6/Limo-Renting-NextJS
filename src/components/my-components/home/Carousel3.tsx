@@ -19,7 +19,7 @@ export function Carousel3() {
 
   return (
     <Carousel
-      plugins={[plugin.current]}
+      plugins={[plugin.current as any]}
       className="w-full max-w-xs"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}

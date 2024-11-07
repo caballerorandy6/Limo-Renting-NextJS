@@ -76,7 +76,6 @@ const About = () => {
         </div>
         <Separator className="my-8 border border-gray-400 w-full" />
         <BookNowButton>Book a Ride</BookNowButton>
-        {/* <div className="mb-16"></div> */}
       </div>
     </section>
   );

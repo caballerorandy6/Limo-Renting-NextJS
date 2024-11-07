@@ -10,3 +10,15 @@
     rgb(0 0 0 / 0.6)
   );
 }
+
+.golden {
+  color: #cbb26a;
+}
+
+.truncate {
+  display: -webkit-box;
+  white-space: wrap;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}

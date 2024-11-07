@@ -14,7 +14,7 @@ const InfoLayout = ({ children }: InfoLayoutProps) => {
   const currentPage = menuArray.filter((item) => item.url === pathname);
 
   return (
-    <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[55vh] relative">
+    <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[50vh] relative">
       <Image
         width="1000"
         height="1000"

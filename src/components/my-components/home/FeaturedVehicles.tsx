@@ -63,7 +63,7 @@ const FeaturedVehicles = () => {
           <Heading3>Discover Our Luxury Fleet</Heading3>
           <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
         </div>
-        <div className="flex justify-center gap-4 mt-4">
+        <div className="flex justify-center gap-16 mt-4">
           {featuredVehiclesArray.map((item, index) => (
             <Card key={index} className="bg-white w-4/12">
               <CardHeader>

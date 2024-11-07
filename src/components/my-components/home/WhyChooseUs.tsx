@@ -10,13 +10,13 @@ const WhyChooseUs = () => {
       id="why-choose-us"
       className="bg-gradient-to-tr from-slate-900 via-black to-gray-900"
     >
-      <div className="w-9/12 mx-auto py-16 flex">
+      <div className="w-8/12 mx-auto py-16 flex">
         <div className="w-6/12">
           <Heading2>Why Choose Us</Heading2>
           <h1 className="text-white text-5xl font-sans font-bold my-2">
             What Makes Us Different
           </h1>
-          <p className="font-sans text-white">
+          <p className="font-sans text-white my-6">
             At American Transportation & Limo Services, it’s our goal to ensure
             that your limo rental experience provides you with the highest level
             of luxury by offering highly customized service. We strive to always
@@ -48,13 +48,13 @@ const WhyChooseUs = () => {
           <div className="w-full my-4 flex gap-4">
             <ClickToCallButton>Click To Call</ClickToCallButton>
             <div>
-              <span className="text-white/80 font-sans text-sm flex flex-col">
+              <span className="text-white font-mono flex flex-col text-xl">
                 Call Us Any Time 24/7
               </span>
               <Link
-                href="tel: +1358855002"
+                href="tel: +13058855002"
                 target="_blank"
-                className="text-white font-sans font-bold text-3xl"
+                className="text-white font-sans font-bold text-3xl hover:text-red-500 transition-colors"
               >
                 (305) 885-5002
               </Link>
