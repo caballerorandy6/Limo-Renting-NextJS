@@ -236,7 +236,7 @@ const FormQuote = () => {
                   <PopoverTrigger asChild>
                     <FormControl>
                       <Button
-                        variant={"calendar"}
+                        variant="default"
                         className={cn(
                           "w-full pl-3 text-left bg-white flex items-center justify-between hover:bg-gray-200 transition-colors font-mono",
                           !field.value &&
@@ -559,7 +559,7 @@ const FormQuote = () => {
                     <PopoverTrigger asChild>
                       <FormControl>
                         <Button
-                          variant={"calendar"}
+                          variant="default"
                           className={cn(
                             "w-full pl-3 text-left bg-white flex items-center justify-between hover:bg-gray-200 transition-colors font-mono",
                             !field.value &&
