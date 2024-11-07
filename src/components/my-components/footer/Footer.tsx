@@ -44,7 +44,13 @@ const Footer = () => {
           target="_blank"
           className="transition-all duration-300 ease-in-out transform hover:scale-110"
         >
-          <Image src="/rcweb.webp" width={100} height={100} alt="rcweb logo" />
+          <Image
+            src="/rcweb.webp"
+            width={100}
+            height={100}
+            alt="rcweb logo"
+            className="w-auto h-auto"
+          />
         </Link>
       </div>
     </footer>

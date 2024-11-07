@@ -1,4 +1,3 @@
-import CarIcon from "@/components/my-components/icons/CarIcon";
 import { Heading4Props } from "@/lib/interfaces";
 
 const Heading4 = ({ children }: Heading4Props) => {

@@ -1,13 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
 import { ButtonProps } from "@/lib/interfaces";
 
 const ReviewsButton = ({ children, icon }: ButtonProps) => {
-  const router = useRouter();
-
   return (
     <Link
       target="_blank"

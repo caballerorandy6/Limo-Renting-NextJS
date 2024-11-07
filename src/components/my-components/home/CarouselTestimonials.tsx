@@ -56,14 +56,14 @@ export const reviewsArray: ReviewsProps[] = [
 
 export function CarouselTestimonials() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: true }) as any
   );
 
   return (
     <div className="relative w-full">
       <QuotationMarksLeft />
       <Carousel
-        plugins={[plugin.current as any]}
+        plugins={[plugin.current]}
         className="w-full"
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
