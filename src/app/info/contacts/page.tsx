@@ -1,7 +1,7 @@
 import React from "react";
 
 const Contacts = () => {
-  return <div></div>;
+  return <div>Contacts</div>;
 };
 
 export default Contacts;
