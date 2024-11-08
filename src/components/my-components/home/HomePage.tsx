@@ -15,14 +15,16 @@ const HomePage = () => {
       >
         <video
           className="absolute top-0 left-0 object-cover w-full h-full opacity-30"
-          src="/limo.webm"
           autoPlay
           muted
           loop
           preload="auto"
           playsInline
           crossOrigin="anonymous"
-        />
+        >
+          <source src="/limo.webm" type="video/webm" />
+          <source src="/limo.mp4" type="video/mp4" />
+        </video>
         <Hero />
       </section>
       <WhatWeOffer />
