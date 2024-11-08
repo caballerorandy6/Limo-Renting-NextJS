@@ -23,7 +23,7 @@ const AboutOurCompany = () => {
         <Image
           src="/aboutOurCompany1.webp"
           alt="About Our Company 1"
-          width="200"
+          width={1000}
           height={1000}
           className="absolute object-cover w-[50vh] h-[50vh]"
         />
