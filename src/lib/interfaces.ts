@@ -61,7 +61,7 @@ export interface WhatWeOfferCardProps {
   title: string;
   description: string;
   content: string;
-  icon: React.ReactNode;
+  icon: JSX.Element;
   buttonName: string;
 }
 
@@ -100,26 +100,30 @@ export interface WhyChooseUsCircleProps {
   info: string;
 }
 
+//Heading 3 Props Interface
 export interface Heading3Props {
   children: string;
 }
 
+//Reviews Props Interface
 export interface ReviewsProps {
   comment: string;
   stars: JSX.Element;
   name: string;
 }
 
+//Partners Testimonials Images Props Interface
 export interface PartnersTestimonialsImagesProps {
   src: string;
   alt: string;
   href: string;
 }
-
+//Heading 4 Props Interface
 export interface Heading4Props {
   children: string;
 }
 
+//Contact Info Card Props Interface
 export interface ContactInfoCardProps {
   phoneNumberTitle: string;
   phoneIcon: React.ReactNode;
@@ -133,4 +137,13 @@ export interface ContactInfoCardProps {
   locationFooterIcon: React.ReactNode;
   hrefLocation: string;
   location: string;
+}
+
+//Service Options Props Interface
+export interface ServiceProps {
+  service: string;
+  title: string;
+  image: string;
+  url: string;
+  buttonName: string;
 }

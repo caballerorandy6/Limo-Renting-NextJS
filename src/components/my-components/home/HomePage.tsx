@@ -4,6 +4,7 @@ import AboutOurCompany from "@/components/my-components/home/AboutOurCompany";
 import FeaturedVehicles from "@/components/my-components/home/FeaturedVehicles";
 import WhyChooseUs from "@/components/my-components/home/WhyChooseUs";
 import Testimonials from "@/components/my-components/home/Testimonials";
+import Footer from "../footer/Footer";
 
 const HomePage = () => {
   return (
@@ -29,6 +30,7 @@ const HomePage = () => {
       <FeaturedVehicles />
       <WhyChooseUs />
       <Testimonials />
+      <Footer />
     </>
   );
 };

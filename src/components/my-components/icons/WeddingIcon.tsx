@@ -5,7 +5,7 @@ const WeddingIcon = () => {
       width="4em"
       height="4em"
       viewBox="0 0 26 26"
-      className="text-white bg-red-500 p-2 rounded-br-2xl"
+      className="bg-red-500 text-white rounded-br-2xl p-2"
     >
       <path
         fill="currentColor"

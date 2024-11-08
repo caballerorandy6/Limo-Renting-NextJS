@@ -7,6 +7,7 @@ import ChevronRightIcon from "@/components/my-components/icons/ChevronRightIcon"
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
 import { usePathname } from "next/navigation";
 import { menuArray } from "@/lib/utils";
+import Footer from "@/components/my-components/footer/Footer";
 
 const InfoLayout = ({ children }: InfoLayoutProps) => {
   const pathname = usePathname();
@@ -44,6 +45,7 @@ const InfoLayout = ({ children }: InfoLayoutProps) => {
         </div>
       </div>
       {children}
+      <Footer />
     </div>
   );
 };

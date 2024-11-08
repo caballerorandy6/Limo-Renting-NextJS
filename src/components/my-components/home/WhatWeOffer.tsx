@@ -26,7 +26,7 @@ const WhatWeOffer = () => {
           <ViewAllServicesButton>View All Services</ViewAllServicesButton>
         </div>
         <div className="flex justify-center gap-4 mt-4">
-          {whatWeOfferCardArray.map((item) => (
+          {whatWeOfferCardArray.slice(0, 3).map((item) => (
             <Card key={item.title} className="bg-white w-4/12">
               <CardHeader className="grid grid-flow-col justify-start items-center gap-6">
                 <Link href={item.href}>

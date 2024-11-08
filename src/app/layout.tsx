@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/my-components/header/Header";
-import Footer from "@/components/my-components/footer/Footer";
+// import Footer from "@/components/my-components/footer/Footer";
 
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-//import Footer from "@/components/shadcn-components/Footer";
 
 export const metadata: Metadata = {
   title: "Miami Limo and Car Service",
@@ -26,7 +25,7 @@ export default function RootLayout({
         <Header />
         <div className="min-h-screen">{children}</div>
 
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
