@@ -25,6 +25,13 @@ export interface FormData {
   returnTime?: string;
 }
 
+export interface FormContactData {
+  name: string;
+  phone: string;
+  email: string;
+  message?: string;
+}
+
 //Country Interface
 export interface Country {
   name: {
@@ -146,4 +153,26 @@ export interface ServiceProps {
   image: string;
   url: string;
   buttonName: string;
+}
+
+//Contact Info Props Interface
+export interface ContactInfoProps {
+  phoneIcon: JSX.Element;
+  phone: string;
+  phoneNumber: string;
+  toolFreeIcon: React.ReactNode;
+  tollFree: string;
+  tollFreeNumber: string;
+  faxIcon: React.ReactNode;
+  fax: string;
+  faxNumber: string;
+  emailIcon: React.ReactNode;
+  email: string;
+  emailAddress: string;
+  emailReservationsIcon: React.ReactNode;
+  emailReservations: string;
+  emailAddressReservations: string;
+  locationIcon: React.ReactNode;
+  location: string;
+  locationAddress: string;
 }

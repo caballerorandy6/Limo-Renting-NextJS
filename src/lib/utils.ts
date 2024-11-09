@@ -100,27 +100,27 @@ export const menuArray: MenuArray[] = [
   },
   {
     name: "About",
-    url: "/info/about",
+    url: "/about",
     id: "about",
   },
   {
     name: "Services",
-    url: "/info/services",
+    url: "/services",
     id: "services",
   },
   {
     name: "Fleet",
-    url: "/info/fleet",
+    url: "/fleet",
     id: "fleet",
   },
   {
     name: "Contact",
-    url: "/info/contacts",
+    url: "/contacts",
     id: "contact",
   },
   {
     name: "Reservations",
-    url: "/info/reservations",
+    url: "/reservations",
     id: "reservations",
   },
 ];

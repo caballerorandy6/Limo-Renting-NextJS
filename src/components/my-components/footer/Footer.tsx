@@ -42,7 +42,7 @@ const Footer = () => {
         <Link
           href="https://rcweb.dev"
           target="_blank"
-          className="transition-all duration-300 ease-in-out transform hover:scale-110"
+          className="transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center gap-2"
         >
           <Image
             src="/rcweb.webp"
@@ -51,6 +51,9 @@ const Footer = () => {
             alt="rcweb logo"
             className="w-auto h-auto"
           />
+          <p className="text-white/80 font-sans text-xs">
+            Website designed and developed by RC Web
+          </p>
         </Link>
       </div>
     </footer>

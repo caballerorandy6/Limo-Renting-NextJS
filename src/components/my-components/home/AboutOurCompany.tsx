@@ -28,13 +28,13 @@ const AboutOurCompany = () => {
           className="absolute object-cover w-[50vh] h-[50vh]"
         />
         <Image
-          src="/aboutOurCompany2.webp"
+          src="/aboutOurCompany2New.webp"
           alt="About Our Company 2"
           width={1000}
           height={1000}
           className="relative object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-80 left-64 rounded-br-3xl"
         />
-        <Card className="relative left-20 top-10 bg-red-500 border-none h-[20vh] w-[20vh] p-2 flex justify-center items-center">
+        <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 flex justify-center items-center">
           <CardHeader>
             <CardDescription>
               <CountUpReactHome />
