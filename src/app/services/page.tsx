@@ -1,23 +1,14 @@
-"use client";
-
-import Link from "next/link";
 import Heading from "@/components/my-components/global-components/Heading";
 import Heading3 from "@/components/my-components/global-components/Heading3";
-import ServiceOptionsButton from "@/components/my-components/buttons/ServiceOptionsButton";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
-import { whatWeOfferCardArray } from "@/lib/utils";
+import LimoImageMenu from "@/components/my-components/global-components/LimoImageMenu";
+import { Card, CardContent } from "@/components/ui/card";
+import Services from "@/components/my-components/services/Services";
 
-const Services = () => {
+const AllServices = () => {
   return (
-    <section id="services" className="py-40 pb-20 w-full">
-      <div className="w-8/12 mx-auto flex justify-between">
+    <section id="services" className="pb-20 w-full">
+      <LimoImageMenu />
+      <div className="w-8/12 mx-auto flex justify-between mt-16">
         <div className="w-6/12">
           <Heading>What We Offer</Heading>
           <Heading3>Our 5-Star Services</Heading3>
@@ -35,32 +26,9 @@ const Services = () => {
           </CardContent>
         </Card>
       </div>
-      <div className="flex w-10/12 flex-wrap gap-10 justify-center mx-auto mt-10">
-        {whatWeOfferCardArray.map((item) => (
-          <Card key={item.title} className="bg-white w-3/12 shadow-md">
-            <CardHeader className="grid grid-flow-col justify-start items-center gap-6">
-              <Link href={item.href}>
-                <item.icon />
-              </Link>
-
-              <div>
-                <CardTitle className="font-sans text-xl">
-                  {item.title}
-                </CardTitle>
-                <CardDescription className="font-mono">
-                  {item.description}
-                </CardDescription>
-              </div>
-            </CardHeader>
-            <CardContent className="font-sans">{item.content}</CardContent>
-            <CardFooter>
-              <ServiceOptionsButton>{item.buttonName}</ServiceOptionsButton>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+      <Services />
     </section>
   );
 };
 
-export default Services;
+export default AllServices;

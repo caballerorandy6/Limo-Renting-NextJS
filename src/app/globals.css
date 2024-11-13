@@ -22,3 +22,13 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
 }
+
+p {
+  .texto-bonito {
+    font-size: 1.25rem; /* similar a text-lg */
+    font-weight: 600; /* similar a font-semibold */
+    color: #2d3748; /* similar a text-gray-800 */
+    letter-spacing: 0.05em; /* similar a tracking-wide */
+    line-height: 1.625; /* similar a leading-relaxed */
+  }
+}

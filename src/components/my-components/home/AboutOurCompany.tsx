@@ -25,13 +25,15 @@ const AboutOurCompany = () => {
           alt="About Our Company 1"
           width={1000}
           height={1000}
+          priority={false}
           className="absolute object-cover w-[50vh] h-[50vh]"
         />
         <Image
-          src="/aboutOurCompany2New.webp"
+          src="/aboutOurCompany2.webp"
           alt="About Our Company 2"
           width={1000}
           height={1000}
+          priority={false}
           className="relative object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-80 left-64 rounded-br-3xl"
         />
         <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 flex justify-center items-center">

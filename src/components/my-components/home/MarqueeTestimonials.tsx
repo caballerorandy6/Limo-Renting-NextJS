@@ -21,6 +21,7 @@ const MarqueeTestimonials = () => {
               alt={item.alt}
               width={500}
               height={500}
+              priority={false}
               className="object-cover w-full h-[10vh]"
             />
           </Link>

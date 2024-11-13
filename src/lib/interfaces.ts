@@ -63,15 +63,6 @@ export interface InfoLayoutProps {
   children: React.ReactNode;
 }
 
-//What We Offer Card Props Interface
-export interface WhatWeOfferCardProps {
-  title: string;
-  description: string;
-  content: string;
-  icon: JSX.Element;
-  buttonName: string;
-}
-
 //Round Trip Interface
 export interface RoundTrip {
   roundTrip: boolean;
@@ -97,6 +88,7 @@ export interface MenuArray {
   name: string;
   url: string;
   id: string;
+  url2?: string;
 }
 
 //Why Choose Us Circle Props Interface
@@ -144,15 +136,6 @@ export interface ContactInfoCardProps {
   locationFooterIcon: React.ReactNode;
   hrefLocation: string;
   location: string;
-}
-
-//Service Options Props Interface
-export interface ServiceProps {
-  service: string;
-  title: string;
-  image: string;
-  url: string;
-  buttonName: string;
 }
 
 //Contact Info Props Interface

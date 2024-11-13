@@ -34,6 +34,7 @@ export function Carousel3() {
                   alt={`carousel-image-${index}`}
                   width={500}
                   height={500}
+                  priority={false}
                   className="object-cover w-full h-[150px]"
                 />
               </CardContent>

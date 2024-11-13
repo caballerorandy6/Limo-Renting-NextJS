@@ -1,20 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Heading from "../global-components/Heading";
 import Heading3 from "@/components/my-components/global-components/Heading3";
 import ViewAllServicesButton from "@/components/my-components/buttons/ViewAllServicesButton";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import DiscoverMoreButton from "@/components/my-components/buttons/DiscoverMoreButton";
-
-import { whatWeOfferCardArray } from "@/lib/utils";
+import { services } from "@/components/my-components/services/Services";
+import Service from "@/components/my-components/services/Service";
 
 const WhatWeOffer = () => {
   return (
@@ -26,27 +16,16 @@ const WhatWeOffer = () => {
           <ViewAllServicesButton>View All Services</ViewAllServicesButton>
         </div>
         <div className="flex justify-center gap-4 mt-4">
-          {whatWeOfferCardArray.slice(0, 3).map((item) => (
-            <Card key={item.title} className="bg-white w-4/12">
-              <CardHeader className="grid grid-flow-col justify-start items-center gap-6">
-                <Link href={item.href}>
-                  <item.icon />
-                </Link>
-
-                <div>
-                  <CardTitle className="font-sans text-xl">
-                    {item.title}
-                  </CardTitle>
-                  <CardDescription className="font-mono">
-                    {item.description}
-                  </CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="font-sans">{item.content}</CardContent>
-              <CardFooter>
-                <DiscoverMoreButton>{item.buttonName}</DiscoverMoreButton>
-              </CardFooter>
-            </Card>
+          {services.slice(0, 3).map((item) => (
+            <Service
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              content={item.content}
+              icon={item.icon}
+              buttonName={item.buttonName}
+              href={item.href}
+            />
           ))}
         </div>
       </div>

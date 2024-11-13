@@ -29,8 +29,9 @@ const WhyChooseUs = () => {
               <Image
                 src="/whyChooseUs.webp"
                 alt="Why Choose Us Image"
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
+                priority={false}
                 className="w-full h-full object-cover"
               />
             </div>

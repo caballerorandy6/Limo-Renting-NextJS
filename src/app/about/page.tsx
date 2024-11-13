@@ -20,7 +20,7 @@ const About = () => {
             alt="Limo About Page 1"
             width="200"
             height={1000}
-            priority
+            loading="lazy"
             className="relative object-cover w-[50vh] h-[50vh]"
           />
           <Image
@@ -28,7 +28,7 @@ const About = () => {
             alt="Limo About Page 1"
             width={1000}
             height={1000}
-            priority
+            loading="lazy"
             className="absolute object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-72 left-1/3 rounded-br-3xl"
           />
         </div>
