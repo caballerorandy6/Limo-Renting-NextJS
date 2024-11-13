@@ -18,6 +18,7 @@ const WhatWeOffer = () => {
         <div className="flex justify-center gap-4 mt-4">
           {services.slice(0, 3).map((item) => (
             <Service
+              id={item.id}
               key={item.title}
               title={item.title}
               description={item.description}
