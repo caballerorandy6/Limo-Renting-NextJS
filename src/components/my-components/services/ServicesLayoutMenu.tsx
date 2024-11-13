@@ -4,8 +4,8 @@ import OpenFolderIcon from "@/components/my-components/icons/OpenFolderIcon";
 import { services } from "@/components/my-components/services/Services";
 
 const ServicesLayoutMenu = () => {
-  const ids = services.map((service) => service.id);
-  const images = services.map((service) => service.image);
+  // const ids = services.map((service) => service.id);
+  // const images = services.map((service) => service.image);
 
   return (
     <ul>
