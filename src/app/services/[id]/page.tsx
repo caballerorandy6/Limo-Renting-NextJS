@@ -20,7 +20,7 @@ const ServiceDetails = ({ params }: ServiceDetailsProps) => {
           width={1000}
           height={1000}
           className="rounded mb-4"
-          priority={false}
+          priority
         />
       )}
       <Heading3>{`${service?.title}`}</Heading3>

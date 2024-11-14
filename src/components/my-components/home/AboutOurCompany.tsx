@@ -15,11 +15,11 @@ import Heading3 from "../global-components/Heading3";
 
 const AboutOurCompany = () => {
   return (
-    <section
+    <div
       id="about"
-      className="flex justify-center pt-16 pb-40 gap-40 w-full mx-auto"
+      className="flex justify-center pt-16 pb-40 gap-20 w-10/12 mx-auto"
     >
-      <div className="relative w-4/12 h-full flex justify-center">
+      <div className="relative w-6/12 h-full flex justify-center">
         <Image
           src="/aboutOurCompany1.webp"
           alt="About Our Company 1"
@@ -48,10 +48,10 @@ const AboutOurCompany = () => {
           </CardHeader>
         </Card>
       </div>
-      <div className="w-4/12">
+      <div className="w-6/12  justify-items-start">
         <Heading>About Our Company</Heading>
         <Heading3>The Best Limo Service</Heading3>
-        <p className="font-light font-sans text-lg mt-4 mb-6">
+        <p className="font-light font-sans mt-4 mb-6 tracking-wide leading-relaxed">
           We offer top-quality limousine and car services while being swift and
           discreet. Our Chauffeurs are 100% certified and have years of
           experience in the field with an emphasis on hospitality and
@@ -63,7 +63,7 @@ const AboutOurCompany = () => {
           {/* Video */}
           <Card className="h-[20vh] flex items-center justify-center w-6/12 p-2">
             <CardHeader>
-              <CardDescription className="text-lg font-sans">
+              <CardDescription className="text-lg font-sans tracking-wide leading-relaxed">
                 We Specialize in providing 5-star limo services in Miami, FL.
               </CardDescription>
             </CardHeader>
@@ -85,7 +85,7 @@ const AboutOurCompany = () => {
         <Separator className="my-8 border border-gray-400 w-full" />
         <LearnMoreButton>Learn More</LearnMoreButton>
       </div>
-    </section>
+    </div>
   );
 };
 

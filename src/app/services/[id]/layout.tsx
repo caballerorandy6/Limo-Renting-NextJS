@@ -35,7 +35,7 @@ const ServicesLayout = ({
         <div className="flex justify-center items-center gap-4 pt-10">
           <Link
             href="/"
-            className="text-white uppercase font-bold font-sans underline hover:text-red-400 transition-colors"
+            className="text-white uppercase font-bold font-sans underline hover:text-red-500 transition-colors"
           >
             Home
           </Link>
@@ -43,7 +43,7 @@ const ServicesLayout = ({
 
           <Link
             href="/services"
-            className="text-white uppercase font-bold font-sans underline hover:text-red-400 transition-colors"
+            className="text-white uppercase font-bold font-sans underline hover:text-red-500 transition-colors"
           >
             Services
           </Link>
@@ -51,7 +51,7 @@ const ServicesLayout = ({
 
           {/* Titulo de la pagina */}
           {currentPage && (
-            <span className="text-red-400 font-sans font-bold text-lg rounded">
+            <span className="text-red-500 font-sans font-bold text-lg">
               {currentPage.title}
             </span>
           )}

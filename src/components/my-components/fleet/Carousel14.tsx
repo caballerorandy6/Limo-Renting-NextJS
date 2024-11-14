@@ -9,10 +9,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { featuredVehiclesImages1 } from "@/lib/utils";
+import { featuredVehiclesImages3 } from "@/lib/utils";
 import Image from "next/image";
 
-export function Carousel1() {
+export function Carousel14() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }) as any
   );
@@ -25,7 +25,7 @@ export function Carousel1() {
       onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
-        {featuredVehiclesImages1.map((image, index) => (
+        {featuredVehiclesImages3.map((image, index) => (
           <CarouselItem key={index}>
             <Card className="border-none shadow-none">
               <CardContent>

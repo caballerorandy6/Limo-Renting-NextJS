@@ -43,9 +43,7 @@ const ContactInfoCard = () => {
     <Card className="border-none p-4 flex flex-col w-full">
       <CardContent className="text-center flex flex-col justify-center items-center">
         <div className="mb-4">
-          <h3 className="text-white font-sans justify-self-start font-bold">
-            {phoneNumberTitle}
-          </h3>
+          <h3 className="text-white font-sans font-bold">{phoneNumberTitle}</h3>
           <div className="flex gap-2">
             {phoneIcon}
             <Link
@@ -58,9 +56,7 @@ const ContactInfoCard = () => {
           </div>
         </div>
         <div className="mb-4">
-          <h3 className="text-white font-sans justify-self-start font-bold">
-            {emailTitle}
-          </h3>
+          <h3 className="text-white font-sans font-bold">{emailTitle}</h3>
           <div className="flex gap-2">
             {emailIcon}
             <Link
@@ -73,9 +69,7 @@ const ContactInfoCard = () => {
           </div>
         </div>
         <div>
-          <h3 className="text-white font-sans justify-self-start font-bold">
-            {locationTitle}
-          </h3>
+          <h3 className="text-white font-sans font-bold">{locationTitle}</h3>
           <div className="flex gap-2">
             {locationFooterIcon}
             <Link

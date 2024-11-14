@@ -6,17 +6,17 @@ import WyChooseUsCircles from "./WyChooseUsCircles";
 
 const WhyChooseUs = () => {
   return (
-    <section
+    <div
       id="why-choose-us"
       className="bg-gradient-to-tr from-slate-900 via-black to-gray-900"
     >
-      <div className="w-8/12 mx-auto py-16 flex">
+      <div className="w-10/12 mx-auto py-16 flex gap-20">
         <div className="w-6/12">
           <Heading2>Why Choose Us</Heading2>
           <h1 className="text-white text-5xl font-sans font-bold my-2">
             What Makes Us Different
           </h1>
-          <p className="font-sans text-white my-6">
+          <p className="font-sans text-white my-6 tracking-wide leading-relaxed">
             At American Transportation & Limo Services, it’s our goal to ensure
             that your limo rental experience provides you with the highest level
             of luxury by offering highly customized service. We strive to always
@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
               <h3 className="font-mono font-bold text-white text-xl my-4">
                 We Have Over 30+ Years of Chauffeur Experience
               </h3>
-              <ul className="text-white/80 font-sans list-disc ml-4 text-sm">
+              <ul className="text-white/80 font-sans list-disc ml-4 tracking-wide leading-relaxed">
                 <li>Experienced Local Drivers</li>
                 <li className="my-2">Over 1000+ 5-Star Reviews</li>
                 <li>Many Convenient Services</li>
@@ -62,13 +62,11 @@ const WhyChooseUs = () => {
             </div>
           </div>
         </div>
-        <div className="w-6/12">
-          <div>
-            <WyChooseUsCircles />
-          </div>
+        <div className="w-6/12 ">
+          <WyChooseUsCircles />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

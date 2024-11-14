@@ -159,3 +159,9 @@ export interface ContactInfoProps {
   location: string;
   locationAddress: string;
 }
+
+//About List Props Interface
+export interface AboutListProps {
+  title: string;
+  icon: React.ReactNode;
+}

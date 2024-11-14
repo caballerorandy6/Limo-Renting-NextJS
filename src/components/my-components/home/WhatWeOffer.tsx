@@ -9,13 +9,13 @@ import Service from "@/components/my-components/services/Service";
 const WhatWeOffer = () => {
   return (
     <section id="what-we-offer" className="w-full mx-auto bg-gray-100 pb-16">
-      <div className="w-8/12 mx-auto pt-16">
+      <div className="w-10/12 mx-auto pt-16">
         <Heading>What We Offer</Heading>
         <div className="flex justify-between items-center">
           <Heading3>Our 5-Star Car Services</Heading3>
           <ViewAllServicesButton>View All Services</ViewAllServicesButton>
         </div>
-        <div className="flex justify-center gap-4 mt-4">
+        <div className="flex justify-center gap-16 mt-4">
           {services.slice(0, 3).map((item) => (
             <Service
               id={item.id}

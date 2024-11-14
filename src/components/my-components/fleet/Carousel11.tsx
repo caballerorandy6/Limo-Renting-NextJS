@@ -12,7 +12,7 @@ import {
 import { featuredVehiclesImages2 } from "@/lib/utils";
 import Image from "next/image";
 
-export function Carousel2() {
+export function Carousel11() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true }) as any
   );

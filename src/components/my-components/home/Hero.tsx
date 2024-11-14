@@ -4,7 +4,7 @@ import DiscoverMoreButton from "@/components/my-components/buttons/DiscoverMoreB
 
 const Hero = () => {
   return (
-    <div className="flex justify-center items-center gap-10 relative">
+    <div className="flex justify-center items-center gap-20 relative w-10/12">
       <div className="w-6/12">
         <h1 className="text-7xl text-white mb-6  font-sans">
           Highest Rated <span className="text-red-500">Miami</span> Limo Service
@@ -19,9 +19,8 @@ const Hero = () => {
           <BookNowButton>Book Now</BookNowButton>
         </div>
       </div>
-      <div className="w-4/12 flex justify-center">
-        <FormQuote />
-      </div>
+
+      <FormQuote />
     </div>
   );
 };

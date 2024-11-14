@@ -73,7 +73,9 @@ export function CarouselTestimonials() {
             <CarouselItem key={index}>
               <Card>
                 <CardContent className="flex flex-col aspect-auto justify-center pt-[4vh]">
-                  <p className="mb-2 truncate">{review.comment}</p>
+                  <p className="mb-2 truncate tracking-wide leading-relaxed font-sans">
+                    {review.comment}
+                  </p>
                   <div className="flex items-center gap-2">
                     <span>{review.name}</span>
                     {review.stars}

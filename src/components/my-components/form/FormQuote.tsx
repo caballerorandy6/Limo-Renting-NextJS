@@ -112,7 +112,7 @@ const FormQuote = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="bg-zinc-800 bg-opacity-90 p-8 rounded-xl mt-60 mb-12 w-[60vh] h-[90vh]"
+        className="w-6/12 bg-zinc-800 bg-opacity-90 p-8 rounded-xl mt-60 mb-12"
       >
         <FormDescription className="text-white uppercase font-sans text-center font-bold text-2xl mb-4">
           Get an Instant Quote

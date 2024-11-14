@@ -11,7 +11,7 @@ const BookNowButton = ({ children, icon }: ButtonProps) => {
   return (
     <Button
       className="bg-red-600 hover:bg-white text-white hover:text-red-600 transition-colors text-xl font-sans font-bold rounded-br-2xl p-8"
-      onClick={() => router.push("/info/reservations")}
+      onClick={() => router.push("/reservations")}
     >
       {children}
       {icon ? icon : <ArrowRightIcon />}

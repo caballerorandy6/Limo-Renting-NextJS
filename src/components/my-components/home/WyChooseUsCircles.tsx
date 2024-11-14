@@ -4,16 +4,16 @@ import { whyChooseUsArray } from "@/lib/utils";
 
 const WyChooseUsCircles = () => {
   return (
-    <div className="relative flex justify-between space-x-4">
+    <div className="relative flex justify-between">
       {whyChooseUsArray.map((item, index) => (
         <div
           key={item.title}
           className={`absolute flex flex-col items-center rounded-full w-[30vh] h-[30vh] font-sans bg-stone-900 ${
             index === 0
-              ? "left-1/4"
+              ? "place-self-start"
               : index === 1
-              ? "mt-28 left-3/4"
-              : "mt-80 left-1/3"
+              ? "mt-28 left-1/2"
+              : "mt-96 left-1/4"
           }`}
         >
           <div className="flex flex-col items-center justify-center text-center">
