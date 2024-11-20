@@ -23,11 +23,7 @@ const RidePrice = async () => {
               {/* Extraer millas y horas de viaje a travez de la API de Google Maps */}
               {/* <CardTitle>{costTrip(miles, pricePerMile, hours, pricePerHour)}</CardTitle> */}
             </CardHeader>
-            <CardContent>
-              <Button>
-                <p className="uppercase">Reserve {name}</p>
-              </Button>
-            </CardContent>
+            <CardContent></CardContent>
             <CardFooter>
               <Link href="#" className="text-blue-500 hover:text-blue-600 ">
                 Send me a Quote

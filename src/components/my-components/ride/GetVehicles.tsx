@@ -1,7 +1,7 @@
 import { MyCarousel } from "../global-components/MyCarousel";
 import PassengersIcon from "../icons/PassengersIcon";
 import BriefcaseIcon from "../icons/BriefcaseIcon";
-import RidePrice from "./RidePrice";
+// import RidePrice from "./RidePrice";
 import { prisma } from "@/lib/prisma";
 
 export const getVehicles = async () => await prisma.vehicle.findMany();
@@ -39,7 +39,6 @@ const GetVehicles = async () => {
               {vehicle.description}
             </p>
           </div>
-          <RidePrice />
         </div>
       ))}
     </div>
