@@ -8,6 +8,7 @@ import {
   WhyChooseUsCircleProps,
 } from "@/lib/interfaces";
 
+//functions
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -17,6 +18,16 @@ export const generateRangeUpto50 = () =>
     .toString()
     .split(",");
 
+export const costTrip = (
+  miles: number,
+  pricePerMile: number,
+  hours: number,
+  pricePerHour: number
+) => {
+  return miles * pricePerMile + hours * pricePerHour;
+};
+
+//Arrays
 export const pickUpTimeArray = [
   "12:00 AM",
   "12:30 AM",
@@ -133,6 +144,35 @@ export const featuredVehiclesImages3: string[] = [
   "/featuredVehicles10.webp",
   "/featuredVehicles11.webp",
   "/featuredVehicles12.webp",
+];
+
+export const featuredVehiclesImages4: string[] = [
+  "/featuredVehicles16.webp",
+  "/featuredVehicles13.webp",
+  "/featuredVehicles14.webp",
+  "/featuredVehicles15.webp",
+];
+
+export const featuredVehiclesImages5: string[] = [
+  "/featuredVehicles17.webp",
+  "/featuredVehicles18.webp",
+  "/featuredVehicles19.webp",
+  "/featuredVehicles20.webp",
+  "/featuredVehicles21.webp",
+];
+
+export const featuredVehiclesImages6: string[] = [
+  "/featuredVehicles22.webp",
+  "/featuredVehicles23.webp",
+  "/featuredVehicles24.webp",
+];
+
+export const featuredVehiclesImages7: string[] = [
+  "/featuredVehicles25.webp",
+  "/featuredVehicles26.webp",
+  "/featuredVehicles27.webp",
+  "/featuredVehicles28.webp",
+  "/featuredVehicles29.webp",
 ];
 
 export const whyChooseUsArray: WhyChooseUsCircleProps[] = [

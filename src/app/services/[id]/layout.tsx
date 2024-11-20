@@ -61,7 +61,7 @@ const ServicesLayout = ({
         </div>
       </div>
       <div className="flex justify-center mx-auto w-8/12 gap-8 mt-44 mb-16">
-        <div className="w-1/3 border shadow-md p-8 rounded font-sans font-semibold">
+        <div className="flex flex-col items-center w-1/3 rounded font-sans font-semibold">
           <ServicesLayoutMenu />
           <video
             className="rounded mt-8"

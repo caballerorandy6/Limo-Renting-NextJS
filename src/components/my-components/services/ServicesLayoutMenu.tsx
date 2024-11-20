@@ -8,7 +8,7 @@ const ServicesLayoutMenu = () => {
   // const images = services.map((service) => service.image);
 
   return (
-    <ul>
+    <ul className="w-full bg-gray-50 p-8">
       {services.map((item) => (
         <li key={item.id}>
           <div className="flex items-center hover:text-blue-500 transition-colors text-gray-500">

@@ -15,7 +15,7 @@ const Vehicle = ({
   featuresObject,
 }: FeaturedVehiclesCardProps) => {
   return (
-    <Card key={title} className="bg-white w-4/12">
+    <Card key={title} className="bg-white w-3/12 shadow-md">
       <CardHeader>
         <div className="flex justify-center">{carousel}</div>
         <CardTitle className="font-sans text-xl font-semibold">

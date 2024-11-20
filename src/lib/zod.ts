@@ -1,9 +1,14 @@
 //Zod
 import { z } from "zod";
+import { v4 as uuidv4 } from "uuid";
 
 // Zod schema
 export const formSchema = z
   .object({
+    rideId: z
+      .string()
+      .uuid()
+      .default(() => uuidv4()),
     pickUpLocation: z.string().min(2, {
       message:
         "Pick up location is required and must be at least 2 characters.",

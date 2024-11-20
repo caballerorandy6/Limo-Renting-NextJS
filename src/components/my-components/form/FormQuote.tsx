@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 //React
 import { useEffect } from "react";
 
@@ -16,6 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 //Store Zustand
 import { useAddStopStore } from "@/store/addStopStore";
 //import { useNameAndFlagStore } from "@/store/nameAndFlagStore";
+import { useRideInfoStore } from "@/store/rideInfoStore";
 
 //React Hook Form
 import { SubmitHandler } from "react-hook-form";
@@ -46,13 +49,15 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { Checkbox } from "@/components/ui/checkbox";
+import InputField from "@/components/my-components/form/InputField";
+import CheckboxField from "@/components/my-components/form/CheckBoxField";
 
 //Utils
 import {
   cn,
+  generateRangeUpto50,
   pickUpTimeArray,
   typeOfServiceArray,
-  generateRangeUpto50,
 } from "@/lib/utils";
 
 //Icons
@@ -66,6 +71,8 @@ import { format } from "date-fns";
 const FormQuote = () => {
   const { stops, addStop, removeStop } = useAddStopStore();
   //const { countries, fetchCountries } = useNameAndFlagStore();
+  const { setRide } = useRideInfoStore();
+  const router = useRouter();
 
   //useForm Hook
   const form = useForm<FormData>({
@@ -98,14 +105,11 @@ const FormQuote = () => {
     form.setValue("stops", stops);
   }, [stops, form]);
 
-  // useEffect(() => {
-  //   fetchCountries();
-  // }, [fetchCountries]);
-
   // Form submit
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    setRide(data);
     form.reset();
+    router.push("/ride");
   };
 
   return (
@@ -119,29 +123,12 @@ const FormQuote = () => {
         </FormDescription>
 
         {/* Pick Up Location - Input */}
-        <FormField
-          control={form.control}
+        <InputField
           name="pickUpLocation"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel
-                htmlFor="pickUpLocation"
-                className="text-white uppercase text-sm font-sans"
-              >
-                Pick Up Location:
-              </FormLabel>
-              <FormControl>
-                <Input
-                  id="pickUpLocation"
-                  type="text"
-                  placeholder="Enter address, point of interest, or airport code"
-                  className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage className="text-red-400" />
-            </FormItem>
-          )}
+          label="Pick Up Location"
+          placeholder="Enter address, point of interest, or airport code"
+          control={form.control}
+          type="text"
         />
 
         {/* Add Stop Button */}
@@ -197,29 +184,12 @@ const FormQuote = () => {
         ))}
 
         {/* Drop Off Location - Input */}
-        <FormField
-          control={form.control}
+        <InputField
           name="dropOffLocation"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel
-                htmlFor="dropOffLocation"
-                className="text-white uppercase text-sm font-sans"
-              >
-                Drop Off Location:
-              </FormLabel>
-              <FormControl>
-                <Input
-                  id="dropOffLocation"
-                  type="text"
-                  placeholder="Enter address, point of interest, or airport code"
-                  className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage className="text-red-400" />
-            </FormItem>
-          )}
+          label="Drop Off Location"
+          placeholder="Enter address, point of interest, or airport code"
+          control={form.control}
+          type="text"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-center">
@@ -286,7 +256,7 @@ const FormQuote = () => {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {pickUpTimeArray.map((time) => (
+                    {pickUpTimeArray.map((time: string) => (
                       <SelectItem
                         key={time}
                         value={time}
@@ -367,161 +337,48 @@ const FormQuote = () => {
           />
 
           {/* First Name - Input */}
-          <FormField
-            control={form.control}
+          <InputField
             name="firstName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel
-                  htmlFor="firstName"
-                  className="text-white uppercase text-sm font-sans"
-                >
-                  First Name:
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    id="firstName"
-                    type="text"
-                    placeholder="First Name"
-                    className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage className="text-red-400" />
-              </FormItem>
-            )}
+            label="First Name"
+            placeholder="First Name"
+            control={form.control}
+            type="text"
           />
 
           {/* Last Name - Input */}
-          <FormField
-            control={form.control}
+          <InputField
             name="lastName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel
-                  htmlFor="lastName"
-                  className="text-white uppercase text-sm font-sans"
-                >
-                  Last Name:
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    id="lastName"
-                    type="text"
-                    placeholder="Last Name"
-                    className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage className="text-red-400" />
-              </FormItem>
-            )}
+            label="Last Name"
+            placeholder="Last Name"
+            control={form.control}
+            type="text"
           />
 
           {/* Email - Input */}
-          <FormField
-            control={form.control}
+          <InputField
             name="emailAddress"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel
-                  htmlFor="emailAddress"
-                  className="text-white uppercase text-sm font-sans"
-                >
-                  Email Address:
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    id="emailAddress"
-                    type="text"
-                    placeholder="Email Address"
-                    className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage className="text-red-400" />
-              </FormItem>
-            )}
+            label="Email Address"
+            placeholder="Email Address"
+            control={form.control}
+            type="text"
           />
 
-          {/* <div className="flex items-center justify-center"> */}
-          {/* Flag and Name - Select
-            <FormField
-              control={form.control}
-              name="countries"
-              render={({ field }) => (
-                <FormItem className="w-2/12">
-                  <Select onValueChange={field.onChange} value={field.value[0]}>
-                    <FormControl className="hover:bg-gray-200 transition-colors">
-                      <SelectTrigger className="font-mono text-gray-500">
-                        <SelectValue placeholder="Country telephone prefix is ​​required" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {countries.map((country) => (
-                        <SelectItem
-                          key={country?.flag}
-                          value={`${country?.name?.common} ${country?.flag}`}
-                          className="flex items-center justify-center font-mono cursor-pointer  hover:border hover:border-gray-500 hover:rounded"
-                        >
-                          {`${country.name?.common} ${country.flag}`}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className="text-red-400" />
-                </FormItem>
-              )}
-            /> */}
-
           {/* Phone Number - Input */}
-          <FormField
-            control={form.control}
+          <InputField
             name="phoneNumber"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel
-                  htmlFor="phoneNumber"
-                  className="text-white uppercase text-sm font-sans"
-                >
-                  Phone Number
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    id="phoneNumber"
-                    type="text"
-                    placeholder="000-000-0000"
-                    className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage className="text-red-400" />
-              </FormItem>
-            )}
+            label="Phone Number"
+            placeholder="000-000-0000"
+            control={form.control}
+            type="text"
           />
         </div>
         {/* </div> */}
 
         {/* Message and Data - Checkbox */}
-        <FormField
-          control={form.control}
+        <CheckboxField
           name="messageData"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-start space-x-3 space-y-0 border p-4 shadow mt-4 bg-white font-sans rounded">
-              <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
-              </FormControl>
-              <div className="space-y-1 leading-none">
-                <FormLabel>
-                  Opt-in to receive texts with pictures and pricing. Standard
-                  messaging and data rates may apply.
-                </FormLabel>
-              </div>
-            </FormItem>
-          )}
+          label="Opt-in to receive texts with pictures and pricing"
+          control={form.control}
         />
 
         {/* Round Trip */}
@@ -637,3 +494,41 @@ const FormQuote = () => {
 };
 
 export default FormQuote;
+
+// useEffect(() => {
+//   fetchCountries();
+// }, [fetchCountries]);
+
+{
+  /* <div className="flex items-center justify-center"> */
+}
+{
+  /* Flag and Name - Select
+            <FormField
+              control={form.control}
+              name="countries"
+              render={({ field }) => (
+                <FormItem className="w-2/12">
+                  <Select onValueChange={field.onChange} value={field.value[0]}>
+                    <FormControl className="hover:bg-gray-200 transition-colors">
+                      <SelectTrigger className="font-mono text-gray-500">
+                        <SelectValue placeholder="Country telephone prefix is ​​required" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {countries.map((country) => (
+                        <SelectItem
+                          key={country?.flag}
+                          value={`${country?.name?.common} ${country?.flag}`}
+                          className="flex items-center justify-center font-mono cursor-pointer  hover:border hover:border-gray-500 hover:rounded"
+                        >
+                          {`${country.name?.common} ${country.flag}`}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage className="text-red-400" />
+                </FormItem>
+              )}
+            /> */
+}

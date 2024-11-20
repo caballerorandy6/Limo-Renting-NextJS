@@ -51,10 +51,10 @@ const Footer = () => {
             alt="rcweb logo"
             className="w-auto h-auto"
           />
-          <p className="text-white/80 font-sans text-xs">
-            Website designed and developed by RC Web
-          </p>
         </Link>
+        <p className="text-white/80 font-sans text-xs">
+          Website designed and developed by RC Web
+        </p>
       </div>
     </footer>
   );

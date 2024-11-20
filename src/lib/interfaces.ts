@@ -5,8 +5,25 @@ export interface AddStopState {
   removeStop: (index: number) => void;
 }
 
+export interface InputFieldProps {
+  name: string;
+  label: string;
+  placeholder: string;
+  control: any;
+  type: string;
+}
+
+export interface SelectFieldProps {
+  name: string;
+  label: string;
+  control: any;
+  options: string[];
+  error: React.ReactNode;
+}
+
 //Form Data Interface
 export interface FormData {
+  rideId: string;
   pickUpLocation: string;
   stops: string[];
   dropOffLocation: string;
@@ -23,6 +40,11 @@ export interface FormData {
   roundTrip?: boolean;
   returnDate?: Date;
   returnTime?: string;
+}
+
+export interface Ride {
+  ride: FormData;
+  setRide: (ride: FormData) => void;
 }
 
 export interface FormContactData {
@@ -164,4 +186,25 @@ export interface ContactInfoProps {
 export interface AboutListProps {
   title: string;
   icon: React.ReactNode;
+}
+
+export interface VehicleProps {
+  id: number;
+  name: string;
+  quantityPassengers: string;
+  quantityBaggage: string;
+  description: string;
+  pricePerHour: number;
+  pricePerMile: number;
+  images: string[];
+}
+
+export interface RideProps {
+  milesCost: (milesQuantity: number, pricePerMile: number) => number;
+  hoursCost: (hoursQuantity: number, pricePerhours: number) => number;
+  calculateTotalCost: (milesCost: number, hoursCost: number) => number;
+}
+
+export interface CarouselProps {
+  images: string[];
 }
