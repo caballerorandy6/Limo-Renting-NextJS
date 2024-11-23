@@ -1,13 +1,15 @@
+"use client";
+
 import LimoImageMenu from "@/components/my-components/global-components/LimoImageMenu";
 import ContactInfo from "@/components/my-components/contact/ContactInfo";
-import ContactIFrame from "@/components/my-components/contact/ContactIFrame";
+import ContactMap from "@/components/my-components/contact/ContactMap";
 
 const Contacts = () => {
   return (
     <section id="contact">
       <LimoImageMenu />
       <ContactInfo />
-      <ContactIFrame />
+      <ContactMap />
     </section>
   );
 };

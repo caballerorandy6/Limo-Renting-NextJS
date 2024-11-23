@@ -1,20 +1,25 @@
 import { MyCarousel } from "../global-components/MyCarousel";
 import PassengersIcon from "../icons/PassengersIcon";
 import BriefcaseIcon from "../icons/BriefcaseIcon";
-// import RidePrice from "./RidePrice";
 import { prisma } from "@/lib/prisma";
-
 export const getVehicles = async () => await prisma.vehicle.findMany();
 
 const GetVehicles = async () => {
   const vehicles = await getVehicles();
 
+  const costTrip = (
+    miles: number,
+    pricePerMile: number,
+    hours: number,
+    pricePerHour: number
+  ) => miles * pricePerMile + hours * pricePerHour;
+
   return (
-    <div className="w-10/12 mx-auto p-8 border shadow rounded">
+    <div className="w-10/12 mx-auto flex flex-col justify-center items-center mb-16 bg-gray-50">
       {vehicles.map((vehicle, index) => (
         <div
           key={index}
-          className="flex justify-center items-center gap-20 w-10/12 mb-8 border p-8 shadow rounded"
+          className="flex justify-center items-center gap-20 border p-8 shadow rounded"
         >
           <MyCarousel images={vehicle.images} />
           <div className="w-6/12">
@@ -38,6 +43,10 @@ const GetVehicles = async () => {
             <p className="font-sans tracking-wide leading-relaxed myclamp">
               {vehicle.description}
             </p>
+          </div>
+          <div>
+            {vehicles.length &&
+              costTrip(1, vehicle.pricePerMile, 1, vehicle.pricePerHour)}
           </div>
         </div>
       ))}

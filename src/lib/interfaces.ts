@@ -199,12 +199,11 @@ export interface VehicleProps {
   images: string[];
 }
 
-export interface RideProps {
-  milesCost: (milesQuantity: number, pricePerMile: number) => number;
-  hoursCost: (hoursQuantity: number, pricePerhours: number) => number;
-  calculateTotalCost: (milesCost: number, hoursCost: number) => number;
-}
-
 export interface CarouselProps {
   images: string[];
+}
+
+export interface PoiProps {
+  key: string;
+  location: google.maps.LatLngLiteral;
 }

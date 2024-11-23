@@ -44,7 +44,7 @@ const SocialMenu = () => {
       {socialLinks.map((link) => (
         <li
           key={link.id}
-          className="transition-all duration-300 ease-in-out transform hover:scale-150 text-white"
+          className="transition-all duration-300 ease-in-out transform hover:scale-150 text-white py-2"
         >
           <Link
             href={link.href}

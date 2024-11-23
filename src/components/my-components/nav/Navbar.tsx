@@ -29,7 +29,7 @@ const Navbar = () => {
             <SocialMenu />
           </div>
 
-          <NavigationMenu className="mt-8">
+          <NavigationMenu className="mt-2">
             <NavigationMenuList>
               {menuArray.map((link) => (
                 <NavigationMenuItem key={link.id}>

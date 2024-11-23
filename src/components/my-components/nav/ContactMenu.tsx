@@ -30,7 +30,7 @@ const ContactMenu = () => {
       {contactLinks.map((link) => (
         <li
           key={link.id}
-          className=" text-white hover:text-red-500 transition-colors"
+          className=" text-white hover:text-red-500 transition-colors py-2"
         >
           <Link
             href={link.href}

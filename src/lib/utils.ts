@@ -1,11 +1,13 @@
 "use client";
 
 import { clsx, type ClassValue } from "clsx";
+
 import { twMerge } from "tailwind-merge";
 import {
   MenuArray,
   PartnersTestimonialsImagesProps,
   WhyChooseUsCircleProps,
+  PoiProps,
 } from "@/lib/interfaces";
 
 //functions
@@ -17,15 +19,6 @@ export const generateRangeUpto50 = () =>
   Array.from({ length: 50 }, (_, i) => i + 1)
     .toString()
     .split(",");
-
-export const costTrip = (
-  miles: number,
-  pricePerMile: number,
-  hours: number,
-  pricePerHour: number
-) => {
-  return miles * pricePerMile + hours * pricePerHour;
-};
 
 //Arrays
 export const pickUpTimeArray = [
@@ -226,5 +219,12 @@ export const marqueeTestimonialsArray: PartnersTestimonialsImagesProps[] = [
     src: "/testimonials6.webp",
     alt: "Greater Miami and Miami Beach",
     href: "https://www.miamiandbeaches.com/",
+  },
+];
+
+export const locations: PoiProps[] = [
+  {
+    key: "American transportation & Limo services",
+    location: { lat: 25.80381, lng: -80.31653 },
   },
 ];

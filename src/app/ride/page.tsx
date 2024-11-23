@@ -3,10 +3,10 @@ import SelectRide from "@/components/my-components/ride/SelectRide";
 
 const Ride = () => {
   return (
-    <div className="bg-gray-50">
+    <>
       <SelectRide />
       <GetVehicles />
-    </div>
+    </>
   );
 };
 

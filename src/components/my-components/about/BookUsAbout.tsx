@@ -19,7 +19,7 @@ const BookUsAbout = () => {
           </h3>
           <Link
             href="tel:3058855002"
-            className="text-red-500 text-7xl font-bold mt-4"
+            className="text-red-500 text-7xl font-bold mt-4 font-sans"
           >
             (305) 885-5002
           </Link>
