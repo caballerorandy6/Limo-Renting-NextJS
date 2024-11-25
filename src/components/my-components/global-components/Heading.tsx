@@ -1,5 +1,8 @@
 import CarIcon from "@/components/my-components/icons/CarIcon";
-import { HeadingProps } from "@/lib/interfaces";
+export interface HeadingProps {
+  children: string;
+  icon?: React.ReactNode;
+}
 
 const Heading = ({ children, icon }: HeadingProps) => {
   return (

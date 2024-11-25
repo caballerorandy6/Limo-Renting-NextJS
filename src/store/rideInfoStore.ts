@@ -1,8 +1,35 @@
 import { create } from "zustand";
 
-import { Ride } from "@/lib/interfaces";
+export interface RideInfo {
+  rideId: string;
+  pickUpLocation: string;
+  stops: string[];
+  dropOffLocation: string;
+  dateOfService: Date;
+  pickUpTime: string;
+  typeOfService: string;
+  passengers: string;
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  phoneNumber: string;
+  countries: string[];
+  messageData: boolean;
+  roundTrip: boolean;
+  returnDate: Date;
+  returnTime: string;
+}
 
-export const useRideInfoStore = create<Ride>((set) => ({
+export interface RideState {
+  ride: RideInfo;
+  setRide: (ride: Partial<RideInfo>) => void;
+  distance: number;
+  setDistance: (distance: number) => void;
+  duration: number;
+  setDuration: (duration: number) => void;
+}
+
+export const useRideInfoStore = create<RideState>((set) => ({
   ride: {
     rideId: "",
     pickUpLocation: "",
@@ -22,5 +49,12 @@ export const useRideInfoStore = create<Ride>((set) => ({
     returnDate: new Date(),
     returnTime: "",
   },
-  setRide: (ride) => set({ ride }),
+  setRide: (ride) =>
+    set((state) => ({
+      ride: { ...state.ride, ...ride },
+    })),
+  distance: 0,
+  setDistance: (distance) => set(() => ({ distance })),
+  duration: 0,
+  setDuration: (duration) => set(() => ({ duration })),
 }));

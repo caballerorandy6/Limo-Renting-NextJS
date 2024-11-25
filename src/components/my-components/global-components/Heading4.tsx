@@ -1,4 +1,6 @@
-import { Heading4Props } from "@/lib/interfaces";
+interface Heading4Props {
+  children: string;
+}
 
 const Heading4 = ({ children }: Heading4Props) => {
   return (

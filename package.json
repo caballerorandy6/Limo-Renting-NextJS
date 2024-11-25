@@ -26,6 +26,7 @@
     "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-google-maps/api": "^2.20.3",
     "@vis.gl/react-google-maps": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -40,6 +41,7 @@
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.53.0",
+    "react-loading-skeleton": "^3.5.0",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
     "uuid": "^11.0.3",
@@ -49,6 +51,7 @@
   "devDependencies": {
     "@types/node": "^20.17.6",
     "@types/react-dom": "^18",
+    "@types/react-places-autocomplete": "^7.2.14",
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
     "postcss": "^8",

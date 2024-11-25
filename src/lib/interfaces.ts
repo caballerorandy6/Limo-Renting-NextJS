@@ -5,14 +5,6 @@ export interface AddStopState {
   removeStop: (index: number) => void;
 }
 
-export interface InputFieldProps {
-  name: string;
-  label: string;
-  placeholder: string;
-  control: any;
-  type: string;
-}
-
 export interface SelectFieldProps {
   name: string;
   label: string;
@@ -42,11 +34,6 @@ export interface FormData {
   returnTime?: string;
 }
 
-export interface Ride {
-  ride: FormData;
-  setRide: (ride: FormData) => void;
-}
-
 export interface FormContactData {
   name: string;
   phone: string;
@@ -66,18 +53,6 @@ export interface Country {
 export interface CountryStore {
   countries: Country[];
   fetchCountries: () => Promise<void>;
-}
-
-//Button Props Interface
-export interface ButtonProps {
-  children: string;
-  icon?: JSX.Element;
-}
-
-//Heading Props Interface
-export interface HeadingProps {
-  children: string;
-  icon?: React.ReactNode;
 }
 
 //Info Layout Props Interface
@@ -121,11 +96,6 @@ export interface WhyChooseUsCircleProps {
   info: string;
 }
 
-//Heading 3 Props Interface
-export interface Heading3Props {
-  children: string;
-}
-
 //Reviews Props Interface
 export interface ReviewsProps {
   comment: string;
@@ -138,10 +108,6 @@ export interface PartnersTestimonialsImagesProps {
   src: string;
   alt: string;
   href: string;
-}
-//Heading 4 Props Interface
-export interface Heading4Props {
-  children: string;
 }
 
 //Contact Info Card Props Interface

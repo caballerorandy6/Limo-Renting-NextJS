@@ -2,12 +2,22 @@ import { MyCarousel } from "../global-components/MyCarousel";
 import PassengersIcon from "../icons/PassengersIcon";
 import BriefcaseIcon from "../icons/BriefcaseIcon";
 import { prisma } from "@/lib/prisma";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import RideInfoButton from "../buttons/RideInfoButton";
+import Link from "next/link";
+
 export const getVehicles = async () => await prisma.vehicle.findMany();
 
 const GetVehicles = async () => {
   const vehicles = await getVehicles();
 
-  const costTrip = (
+  const costRide = (
     miles: number,
     pricePerMile: number,
     hours: number,
@@ -15,7 +25,7 @@ const GetVehicles = async () => {
   ) => miles * pricePerMile + hours * pricePerHour;
 
   return (
-    <div className="w-10/12 mx-auto flex flex-col justify-center items-center mb-16 bg-gray-50">
+    <div className="w-10/12 mx-auto flex flex-col justify-center items-center mb-16">
       {vehicles.map((vehicle, index) => (
         <div
           key={index}
@@ -44,9 +54,35 @@ const GetVehicles = async () => {
               {vehicle.description}
             </p>
           </div>
-          <div>
-            {vehicles.length &&
-              costTrip(1, vehicle.pricePerMile, 1, vehicle.pricePerHour)}
+          <div className="w-3/12">
+            {vehicles.length && (
+              <div className="overflow-hidden">
+                <Card className="flex flex-col justify-center items-center p-4 h-full">
+                  <CardHeader>
+                    <CardTitle className="text-3xl font-sans font-bold text-center">
+                      $
+                      {costRide(
+                        1,
+                        vehicle.pricePerMile,
+                        1,
+                        vehicle.pricePerHour
+                      )}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <RideInfoButton>Reserve This Ride</RideInfoButton>
+                  </CardContent>
+                  <CardFooter>
+                    <Link
+                      href="/ride/ride-quote"
+                      className="uppercase text-blue-500 hover:text-blue-600 font-mono hover:underline transition-colors text-center block"
+                    >
+                      Send Me Quote
+                    </Link>
+                  </CardFooter>
+                </Card>
+              </div>
+            )}
           </div>
         </div>
       ))}

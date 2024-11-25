@@ -69,7 +69,7 @@ const SelectRide = () => {
                         {ride.dropOffLocation}
                       </span>
                     </p>
-                    <div className="uppercase font-mono pb-2 font-bold">
+                    {/* <div className="uppercase font-mono pb-2 font-bold">
                       Stops:{" "}
                       <span className="normal-case">
                         {ride.stops.length ? (
@@ -84,7 +84,7 @@ const SelectRide = () => {
                           </p>
                         )}
                       </span>
-                    </div>
+                    </div> */}
                     <p className="uppercase font-mono pb-2 font-bold">
                       Drop Of Location:{" "}
                       <span className="normal-case font-normal">

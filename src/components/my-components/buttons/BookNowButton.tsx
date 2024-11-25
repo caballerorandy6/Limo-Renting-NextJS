@@ -3,7 +3,11 @@
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
-import { ButtonProps } from "@/lib/interfaces";
+
+export interface ButtonProps {
+  children: string;
+  icon?: JSX.Element;
+}
 
 const BookNowButton = ({ children, icon }: ButtonProps) => {
   const router = useRouter();

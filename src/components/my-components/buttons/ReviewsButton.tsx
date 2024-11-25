@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import ArrowRightIcon from "../icons/ArrowRightIcon";
-import { ButtonProps } from "@/lib/interfaces";
+import { ButtonProps } from "@/components/my-components/buttons/BookNowButton";
 
 const ReviewsButton = ({ children, icon }: ButtonProps) => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ButtonProps } from "@/lib/interfaces";
+import { ButtonProps } from "@/components/my-components/buttons/BookNowButton";
 import ArrowRightIcon from "@/components/my-components/icons/ArrowRightIcon";
 
 const ClickToCallButton = ({ children, icon }: ButtonProps) => {

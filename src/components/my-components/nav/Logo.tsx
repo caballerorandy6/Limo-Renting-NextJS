@@ -7,10 +7,10 @@ const Logo = () => {
       <Image
         src="/logo.webp"
         alt="logo"
-        width={300}
-        height={300}
+        width={1000}
+        height={1000}
         priority
-        className="w-auto h-auto"
+        className="w-[40vh] h-auto"
       />
     </Link>
   );
