@@ -17,11 +17,11 @@ const AboutOurCompany = () => {
   return (
     <div
       id="about"
-      className="flex justify-center pt-16 pb-40 gap-20 w-10/12 mx-auto"
+      className="flex justify-start pt-16 pb-16 xl:pb-40 gap-16 xl:gap-32 w-10/12 mx-auto"
     >
-      <div className="relative w-6/12 h-full flex justify-center">
+      <div className="hidden relative w-6/12 h-full lg:flex justify-center">
         <Image
-          src="/aboutOurCompany1.webp"
+          src="/aboutOurCompany/aboutOurCompany1.webp"
           alt="About Our Company 1"
           width={1000}
           height={1000}
@@ -29,14 +29,14 @@ const AboutOurCompany = () => {
           className="absolute object-cover w-[50vh] h-[50vh]"
         />
         <Image
-          src="/aboutOurCompany2.webp"
+          src="/aboutOurCompany/aboutOurCompany2.webp"
           alt="About Our Company 2"
           width={1000}
           height={1000}
           priority={false}
           className="relative object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-80 left-64 rounded-br-3xl"
         />
-        <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 flex justify-center items-center">
+        <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 justify-center items-center hidden xl:flex">
           <CardHeader>
             <CardDescription>
               <CountUpReactHome />
@@ -48,7 +48,7 @@ const AboutOurCompany = () => {
           </CardHeader>
         </Card>
       </div>
-      <div className="w-6/12  justify-items-start">
+      <div className="w-full lg:w-6/12  justify-items-start">
         <Heading>About Our Company</Heading>
         <Heading3>The Best Limo Service</Heading3>
         <p className="font-light font-sans mt-4 mb-6 tracking-wide leading-relaxed">
@@ -59,19 +59,29 @@ const AboutOurCompany = () => {
           reliable and ready to offer a VIP luxury car service experience to our
           prestigious clients.
         </p>
-        <div className="flex justify-start gap-4 items-center mt-2">
+
+        <Image
+          src="/aboutOurCompany/aboutOurCompany1.webp"
+          alt="About Our Company 1"
+          width={1000}
+          height={1000}
+          priority={false}
+          className="object-cover w-full h-[50vh] mb-8 lg:hidden"
+        />
+
+        <div className="flex justify-start gap-4 items-center mt-2 flex-col md:flex-row">
           {/* Video */}
-          <Card className="h-[20vh] flex items-center justify-center w-6/12 p-2">
+          <Card className="h-[20vh] flex flex-col items-center justify-center md:w-6/12 p-2">
             <CardHeader>
               <CardDescription className="text-lg font-sans tracking-wide leading-relaxed">
                 We Specialize in providing 5-star limo services in Miami, FL.
               </CardDescription>
             </CardHeader>
           </Card>
-          <div className="flex items-center justify-center w-6/12">
+          <div className="flex items-center justify-center w-full md:w-6/12">
             <video
               className="object-cover w-full h-[20vh] flex items-center justify-center rounded-xl"
-              src="/aboutOurCompany.webm"
+              src="/aboutOurCompany/aboutOurCompany.webm"
               autoPlay
               muted
               controls

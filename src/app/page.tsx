@@ -7,7 +7,7 @@ import Testimonials from "@/components/my-components/home/Testimonials";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <HomePage />
       <WhatWeOffer />
       <AboutOurCompany />

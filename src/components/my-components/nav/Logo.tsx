@@ -5,7 +5,7 @@ const Logo = () => {
   return (
     <Link href="/" className="flex items-center">
       <Image
-        src="/logo.webp"
+        src="/logo/logo.webp"
         alt="logo"
         width={1000}
         height={1000}

@@ -10,12 +10,14 @@ const FeaturedVehicles = () => {
   return (
     <div id="featured-vehicles" className="py-16 bg-gray-100">
       <div className="w-10/12 mx-auto">
-        <Heading>Feutered Vehicles</Heading>
-        <div className="flex justify-between items-center">
+        <Heading>Featured Vehicles</Heading>
+        <div className="flex flex-col lg:flex-row lg:justify-between items-center">
           <Heading3>Discover Our Luxury Fleet</Heading3>
-          <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
+          <div className="w-full flex justify-start lg:justify-end">
+            <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
+          </div>
         </div>
-        <div className="flex justify-center mx-auto gap-16 mt-4 w-10/12">
+        <div className="w-full sm:gap-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8  mx-auto justify-center">
           {featuredVehiclesArray.slice(0, 3).map((item) => (
             <Vehicle
               key={item.title}

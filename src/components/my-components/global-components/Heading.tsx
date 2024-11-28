@@ -6,12 +6,10 @@ export interface HeadingProps {
 
 const Heading = ({ children, icon }: HeadingProps) => {
   return (
-    <>
-      <div className="flex gap-4">
-        {icon ? icon : <CarIcon />}
-        <span className="font-mono font-bold text-xl">{children}</span>
-      </div>
-    </>
+    <div className="flex gap-4">
+      {icon ? icon : <CarIcon />}
+      <span className="font-mono font-bold text-xl">{children}</span>
+    </div>
   );
 };
 

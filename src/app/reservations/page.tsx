@@ -3,9 +3,9 @@ import LimoImageMenu from "@/components/my-components/global-components/LimoImag
 
 const Reservations = () => {
   return (
-    <section id="book-now" className="w-full">
+    <section id="book-now" className="bg-black pb-2">
       <LimoImageMenu />
-      <div className="-mt-44 flex justify-center">
+      <div className="-mt-44 w-11/12 mx-auto">
         <FormQuote />
       </div>
     </section>

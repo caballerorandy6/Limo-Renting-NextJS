@@ -17,7 +17,7 @@ const LimoImageMenu = () => {
       <Image
         width="1000"
         height="1000"
-        src="/limoAboutPage.webp"
+        src="/limoAboutPage/limoAboutPage.webp"
         alt="Limo About Image"
         priority
         className="w-full h-full object-cover absolute mix-blend-overlay"

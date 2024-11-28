@@ -10,10 +10,10 @@ const WhyChooseUs = () => {
       id="why-choose-us"
       className="bg-gradient-to-tr from-slate-900 via-black to-gray-900"
     >
-      <div className="w-10/12 mx-auto py-16 flex gap-20">
-        <div className="w-6/12">
+      <div className="w-10/12 mx-auto pt-16 lg:pb-16 flex flex-col lg:flex-row gap-20">
+        <div className="w-full lg:w-6/12">
           <Heading2>Why Choose Us</Heading2>
-          <h1 className="text-white text-5xl font-sans font-bold my-2">
+          <h1 className="text-white text-4xl lg:text-5xl font-sans font-bold my-2">
             What Makes Us Different
           </h1>
           <p className="font-sans text-white my-6 tracking-wide leading-relaxed">
@@ -24,10 +24,10 @@ const WhyChooseUs = () => {
             we have achieved this goal by reading many five-star reviews of our
             company at Yelp, Google, and Facebook.
           </p>
-          <div className="w-full my-4 flex gap-4">
-            <div className="border-8 border-gray-500 rounded w-6/12">
+          <div className="w-full my-4 flex flex-col gap-4">
+            <div className="border-8 border-gray-500 rounded lg:w-6/12">
               <Image
-                src="/whyChooseUs.webp"
+                src="/whyChooseUs/whyChooseUs.webp"
                 alt="Why Choose Us Image"
                 width={1000}
                 height={1000}
@@ -35,8 +35,8 @@ const WhyChooseUs = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-6/12">
-              <h3 className="font-mono font-bold text-white text-xl my-4">
+            <div className="lg:w-6/12">
+              <h3 className="font-mono text-center lg:text-start font-bold text-white text-xl my-4 w-full">
                 We Have Over 30+ Years of Chauffeur Experience
               </h3>
               <ul className="text-white/80 font-sans list-disc ml-4 tracking-wide leading-relaxed">
@@ -46,9 +46,9 @@ const WhyChooseUs = () => {
               </ul>
             </div>
           </div>
-          <div className="w-full my-4 flex gap-4">
+          <div className="w-full my-4 flex flex-col gap-4">
             <ClickToCallButton>Click To Call</ClickToCallButton>
-            <div>
+            <div className="md:flex md:justify-between md:gap-8 mx-auto md:items-center">
               <span className="text-white font-mono flex flex-col text-xl">
                 Call Us Any Time 24/7
               </span>
@@ -62,7 +62,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
         </div>
-        <div className="w-6/12 ">
+        <div className="w-6/12">
           <WyChooseUsCircles />
         </div>
       </div>

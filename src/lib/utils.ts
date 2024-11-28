@@ -3,12 +3,7 @@
 import { clsx, type ClassValue } from "clsx";
 
 import { twMerge } from "tailwind-merge";
-import {
-  MenuArray,
-  PartnersTestimonialsImagesProps,
-  WhyChooseUsCircleProps,
-  PoiProps,
-} from "@/lib/interfaces";
+import { MenuArray, WhyChooseUsCircleProps, PoiProps } from "@/lib/interfaces";
 
 //functions
 export function cn(...inputs: ClassValue[]) {
@@ -119,53 +114,53 @@ export const menuArray: MenuArray[] = [
 ];
 
 export const featuredVehiclesImages1: string[] = [
-  "/featuredVehicles1.webp",
-  "/featuredVehicles2.webp",
-  "/featuredVehicles3.webp",
-  "/featuredVehicles4.webp",
+  "/featuredVehicles/featuredVehicles1.webp",
+  "/featuredVehicles/featuredVehicles2.webp",
+  "/featuredVehicles/featuredVehicles3.webp",
+  "/featuredVehicles/featuredVehicles4.webp",
 ];
 
 export const featuredVehiclesImages2: string[] = [
-  "/featuredVehicles5.webp",
-  "/featuredVehicles6.webp",
-  "/featuredVehicles7.webp",
-  "/featuredVehicles8.webp",
+  "/featuredVehicles/featuredVehicles5.webp",
+  "/featuredVehicles/featuredVehicles6.webp",
+  "/featuredVehicles/featuredVehicles7.webp",
+  "/featuredVehicles/featuredVehicles8.webp",
 ];
 
 export const featuredVehiclesImages3: string[] = [
-  "/featuredVehicles9.webp",
-  "/featuredVehicles10.webp",
-  "/featuredVehicles11.webp",
-  "/featuredVehicles12.webp",
+  "/featuredVehicles/featuredVehicles9.webp",
+  "/featuredVehicles/featuredVehicles10.webp",
+  "/featuredVehicles/featuredVehicles11.webp",
+  "/featuredVehicles/featuredVehicles12.webp",
 ];
 
 export const featuredVehiclesImages4: string[] = [
-  "/featuredVehicles16.webp",
-  "/featuredVehicles13.webp",
-  "/featuredVehicles14.webp",
-  "/featuredVehicles15.webp",
+  "/featuredVehicles/featuredVehicles16.webp",
+  "/featuredVehicles/featuredVehicles13.webp",
+  "/featuredVehicles/featuredVehicles14.webp",
+  "/featuredVehicles/featuredVehicles15.webp",
 ];
 
 export const featuredVehiclesImages5: string[] = [
-  "/featuredVehicles17.webp",
-  "/featuredVehicles18.webp",
-  "/featuredVehicles19.webp",
-  "/featuredVehicles20.webp",
-  "/featuredVehicles21.webp",
+  "/featuredVehicles/featuredVehicles17.webp",
+  "/featuredVehicles/featuredVehicles18.webp",
+  "/featuredVehicles/featuredVehicles19.webp",
+  "/featuredVehicles/featuredVehicles20.webp",
+  "/featuredVehicles/featuredVehicles21.webp",
 ];
 
 export const featuredVehiclesImages6: string[] = [
-  "/featuredVehicles22.webp",
-  "/featuredVehicles23.webp",
-  "/featuredVehicles24.webp",
+  "/featuredVehicles/featuredVehicles22.webp",
+  "/featuredVehicles/featuredVehicles23.webp",
+  "/featuredVehicles/featuredVehicles24.webp",
 ];
 
 export const featuredVehiclesImages7: string[] = [
-  "/featuredVehicles25.webp",
-  "/featuredVehicles26.webp",
-  "/featuredVehicles27.webp",
-  "/featuredVehicles28.webp",
-  "/featuredVehicles29.webp",
+  "/featuredVehicles/featuredVehicles25.webp",
+  "/featuredVehicles/featuredVehicles26.webp",
+  "/featuredVehicles/featuredVehicles27.webp",
+  "/featuredVehicles/featuredVehicles28.webp",
+  "/featuredVehicles/featuredVehicles29.webp",
 ];
 
 export const whyChooseUsArray: WhyChooseUsCircleProps[] = [
@@ -186,39 +181,6 @@ export const whyChooseUsArray: WhyChooseUsCircleProps[] = [
     symbol: "%",
     title: "Safe Journeys",
     info: "Our passengers safety & enjoyment is our priority.",
-  },
-];
-
-export const marqueeTestimonialsArray: PartnersTestimonialsImagesProps[] = [
-  {
-    src: "/testimonials1.webp",
-    alt: "Florida Limousine Association",
-    href: "https://www.floridalimousine.com/",
-  },
-  {
-    src: "/testimonials2.webp",
-    alt: "National Limousine Association",
-    href: "https://www.limo.org/",
-  },
-  {
-    src: "/testimonials3.webp",
-    alt: "Better Bussiness Bureau",
-    href: "https://www.bbb.org/search",
-  },
-  {
-    src: "/testimonials4.webp",
-    alt: "National Association of Wedding Professionals",
-    href: "https://www.nawp.com/",
-  },
-  {
-    src: "/testimonials5.webp",
-    alt: "MPI Academy",
-    href: "https://www.mpi.org/",
-  },
-  {
-    src: "/testimonials6.webp",
-    alt: "Greater Miami and Miami Beach",
-    href: "https://www.miamiandbeaches.com/",
   },
 ];
 

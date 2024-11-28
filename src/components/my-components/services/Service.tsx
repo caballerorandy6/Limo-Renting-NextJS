@@ -34,8 +34,11 @@ const Service = ({
   href,
 }: ServiceProps) => {
   return (
-    <Card key={title} className="bg-white w-3/12 shadow-md">
-      <CardHeader className="grid grid-flow-col justify-start items-center gap-6">
+    <Card
+      key={title}
+      className="bg-white w-full sm:w-10/12 md:w-full shadow-md mx-auto"
+    >
+      <CardHeader className="flex justify-start items-center gap-6">
         <Link href={href}>{icon}</Link>
         <div>
           <CardTitle className="font-sans text-xl">{title}</CardTitle>

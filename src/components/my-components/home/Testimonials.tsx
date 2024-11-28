@@ -9,16 +9,16 @@ import MarqueeTestimonials from "./MarqueeTestimonials";
 const Testimonials = () => {
   return (
     <section id="testimonials" className="py-16">
-      <div className="w-10/12 mx-auto mb-10 flex gap-20">
-        <div className="w-6/12">
+      <div className="w-10/12 mx-auto mb-10 flex flex-col lg:flex-row gap-20">
+        <div className="lg:w-6/12">
           <Heading>Testimonials</Heading>
           <Heading3>What Customers Are Saying</Heading3>
-          <div className="flex gap-8 items-center">
+          <div className="flex flex-col md:flex-row md:justify-between lg:gap-8 items-center w-full">
             <ReviewsButton>More Reviews</ReviewsButton>
             <ReviewsButton>Leave a Review</ReviewsButton>
           </div>
         </div>
-        <div className="w-6/12">
+        <div className="lg:w-6/12">
           <CarouselTestimonials />
         </div>
       </div>

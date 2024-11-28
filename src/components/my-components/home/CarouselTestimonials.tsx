@@ -60,7 +60,7 @@ export function CarouselTestimonials() {
   );
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-10/12 mx-auto">
       <QuotationMarksLeft />
       <Carousel
         plugins={[plugin.current]}

@@ -4,7 +4,7 @@ import { whyChooseUsArray } from "@/lib/utils";
 
 const WyChooseUsCircles = () => {
   return (
-    <div className="relative flex justify-between">
+    <div className="hidden relative lg:flex justify-between">
       {whyChooseUsArray.map((item, index) => (
         <div
           key={item.title}

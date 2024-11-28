@@ -18,7 +18,7 @@ const ServiceOptionsButton = ({
 
   return (
     <Button
-      className="bg-red-600 hover:bg-black text-white hover:text-white text-xl font-sans font-bold rounded-br-2xl p-8"
+      className="bg-red-600 hover:bg-black text-white hover:text-white text-xl font-sans font-bold rounded-br-2xl p-8 mx-auto"
       onClick={() => router.push(href)}
     >
       {children}

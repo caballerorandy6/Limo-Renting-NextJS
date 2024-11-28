@@ -1,7 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import { marqueeTestimonialsArray } from "@/lib/utils";
+
+export interface PartnersTestimonialsImagesProps {
+  src: string;
+  alt: string;
+  href: string;
+}
+
+export const marqueeTestimonialsArray: PartnersTestimonialsImagesProps[] = [
+  {
+    src: "/testimonials/testimonials1.webp",
+    alt: "Florida Limousine Association",
+    href: "https://www.floridalimousine.com/",
+  },
+  {
+    src: "/testimonials/testimonials2.webp",
+    alt: "National Limousine Association",
+    href: "https://www.limo.org/",
+  },
+  {
+    src: "/testimonials/testimonials3.webp",
+    alt: "Better Bussiness Bureau",
+    href: "https://www.bbb.org/search",
+  },
+  {
+    src: "/testimonials/testimonials4.webp",
+    alt: "National Association of Wedding Professionals",
+    href: "https://www.nawp.com/",
+  },
+  {
+    src: "/testimonials/testimonials5.webp",
+    alt: "MPI Academy",
+    href: "https://www.mpi.org/",
+  },
+  {
+    src: "/testimonials/testimonials6.webp",
+    alt: "Greater Miami and Miami Beach",
+    href: "https://www.miamiandbeaches.com/",
+  },
+];
 
 const MarqueeTestimonials = () => {
   return (
@@ -19,8 +57,8 @@ const MarqueeTestimonials = () => {
             <Image
               src={item.src}
               alt={item.alt}
-              width={500}
-              height={500}
+              width={1000}
+              height={1000}
               priority={false}
               className="object-cover w-full h-[10vh]"
             />

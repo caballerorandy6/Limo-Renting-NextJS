@@ -163,14 +163,14 @@ const FormQuote = () => {
   return (
     <>
       <script
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
         async
         defer
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
       ></script>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-6/12 bg-zinc-800 bg-opacity-90 p-8 rounded-xl mt-60 mb-12"
+          className="w-full bg-zinc-800 bg-opacity-60 p-8 rounded-xl "
         >
           <FormDescription className="text-white uppercase font-sans text-center font-bold text-2xl mb-4">
             Get an Instant Quote
