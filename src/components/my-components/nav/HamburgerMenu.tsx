@@ -72,7 +72,7 @@ const HamburgerMenu = () => {
           side="right"
           className={cn(
             "bg-zinc-800 bg-opacity-90 z-50",
-            "flex flex-col gap-6 p-6 text-white"
+            "flex flex-col gap-6 p-6 text-white overflow-y-scroll"
           )}
         >
           <SheetHeader>
