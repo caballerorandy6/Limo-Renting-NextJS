@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardDescription,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import LearnMoreButton from "../buttons/LearnMoreButton";
 import CountUpReactHome from "./CountUpReactHome";
 import Heading3 from "../global-components/Heading3";
@@ -69,9 +68,9 @@ const AboutOurCompany = () => {
           className="object-cover w-full h-[50vh] mb-8 lg:hidden"
         />
 
-        <div className="flex justify-start gap-4 items-center mt-2 flex-col md:flex-row">
+        <div className="flex justify-start gap-4 items-center mt-2 flex-col w-full md:flex-row">
           {/* Video */}
-          <Card className="h-[20vh] flex flex-col items-center justify-center md:w-6/12 p-2">
+          <Card className="h-[20vh] flex flex-col items-center justify-center w-full md:w-6/12 p-2">
             <CardHeader>
               <CardDescription className="text-lg font-sans tracking-wide leading-relaxed">
                 We Specialize in providing 5-star limo services in Miami, FL.
@@ -81,7 +80,7 @@ const AboutOurCompany = () => {
           <div className="flex items-center justify-center w-full md:w-6/12">
             <video
               className="object-cover w-full h-[20vh] flex items-center justify-center rounded-xl"
-              src="/aboutOurCompany/aboutOurCompany.webm"
+              src="/aboutOurCompany/aboutOurCompany.mp4"
               autoPlay
               muted
               controls
@@ -92,8 +91,9 @@ const AboutOurCompany = () => {
             />
           </div>
         </div>
-        <Separator className="my-8 border border-gray-400 w-full" />
-        <LearnMoreButton>Learn More</LearnMoreButton>
+        <div className="mt-4">
+          <LearnMoreButton>Learn More</LearnMoreButton>
+        </div>
       </div>
     </div>
   );

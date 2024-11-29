@@ -16,7 +16,7 @@ const QuickLinks = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-2">
       <NavigationMenu>
         <NavigationMenuList className="flex flex-col">
           {menuArray

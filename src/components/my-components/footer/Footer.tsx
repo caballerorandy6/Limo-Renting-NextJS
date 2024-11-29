@@ -1,10 +1,9 @@
 import Heading4 from "../global-components/Heading4";
-import Logo from "../nav/Logo";
+import Image from "next/image";
 import SocialMenu from "../nav/SocialMenu";
 import ContactInfoCard from "./ContactInfoCard";
 import { Separator } from "@/components/ui/separator";
 import QuickLinks from "./QuickLinks";
-import Image from "next/image";
 import Link from "next/link";
 
 export interface CurrentYearProps {
@@ -16,20 +15,26 @@ const Footer = () => {
     new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-black flex flex-col py-16 w-full">
-      <div className="flex flex-col md:flex-row md:gap-28 items-center justify-center w-10/12 md:w-10/12 mx-auto">
-        <div className="flex flex-col gap-8 w-10/12 mb-8">
-          <Logo />
+    <footer id="footer" className="bg-black py-16">
+      <div className="flex flex-col lg:flex-row justify-center items-center">
+        <div className="flex flex-col justify-center items-center mb-8 w-4/12">
+          <Image
+            src="/logo/logo.webp"
+            width={1000}
+            height={1000}
+            alt="Logo"
+            className="object-cover w-[300px] lg:w-8/12 h-auto mb-2"
+          />
           <SocialMenu />
         </div>
         <div className="w-full md:w-4/12 flex flex-col justify-center">
           <Heading4>Contact Info</Heading4>
-          <Separator className="my-2 border border-red-500 w-5/12 mx-auto" />
+          <Separator className="mt-1 border border-red-500 w-10/12 md:w-11/12 mx-auto" />
           <ContactInfoCard />
         </div>
-        <div className="md:w-4/12 flex flex-col text-center ">
+        <div className="md:w-4/12 flex flex-col text-center">
           <Heading4>Quick Links</Heading4>
-          <Separator className="my-2 border border-red-500 w-5/12 mx-auto" />
+          <Separator className="mt-1 border border-red-500 w-10/12 md:w-11/12 mx-auto" />
           <QuickLinks />
         </div>
       </div>

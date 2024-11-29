@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Logo = () => {
   return (
-    <Link href="/" className="flex items-center">
+    <Link href="/" className="flex items-center w-4/12">
       <Image
         src="/logo/logo.webp"
         alt="logo"

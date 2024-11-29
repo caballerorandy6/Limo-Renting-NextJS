@@ -60,7 +60,7 @@ const MarqueeTestimonials = () => {
               width={1000}
               height={1000}
               priority={false}
-              className="object-cover w-full h-[10vh]"
+              className="object-cover w-full h-14"
             />
           </Link>
         ))}

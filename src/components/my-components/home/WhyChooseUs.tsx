@@ -24,7 +24,7 @@ const WhyChooseUs = () => {
             we have achieved this goal by reading many five-star reviews of our
             company at Yelp, Google, and Facebook.
           </p>
-          <div className="w-full my-4 flex flex-col gap-4">
+          <div className="w-full my-4 flex flex-col gap-4 text-center md:text-start">
             <div className="border-8 border-gray-500 rounded lg:w-6/12">
               <Image
                 src="/whyChooseUs/whyChooseUs.webp"
@@ -35,27 +35,28 @@ const WhyChooseUs = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="lg:w-6/12">
-              <h3 className="font-mono text-center lg:text-start font-bold text-white text-xl my-4 w-full">
+            <div className="w-full lg:w-6/12">
+              <h3 className="font-mono lg:text-start font-bold text-white text-xl my-4 w-full">
                 We Have Over 30+ Years of Chauffeur Experience
               </h3>
-              <ul className="text-white/80 font-sans list-disc ml-4 tracking-wide leading-relaxed">
+              <ul className="w-full flex flex-col justify-center text-white/80 font-sans ml-4 tracking-wide leading-relaxed list-none md:list-disc">
                 <li>Experienced Local Drivers</li>
                 <li className="my-2">Over 1000+ 5-Star Reviews</li>
                 <li>Many Convenient Services</li>
               </ul>
             </div>
           </div>
-          <div className="w-full my-4 flex flex-col gap-4">
+          <div className="w-full mt-8 flex flex-col gap-4">
             <ClickToCallButton>Click To Call</ClickToCallButton>
-            <div className="md:flex md:justify-between md:gap-8 mx-auto md:items-center">
-              <span className="text-white font-mono flex flex-col text-xl">
+
+            <div className="flex flex-col text-center md:text-start">
+              <span className="text-white font-mono mb-2">
                 Call Us Any Time 24/7
               </span>
               <Link
                 href="tel: +13058855002"
                 target="_blank"
-                className="text-white font-sans font-bold text-3xl hover:text-red-500 transition-colors"
+                className="text-white font-sans font-bold text-xl xl:text-2xl hover:text-red-500 transition-colors"
               >
                 (305) 885-5002
               </Link>

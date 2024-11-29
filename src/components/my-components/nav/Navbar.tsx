@@ -1,54 +1,24 @@
 "use client";
 
-import Link from "next/link";
-import { cn } from "@/lib/utils";
 import SocialMenu from "@/components/my-components/nav/SocialMenu";
 import ContactMenu from "@/components/my-components/nav/ContactMenu";
 import Logo from "@/components/my-components/nav/Logo";
-import BookNowButton from "../buttons/BookNowButton";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
-import { menuArray } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import HamburgerMenu from "@/components/my-components/nav/HamburgerMenu";
+import MenuNavigation from "./MenuNavigation";
 
 const Navbar = () => {
-  const pathname = usePathname();
-
   return (
     <nav className="fixed w-full bg-black font-mono p-4">
-      <div className="flex justify-around">
+      <div className="flex justify-between xl:justify-around items-center">
         <Logo />
-        <div>
-          <div className="flex justify-around items-center p-4">
+        <div className="flex xl:flex-col justify-between">
+          <div className="xl:flex hidden justify-center gap-32 items-center p-2">
             <ContactMenu />
             <SocialMenu />
           </div>
 
-          <NavigationMenu className="mt-2">
-            <NavigationMenuList>
-              {menuArray.map((link) => (
-                <NavigationMenuItem key={link.id}>
-                  <Link href={link.url} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        "font-mono font-bold hover:text-red-500 transition-colors text-lg",
-                        pathname === link.url ? "text-red-500" : "text-white"
-                      )}
-                    >
-                      {link.name}
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-            <BookNowButton>Book Now</BookNowButton>
-          </NavigationMenu>
+          <HamburgerMenu />
+          <MenuNavigation />
         </div>
       </div>
     </nav>
