@@ -31,7 +31,7 @@ const WhatWeOffer = () => {
             />
           ))}
         </div>
-        <div className="flex justify-center lg:hidden mt-10">
+        <div className="flex justify-center md:justify-start lg:hidden mt-4">
           <ViewAllServicesButton>View All Services</ViewAllServicesButton>
         </div>
       </div>

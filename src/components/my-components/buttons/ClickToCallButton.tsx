@@ -9,7 +9,8 @@ const ClickToCallButton = ({ children, icon }: ButtonProps) => {
     <Link
       href="tel: +1358855002"
       target="_blank"
-      className="bg-red-600 hover:bg-white text-white hover:text-red-600 transition-colors text-xl font-sans font-bold rounded-br-2xl p-4 flex items-center justify-center md:w-6/12 lg:w-full"
+      className="bg-red-600 hover:bg-white text-white hover:text-red-600 transition-colors text-xl font-sans font-bold rounded-br-2xl p-4 flex items-center justify-center w-full md:w-6/12 md:mx-auto lg:w-5/12 
+      xl:mx-0 xl:w-6/12"
     >
       {children}
       {icon ? icon : <ArrowRightIcon />}

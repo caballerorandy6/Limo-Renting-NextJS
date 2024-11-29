@@ -10,8 +10,8 @@ const WhyChooseUs = () => {
       id="why-choose-us"
       className="bg-gradient-to-tr from-slate-900 via-black to-gray-900"
     >
-      <div className="w-10/12 mx-auto pt-16 lg:pb-16 flex flex-col lg:flex-row gap-20">
-        <div className="w-full lg:w-6/12">
+      <div className="w-10/12 mx-auto pt-16 xl:pb-16 flex flex-col xl:flex-row gap-20">
+        <div className="w-full xl:w-6/12">
           <Heading2>Why Choose Us</Heading2>
           <h1 className="text-white text-4xl lg:text-5xl font-sans font-bold my-2">
             What Makes Us Different
@@ -25,7 +25,7 @@ const WhyChooseUs = () => {
             company at Yelp, Google, and Facebook.
           </p>
           <div className="w-full my-4 flex flex-col gap-4 text-center md:text-start">
-            <div className="border-8 border-gray-500 rounded lg:w-6/12">
+            <div className="border-8 border-gray-500 rounded">
               <Image
                 src="/whyChooseUs/whyChooseUs.webp"
                 alt="Why Choose Us Image"
@@ -35,30 +35,30 @@ const WhyChooseUs = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="w-full lg:w-6/12">
-              <h3 className="font-mono lg:text-start font-bold text-white text-xl my-4 w-full">
+            <div className="w-full xl:w-6/12">
+              <h3 className="font-mono text-center xl:text-start font-bold text-white text-xl my-4 text-nowrap">
                 We Have Over 30+ Years of Chauffeur Experience
               </h3>
-              <ul className="w-full flex flex-col justify-center text-white/80 font-sans ml-4 tracking-wide leading-relaxed list-none md:list-disc">
+              <ul className="w-full flex flex-col justify-center text-white/80 font-sans tracking-wide leading-relaxed list-none text-center xl:text-start">
                 <li>Experienced Local Drivers</li>
                 <li className="my-2">Over 1000+ 5-Star Reviews</li>
                 <li>Many Convenient Services</li>
               </ul>
             </div>
           </div>
-          <div className="w-full mt-8 flex flex-col gap-4">
+          <div className="w-full mt-4 flex flex-col gap-4">
             <ClickToCallButton>Click To Call</ClickToCallButton>
 
-            <div className="flex flex-col text-center md:text-start">
-              <span className="text-white font-mono mb-2">
+            <div className="flex flex-col font-mono text-center xl:flex-row xl:justify-start xl:text-start xl:gap-8">
+              <span className="text-white font-mono mb-2 text-xl">
                 Call Us Any Time 24/7
               </span>
               <Link
                 href="tel: +13058855002"
                 target="_blank"
-                className="text-white font-sans font-bold text-xl xl:text-2xl hover:text-red-500 transition-colors"
+                className="text-white font-bold text-xl hover:text-red-500 transition-colors"
               >
-                (305) 885-5002
+                +1 (305) 885-5002
               </Link>
             </div>
           </div>

@@ -4,7 +4,7 @@ import DiscoverMoreButton from "@/components/my-components/buttons/DiscoverMoreB
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center gap-20 relative w-full lg:w-10/12 over-y-scroll mt-28 md:mt-60 lg:mt-4">
+    <div className="flex flex-col lg:flex-row justify-center items-center gap-20 relative w-full lg:w-10/12 over-y-scroll md:mt-60 lg:mt-4">
       <div className="w-11/12 lg:w-6/12 text-center mx-auto">
         <h1 className="text-4xl lg:text-7xl text-white mb-6 font-sans">
           Highest Rated <span className="text-red-500">Miami</span> Limo Service
