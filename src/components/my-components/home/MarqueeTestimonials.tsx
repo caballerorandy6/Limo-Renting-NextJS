@@ -44,7 +44,7 @@ export const marqueeTestimonialsArray: PartnersTestimonialsImagesProps[] = [
 const MarqueeTestimonials = () => {
   return (
     <Marquee pauseOnHover={true}>
-      <div className="flex justify-between gap-20 pt-6 pb-16">
+      <div className="flex justify-between items-center gap-28">
         {marqueeTestimonialsArray.map((item, index) => (
           <Link
             href={item.href}
@@ -57,10 +57,10 @@ const MarqueeTestimonials = () => {
             <Image
               src={item.src}
               alt={item.alt}
-              width={1000}
-              height={1000}
+              width={100}
+              height={100}
               priority={false}
-              className="object-cover w-full h-10 md:h-12 lg:h-14"
+              className="object-cover w-full h-auto"
             />
           </Link>
         ))}

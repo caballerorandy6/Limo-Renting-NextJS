@@ -8,7 +8,7 @@ import MarqueeTestimonials from "./MarqueeTestimonials";
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="pt-16">
+    <section id="testimonials" className="py-16">
       <div className="w-10/12 mx-auto mb-14 flex flex-col lg:flex-row gap-20">
         <div className="lg:w-7/12">
           <Heading>Testimonials</Heading>
