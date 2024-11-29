@@ -52,7 +52,7 @@ const MarqueeTestimonials = () => {
             target="_blank"
             className={`${
               index === marqueeTestimonialsArray.length - 1 && "mr-20"
-            } transition-all duration-300 ease-in-out transform hover:scale-110`}
+            } transition-all duration-300 ease-in-out transform hover:scale-110 p-8`}
           >
             <Image
               src={item.src}
