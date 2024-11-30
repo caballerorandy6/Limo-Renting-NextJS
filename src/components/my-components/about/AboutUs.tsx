@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import CountUpReact from "@/components/my-components/about/CountUp";
+import IncrementNumber from "@/components/my-components/about/IncrementNumber";
 import Heading from "@/components/my-components/global-components/Heading";
 import CheckIcon from "@/components/my-components/icons/CheckIcon";
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
@@ -56,7 +56,7 @@ const AboutUs = () => {
           <div className="flex justify-start gap-4 items-center mt-4">
             <Card className="w-[18vh] shadow-xl">
               <CardContent className="flex flex-col justify-center items-center pt-4 font-sans font-bold gap-2">
-                <CountUpReact />
+                <IncrementNumber />
                 <span>Years</span>
                 <span>Experience</span>
               </CardContent>

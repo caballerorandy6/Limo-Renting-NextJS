@@ -9,7 +9,7 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import LearnMoreButton from "../buttons/LearnMoreButton";
-import CountUpReactHome from "./CountUpReactHome";
+import IncrementNumberHome from "@/components/my-components/home/IncrementNumberHome";
 import Heading3 from "../global-components/Heading3";
 
 const AboutOurCompany = () => {
@@ -37,8 +37,8 @@ const AboutOurCompany = () => {
         />
         <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 justify-center items-center hidden xl:flex">
           <CardHeader>
-            <CardDescription>
-              <CountUpReactHome />
+            <CardDescription className="mx-auto">
+              <IncrementNumberHome />
             </CardDescription>
             <CardContent className="text-white text-xl font-bold font-sans">
               <p>5-Star</p>
