@@ -5,7 +5,7 @@ const PlanningIcon = () => {
       width="4em"
       height="4em"
       viewBox="0 0 24 24"
-      className="bg-red-500 text-white rounded-br-2xl p-2"
+      className="text-white hover:text-red-500 transition-colors rounded-br-2xl p-2"
     >
       <path
         fill="currentColor"

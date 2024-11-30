@@ -1,28 +1,29 @@
 import { motion, animate } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useIncrementNumberStore } from "@/store/incrementNumberStore";
 
 const IncrementNumber = () => {
-  const [count, setCount] = useState(0);
+  const { count, setCount } = useIncrementNumberStore();
 
   useEffect(() => {
-    // Anima el valor de 0 a 1000.
+    // Anima el valor de 0 a 30.
     const controls = animate(0, 30, {
       duration: 2,
       ease: "easeInOut",
-      onUpdate: (value) => setCount(Math.round(value)), // Actualiza el estado con el valor redondeado.
+      onUpdate: (value) => setCount(value),
     });
 
     // Limpia la animación cuando el componente se desmonta.
     return controls.stop;
-  }, []);
+  }, [setCount]);
 
   return (
     <motion.div
+      className="text-red-600 text-xl font-bold font-sans text-center"
       style={{
         fontSize: "2rem",
         fontWeight: "bold",
         textAlign: "center",
-        color: "#ff6347",
       }}
     >
       {count}

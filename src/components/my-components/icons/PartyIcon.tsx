@@ -7,7 +7,7 @@ const PartyIcon = () => {
       width="4em"
       height="4em"
       viewBox="0 0 2112 1920"
-      className="text-white bg-red-500 p-2 rounded-br-2xl"
+      className="text-white hover:text-red-500 transition-colors p-2 rounded-br-2xl"
     >
       <path
         fill="currentColor"

@@ -20,11 +20,11 @@ export const services: ServiceProps[] = [
     title: "Weddings",
     description: "Service - 01",
     content:
-      "No need to stress about logistics or coordinating rides on such a momentous occasion. We’ll handle all of that, leaving you free to focus on what truly matters – celebrating love and happiness.",
+      "Leave the logistics to us and focus on what matters most—celebrating love and joy on your special day.",
     icon: <WeddingIcon />,
     buttonName: "Learn More",
     href: "/services",
-    image: "/service1.webp",
+    image: "/service/service1.webp",
     title2:
       "Luxury Wedding Limousines and Wedding Car Services in Miami-Dade County, FL",
     title3:
@@ -43,7 +43,7 @@ export const services: ServiceProps[] = [
     icon: <CorporateTransferIcon />,
     buttonName: "Learn More",
     href: "/services",
-    image: "/service2.webp",
+    image: "/service/service2.webp",
     title2:
       "Impress Business Guests with Their Own Personal Corporate Limo and Car Service in Miami, FL",
     title3: "Reliable Miami Corporate Limousine & Chauffeured Transportation",
@@ -57,11 +57,11 @@ export const services: ServiceProps[] = [
     title: "Party Bus Rentals",
     description: "Service - 03",
     content:
-      "Our Miami party bus has room for up to 30 passengers with bench seating on each side. You can request music to relax or party to, alcoholic beverages for those over age 21, movies, and much more.",
+      "Our Miami party bus accommodates up to 30 passengers with side bench seating, offering music, movies, and beverages for a relaxing or lively experience.",
     icon: <PartyIcon />,
     buttonName: "Learn More",
-    href: "/services",
-    image: "/service3.webp",
+    href: "/service/services",
+    image: "/service/service3.webp",
     title2: "What to Expect When You Step Onboard Our Miami Party Bus",
     title3: "Enjoy All That Miami’s Bar and Nightclub Scene Has to Offer",
     text1:
@@ -74,11 +74,11 @@ export const services: ServiceProps[] = [
     title: "Bachelorette Parties",
     description: "Service - 04",
     content:
-      "Bachelor and bachelorette parties have long been a tradition for people getting married soon to have one last night on the town as a single person with their wedding party and closest friends.",
+      "Bachelor and bachelorette parties are a cherished tradition, offering soon-to-be-married individuals a final night out with their wedding party and closest friends.",
     icon: <WineGlassIcon />,
     buttonName: "Learn More",
-    href: "/services",
-    image: "/service4.webp",
+    href: "/service/services",
+    image: "/service/service4.webp",
     title2: "A Large Fleet of Luxury Vehicles to Meet Every Need",
     title3:
       "Where to Go for Your Bachelor or Bachelorette Party in Miami, Florida",
@@ -95,8 +95,8 @@ export const services: ServiceProps[] = [
       "With our professional chauffeurs at the wheel, you can relax and focus on creating lasting memories.",
     icon: <BuildingIcon />,
     buttonName: "Learn More",
-    href: "/services",
-    image: "/service5.webp",
+    href: "/service/services",
+    image: "/service/service5.webp",
     title2: "",
     title3:
       "Professional Chauffeured Transportation For Your Fun Night Out on The Town in Miami",
@@ -113,8 +113,8 @@ export const services: ServiceProps[] = [
       "Looking for the best Miami airport transportation? Our local and experienced limo and MIA car service chauffeurs can help!",
     buttonName: "Learn More",
     icon: <PlaneIcon />,
-    href: "/services",
-    image: "/service6.webp",
+    href: "/service/services",
+    image: "/service/service6.webp",
     title2:
       "What Awaits You Aboard Our Miami Airport Limousine and Chauffeured Transportation",
     title3: "Top-Rated MIA Airport Transportation Service",
@@ -128,11 +128,11 @@ export const services: ServiceProps[] = [
     title: "Global Services",
     description: "Service - 07",
     content:
-      "Embark on seamless worldwide journeys with American Transportation's global services, where luxury and reliability transcend borders, ensuring unparalleled comfort and convenience for every traveler.",
+      "Travel the world effortlessly with American Transportation's global services, offering unmatched luxury, reliability, and convenience for every journey.",
     buttonName: "Learn More",
     icon: <GlobeIcon />,
-    href: "/services",
-    image: "/service7.webp",
+    href: "/service/services",
+    image: "/service/service7.webp",
     title2: "",
     title3: "",
     text1:
@@ -145,11 +145,11 @@ export const services: ServiceProps[] = [
     title: "Travel Planning",
     description: "Service - 08",
     content:
-      "Let our expert team handle every detail of your travel plans with precision and care, ensuring a stress-free and unforgettable journey with American Transportation's comprehensive travel planning service.",
+      "Let our experts manage your travel plans with precision for a seamless, stress-free journey with American Transportation.",
     buttonName: "Learn More",
     icon: <PlanningIcon />,
-    href: "/services",
-    image: "/service8.webp",
+    href: "/service/services",
+    image: "/service/service8.webp",
     title2: "Welcome to American Transportation's Travel Planning Services!",
     title3: "",
     text1:
@@ -161,11 +161,11 @@ export const services: ServiceProps[] = [
     title: "Event Planning",
     description: "Service - 09",
     content:
-      "From weddings and corporate events to family reunions and more, American Transportation offers a range of luxury transportation services to elevate your special event experience.",
+      "From weddings and corporate events to family reunions, American Transportation provides luxury transportation services to enhance any special occasion.",
     buttonName: "Learn More",
     icon: <Planning2Icon />,
     href: "/services",
-    image: "/service9.webp",
+    image: "/service/service9.webp",
     title2: "Welcome to American Transportation's Event Planning Services!",
     title3: "",
     text1:
@@ -177,11 +177,11 @@ export const services: ServiceProps[] = [
     title: "Sporting Events",
     description: "Service - 10",
     content:
-      "Cheer on your favorite Miami sports teams in VIP style with American Transportation, where our luxurious vehicles and experienced chauffeurs ensure a game day experience like no other.",
+      "Cheer on Miami sports teams in style with American Transportation's luxury vehicles and expert chauffeurs for an unmatched game day experience.",
     buttonName: "Learn More",
     icon: <SportsIcon />,
     href: "/services",
-    image: "/service10.webp",
+    image: "/service/service10.webp",
     title2:
       "Top-Rated Miami Heat, Dolphins Game, and Sporting Event Limousine & Car Services",
     title3: "",
@@ -194,11 +194,11 @@ export const services: ServiceProps[] = [
     title: "Tours / Sight Seeing",
     description: "Service - 11",
     content:
-      "Experience the vibrant sights and sounds of Miami like never before with American Transportation's expertly curated tours and sightseeing experiences, showcasing the city's iconic landmarks and hidden treasures in unparalleled comfort and style.",
+      "Explore Miami's iconic landmarks and hidden gems in comfort and style with American Transportation's expertly curated tours.",
     buttonName: "Learn More",
     icon: <BinocularsIcon />,
     href: "/services",
-    image: "/service11.webp",
+    image: "/service/service11.webp",
     title2:
       "Check Out American Transportation's Miami Tours and Sightseeing Services!",
     title3: "",
@@ -210,7 +210,7 @@ export const services: ServiceProps[] = [
 
 const Services = () => {
   return (
-    <div className="flex w-10/12 flex-wrap gap-10 justify-center mx-auto mt-10">
+    <div className="w-10/12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8 mx-auto">
       {services.map((item) => (
         <Service
           key={item.title}

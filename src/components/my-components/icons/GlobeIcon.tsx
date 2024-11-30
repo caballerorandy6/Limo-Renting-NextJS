@@ -5,7 +5,7 @@ const GlobeIcon = () => {
       width="4em"
       height="4em"
       viewBox="0 0 14 16"
-      className="text-white bg-red-500 p-2 rounded-br-2xl"
+      className="text-white hover:text-red-500 transition-colors p-2 rounded-br-2xl"
     >
       <path
         fillRule="evenodd"
