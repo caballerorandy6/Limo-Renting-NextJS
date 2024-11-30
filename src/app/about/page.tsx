@@ -4,7 +4,7 @@ import WhyChooseUpAbout from "@/components/my-components/about/WhyChooseUpAbout"
 
 const About = () => {
   return (
-    <section id="about">
+    <section id="about" className="min-h-screen">
       <AboutUs />
       <BookUsAbout />
       <WhyChooseUpAbout />

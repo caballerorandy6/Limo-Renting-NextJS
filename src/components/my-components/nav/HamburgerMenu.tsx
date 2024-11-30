@@ -21,6 +21,7 @@ import { cn } from "@/lib/utils";
 import { useOpenMenuStore } from "@/store/openMenuStore";
 import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
+import SocialMenu from "@/components/my-components/nav/SocialMenu";
 
 const HamburgerMenu = () => {
   const { isOpen, setIsOpen } = useOpenMenuStore();
@@ -105,6 +106,7 @@ const HamburgerMenu = () => {
               ))}
             </NavigationMenuList>
           </NavigationMenu>
+          <SocialMenu />
         </SheetContent>
       </Sheet>
     </div>

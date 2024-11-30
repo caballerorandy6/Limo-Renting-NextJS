@@ -86,7 +86,7 @@ export const menuArray: MenuArray[] = [
     id: "home",
   },
   {
-    name: "About",
+    name: "About Us",
     url: "/about",
     id: "about",
   },

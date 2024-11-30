@@ -12,7 +12,7 @@ const whyChooseAboutArray: AboutListProps[] = [
 const WhyChooseUpAbout = () => {
   return (
     <div className="flex justify-center mx-auto gap-20 w-10/12 my-16">
-      <div className="w-7/12">
+      <div className="w-10/12 lg:w-7/12">
         <Heading>Why Choose Us</Heading>
         <p className="font-sans tracking-wide leading-relaxed my-4">
           Because we recognize that chauffeurs take on many roles, we insist on
@@ -36,9 +36,9 @@ const WhyChooseUpAbout = () => {
           ))}
         </div>
       </div>
-      <div className="w-5/12">
+      <div className="hidden lg:flex w-5/12">
         <Image
-          src="/aboutOurCompany4.webp"
+          src="/aboutOurCompany/aboutOurCompany4.webp"
           alt="About Our Company 4"
           width={1000}
           height={1000}

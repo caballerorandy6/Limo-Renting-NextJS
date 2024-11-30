@@ -13,7 +13,10 @@ const CountUpReact = () => {
     >
       {({ countUpRef }) => (
         <div>
-          <span ref={countUpRef} className="text-5xl text-red-600"></span>
+          <span
+            ref={countUpRef}
+            className="text-4xl lg:text-5xl text-red-600"
+          ></span>
         </div>
       )}
     </CountUp>

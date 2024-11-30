@@ -68,18 +68,14 @@ const AboutOurCompany = () => {
           className="object-cover w-full h-[50vh] mb-8 lg:hidden"
         />
 
-        <div className="flex justify-start gap-4 items-center mt-2 flex-col w-full md:flex-row">
+        <div className="flex flex-col gap-4 items-center w-full">
           {/* Video */}
-          <Card className="h-[20vh] flex flex-col items-center justify-center w-full md:w-6/12 p-2">
-            <CardHeader>
-              <CardDescription className="text-lg font-sans tracking-wide leading-relaxed">
-                We Specialize in providing 5-star limo services in Miami, FL.
-              </CardDescription>
-            </CardHeader>
-          </Card>
-          <div className="flex items-center justify-center w-full md:w-6/12">
+          <p className="text-lg font-sans tracking-wide leading-relaxed">
+            We Specialize in providing 5-star limo services in Miami, FL.
+          </p>
+          <div className="flex items-center justify-center w-full">
             <video
-              className="object-cover w-full h-[20vh] flex items-center justify-center rounded-xl"
+              className="object-cover w-full h-[40vh] lg:h-[30vh] xl:h-[34vh] flex items-center justify-center rounded-xl"
               src="/aboutOurCompany/aboutOurCompany.mp4"
               autoPlay
               muted

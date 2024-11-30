@@ -13,17 +13,17 @@ const LimoImageMenu = () => {
   const currentPage = menuArray.filter((item) => item.url === pathname);
 
   return (
-    <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[52vh] relative">
+    <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[30vh] sm:h-[40vh] md:h-[43vh] lg:h-[50vh] xl:h-[52vh] relative">
       <Image
-        width="1000"
-        height="1000"
+        width={1000}
+        height={1000}
         src="/limoAboutPage/limoAboutPage.webp"
         alt="Limo About Image"
         priority
         className="w-full h-full object-cover absolute mix-blend-overlay"
       />
-      <div className="pt-60 relative">
-        <div className="flex justify-center items-center gap-4 pt-10">
+      <div className="relative flex flex-col items-center justify-center h-full pt-14 sm:pt-16 md:pt-24 lg:pt-30 xl:pt-36">
+        <div className="flex items-center gap-4 mb-4">
           <Link
             href="/"
             className="text-white uppercase font-bold font-sans underline hover:text-red-400 transition-colors"
@@ -38,7 +38,7 @@ const LimoImageMenu = () => {
             </span>
           )}
         </div>
-        <div className="flex justify-center items-center mt-6">
+        <div className="flex justify-center items-center">
           <BookNowButton>Book Now</BookNowButton>
         </div>
       </div>

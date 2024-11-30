@@ -20,18 +20,18 @@ const AboutUs = () => {
   return (
     <>
       <LimoImageMenu />
-      <div className="flex justify-center py-16 gap-4 w-10/12 mx-auto">
-        <div className="relative w-5/12 h-full flex justify-start mb-16">
+      <div className="flex flex-col lg:flex-row justify-center py-16 lg:gap-20 xl:gap-10 w-10/12 mx-auto">
+        <div className="hidden relative w-6/12 h-full lg:flex justify-start mb-16">
           <Image
-            src="/limoAboutPage1.webp"
+            src="/limoAboutPage/limoAboutPage1.webp"
             alt="Limo About Page 1"
             width="200"
             height={1000}
             priority
-            className="relative object-cover w-[50vh] h-[50vh]"
+            className="relative object-cover w-[50vh] lg:h-[45vh] h-[50vh]"
           />
           <Image
-            src="/limoAboutPage2.webp"
+            src="/limoAboutPage/limoAboutPage2.webp"
             alt="Limo About Page 1"
             width={1000}
             height={1000}
@@ -39,9 +39,9 @@ const AboutUs = () => {
             className="absolute object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-60 left-1/3 rounded-br-3xl"
           />
         </div>
-        <div className="w-7/12">
+        <div className="w-full lg:w-6/12">
           <Heading>About Us</Heading>
-          <h1 className="text-black text-5xl font-sans font-bold mt-2">
+          <h1 className="text-black text-4xl lg:text-5xl font-sans font-bold mt-2">
             The Best Limo Service in{" "}
             <span className="text-red-600">Miami, FL</span>
           </h1>
