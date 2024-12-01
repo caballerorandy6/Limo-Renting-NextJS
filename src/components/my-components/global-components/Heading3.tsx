@@ -4,7 +4,7 @@ interface Heading3Props {
 
 const Heading3 = ({ children }: Heading3Props) => {
   return (
-    <h1 className="text-4xl lg:text-5xl font-sans font-bold my-2 w-full">
+    <h1 className="text-3xl lg:text-4xl font-sans font-bold my-2 w-full">
       {children}
     </h1>
   );

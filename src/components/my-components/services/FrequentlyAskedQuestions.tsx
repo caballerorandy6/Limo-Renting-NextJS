@@ -61,10 +61,14 @@ const accordionArray: AccordionProps[] = [
 
 const FrequentlyAskedQuestions = () => {
   return (
-    <Accordion type="single" collapsible className="font-sans border-none">
+    <Accordion
+      type="single"
+      collapsible
+      className="font-sans border-none w-full lg:w-5/12"
+    >
       {accordionArray.map((item, index) => (
         <AccordionItem value={item.value} key={index}>
-          <AccordionTrigger className="bg-gray-100 mb-2 p-2 rounded">
+          <AccordionTrigger className="bg-gray-50 mb-2 p-2 rounded">
             {item.accordionTrigger}
           </AccordionTrigger>
           <AccordionContent>{item.accordionContent}</AccordionContent>

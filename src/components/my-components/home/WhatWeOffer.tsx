@@ -28,6 +28,7 @@ const WhatWeOffer = () => {
               icon={item.icon}
               buttonName={item.buttonName}
               href={item.href}
+              image={item.image}
             />
           ))}
         </div>

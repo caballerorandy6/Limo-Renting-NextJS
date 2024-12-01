@@ -30,7 +30,9 @@ const LimoImageMenu = () => {
           >
             Home
           </Link>
+
           <ChevronRightIcon />
+
           {/* Titulo de la pagina */}
           {currentPage && (
             <span className="text-red-400 font-sans font-bold text-lg rounded">

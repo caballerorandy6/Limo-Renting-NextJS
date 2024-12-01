@@ -12,14 +12,14 @@ const ServiceDetails = ({ params }: ServiceDetailsProps) => {
   const service = services.find((service) => service.id === params.id);
 
   return (
-    <div>
+    <div className="w-full lg:w-5/12 flex justify-center items-center flex-col">
       {service?.image && (
         <Image
           src={service.image}
           alt={service.image}
           width={1000}
           height={1000}
-          className="rounded mb-4"
+          className="rounded w-full h-auto mb-4"
           priority
         />
       )}
