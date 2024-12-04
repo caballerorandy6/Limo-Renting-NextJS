@@ -32,17 +32,39 @@ const HamburgerServiceMenu = () => {
   const handleClose = () => setIsOpen(false);
 
   return (
-    <div className="flex lg:hidden mx-auto text-white">
+    <div className="flex lg:hidden justify-start w-full text-white pb-4">
       {/* Trigger Button */}
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button
             variant="ghost"
-            className="p-4 text-red-500 hover:text-white text-xl font-bold rounded border-2 border-red-500 hover:bg-red-500 transition-colors"
             onClick={handleToggle}
             aria-label="Toggle menu"
           >
-            The Services Menu
+            <div
+              className="flex flex-col w-6 h-5 md:w-8 md:h-8 gap-1.5"
+              aria-hidden="true"
+            >
+              {/* Hamburger Icon */}
+              <span
+                className={cn(
+                  "h-1 bg-black rounded-sm transition-all",
+                  isOpen ? "transform rotate-45 translate-y-2 opacity-0" : ""
+                )}
+              ></span>
+              <span
+                className={cn(
+                  "h-1 bg-black rounded-sm transition-all",
+                  isOpen ? "opacity-0" : ""
+                )}
+              ></span>
+              <span
+                className={cn(
+                  "h-1 bg-black rounded-sm transition-all",
+                  isOpen ? "transform -rotate-45 -translate-y-2 opacity-0" : ""
+                )}
+              ></span>
+            </div>
           </Button>
         </SheetTrigger>
 
@@ -96,16 +118,3 @@ const HamburgerServiceMenu = () => {
 };
 
 export default HamburgerServiceMenu;
-
-<ul className="w-full bg-gray-50 p-8">
-  {services.map((item) => (
-    <li key={item.id}>
-      <div className="flex items-center hover:text-blue-500 transition-colors text-gray-500">
-        <OpenFolderIcon />
-        <Link href={`${item.href}/${item.id}`}>{item.title}</Link>
-      </div>
-
-      <Separator className="block border-gray-300 border my-2" />
-    </li>
-  ))}
-</ul>;

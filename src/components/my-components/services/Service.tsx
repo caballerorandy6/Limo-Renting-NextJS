@@ -23,6 +23,7 @@ export interface ServiceProps {
   title3?: string;
   text1?: string;
   text2?: string;
+  serviceAccordion?: React.ReactNode;
 }
 
 const Service = ({

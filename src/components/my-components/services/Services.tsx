@@ -12,6 +12,7 @@ import Planning2Icon from "@/components/my-components/icons/Planning2Icon";
 import SportsIcon from "@/components/my-components/icons/SportsIcon";
 import BinocularsIcon from "@/components/my-components/icons/BinocularsIcon";
 import Service from "@/components/my-components/services/Service";
+
 import { ServiceProps } from "@/components/my-components/services/Service";
 
 export const services: ServiceProps[] = [
@@ -32,7 +33,8 @@ export const services: ServiceProps[] = [
     text1:
       "As any recently married couple can tell you, planning a wedding is both exciting and stressful. With so many tasks to attend to, booking wedding day limo services, a party bus or wedding transportation in Miami as early as possible takes one more thing off your plate for your special day. We even offerparty bus rentals and classic Rolls-Royce limo services in Miami! From wedding day transporting for the wedding party on the big day to a fun send-off at the airport for your honeymoon, you can trust American Transportation & Limo Services to provide all yourluxury chauffeured transportation needs during this special time in your life.",
     text2:
-      "he bride has purchased a beautiful wedding dress costing hundreds (if not thousands) of dollars and gone through multiple fittings. The groom has rented a handsome tuxedo. The wedding party has invested in formal attire to help the two of you mark your lifelong commitment to one another. After all that, it would be a shame to walk out of the luxurious wedding venue and get into an old or unreliable car in order to transport the wedding party off to the reception. With our wedding day limo service in Miami, FL, you can relax knowing that an attractive, roomy luxury vehicle. Whether you go with our classic Rolls Royce rental, a limousine, or other luxury vehicle from our local fleet,  a professional chauffeur will be waiting for your wedding party at the end of the ceremony. You can even rent additional vehicles for wedding day shuttles in Miami to ensure that guests with a special place in your heart such as parents, grandparents, and siblings, get to the location of your reception without having to deal with driving, getting directions, traffic, or parking.",
+      "He bride has purchased a beautiful wedding dress costing hundreds (if not thousands) of dollars and gone through multiple fittings. The groom has rented a handsome tuxedo. The wedding party has invested in formal attire to help the two of you mark your lifelong commitment to one another. After all that, it would be a shame to walk out of the luxurious wedding venue and get into an old or unreliable car in order to transport the wedding party off to the reception. With our wedding day limo service in Miami, FL, you can relax knowing that an attractive, roomy luxury vehicle. Whether you go with our classic Rolls Royce rental, a limousine, or other luxury vehicle from our local fleet,  a professional chauffeur will be waiting for your wedding party at the end of the ceremony. You can even rent additional vehicles for wedding day shuttles in Miami to ensure that guests with a special place in your heart such as parents, grandparents, and siblings, get to the location of your reception without having to deal with driving, getting directions, traffic, or parking.",
+    serviceAccordion: "",
   },
   {
     id: "corporate-services",
@@ -226,6 +228,7 @@ const Services = () => {
           title3={item.title3}
           text1={item.text1}
           text2={item.text2}
+          serviceAccordion={item.serviceAccordion}
         />
       ))}
     </div>

@@ -8,12 +8,17 @@ const ServicesLayoutMenu = () => {
   // const images = services.map((service) => service.image);
 
   return (
-    <ul className="hidden lg:block w-3/12">
+    <ul className="hidden lg:block w-3/12 lg:4/12 xl:3/12">
       {services.map((item) => (
         <li key={item.id}>
           <div className="flex items-center hover:text-blue-500 transition-colors text-gray-500 px-2">
             <OpenFolderIcon />
-            <Link href={`${item.href}/${item.id}`}>{item.title}</Link>
+            <Link
+              href={`${item.href}/${item.id}`}
+              className="font-mono font-semibold"
+            >
+              {item.title}
+            </Link>
           </div>
 
           <Separator className="block border-gray-300 border my-2" />

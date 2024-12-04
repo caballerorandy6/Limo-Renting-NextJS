@@ -24,7 +24,8 @@ const ServicesLayout = ({
 
   return (
     <>
-      <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[30vh] sm:h-[40vh] md:h-[43vh] lg:h-[50vh] xl:h-[52vh] relative">
+      {/* Header */}
+      <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[50vh] relative">
         <Image
           width="1000"
           height="1000"
@@ -33,7 +34,7 @@ const ServicesLayout = ({
           priority
           className="w-full h-full object-cover absolute mix-blend-overlay"
         />
-        <div className="relative flex flex-col items-center justify-center h-full pt-14 sm:pt-16 md:pt-24 lg:pt-30 xl:pt-36">
+        <div className="relative flex flex-col items-center justify-center h-full pt-16">
           <div className="flex items-center gap-4 mb-4">
             <Link
               href="/"
@@ -52,26 +53,35 @@ const ServicesLayout = ({
 
             <ChevronRightIcon />
 
-            {/* Titulo de la pagina */}
             {currentPage && (
-              <span className="text-red-500 font-sans font-bold text-lg">
+              <span className="text-red-500 font-bold text-lg">
                 {currentPage.title}
               </span>
             )}
           </div>
-          <div className="flex justify-center items-center">
-            <BookNowButton>Book Now</BookNowButton>
-          </div>
+          <BookNowButton>Book Now</BookNowButton>
         </div>
       </div>
-      <div className="mx-auto mt-16 w-full flex flex-col">
-        <div className="flex flex-col lg:flex-row justify-center gap-10 items-center w-10/12 mx-auto">
-          <HamburgerServiceMenu />
+
+      {/* Main Content */}
+      <div className="mx-auto mt-16 w-10/12 flex flex-col items-center">
+        <h1 className="mb-4 w-full">
+          {currentPage && (
+            <span
+              className="text-red-500 font-bold font-sans
+             w-full text-4xl"
+            >
+              {currentPage.title}
+            </span>
+          )}
+        </h1>
+        <HamburgerServiceMenu />
+        <div className="flex flex-col lg:flex-row lg:justify-between items-center w-full">
           <ServicesLayoutMenu />
 
-          <div className="flex flex-col justify-between items-center">
+          <div className="flex flex-col items-start w-full lg:w-7/12">
             <video
-              className="rounded w-10/12 lg:w-[60vh] xl:w-[70vh] 2xl:w-[80vh] h-auto"
+              className="rounded w-full"
               autoPlay
               controls
               muted
@@ -82,23 +92,24 @@ const ServicesLayout = ({
             >
               <source src="/service/serviceVideo1.mp4" type="video/mp4" />
             </video>
-            <div className="relative bg-gray-900 rounded w-10/12 lg:w-[60vh] xl:w-[70vh] 2xl:w-[80vh] h-auto p-8 mt-8">
+            <div className="relative bg-gray-900 rounded w-full p-8 mt-8 hidden lg:block">
               <Logo />
-              <div className="relative flex justify-center flex-col items-center bg-white text-center rounded mt-8 mb-4">
-                <h3 className="uppercase font-sans text-2xl mt-6 pt-4">
+              <div className="flex flex-col items-center bg-white text-center rounded mt-8 p-4">
+                <h3 className="uppercase text-2xl">
                   Arrive in <span className="text-red-500">style</span>
                 </h3>
-                <p className="font-mono pt-4">
+                <p className="mt-4">
                   Book Your <span className="text-red-500">Limo</span> Today
                 </p>
-                <div className="relative top-8">
+                <div className="mt-6">
                   <BookNowButton>Book Now</BookNowButton>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center gap-10 w-10/12 mt-8 mx-auto">
+
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-20 w-full mt-8">
           {children}
           <FrequentlyAskedQuestions />
         </div>

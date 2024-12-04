@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-interface AccordionProps {
+export interface AccordionProps {
   value: string;
   accordionTrigger: string;
   accordionContent: string;
@@ -64,14 +64,16 @@ const FrequentlyAskedQuestions = () => {
     <Accordion
       type="single"
       collapsible
-      className="font-sans border-none w-full lg:w-5/12"
+      className="font-sans border-none w-full lg:w-5/12 pb-16"
     >
       {accordionArray.map((item, index) => (
-        <AccordionItem value={item.value} key={index}>
-          <AccordionTrigger className="bg-gray-50 mb-2 p-2 rounded">
+        <AccordionItem value={item.value} key={index} className="border-none">
+          <AccordionTrigger className="mb-2 p-2 rounded border shadow bg-white">
             {item.accordionTrigger}
           </AccordionTrigger>
-          <AccordionContent>{item.accordionContent}</AccordionContent>
+          <AccordionContent className="mb-2 p-2 bg-gray-50 rounded">
+            {item.accordionContent}
+          </AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>
