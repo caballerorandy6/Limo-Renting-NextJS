@@ -128,7 +128,7 @@ export const servicesAccordionArray: ServiceAccordionProps[] = [
 
 const ServicesMultipleAccordion = () => {
   return (
-    <div>
+    <>
       {servicesAccordionArray.map((item) => (
         <ServicesSimpleAccordion
           key={item.id}
@@ -137,7 +137,7 @@ const ServicesMultipleAccordion = () => {
           accordionContent={item.accordionContent}
         />
       ))}
-    </div>
+    </>
   );
 };
 

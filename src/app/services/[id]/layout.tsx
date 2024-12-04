@@ -109,9 +109,14 @@ const ServicesLayout = ({
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-20 w-full mt-8">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg: items-start w-full mt-8">
           {children}
-          <FrequentlyAskedQuestions />
+          <div className="font-sans border-none w-full lg:w-5/12 mb-16">
+            <h3 className="mb-2 text-xl font-sans font-semibold text-red-500">
+              Frequently Asked Questions
+            </h3>
+            <FrequentlyAskedQuestions />
+          </div>
         </div>
       </div>
     </>

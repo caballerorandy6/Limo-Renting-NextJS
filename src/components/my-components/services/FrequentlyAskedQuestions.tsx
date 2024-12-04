@@ -64,7 +64,7 @@ const FrequentlyAskedQuestions = () => {
     <Accordion
       type="single"
       collapsible
-      className="font-sans border-none w-full lg:w-5/12 pb-16"
+      className="font-sans border-none w-full mb-16"
     >
       {accordionArray.map((item, index) => (
         <AccordionItem value={item.value} key={index} className="border-none">
