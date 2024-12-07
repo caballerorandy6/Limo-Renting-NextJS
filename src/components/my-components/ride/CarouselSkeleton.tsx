@@ -3,7 +3,6 @@ import Skeleton from "react-loading-skeleton";
 export const CarouselSkeleton = () => {
   return (
     <div className="relative w-full mx-auto">
-      {/* Skeleton for the carousel content */}
       <div className="flex overflow-hidden h-[150px] w-full gap-2">
         {Array.from({ length: 3 }).map((_, index) => (
           <div key={index} className="w-full">
