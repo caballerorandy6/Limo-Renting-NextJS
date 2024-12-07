@@ -21,7 +21,7 @@ const FeaturedVehicles = () => {
           {featuredVehiclesArray.slice(0, 3).map((item) => (
             <Vehicle
               key={item.title}
-              carousel={item.carousel}
+              imagesCarousel={item.imagesCarousel}
               title={item.title}
               carIcon={item.carIcon}
               exterior={item.exterior}

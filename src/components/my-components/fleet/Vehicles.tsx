@@ -4,18 +4,21 @@ import Vehicle from "@/components/my-components/fleet/Vehicle";
 import Car2Icon from "@/components/my-components/icons/Car2Icon";
 import CarSeatIcon from "@/components/my-components/icons/CarSeatIcon";
 import MinibarIcon from "@/components/my-components/icons/MinibarIcon";
-import { Carousel1 } from "@/components/my-components/fleet/Carousel1";
-import { Carousel2 } from "@/components/my-components/fleet/Carousel2";
-import { Carousel3 } from "@/components/my-components/fleet/Carousel3";
-import { Carousel4 } from "@/components/my-components/fleet/Carousel4";
-import { Carousel6 } from "@/components/my-components/fleet/Carousel6";
-import { Carousel11 } from "@/components/my-components/fleet/Carousel11";
-import { Carousel14 } from "@/components/my-components/fleet/Carousel14";
-import { FeaturedVehiclesCardProps } from "@/lib/interfaces";
+import { FeaturedVehiclesCardProps } from "@/components/my-components/fleet/Vehicle";
+import { MyCarousel } from "../global-components/MyCarousel";
+import {
+  featuredVehiclesImages1,
+  featuredVehiclesImages2,
+  featuredVehiclesImages3,
+  featuredVehiclesImages4,
+  featuredVehiclesImages5,
+  featuredVehiclesImages6,
+  featuredVehiclesImages7,
+} from "./carouselArrays";
 
 export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
   {
-    carousel: <Carousel1 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages1} />,
     title: "White 20 Passenger Party Bus",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -27,8 +30,9 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
     features: "Features",
     featuresObject: "LED Minibar",
   },
+
   {
-    carousel: <Carousel2 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages2} />,
     title: "Black 20 Passenger Party Bus",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -40,8 +44,9 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
     features: "Features",
     featuresObject: "Bluetooth Audio",
   },
+
   {
-    carousel: <Carousel3 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages3} />,
     title: "23 Passenger Executive Bus",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -53,8 +58,9 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
     features: "Features",
     featuresObject: "Bluetooth Audio",
   },
+
   {
-    carousel: <Carousel4 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages4} />,
     title: "25 Passenger Party Bus",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -66,8 +72,9 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
     features: "Features",
     featuresObject: "Bluetooth Audio",
   },
+
   {
-    carousel: <Carousel6 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages5} />,
     title: "30 Passenger Party Bus",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -79,8 +86,9 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
     features: "Features",
     featuresObject: "LED Minibar",
   },
+
   {
-    carousel: <Carousel11 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages6} />,
     title: "Mercedes Executive Sprinter",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -92,8 +100,9 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
     features: "Features",
     featuresObject: "Two 40″ HD Smart TV’s",
   },
+
   {
-    carousel: <Carousel14 />,
+    imagesCarousel: <MyCarousel images={featuredVehiclesImages7} />,
     title: "Cadillac Escalade Limo",
     carIcon: <Car2Icon />,
     exterior: "Exterior",
@@ -109,11 +118,11 @@ export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
 
 const Vehicles = () => {
   return (
-    <div className="flex w-10/12 flex-wrap gap-10 justify-center mx-auto mt-10 ">
+    <div className="w-10/12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8 mx-auto">
       {featuredVehiclesArray.map((item, index) => (
         <Vehicle
           key={index}
-          carousel={item.carousel}
+          imagesCarousel={item.imagesCarousel}
           title={item.title}
           carIcon={item.carIcon}
           exterior={item.exterior}

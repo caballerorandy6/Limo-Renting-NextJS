@@ -13,7 +13,9 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 
-import { CarouselProps } from "@/lib/interfaces";
+export interface CarouselProps {
+  images: string[];
+}
 
 export function MyCarousel({ images }: CarouselProps) {
   const plugin = React.useRef(
@@ -23,7 +25,7 @@ export function MyCarousel({ images }: CarouselProps) {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-3/12"
+      className="w-10/12 sm:w-full max-w-xs"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
@@ -35,10 +37,10 @@ export function MyCarousel({ images }: CarouselProps) {
                 <Image
                   src={image}
                   alt={`carousel-image-${index}`}
-                  width={500}
-                  height={500}
+                  width={1000}
+                  height={1000}
                   priority={false}
-                  className="object-cover w-full h-[25vh]"
+                  className="object-cover w-full h-[20vh]"
                 />
               </CardContent>
             </Card>

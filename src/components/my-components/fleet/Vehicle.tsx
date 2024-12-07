@@ -1,8 +1,21 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { FeaturedVehiclesCardProps } from "@/lib/interfaces";
+
+export interface FeaturedVehiclesCardProps {
+  imagesCarousel: React.ReactNode;
+  title: string;
+  carIcon: React.ReactNode;
+  exterior: string;
+  color1: string;
+  carSeatIcon: React.ReactNode;
+  interior: string;
+  color2: string;
+  minibarIcon: React.ReactNode;
+  features: string;
+  featuresObject: string;
+}
 
 const Vehicle = ({
-  carousel,
+  imagesCarousel,
   title,
   carIcon,
   exterior,
@@ -17,16 +30,16 @@ const Vehicle = ({
   return (
     <Card
       key={title}
-      className="bg-white w-10/12 sm:w-full mx-auto md:w-full shadow-md"
+      className="w-full h-[50vh] lg:[45vh] xl:h-[50vh] flex flex-col justify-center items-center"
     >
-      <CardHeader>
-        <div className="flex justify-center">{carousel}</div>
+      <CardHeader className="flex justify-start items-center w-full">
+        <div className="flex justify-center w-full">{imagesCarousel}</div>
         <CardTitle className="font-sans text-xl font-semibold">
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <div>
+      <CardContent className="flex justify-center items-center">
+        <div className="flex flex-col justify-start lg:mb-4">
           <div className="flex items-center gap-2 font-sans mb-2">
             <span>{carIcon}</span>
             <span className=" font-semibold">{`${exterior}:`}</span>

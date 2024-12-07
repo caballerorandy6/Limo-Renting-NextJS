@@ -16,7 +16,7 @@ const Footer = () => {
 
   return (
     <footer id="footer" className="bg-black py-16">
-      <div className="flex flex-col lg:flex-row justify-center items-center">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start">
         <div className="flex flex-col justify-center items-center mb-8 w-4/12">
           <Image
             src="/logo/logo.webp"
@@ -38,7 +38,7 @@ const Footer = () => {
           <QuickLinks />
         </div>
       </div>
-      <Separator className="md:mb-4 my-8 border border-gray-400 w-10/12 md:w-11/12 mx-auto" />
+      <Separator className="md:mb-4 my-8 m border border-gray-400 w-10/12 md:w-11/12 mx-auto" />
       <div className="flex flex-col md:justify-center w-10/12 mx-auto items-center md:flex-row md:gap-8">
         <p className="text-white/80 font-sans text-xs w-10/12 md:w-6/12 text-center">
           © {currentYear()} All Rights Reserved | American Transportation & Limo

@@ -67,7 +67,7 @@ export interface RoundTrip {
 
 //Featured Vehicles Card Props Interface
 export interface FeaturedVehiclesCardProps {
-  carousel: React.ReactNode;
+  imagesCarousel: string[];
   title: string;
   carIcon: React.ReactNode;
   exterior: string;
@@ -162,10 +162,6 @@ export interface VehicleProps {
   description: string;
   pricePerHour: number;
   pricePerMile: number;
-  images: string[];
-}
-
-export interface CarouselProps {
   images: string[];
 }
 

@@ -4,8 +4,19 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Vehicle{
+  id Int @id @default(autoincrement())
+  name String
+  quantityPassengers String
+  quantityBaggage String
+  description String
+  pricePerHour Int
+  pricePerMile Int
+  images String[]
 }
 
 // model Ride{
@@ -27,13 +38,3 @@ datasource db {
 //   returnTime String
 // }
 
-model Vehicle{
-  id Int @id @default(autoincrement())
-  name String
-  quantityPassengers String
-  quantityBaggage String
-  description String
-  pricePerHour Int
-  pricePerMile Int
-  images String[]
-}

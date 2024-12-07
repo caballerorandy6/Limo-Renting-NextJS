@@ -40,7 +40,7 @@ const ContactInfoCard = () => {
   } = contactInfoCardPropsArray[0];
 
   return (
-    <Card className="border-none p-4 flex flex-col w-full">
+    <Card className="border-none p-4 flex flex-col">
       <CardContent className="text-center flex flex-col justify-center items-center">
         <div className="mb-4">
           <h3 className="text-white font-sans font-bold">{phoneNumberTitle}</h3>
