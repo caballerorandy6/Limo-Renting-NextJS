@@ -1,6 +1,10 @@
 import { create } from "zustand";
 
-import { AddStopState } from "@/lib/interfaces";
+export interface AddStopState {
+  stops: string[];
+  addStop: () => void;
+  removeStop: (index: number) => void;
+}
 
 export const useAddStopStore = create<AddStopState>((set) => ({
   stops: [],

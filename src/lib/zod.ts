@@ -72,18 +72,18 @@ export const formSchema = z
   );
 
 //Schema Contact Form
-export const contactSchema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "Name is required and must be at least 2 characters." }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  phone: z
-    .string()
-    .min(10, { message: "Please enter a valid phone number with 10 digits." })
-    .max(10, {
-      message: "Please enter a valid phone number with 10 digits.",
-    }),
-  message: z.string().optional(),
-});
+// export const contactSchema = z.object({
+//   name: z
+//     .string()
+//     .min(2, { message: "Name is required and must be at least 2 characters." }),
+//   email: z.string().email({
+//     message: "Please enter a valid email address.",
+//   }),
+//   phone: z
+//     .string()
+//     .min(10, { message: "Please enter a valid phone number with 10 digits." })
+//     .max(10, {
+//       message: "Please enter a valid phone number with 10 digits.",
+//     }),
+//   message: z.string().optional(),
+// });

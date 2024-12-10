@@ -7,8 +7,30 @@ import PrinterIcon from "@/components/my-components/icons/PrinterIcon";
 import Email2Icon from "@/components/my-components/icons/Email2Icon";
 import AppointmentIcon from "@/components/my-components/icons/AppointmentIcon";
 import Location2Icon from "@/components/my-components/icons/Location2Icon";
-import { ContactInfoProps } from "@/lib/interfaces";
 
+//Contact Info Props Interface
+export interface ContactInfoProps {
+  phoneIcon: JSX.Element;
+  phone: string;
+  phoneNumber: string;
+  toolFreeIcon: React.ReactNode;
+  tollFree: string;
+  tollFreeNumber: string;
+  faxIcon: React.ReactNode;
+  fax: string;
+  faxNumber: string;
+  emailIcon: React.ReactNode;
+  email: string;
+  emailAddress: string;
+  emailReservationsIcon: React.ReactNode;
+  emailReservations: string;
+  emailAddressReservations: string;
+  locationIcon: React.ReactNode;
+  location: string;
+  locationAddress: string;
+}
+
+//Contact Info Array
 const contactInfoArray: ContactInfoProps[] = [
   {
     phoneIcon: <Phone2Icon />,
@@ -34,84 +56,96 @@ const contactInfoArray: ContactInfoProps[] = [
 
 const ContactInfo = () => {
   return (
-    <div className="flex gap-10 w-8/12 pt-16 mx-auto">
-      <div className="w-6/12">
+    <div className="w-10/12 mx-auto flex flex-col lg:flex-row justify-between gap-10 mt-16">
+      <div className="w-full md:w-10/12 lg:w-6/12 mx-auto">
         <Heading3>Contact Info</Heading3>
         {contactInfoArray.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col gap-4 font-sans mt-6 border shadow-md rounded p-8"
+            className="flex flex-col gap-4 font-sans mt-6 border shadow-md rounded p-4 w-full"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.phoneIcon}
-              <span>{item.phone}:</span>
-              <Link
-                href={`tel:${item.phoneNumber}`}
-                target="_blank"
-                className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-              >
-                {item.phoneNumber}
-              </Link>
+              <div>
+                <span>{item.phone}: </span>
+                <Link
+                  href={`tel:${item.phoneNumber}`}
+                  target="_blank"
+                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
+                >
+                  {item.phoneNumber}
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.toolFreeIcon}
-              <span>{item.tollFree}:</span>
-              <Link
-                href={`tel:${item.tollFreeNumber}`}
-                target="_blank"
-                className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-              >
-                {item.tollFreeNumber}
-              </Link>
+              <div>
+                <span>{item.tollFree}: </span>
+                <Link
+                  href={`tel:${item.tollFreeNumber}`}
+                  target="_blank"
+                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
+                >
+                  {item.tollFreeNumber}
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.faxIcon}
-              <span>{item.fax}:</span>
-              <Link
-                href={`fax:${item.faxNumber}`}
-                target="_blank"
-                passHref
-                legacyBehavior
-              >
-                {item.faxNumber}
-              </Link>
+              <div>
+                <span>{item.fax}: </span>
+                <Link
+                  href={`fax:${item.faxNumber}`}
+                  target="_blank"
+                  passHref
+                  legacyBehavior
+                >
+                  {item.faxNumber}
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.emailIcon}
-              <span>{item.email}:</span>
-              <Link
-                href={`mailto:${item.emailAddress}`}
-                className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-              >
-                {item.emailAddress}
-              </Link>
+              <div>
+                <span>{item.email}: </span>
+                <Link
+                  href={`mailto:${item.emailAddress}`}
+                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
+                >
+                  {item.emailAddress}
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.emailReservationsIcon}
-              <span>{item.emailReservations}:</span>
-              <Link
-                href={`mailto:${item.emailAddressReservations}`}
-                className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-              >
-                {item.emailAddressReservations}
-              </Link>
+              <div className="flex flex-col text-center md:flex-row md:gap-1">
+                <span>{item.emailReservations}: </span>
+                <Link
+                  href={`mailto:${item.emailAddressReservations}`}
+                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
+                >
+                  {item.emailAddressReservations}
+                </Link>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.locationIcon}
-              <span>{item.location}:</span>
-              <Link
-                href="https://maps.app.goo.gl/ejSP2wDqsKd3dYxj8"
-                target="_blank"
-                className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-              >
-                {item.locationAddress}
-              </Link>
+              <div>
+                <span>{item.location}: </span>
+                <Link
+                  href="https://maps.app.goo.gl/ejSP2wDqsKd3dYxj8"
+                  target="_blank"
+                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
+                >
+                  {item.locationAddress}
+                </Link>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="w-6/12">
+      <div className="w-full md:w-10/12 lg:w-5/12 mx-auto">
         <Heading3>Have Questions?</Heading3>
         <ContactForm />
       </div>
