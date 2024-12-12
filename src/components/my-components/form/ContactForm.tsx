@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useContactEmailStore } from "@/store/contactEmailStore";
 import { ContactEmailProps } from "@/store/contactEmailStore";
+import { useSendingEmailButtonStore } from "@/store/sendingEmailButtonStore";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,7 @@ import { contactSchema } from "@/store/contactEmailStore";
 
 const ContactForm = () => {
   const { setContactEmail, contactEmail } = useContactEmailStore();
+  const { buttonText, setButtonText } = useSendingEmailButtonStore();
 
   const form = useForm({
     resolver: zodResolver(contactSchema),
@@ -26,9 +28,10 @@ const ContactForm = () => {
 
   // Submit handler. Sending data to the backend
   const onSubmit: SubmitHandler<ContactEmailProps> = async (data) => {
+    setButtonText("Sending...");
     setContactEmail(data);
-    console.log(data);
-    form.reset();
+    //console.log(data);
+
     // Sending data to the backend
     const response = await fetch("/api/send", {
       method: "POST",
@@ -41,6 +44,10 @@ const ContactForm = () => {
     // Getting the response data
     const responseData = await response.json();
     console.log(responseData);
+
+    // Reset the form
+    form.reset();
+    setButtonText("Send Message");
   };
 
   return (
@@ -128,11 +135,14 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Submit Button */}
         <Button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 rounded text-white uppercase font-mono w-full mx-auto"
+          className="
+          bg-blue-500 text-white cursor-pointer rounded uppercase font-mono w-full mx-auto transition-colors hover:bg-blue-600"
         >
-          Send Message
+          {buttonText}
         </Button>
       </form>
     </Form>
