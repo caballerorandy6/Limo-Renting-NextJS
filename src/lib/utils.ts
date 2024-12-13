@@ -1,7 +1,6 @@
 "use client";
 
 import { clsx, type ClassValue } from "clsx";
-
 import { twMerge } from "tailwind-merge";
 import { MenuArray, WhyChooseUsCircleProps, PoiProps } from "@/lib/interfaces";
 
@@ -14,6 +13,17 @@ export const generateRangeUpto50 = () =>
   Array.from({ length: 50 }, (_, i) => i + 1)
     .toString()
     .split(",");
+
+export const toastDate = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Chicago",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: false,
+}).format(new Date());
 
 //Arrays
 export const pickUpTimeArray = [

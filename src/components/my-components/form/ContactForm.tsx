@@ -15,11 +15,15 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+
 import { contactSchema } from "@/store/contactEmailStore";
+import { useToast } from "@/hooks/use-toast";
+import { toastDate } from "@/lib/utils";
 
 const ContactForm = () => {
   const { setContactEmail, contactEmail } = useContactEmailStore();
   const { buttonText, setButtonText } = useSendingEmailButtonStore();
+  const { toast } = useToast();
 
   const form = useForm({
     resolver: zodResolver(contactSchema),
@@ -47,6 +51,15 @@ const ContactForm = () => {
 
     // Reset the form
     form.reset();
+
+    //Toast
+    toast({
+      title: "Your Message has been sent.",
+      description: toastDate,
+      duration: 5000,
+      variant: "custom",
+    });
+
     setButtonText("Send Message");
   };
 
