@@ -54,7 +54,7 @@ const AboutUs = () => {
             five-star reviews of our company at Yelp, Google, and Facebook.
           </p>
           <div className="flex justify-start gap-4 items-center mt-4">
-            <Card className="w-[18vh] shadow-xl">
+            <Card className="w-[18vh] shadow-md rounded-none">
               <CardContent className="flex flex-col justify-center items-center pt-4 font-sans font-bold gap-2">
                 <IncrementNumber />
                 <span>Years</span>

@@ -1,5 +1,5 @@
 import { APIProvider } from "@vis.gl/react-google-maps";
-import MyMap from "@/components/my-components/global-components/MyMap";
+import MyMap from "@/components/my-components/contact/ContactMyMap";
 
 const ContactMap = () => {
   const myApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;

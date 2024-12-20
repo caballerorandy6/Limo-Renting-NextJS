@@ -34,7 +34,7 @@ const ServicesSimpleAccordion = ({
         key={id}
         className="flex flex-col w-full border-none"
       >
-        <AccordionTrigger className="mb-2 p-2 rounded border shadow bg-white">
+        <AccordionTrigger className="mb-2 p-2 border shadow-md bg-white  rounded-none">
           {accordionTrigger}
         </AccordionTrigger>
         <AccordionContent>

@@ -1,16 +1,21 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/my-components/header/Header";
 import Footer from "@/components/my-components/footer/Footer";
 import { Toaster } from "@/components/ui/toaster";
-
+import Head from "next/head";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
-  title: "Miami Limo and Car Service",
+  title: "Car Services in Miami - Chauffeured Car, Limo & Bus Services",
   description:
-    "Miami Limo & Car Service, Online Reservations, Airport Transfers, Corporate Events, Weddings, Proms, and more.",
+    "Top-Rated Car Services in Miami. Affordable and reliable limo services for all occasions. Enjoy luxurious & comfortable rides with our professional chauffeurs.",
+  openGraph: {
+    title: "Car Services in Miami",
+    description:
+      "Top-Rated Car Services in Miami. Affordable and reliable limo services.",
+  },
 };
 
 export default function RootLayout({

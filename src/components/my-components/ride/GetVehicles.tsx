@@ -1,7 +1,10 @@
+"use client";
+
+import Link from "next/link";
 import { MyCarousel } from "../global-components/MyCarousel";
 import PassengersIcon from "../icons/PassengersIcon";
 import BriefcaseIcon from "../icons/BriefcaseIcon";
-import { prisma } from "@/lib/prisma";
+//import { prisma } from "@/lib/prisma";
 import {
   Card,
   CardHeader,
@@ -10,19 +13,12 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import RideInfoButton from "../buttons/RideInfoButton";
-import Link from "next/link";
+import { vehicles } from "../fleet/vehiclesArray";
 
-export const getVehicles = async () => await prisma.vehicle.findMany();
+//const getVehicles = async () => await prisma.vehicle.findMany();
 
-const GetVehicles = async () => {
-  const vehicles = await getVehicles();
-
-  const costRide = (
-    miles: number,
-    pricePerMile: number,
-    hours: number,
-    pricePerHour: number
-  ) => miles * pricePerMile + hours * pricePerHour;
+const GetVehicles = () => {
+  //const vehicles = await getVehicles();
 
   return (
     <div className="w-10/12 mx-auto flex flex-col justify-center items-center mb-16">
@@ -61,12 +57,12 @@ const GetVehicles = async () => {
                   <CardHeader>
                     <CardTitle className="text-3xl font-sans font-bold text-center">
                       $
-                      {costRide(
+                      {/* {calculateCost(
                         1,
                         vehicle.pricePerMile,
                         1,
                         vehicle.pricePerHour
-                      )}
+                      )} */}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>

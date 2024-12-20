@@ -1,4 +1,4 @@
-import { vehicles } from "./data/vehicles";
+import { vehicles } from "../src/components/my-components/fleet/vehiclesArray";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();

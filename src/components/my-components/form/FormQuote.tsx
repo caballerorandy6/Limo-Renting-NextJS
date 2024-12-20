@@ -66,19 +66,22 @@ import CalendarIcon from "../icons/CalendarIcon";
 //Other
 import { format } from "date-fns";
 
-//Init Google Maps Autocomplete
+// Google Maps Autocomplete Initialization
 const initAutocomplete = (
   inputId: string,
   callback: (place: google.maps.places.PlaceResult) => void
 ) => {
-  const autocomplete = new google.maps.places.Autocomplete(
-    document.getElementById(inputId) as HTMLInputElement,
-    {
-      types: ["geocode"],
-      componentRestrictions: { country: "us" },
-      fields: ["formatted_address", "geometry", "name", "place_id"],
-    }
-  );
+  const inputElement = document.getElementById(
+    inputId
+  ) as HTMLInputElement | null;
+  if (!inputElement) return;
+
+  const autocomplete = new google.maps.places.Autocomplete(inputElement, {
+    types: ["geocode"],
+    componentRestrictions: { country: "us" },
+    fields: ["formatted_address", "geometry"],
+  });
+
   autocomplete.addListener("place_changed", () => {
     const place = autocomplete.getPlace();
     callback(place);
@@ -87,9 +90,10 @@ const initAutocomplete = (
 
 const FormQuote = () => {
   const { stops, addStop, removeStop } = useAddStopStore();
-  //const { countries, fetchCountries } = useNameAndFlagStore();
-  const { setRide } = useRideInfoStore();
+  const { setRide, distance, duration, setDistance, setDuration, ride } =
+    useRideInfoStore();
   const router = useRouter();
+
   // Use Refs for Google Maps Autocomplete
   const pickUpRef = useRef<HTMLInputElement | null>(null);
   const dropOffRef = useRef<HTMLInputElement | null>(null);
@@ -109,7 +113,6 @@ const FormQuote = () => {
       lastName: "",
       emailAddress: "",
       phoneNumber: "",
-      //countries: [],
       messageData: false,
       roundTrip: false,
       returnDate: undefined,
@@ -145,19 +148,40 @@ const FormQuote = () => {
   }, [form]);
 
   //  Sync stops with form values
+
   useEffect(() => {
     form.setValue("stops", stops);
   }, [stops, form]);
 
   // Form submit
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    const { pickUpLocation, dropOffLocation, stops } = data;
+    setRide(data);
+    console.log(ride);
+
     try {
-      setRide(data);
+      const response = await fetch(
+        `/api/distance-duration?origins=${encodeURIComponent(
+          pickUpLocation
+        )}&destinations=${encodeURIComponent(
+          dropOffLocation
+        )}&stops=${encodeURIComponent(stops.join(","))}`,
+        { method: "GET" }
+      );
+
+      if (!response.ok) {
+        throw new Error("Error al calcular la distancia");
+      }
+
+      const data = await response.json();
+      setDistance(data.distance);
+      setDuration(data.duration);
+      console.log(distance, duration);
       form.reset();
       router.push("/ride");
-      console.log(data);
     } catch (error) {
-      console.log(error);
+      console.error("Error:", error);
+      alert("Hubo un problema al calcular la distancia.");
     }
   };
 
@@ -549,41 +573,3 @@ const FormQuote = () => {
 };
 
 export default FormQuote;
-
-// useEffect(() => {
-//   fetchCountries();
-// }, [fetchCountries]);
-
-{
-  /* <div className="flex items-center justify-center"> */
-}
-{
-  /* Flag and Name - Select
-            <FormField
-              control={form.control}
-              name="countries"
-              render={({ field }) => (
-                <FormItem className="w-2/12">
-                  <Select onValueChange={field.onChange} value={field.value[0]}>
-                    <FormControl className="hover:bg-gray-200 transition-colors">
-                      <SelectTrigger className="font-mono text-gray-500">
-                        <SelectValue placeholder="Country telephone prefix is ​​required" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {countries.map((country) => (
-                        <SelectItem
-                          key={country?.flag}
-                          value={`${country?.name?.common} ${country?.flag}`}
-                          className="flex items-center justify-center font-mono cursor-pointer  hover:border hover:border-gray-500 hover:rounded"
-                        >
-                          {`${country.name?.common} ${country.flag}`}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className="text-red-400" />
-                </FormItem>
-              )}
-            /> */
-}

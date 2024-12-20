@@ -2,6 +2,7 @@
 
 import { useRideInfoStore } from "@/store/rideInfoStore";
 import { Separator } from "@/components/ui/separator";
+import { dateModified } from "@/lib/utils";
 
 const SelectRide = () => {
   const { ride } = useRideInfoStore();
@@ -47,9 +48,9 @@ const SelectRide = () => {
                 <p className="uppercase font-mono pb-2 font-bold">
                   Date:{" "}
                   <span className="normal-case font-normal">
-                    {`${
-                      ride.pickUpTime
-                    } on ${ride.dateOfService?.toLocaleDateString("en-US")}`}
+                    {`${ride.pickUpTime} on ${dateModified(
+                      ride.dateOfService
+                    )}`}
                   </span>
                 </p>
                 <p className="uppercase font-mono pb-2 font-bold">

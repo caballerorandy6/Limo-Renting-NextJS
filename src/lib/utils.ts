@@ -4,7 +4,6 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { MenuArray, WhyChooseUsCircleProps, PoiProps } from "@/lib/interfaces";
 
-//functions
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -24,6 +23,11 @@ export const toastDate = new Intl.DateTimeFormat("en-US", {
   second: "2-digit",
   hour12: false,
 }).format(new Date());
+
+export function dateModified(date: Date) {
+  const newDate = new Date(date);
+  return newDate.toLocaleDateString("en-US");
+}
 
 //Arrays
 export const pickUpTimeArray = [

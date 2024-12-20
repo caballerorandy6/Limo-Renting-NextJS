@@ -67,7 +67,7 @@ const ContactForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="border shadow-md rounded p-4 mt-6 font-sans w-full"
+        className="border shadow-md p-4 mt-6 font-sans w-full"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Name Field */}

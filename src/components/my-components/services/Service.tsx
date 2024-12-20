@@ -39,14 +39,15 @@ const Service = ({
   return (
     <Card
       key={title}
-      className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[50vh] lg:h-[45vh] relative flex justify-center items-center"
+      className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[50vh] lg:h-[45vh] relative flex justify-center items-center rounded-none"
     >
       <Image
         src={image || "/defaultImage/imageNotAvailable.webp"}
         alt={title}
         width={1000}
         height={1000}
-        className="object-cover w-full h-full relative mix-blend-overlay bg-gradient-to-tr from-gray-600 to-gray-800 rounded-xl"
+        priority={false}
+        className="object-cover w-full h-full relative mix-blend-overlay bg-gradient-to-tr from-gray-600 to-gray-800"
       />
       <div className="absolute">
         <CardHeader className="flex justify-start items-center gap-6">

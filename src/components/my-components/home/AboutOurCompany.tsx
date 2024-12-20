@@ -35,7 +35,7 @@ const AboutOurCompany = () => {
           priority={false}
           className="relative object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-80 left-64 rounded-br-3xl"
         />
-        <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 justify-center items-center hidden xl:flex">
+        <Card className="relative left-20 top-10 bg-red-600 border-none h-[20vh] w-[20vh] p-2 justify-center items-center hidden xl:flex rounded-none">
           <CardHeader>
             <CardDescription className="mx-auto">
               <IncrementNumberHome />
@@ -75,7 +75,7 @@ const AboutOurCompany = () => {
           </p>
           <div className="flex items-center justify-center w-full">
             <video
-              className="object-cover w-full h-[40vh] lg:h-[30vh] xl:h-[34vh] flex items-center justify-center rounded-xl"
+              className="object-cover w-full h-[40vh] lg:h-[30vh] xl:h-[34vh] flex items-center justify-center"
               src="/aboutOurCompany/aboutOurCompany.mp4"
               autoPlay
               muted

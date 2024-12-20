@@ -17,7 +17,7 @@ const FeaturedVehicles = () => {
             <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
           </div>
         </div>
-        <div className="w-full sm:gap-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8  mx-auto justify-center">
+        <div className="w-full sm:gap-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8 mx-auto justify-center">
           {featuredVehiclesArray.slice(0, 3).map((item) => (
             <Vehicle
               key={item.title}

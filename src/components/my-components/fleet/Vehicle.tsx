@@ -30,7 +30,7 @@ const Vehicle = ({
   return (
     <Card
       key={title}
-      className="w-full h-[50vh] lg:[45vh] xl:h-[50vh] flex flex-col justify-center items-center"
+      className="w-full h-[50vh] lg:[45vh] xl:h-[50vh] flex flex-col justify-center items-center rounded-none bg-white shadow-md"
     >
       <CardHeader className="flex justify-start items-center w-full">
         <div className="flex justify-center w-full">{imagesCarousel}</div>

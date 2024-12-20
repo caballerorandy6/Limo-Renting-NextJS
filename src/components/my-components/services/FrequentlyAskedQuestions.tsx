@@ -68,7 +68,7 @@ const FrequentlyAskedQuestions = () => {
     >
       {accordionArray.map((item, index) => (
         <AccordionItem value={item.value} key={index} className="border-none">
-          <AccordionTrigger className="mb-2 p-2 rounded border shadow bg-white">
+          <AccordionTrigger className="mb-2 p-2 border shadow-md bg-white">
             {item.accordionTrigger}
           </AccordionTrigger>
           <AccordionContent className="mb-2 p-2 bg-gray-50 rounded">

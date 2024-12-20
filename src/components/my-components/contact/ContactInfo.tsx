@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ContactForm from "@/components/my-components/form/ContactForm";
+import ContactForm from "@/components/my-components/contact/ContactForm";
 import Heading3 from "@/components/my-components/global-components/Heading3";
 import Phone2Icon from "@/components/my-components/icons/Phone2Icon";
 import HeadPhoneIcon from "@/components/my-components/icons/HeadPhoneIcon";
@@ -62,7 +62,7 @@ const ContactInfo = () => {
         {contactInfoArray.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col gap-4 font-sans mt-6 border shadow-md rounded p-4 w-full"
+            className="flex flex-col gap-4 font-sans mt-6 border shadow-md p-4 w-full"
           >
             <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
               {item.phoneIcon}
