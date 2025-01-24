@@ -106,9 +106,11 @@ const SelectRide = () => {
                     <p className="uppercase font-mono pb-2 font-bold">
                       Date:{" "}
                       <span className="normal-case font-normal">
-                        {`${ride.returnTime} on ${dateModified(
+                        {`${ride.returnTime} on ${
                           ride.returnDate
-                        )}`}
+                            ? dateModified(ride.returnDate)
+                            : "N/A"
+                        }`}
                       </span>
                     </p>
                     <p className="uppercase font-mono pb-2 font-bold">
