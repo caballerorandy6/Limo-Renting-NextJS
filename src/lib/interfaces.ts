@@ -22,11 +22,6 @@ export interface CountryStore {
   fetchCountries: () => Promise<void>;
 }
 
-//Info Layout Props Interface
-export interface InfoLayoutProps {
-  children: React.ReactNode;
-}
-
 //Round Trip Interface
 export interface RoundTrip {
   roundTrip: boolean;

@@ -2,12 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { InfoLayoutProps } from "@/lib/interfaces";
+import { usePathname } from "next/navigation";
+
+//Custom Components
 import ChevronRightIcon from "@/components/my-components/icons/ChevronRightIcon";
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
-import { usePathname } from "next/navigation";
-import { menuArray } from "@/lib/utils";
 import Footer from "@/components/my-components/footer/Footer";
+
+//Libs
+import { menuArray } from "@/lib/utils";
+
+//Interfaces
+import { InfoLayoutProps } from "@/app/info/interfaces";
 
 const InfoLayout = ({ children }: InfoLayoutProps) => {
   const pathname = usePathname();

@@ -233,7 +233,10 @@ const FormQuote = () => {
           <div className="flex justify-center items-center my-2">
             <Button
               type="button"
-              onClick={addStop}
+              onClick={() => {
+                addStop();
+                form.setValue(`stops.${stops.length}`, "");
+              }}
               variant="outline"
               className="text-blue-500 hover:text-blue-700 border-none uppercase font-sans font-bold"
             >
@@ -244,7 +247,7 @@ const FormQuote = () => {
           {/* Stops - Input */}
           {stops.map((_, index) => (
             <FormField
-              key={index}
+              key={`stop-${index}`}
               control={form.control}
               name={`stops.${index}`}
               render={({ field }) => (
@@ -257,7 +260,7 @@ const FormQuote = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      id={`stop-${index}`} // ID único para cada input
+                      id={`stop-${index}`}
                       type="text"
                       placeholder="Enter address, point of interest, or airport code"
                       className="block w-full p-1 rounded text-sm pr-10"
@@ -270,6 +273,7 @@ const FormQuote = () => {
                     onClick={() => removeStop(index)}
                     variant={"outline"}
                     className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center border-none"
+                    aria-label={`Remove stop ${index + 1}`}
                   >
                     <CloseIcon />
                   </Button>

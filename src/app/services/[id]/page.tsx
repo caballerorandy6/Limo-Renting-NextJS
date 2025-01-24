@@ -1,13 +1,16 @@
 "use client";
 
 import Image from "next/image";
+
+//Custom Components
 import { services } from "@/components/my-components/services/Services";
-import { servicesAccordionArray } from "@/components/my-components/services/ServicesMultipleAccordion";
 import ServicesSimpleAccordion from "@/components/my-components/services/ServicesSimpleAccordion";
 
-interface ServiceDetailsProps {
-  params: { id: string };
-}
+//Arrays
+import { servicesAccordionArray } from "@/components/my-components/services/ServicesMultipleAccordion";
+
+//Interfaces
+import { ServiceDetailsProps } from "@/app/services/[id]/interfaces";
 
 const ServiceDetails = ({ params }: ServiceDetailsProps) => {
   // Encontrar el servicio basado en el ID

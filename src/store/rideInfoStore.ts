@@ -1,29 +1,10 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-
-export interface RideInfo {
-  rideId: string;
-  pickUpLocation: string;
-  stops: string[];
-  dropOffLocation: string;
-  dateOfService: Date;
-  pickUpTime: string;
-  typeOfService: string;
-  passengers: string;
-  firstName: string;
-  lastName: string;
-  emailAddress: string;
-  phoneNumber: string;
-  countries: string[];
-  messageData: boolean;
-  roundTrip: boolean;
-  returnDate: Date;
-  returnTime: string;
-}
+import { FormData } from "@/components/my-components/form/interfaces";
 
 export interface RideState {
-  ride: RideInfo;
-  setRide: (ride: Partial<RideInfo>) => void;
+  ride: FormData;
+  setRide: (ride: Partial<FormData>) => void;
   distance: number;
   setDistance: (distance: number) => void;
   duration: number;
@@ -52,7 +33,7 @@ export const useRideInfoStore = create<RideState>()(
         returnDate: new Date(),
         returnTime: "",
       },
-      setRide: (ride: Partial<RideInfo>) =>
+      setRide: (ride: Partial<FormData>) =>
         set((state) => ({
           ride: { ...state.ride, ...ride },
         })),

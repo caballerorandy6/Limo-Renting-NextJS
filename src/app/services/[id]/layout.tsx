@@ -34,8 +34,8 @@ const ServicesLayout = ({
           priority
           className="w-full h-full object-cover absolute mix-blend-overlay"
         />
-        <div className="relative flex flex-col items-center justify-center h-full pt-16">
-          <div className="flex items-center gap-4 mb-4">
+        <div className="pt-60 relative">
+          <div className="flex justify-center items-center gap-4 pt-10">
             <Link
               href="/"
               className="text-white uppercase font-bold font-sans underline hover:text-red-500 transition-colors"
@@ -54,12 +54,14 @@ const ServicesLayout = ({
             <ChevronRightIcon />
 
             {currentPage && (
-              <span className="text-red-500 font-bold text-lg">
+              <span className="text-red-500 font-sans font-bold text-lg rounded">
                 {currentPage.title}
               </span>
             )}
           </div>
-          <BookNowButton>Book Now</BookNowButton>
+          <div className="flex justify-center items-center mt-6">
+            <BookNowButton>Book Now</BookNowButton>
+          </div>
         </div>
       </div>
 
