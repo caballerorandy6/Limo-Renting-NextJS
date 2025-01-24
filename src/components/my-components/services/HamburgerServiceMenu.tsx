@@ -1,6 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+
+//libs
+import { cn } from "@/lib/utils";
+
+//Shadcn Components
 import {
   Sheet,
   SheetTrigger,
@@ -14,13 +21,12 @@ import {
   NavigationMenuList,
   NavigationMenuItem,
 } from "@/components/ui/navigation-menu";
-import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { services } from "./Services";
-import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+
+//My Components
+import { services } from "@/components/my-components/services/Services";
 import SocialMenu from "@/components/my-components/nav/SocialMenu";
 import OpenFolderIcon from "@/components/my-components/icons/OpenFolderIcon";
 

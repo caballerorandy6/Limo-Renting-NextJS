@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import Heading from "@/components/my-components/global-components/Heading";
+
+//Shadcn Components
 import {
   Card,
   CardContent,
   CardHeader,
   CardDescription,
 } from "@/components/ui/card";
-import LearnMoreButton from "../buttons/LearnMoreButton";
+
+//Custom Components
+import LearnMoreButton from "@/components/my-components/buttons/LearnMoreButton";
 import IncrementNumberHome from "@/components/my-components/home/IncrementNumberHome";
-import Heading3 from "../global-components/Heading3";
+import Heading3 from "@/components/my-components/global-components/Heading3";
+import Heading from "@/components/my-components/global-components/Heading";
 
 const AboutOurCompany = () => {
   return (

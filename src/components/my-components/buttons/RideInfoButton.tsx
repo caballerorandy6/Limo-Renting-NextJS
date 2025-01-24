@@ -1,8 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+
+//Shadcn Components
 import { Button } from "@/components/ui/button";
-import { ButtonProps } from "react-day-picker";
+
+//Interfaces
+import { ButtonProps } from "@/components/my-components/buttons/interfaces";
 
 const RideInfoButton = ({ children }: ButtonProps) => {
   const router = useRouter();

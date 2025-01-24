@@ -1,8 +1,9 @@
 "use client";
 
-import * as React from "react";
 import Link from "next/link";
-import { ContactEmailProps } from "@/store/contactEmailStore";
+
+// Interfaces
+import { ContactEmailProps } from "@/components/my-components/contact/interfaces";
 
 const EmailTemplate: React.FC<Readonly<ContactEmailProps>> = ({
   name,

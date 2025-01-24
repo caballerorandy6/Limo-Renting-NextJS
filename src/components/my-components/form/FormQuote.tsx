@@ -10,7 +10,7 @@ import { useEffect, useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 //Interfaces
-import { FormData } from "@/lib/interfaces";
+import { FormData } from "@/components/my-components/form/interfaces";
 
 //Zod
 import { formSchema } from "@/lib/zod";
@@ -21,7 +21,7 @@ import { useAddStopStore } from "@/store/addStopStore";
 //import { useNameAndFlagStore } from "@/store/nameAndFlagStore";
 import { useRideInfoStore } from "@/store/rideInfoStore";
 
-// Components
+//Shadcn Components
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,8 +47,13 @@ import {
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { Checkbox } from "@/components/ui/checkbox";
+
+//Custom Components
 import InputField from "@/components/my-components/form/InputField";
 import CheckboxField from "@/components/my-components/form/CheckBoxField";
+import LocationIcon from "@/components/my-components/icons/LocationIcon";
+import CloseIcon from "@/components/my-components/icons/CloseIcon";
+import CalendarIcon from "@/components/my-components/icons/CalendarIcon";
 
 //Utils
 import {
@@ -58,13 +63,9 @@ import {
   typeOfServiceArray,
 } from "@/lib/utils";
 
-//Icons
-import LocationIcon from "../icons/LocationIcon";
-import CloseIcon from "../icons/CloseIcon";
-import CalendarIcon from "../icons/CalendarIcon";
-
 //Other
 import { format } from "date-fns";
+import Script from "next/script";
 
 // Google Maps Autocomplete Initialization
 const initAutocomplete = (
@@ -103,7 +104,7 @@ const FormQuote = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       pickUpLocation: "",
-      stops: [],
+      stops: [""],
       dropOffLocation: "",
       dateOfService: undefined,
       pickUpTime: "",
@@ -132,6 +133,7 @@ const FormQuote = () => {
             form.setValue("pickUpLocation", place.formatted_address || "");
           });
         }
+
         if (dropOffRef.current) {
           initAutocomplete("dropOffLocation", (place) => {
             form.setValue("dropOffLocation", place.formatted_address || "");
@@ -139,7 +141,7 @@ const FormQuote = () => {
         }
       } else {
         // Retry after a short delay if Google Maps isn't available
-        setTimeout(checkGoogleMaps, 100);
+        setTimeout(checkGoogleMaps, 200);
       }
     };
 
@@ -148,16 +150,25 @@ const FormQuote = () => {
   }, [form]);
 
   //  Sync stops with form values
-
   useEffect(() => {
-    form.setValue("stops", stops);
+    stops.forEach((_, index) => {
+      const stopId = `stop-${index}`; // Generar ID único para cada input
+      const stopElement = document.getElementById(
+        stopId
+      ) as HTMLInputElement | null;
+
+      if (stopElement) {
+        initAutocomplete(stopId, (place) => {
+          form.setValue(`stops.${index}`, place.formatted_address || "");
+        });
+      }
+    });
   }, [stops, form]);
 
   // Form submit
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     const { pickUpLocation, dropOffLocation, stops } = data;
     setRide(data);
-    console.log(ride);
 
     try {
       const response = await fetch(
@@ -176,22 +187,30 @@ const FormQuote = () => {
       const data = await response.json();
       setDistance(data.distance);
       setDuration(data.duration);
-      console.log(distance, duration);
+      console.log({
+        distance,
+        duration,
+        ride,
+        stops,
+        pickUpLocation,
+        dropOffLocation,
+      });
       form.reset();
       router.push("/ride");
     } catch (error) {
       console.error("Error:", error);
-      alert("Hubo un problema al calcular la distancia.");
+      alert("There was a problem calculating the distance.");
     }
   };
 
   return (
     <>
-      <script
+      <Script
+        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
         async
         defer
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
-      ></script>
+        strategy="lazyOnload"
+      />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -228,7 +247,6 @@ const FormQuote = () => {
               key={index}
               control={form.control}
               name={`stops.${index}`}
-              defaultValue="" //Initial value for the input
               render={({ field }) => (
                 <FormItem className="relative mb-2">
                   <FormLabel
@@ -239,20 +257,19 @@ const FormQuote = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      id={`stops.${index}`}
+                      id={`stop-${index}`} // ID único para cada input
                       type="text"
                       placeholder="Enter address, point of interest, or airport code"
-                      className="block w-full p-1 rounded text-sm"
+                      className="block w-full p-1 rounded text-sm pr-10"
                       {...field}
                     />
                   </FormControl>
                   <FormMessage className="text-red-400" />
-
                   <Button
                     type="button"
                     onClick={() => removeStop(index)}
                     variant={"outline"}
-                    className="absolute inset-y-0 right-0 flex items-center border-none"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center border-none"
                   >
                     <CloseIcon />
                   </Button>
@@ -260,6 +277,7 @@ const FormQuote = () => {
               )}
             />
           ))}
+
           {/* Drop Off Location - Input */}
           <InputField
             name="dropOffLocation"

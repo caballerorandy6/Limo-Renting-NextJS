@@ -4,8 +4,12 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { AdvancedMarker, useMap } from "@vis.gl/react-google-maps";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import type { Marker } from "@googlemaps/markerclusterer";
+
+//Custom Components
 import MyPin from "@/components/my-components/contact/ContactPin";
 import { Circle } from "@/components/my-components/global-components/Circle";
+
+//Libs
 import { locations } from "@/lib/utils";
 
 const PoiMarkers = () => {

@@ -1,15 +1,13 @@
 import Link from "next/link";
+
+//Custom Components
 import InstagramIcon from "@/components/my-components/icons/InstagramIcon";
 import FacebookIcon from "@/components/my-components/icons/FacebookIcon";
 import YelpIcon from "@/components/my-components/icons/YelpIcon";
 import YoutubeIcon from "@/components/my-components/icons/YoutubeIcon";
 
-export interface SocialLink {
-  id: string;
-  icon: React.ReactNode;
-  name: string;
-  href: string;
-}
+//Interfaces
+import { SocialLink } from "@/components/my-components/nav/interfaces";
 
 export const socialLinks: SocialLink[] = [
   {

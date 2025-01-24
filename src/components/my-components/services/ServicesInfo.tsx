@@ -1,5 +1,8 @@
+//Custom Components
 import Heading from "@/components/my-components/global-components/Heading";
 import Heading3 from "@/components/my-components/global-components/Heading3";
+
+//Shadcn Components
 import { Card, CardContent } from "@/components/ui/card";
 
 const ServicesInfo = () => {

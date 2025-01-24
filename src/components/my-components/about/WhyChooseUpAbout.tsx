@@ -1,8 +1,13 @@
 import Image from "next/image";
-import Heading from "../global-components/Heading";
-import CheckIcon from "@/components/my-components/icons/CheckIcon";
-import { AboutListProps } from "@/lib/interfaces";
 
+// Custom Components
+import Heading from "@/components/my-components/global-components/Heading";
+import CheckIcon from "@/components/my-components/icons/CheckIcon";
+
+// Interfaces
+import { AboutListProps } from "@/components/my-components/about/interfaces";
+
+// Data
 const whyChooseAboutArray: AboutListProps[] = [
   { title: "30+ Years of Experience", icon: <CheckIcon /> },
   { title: "500+ 5-Star Reviews", icon: <CheckIcon /> },

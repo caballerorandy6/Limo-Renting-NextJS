@@ -2,9 +2,13 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+//Store
 import { useContactEmailStore } from "@/store/contactEmailStore";
-import { ContactEmailProps } from "@/store/contactEmailStore";
 import { useSendingEmailButtonStore } from "@/store/sendingEmailButtonStore";
+import { contactSchema } from "@/store/contactEmailStore";
+
+//Shadcn Components
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -16,9 +20,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { contactSchema } from "@/store/contactEmailStore";
+//Hooks
 import { useToast } from "@/hooks/use-toast";
+
+//Libs
 import { toastDate } from "@/lib/utils";
+
+//Interfaces
+import { ContactEmailProps } from "@/components/my-components/contact/interfaces";
 
 const ContactForm = () => {
   const { setContactEmail, contactEmail } = useContactEmailStore();

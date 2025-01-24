@@ -1,8 +1,7 @@
 import React from "react";
 
-interface ErrorFormProps {
-  children: React.ReactNode;
-}
+// Interfaces
+import { ErrorFormProps } from "@/components/my-components/form/interfaces";
 
 const ErrorForm = ({ children }: ErrorFormProps) => {
   if (!children || React.Children.count(children) !== 1) return null; // Add count check

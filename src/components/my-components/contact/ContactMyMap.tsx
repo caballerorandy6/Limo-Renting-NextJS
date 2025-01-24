@@ -1,4 +1,6 @@
 import { Map, MapCameraChangedEvent } from "@vis.gl/react-google-maps";
+
+//Custom Components
 import PoiMarkers from "@/components/my-components/contact/ContactPoiMarkers";
 
 const MyMap = () => {

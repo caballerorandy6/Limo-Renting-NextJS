@@ -1,22 +1,14 @@
+//Shadcn Components
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
 import { Card, CardContent } from "@/components/ui/card";
 
-export interface ServiceAccordionProps {
-  id: string;
-  accordionTrigger: string;
-  accordionContent: {
-    title1?: string;
-    content1?: string;
-    title2?: string;
-    content2?: string;
-  };
-}
+//Interfaces
+import { ServiceAccordionProps } from "@/components/my-components/services/interfaces";
 
 const ServicesSimpleAccordion = ({
   id,

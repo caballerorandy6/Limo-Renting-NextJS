@@ -1,7 +1,10 @@
+//Custom Components
 import CarIcon from "@/components/my-components/icons/CarIcon";
-import { HeadingProps } from "@/components/my-components/global-components/Heading";
 
-const Heading2 = ({ children, icon }: HeadingProps) => {
+//Interfaces
+import { ButtonProps } from "@/components/my-components/buttons/interfaces";
+
+const Heading2 = ({ children, icon }: ButtonProps) => {
   return (
     <>
       <div className="flex gap-4">

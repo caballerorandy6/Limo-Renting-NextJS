@@ -1,8 +1,7 @@
-interface Heading4Props {
-  children: string;
-}
+//Interfaces
+import { HeadingProps } from "@/components/my-components/global-components/interfaces";
 
-const Heading4 = ({ children }: Heading4Props) => {
+const Heading4 = ({ children }: HeadingProps) => {
   return (
     <span className="font-mono font-bold text-xl text-white uppercase text-center">
       {children}

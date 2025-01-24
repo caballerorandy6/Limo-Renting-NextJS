@@ -1,4 +1,6 @@
 import Link from "next/link";
+
+//Custom Components
 import ContactForm from "@/components/my-components/contact/ContactForm";
 import Heading3 from "@/components/my-components/global-components/Heading3";
 import Phone2Icon from "@/components/my-components/icons/Phone2Icon";
@@ -8,29 +10,10 @@ import Email2Icon from "@/components/my-components/icons/Email2Icon";
 import AppointmentIcon from "@/components/my-components/icons/AppointmentIcon";
 import Location2Icon from "@/components/my-components/icons/Location2Icon";
 
-//Contact Info Props Interface
-export interface ContactInfoProps {
-  phoneIcon: JSX.Element;
-  phone: string;
-  phoneNumber: string;
-  toolFreeIcon: React.ReactNode;
-  tollFree: string;
-  tollFreeNumber: string;
-  faxIcon: React.ReactNode;
-  fax: string;
-  faxNumber: string;
-  emailIcon: React.ReactNode;
-  email: string;
-  emailAddress: string;
-  emailReservationsIcon: React.ReactNode;
-  emailReservations: string;
-  emailAddressReservations: string;
-  locationIcon: React.ReactNode;
-  location: string;
-  locationAddress: string;
-}
+//Interfaces
+import { ContactInfoProps } from "@/components/my-components/contact/interfaces";
 
-//Contact Info Array
+//Array
 const contactInfoArray: ContactInfoProps[] = [
   {
     phoneIcon: <Phone2Icon />,

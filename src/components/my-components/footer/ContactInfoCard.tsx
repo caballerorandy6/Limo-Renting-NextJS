@@ -1,9 +1,15 @@
 import Link from "next/link";
+
+//Shadcn Components
 import { Card, CardContent } from "@/components/ui/card";
-import PhoneRingIcon from "../icons/PhoneRingIcon";
-import EmailIcon from "../icons/EmailIcon";
-import LocationFooterIcon from "../icons/LocationFooterIcon";
-import { ContactInfoCardProps } from "@/lib/interfaces";
+
+//Custom Components
+import PhoneRingIcon from "@/components/my-components/icons/PhoneRingIcon";
+import EmailIcon from "@/components/my-components/icons/EmailIcon";
+import LocationFooterIcon from "@/components/my-components/icons/LocationFooterIcon";
+
+//Interfaces
+import { ContactInfoCardProps } from "@/components/my-components/footer/interfaces";
 
 const contactInfoCardPropsArray: ContactInfoCardProps[] = [
   {

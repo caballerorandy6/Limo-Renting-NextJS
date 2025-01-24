@@ -1,9 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+
+// Shadcn Components
 import { Button } from "@/components/ui/button";
-import ArrowRightIcon from "../icons/ArrowRightIcon";
-import { ButtonProps } from "@/components/my-components/buttons/BookNowButton";
+
+// Custom Components
+import ArrowRightIcon from "@/components/my-components/icons/ArrowRightIcon";
+
+// Interfaces
+import { ButtonProps } from "@/components/my-components/buttons/interfaces";
 
 const LearnMoreButton = ({ children, icon }: ButtonProps) => {
   const router = useRouter();

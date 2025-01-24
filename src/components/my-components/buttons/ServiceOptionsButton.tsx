@@ -1,13 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import ArrowRightIcon from "../icons/ArrowRightIcon";
-import { ButtonProps } from "@/components/my-components/buttons/BookNowButton";
 
-interface ServiceOptionsButtonProps extends ButtonProps {
-  href: string;
-}
+//Shadcn Components
+import { Button } from "@/components/ui/button";
+
+//Custom Components
+import ArrowRightIcon from "@/components/my-components/icons/ArrowRightIcon";
+
+//Interfaces
+import { ServiceOptionsButtonProps } from "@/components/my-components/buttons/interfaces";
 
 const ServiceOptionsButton = ({
   children,

@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+//Custom Components
 import ChevronRightIcon from "@/components/my-components/icons/ChevronRightIcon";
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
-import { usePathname } from "next/navigation";
+
+//Libs
 import { menuArray } from "@/lib/utils";
 
 const FleetVideo = () => {
@@ -22,7 +26,7 @@ const FleetVideo = () => {
         playsInline
         crossOrigin="anonymous"
       >
-        <source src="/fleet-video.mp4" type="video/mp4" />
+        <source src="/fleet/fleet-video.mp4" type="video/mp4" />
       </video>
       <div className="relative flex flex-col items-center justify-center h-full pt-14 sm:pt-16 md:pt-24 lg:pt-30 xl:pt-36">
         <div className="flex items-center gap-4 mb-4">

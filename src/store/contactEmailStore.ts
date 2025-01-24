@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { create } from "zustand";
+import { ContactEmailStore } from "@/components/my-components/contact/interfaces";
 
 // Schema Contact Form
 export const contactSchema = z.object({
@@ -17,21 +18,6 @@ export const contactSchema = z.object({
     }),
   message: z.string().optional(),
 });
-
-// Contact Email Props
-export interface ContactEmailProps {
-  name: string;
-  phone: string;
-  email: string;
-  message?: string;
-  errors?: Record<string, string>;
-}
-
-// Contact Email Store Props
-export interface ContactEmailStore {
-  contactEmail: ContactEmailProps;
-  setContactEmail: (contactEmail: ContactEmailProps) => void;
-}
 
 export const useContactEmailStore = create<ContactEmailStore>((set) => ({
   contactEmail: {

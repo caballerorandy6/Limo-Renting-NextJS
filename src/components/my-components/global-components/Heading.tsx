@@ -1,10 +1,10 @@
+//Custom Component
 import CarIcon from "@/components/my-components/icons/CarIcon";
-export interface HeadingProps {
-  children: string;
-  icon?: React.ReactNode;
-}
 
-const Heading = ({ children, icon }: HeadingProps) => {
+//Interfaces
+import { ButtonProps } from "@/components/my-components/buttons/interfaces";
+
+const Heading = ({ children, icon }: ButtonProps) => {
   return (
     <div className="flex gap-4">
       {icon ? icon : <CarIcon />}

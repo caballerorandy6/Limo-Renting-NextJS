@@ -1,6 +1,8 @@
-import ServicesSimpleAccordion, {
-  ServiceAccordionProps,
-} from "@/components/my-components/services/ServicesSimpleAccordion";
+//Custom Components
+import ServicesSimpleAccordion from "@/components/my-components/services/ServicesSimpleAccordion";
+
+//Interfaces
+import { ServiceAccordionProps } from "@/components/my-components/services/interfaces";
 
 export const servicesAccordionArray: ServiceAccordionProps[] = [
   {

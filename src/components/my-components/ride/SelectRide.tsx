@@ -1,7 +1,12 @@
 "use client";
 
+//Store
 import { useRideInfoStore } from "@/store/rideInfoStore";
+
+//Custom Components
 import { Separator } from "@/components/ui/separator";
+
+//Libs
 import { dateModified } from "@/lib/utils";
 
 const SelectRide = () => {
@@ -101,9 +106,9 @@ const SelectRide = () => {
                     <p className="uppercase font-mono pb-2 font-bold">
                       Date:{" "}
                       <span className="normal-case font-normal">
-                        {`${
-                          ride.returnTime
-                        } on ${ride.returnDate?.toLocaleDateString("en-US")}`}
+                        {`${ride.returnTime} on ${dateModified(
+                          ride.returnDate
+                        )}`}
                       </span>
                     </p>
                     <p className="uppercase font-mono pb-2 font-bold">

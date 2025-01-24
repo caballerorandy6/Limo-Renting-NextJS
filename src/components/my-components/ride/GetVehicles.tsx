@@ -1,10 +1,18 @@
 "use client";
 
+//Custom Components
+import { useState } from "react";
 import Link from "next/link";
-import { MyCarousel } from "../global-components/MyCarousel";
-import PassengersIcon from "../icons/PassengersIcon";
-import BriefcaseIcon from "../icons/BriefcaseIcon";
-//import { prisma } from "@/lib/prisma";
+import { MyCarousel } from "@/components/my-components/global-components/MyCarousel";
+import PassengersIcon from "@/components/my-components/icons/PassengersIcon";
+import BriefcaseIcon from "@/components/my-components/icons/BriefcaseIcon";
+import Heading3 from "@/components/my-components/global-components/Heading3";
+import RideInfoButton from "@/components/my-components/buttons/RideInfoButton";
+
+//Arrays
+import { vehicles } from "@/components/my-components/fleet/arrays";
+
+//Shadcn Components
 import {
   Card,
   CardHeader,
@@ -12,26 +20,31 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import RideInfoButton from "../buttons/RideInfoButton";
-import { vehicles } from "../fleet/vehiclesArray";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
-//const getVehicles = async () => await prisma.vehicle.findMany();
+//Store
+import { useRideInfoStore } from "@/store/rideInfoStore";
+
+//Libs
+import { ridePrice } from "@/lib/utils";
 
 const GetVehicles = () => {
-  //const vehicles = await getVehicles();
+  const [openDialog, setOpenDialog] = useState(false);
+  const { duration, distance } = useRideInfoStore();
 
   return (
     <div className="w-10/12 mx-auto flex flex-col justify-center items-center mb-16">
       {vehicles.map((vehicle, index) => (
-        <div
-          key={index}
-          className="flex justify-center items-center gap-20 border p-8 shadow rounded"
-        >
+        <div key={index} className="flex justify-center gap-20 p-8">
           <MyCarousel images={vehicle.images} />
           <div className="w-6/12">
-            <h1 className="text-3xl font-bold font-sans mb-2">
-              {vehicle.name}
-            </h1>
+            <Heading3>{vehicle.name}</Heading3>
             <div className="flex items-center gap-8">
               <div className="flex items-center">
                 <PassengersIcon />
@@ -46,9 +59,27 @@ const GetVehicles = () => {
                 </span>
               </div>
             </div>
-            <p className="font-sans tracking-wide leading-relaxed myclamp">
-              {vehicle.description}
+            <p
+              onClick={() => setOpenDialog(true)}
+              className="text-blue-500 font-mono text-xl font-semibold cursor-pointer border-blue-500"
+            >
+              See More...
             </p>
+            <Dialog
+              open={openDialog}
+              onOpenChange={(isOpen) => setOpenDialog(isOpen)}
+            >
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="text-white font-sans flex justify-between">
+                    Vehicle Details
+                  </DialogTitle>
+                  <DialogDescription className="text-white tracking-wide leading-relaxed text-lg">
+                    {vehicle.description}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
           <div className="w-3/12">
             {vehicles.length && (
@@ -57,12 +88,12 @@ const GetVehicles = () => {
                   <CardHeader>
                     <CardTitle className="text-3xl font-sans font-bold text-center">
                       $
-                      {/* {calculateCost(
-                        1,
+                      {ridePrice(
+                        Number(distance),
                         vehicle.pricePerMile,
-                        1,
+                        Number(duration),
                         vehicle.pricePerHour
-                      )} */}
+                      )}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>

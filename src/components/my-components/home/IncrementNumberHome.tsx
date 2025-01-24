@@ -1,5 +1,9 @@
-import { motion, animate } from "framer-motion";
 import { useEffect } from "react";
+
+//Framer Motion
+import { motion, animate } from "framer-motion";
+
+//Store
 import { useIncrementNumberStore } from "@/store/incrementNumberStore";
 
 const IncrementNumberHome = () => {

@@ -1,10 +1,11 @@
 "use client";
 
-import ReviewsButton from "../buttons/ReviewsButton";
-import Heading from "../global-components/Heading";
-import Heading3 from "../global-components/Heading3";
-import { CarouselTestimonials } from "./CarouselTestimonials";
-import MarqueeTestimonials from "./MarqueeTestimonials";
+//Custom Components
+import ReviewsButton from "@/components/my-components/buttons/ReviewsButton";
+import Heading from "@/components/my-components/global-components/Heading";
+import Heading3 from "@/components/my-components/global-components/Heading3";
+import { CarouselTestimonials } from "@/components/my-components/home/CarouselTestimonials";
+import MarqueeTestimonials from "@/components/my-components/home/MarqueeTestimonials";
 
 const Testimonials = () => {
   return (

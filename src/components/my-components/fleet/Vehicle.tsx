@@ -1,18 +1,8 @@
+//Shadcn Components
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
-export interface FeaturedVehiclesCardProps {
-  imagesCarousel: React.ReactNode;
-  title: string;
-  carIcon: React.ReactNode;
-  exterior: string;
-  color1: string;
-  carSeatIcon: React.ReactNode;
-  interior: string;
-  color2: string;
-  minibarIcon: React.ReactNode;
-  features: string;
-  featuresObject: string;
-}
+//Interfaces
+import { FeaturedVehiclesCardProps } from "@/components/my-components/fleet/interfaces";
 
 const Vehicle = ({
   imagesCarousel,

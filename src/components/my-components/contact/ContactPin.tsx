@@ -1,4 +1,3 @@
-import React from "react";
 import { Pin } from "@vis.gl/react-google-maps";
 
 const MyPin = () => {

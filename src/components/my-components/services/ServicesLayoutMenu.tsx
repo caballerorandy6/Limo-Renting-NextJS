@@ -1,5 +1,9 @@
 import Link from "next/link";
+
+//Shadcn Components
 import { Separator } from "@/components/ui/separator";
+
+//Custom Components
 import OpenFolderIcon from "@/components/my-components/icons/OpenFolderIcon";
 import { services } from "@/components/my-components/services/Services";
 

@@ -1,10 +1,11 @@
 "use client";
 
+//Custom Components
 import SocialMenu from "@/components/my-components/nav/SocialMenu";
 import ContactMenu from "@/components/my-components/nav/ContactMenu";
 import Logo from "@/components/my-components/nav/Logo";
 import HamburgerMenu from "@/components/my-components/nav/HamburgerMenu";
-import MenuNavigation from "./MenuNavigation";
+import MenuNavigation from "@/components/my-components/nav/MenuNavigation";
 
 const Navbar = () => {
   return (

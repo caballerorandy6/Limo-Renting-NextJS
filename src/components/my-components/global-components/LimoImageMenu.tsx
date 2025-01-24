@@ -2,9 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+//Custom Components
 import ChevronRightIcon from "@/components/my-components/icons/ChevronRightIcon";
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
-import { usePathname } from "next/navigation";
+
+//Libs
 import { menuArray } from "@/lib/utils";
 
 const LimoImageMenu = () => {

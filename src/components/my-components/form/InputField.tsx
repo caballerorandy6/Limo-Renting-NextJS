@@ -1,4 +1,6 @@
 import React, { forwardRef } from "react";
+
+//Shadcn Components
 import {
   FormField,
   FormItem,
@@ -8,14 +10,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-export interface InputFieldProps {
-  name: string;
-  label: string;
-  placeholder: string;
-  control: any;
-  type: string;
-  id: string;
-}
+// Interfaces
+import { InputFieldProps } from "@/components/my-components/form/interfaces";
 
 const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
   ({ name, label, placeholder, control, type, id }: InputFieldProps, ref) => (
@@ -47,6 +43,6 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
   )
 );
 
-InputField.displayName = "InputField"; // Important for debugging and readability in React DevTools
+InputField.displayName = "InputField";
 
 export default InputField;

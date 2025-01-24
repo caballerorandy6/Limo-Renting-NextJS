@@ -1,5 +1,8 @@
 "use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
+//Shadcn Components
 import {
   Sheet,
   SheetTrigger,
@@ -15,13 +18,17 @@ import {
 } from "@/components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
+
+//Custom Components
+import SocialMenu from "@/components/my-components/nav/SocialMenu";
+
+//Libs
 import { menuArray } from "@/lib/utils";
 import { cn } from "@/lib/utils";
+
+//Store
 import { useOpenMenuStore } from "@/store/openMenuStore";
-import { usePathname } from "next/navigation";
-import { Separator } from "@/components/ui/separator";
-import SocialMenu from "@/components/my-components/nav/SocialMenu";
 
 const HamburgerMenu = () => {
   const { isOpen, setIsOpen } = useOpenMenuStore();

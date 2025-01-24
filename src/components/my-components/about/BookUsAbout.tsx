@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+
+// Custom Components
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
 
 const BookUsAbout = () => {

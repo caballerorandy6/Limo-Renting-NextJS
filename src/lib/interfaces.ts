@@ -8,27 +8,6 @@ export interface SelectFieldProps {
   error: React.ReactNode;
 }
 
-//Form Data Interface
-export interface FormData {
-  rideId: string;
-  pickUpLocation: string;
-  stops: string[];
-  dropOffLocation: string;
-  dateOfService: Date;
-  pickUpTime: string;
-  typeOfService: string;
-  passengers: string;
-  firstName: string;
-  lastName: string;
-  emailAddress: string;
-  phoneNumber: string;
-  countries: string[];
-  messageData?: boolean;
-  roundTrip?: boolean;
-  returnDate?: Date;
-  returnTime?: string;
-}
-
 //Country Interface
 export interface Country {
   name: {
@@ -84,40 +63,11 @@ export interface WhyChooseUsCircleProps {
   info: string;
 }
 
-//Reviews Props Interface
-export interface ReviewsProps {
-  comment: string;
-  stars: JSX.Element;
-  name: string;
-}
-
 //Partners Testimonials Images Props Interface
 export interface PartnersTestimonialsImagesProps {
   src: string;
   alt: string;
   href: string;
-}
-
-//Contact Info Card Props Interface
-export interface ContactInfoCardProps {
-  phoneNumberTitle: string;
-  phoneIcon: React.ReactNode;
-  hrefPhone: string;
-  phoneNumber: string;
-  emailTitle: string;
-  emailIcon: React.ReactNode;
-  hrefEmail: string;
-  email: string;
-  locationTitle: string;
-  locationFooterIcon: React.ReactNode;
-  hrefLocation: string;
-  location: string;
-}
-
-//About List Props Interface
-export interface AboutListProps {
-  title: string;
-  icon: React.ReactNode;
 }
 
 export interface VehicleProps {

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+
+//Shadcn Components
 import {
   Card,
   CardContent,
@@ -8,23 +10,12 @@ import {
   CardDescription,
   CardFooter,
 } from "@/components/ui/card";
+
+//Custom Components
 import ServiceOptionsButton from "@/components/my-components/buttons/ServiceOptionsButton";
 
-export interface ServiceProps {
-  id: string;
-  title: string;
-  description: string;
-  content: string;
-  icon: React.ReactNode;
-  buttonName: string;
-  href: string;
-  image?: string;
-  title2?: string;
-  title3?: string;
-  text1?: string;
-  text2?: string;
-  serviceAccordion?: React.ReactNode;
-}
+//Interfaces
+import { ServiceProps } from "@/components/my-components/services/interfaces";
 
 const Service = ({
   id,
@@ -39,7 +30,7 @@ const Service = ({
   return (
     <Card
       key={title}
-      className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[50vh] lg:h-[45vh] relative flex justify-center items-center rounded-none"
+      className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[50vh] lg:h-[45vh] relative flex justify-center items-center rounded-xl"
     >
       <Image
         src={image || "/defaultImage/imageNotAvailable.webp"}
@@ -47,7 +38,7 @@ const Service = ({
         width={1000}
         height={1000}
         priority={false}
-        className="object-cover w-full h-full relative mix-blend-overlay bg-gradient-to-tr from-gray-600 to-gray-800"
+        className="object-cover w-full h-full relative mix-blend-overlay bg-gradient-to-tr from-gray-600 to-gray-800 rounded-xl"
       />
       <div className="absolute">
         <CardHeader className="flex justify-start items-center gap-6">

@@ -1,3 +1,4 @@
+//Shadcn Components
 import {
   Accordion,
   AccordionContent,
@@ -5,12 +6,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export interface AccordionProps {
-  value: string;
-  accordionTrigger: string;
-  accordionContent: string;
-}
+//Interfaces
+import { AccordionProps } from "@/components/my-components/services/interfaces";
 
+//Array
 const accordionArray: AccordionProps[] = [
   {
     value: "item-1",

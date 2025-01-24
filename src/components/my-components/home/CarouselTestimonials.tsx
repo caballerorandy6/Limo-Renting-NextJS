@@ -1,6 +1,7 @@
 import * as React from "react";
 import Autoplay from "embla-carousel-autoplay";
 
+//Shadcn Components
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,9 +10,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import StartIcon from "../icons/StartIcon";
-import { ReviewsProps } from "@/lib/interfaces";
-import QuotationMarksLeft from "../icons/QuotationMarksLeft";
+
+//Custom Components
+import StartIcon from "@/components/my-components/icons/StartIcon";
+import QuotationMarksLeft from "@/components/my-components/icons/QuotationMarksLeft";
+
+//Interfaces
+import { ReviewsProps } from "@/components/my-components/home/interfaces";
 
 export const Stars = () => (
   <div className="flex space-x-1">

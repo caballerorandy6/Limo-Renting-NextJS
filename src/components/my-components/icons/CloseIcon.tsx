@@ -2,7 +2,7 @@ const CloseIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5 text-white hover:text-white rounded-full cursor-pointer border border-red-500 p-1 mt-12 bg-red-500 hover:bg-red-600 transition-colors"
+      className="h-5 w-5 text-white hover:text-white rounded-full cursor-pointer border border-red-500 p-1 mt-4 bg-red-500 hover:bg-red-600 transition-colors"
       viewBox="0 0 20 20"
       fill="currentColor"
     >

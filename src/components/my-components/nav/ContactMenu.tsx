@@ -1,13 +1,11 @@
 import Link from "next/link";
+
+//Custom Components
 import PhoneRingIcon from "@/components/my-components/icons/PhoneRingIcon";
 import EmailIcon from "@/components/my-components/icons/EmailIcon";
 
-interface ContactLink {
-  id: string;
-  icon: React.ReactNode;
-  name: string;
-  href: string;
-}
+//Interfaces
+import { ContactLink } from "@/components/my-components/nav/interfaces";
 
 const contactLinks: ContactLink[] = [
   {

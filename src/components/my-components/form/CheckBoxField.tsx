@@ -1,3 +1,4 @@
+//Shadcn Components
 import {
   FormField,
   FormItem,
@@ -6,11 +7,8 @@ import {
 } from "@/components/ui/form";
 import { Checkbox } from "@/components/ui/checkbox";
 
-interface CheckboxFieldProps {
-  name: string;
-  label: string;
-  control: any;
-}
+//Interfaces
+import { CheckboxFieldProps } from "@/components/my-components/form/interfaces";
 
 const CheckboxField = ({ name, label, control }: CheckboxFieldProps) => (
   <FormField

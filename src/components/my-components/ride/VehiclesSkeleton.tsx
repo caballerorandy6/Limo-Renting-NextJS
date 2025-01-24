@@ -1,5 +1,7 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+
+//Custom Components
 import { CarouselSkeleton } from "@/components/my-components/ride/CarouselSkeleton";
 
 const VehiclesSkeleton = () => {

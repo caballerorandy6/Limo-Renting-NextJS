@@ -1,5 +1,6 @@
 "use client";
 
+//Custom Components
 import WeddingIcon from "@/components/my-components/icons/WeddingIcon";
 import CorporateTransferIcon from "@/components/my-components/icons/CorporateTransferIcon";
 import PartyIcon from "@/components/my-components/icons/PartyIcon";
@@ -13,7 +14,8 @@ import SportsIcon from "@/components/my-components/icons/SportsIcon";
 import BinocularsIcon from "@/components/my-components/icons/BinocularsIcon";
 import Service from "@/components/my-components/services/Service";
 
-import { ServiceProps } from "@/components/my-components/services/Service";
+//Interfaces
+import { ServiceProps } from "@/components/my-components/services/interfaces";
 
 export const services: ServiceProps[] = [
   {

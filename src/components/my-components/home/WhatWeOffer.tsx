@@ -1,6 +1,7 @@
 "use client";
 
-import Heading from "../global-components/Heading";
+//Custom Components
+import Heading from "@/components/my-components/global-components/Heading";
 import Heading3 from "@/components/my-components/global-components/Heading3";
 import ViewAllServicesButton from "@/components/my-components/buttons/ViewAllServicesButton";
 import { services } from "@/components/my-components/services/Services";

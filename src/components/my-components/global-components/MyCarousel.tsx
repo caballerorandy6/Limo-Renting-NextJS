@@ -1,8 +1,10 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
+//Shadcn Components
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -11,11 +13,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
 
-export interface CarouselProps {
-  images: string[];
-}
+//Interfaces
+import { CarouselProps } from "@/components/my-components/global-components/interfaces";
 
 export function MyCarousel({ images }: CarouselProps) {
   const plugin = React.useRef(

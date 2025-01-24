@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import ArrowRightIcon from "../icons/ArrowRightIcon";
-import { ButtonProps } from "@/components/my-components/buttons/BookNowButton";
+
+//Custom Components
+import ArrowRightIcon from "@/components/my-components/icons/ArrowRightIcon";
+
+//Interfaces
+import { ButtonProps } from "@/components/my-components/buttons/interfaces";
 
 const ReviewsButton = ({ children, icon }: ButtonProps) => {
   return (

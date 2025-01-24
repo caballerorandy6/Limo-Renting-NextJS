@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
+
+//Custom Components
 import Heading2 from "@/components/my-components/global-components/Heading2";
 import ClickToCallButton from "@/components/my-components/buttons/ClickToCallButton";
-import Link from "next/link";
-import WyChooseUsCircles from "./WyChooseUsCircles";
+import WyChooseUsCircles from "@/components/my-components/home/WyChooseUsCircles";
 
 const WhyChooseUs = () => {
   return (

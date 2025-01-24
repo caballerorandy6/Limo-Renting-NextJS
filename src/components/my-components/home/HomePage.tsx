@@ -1,3 +1,4 @@
+//Custom Components
 import Hero from "@/components/my-components/home/Hero";
 
 const HomePage = () => {

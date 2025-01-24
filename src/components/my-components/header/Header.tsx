@@ -1,3 +1,4 @@
+//Custom Components
 import Navbar from "@/components/my-components/nav/Navbar";
 
 const Header = () => {

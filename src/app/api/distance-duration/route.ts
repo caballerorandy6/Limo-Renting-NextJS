@@ -46,12 +46,16 @@ export async function GET(req: NextRequest) {
       throw new Error("No se pudo calcular la distancia");
     }
 
-    const distanceMiles = (element.distance.value * 0.000621371).toFixed(2);
-    const durationHours = (element.duration.value / 3600).toFixed(2);
+    const distanceMiles = Math.ceil(
+      parseFloat((element.distance.value * 0.000621371).toFixed(2))
+    );
+    const durationHours = Math.ceil(
+      parseFloat((element.duration.value / 3600).toFixed(2))
+    );
 
     return NextResponse.json({
-      distance: `${distanceMiles} millas`,
-      duration: `${durationHours} horas`,
+      distance: distanceMiles,
+      duration: durationHours,
     });
   } catch (error: any) {
     return NextResponse.json(

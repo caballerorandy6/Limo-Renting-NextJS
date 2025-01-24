@@ -1,6 +1,7 @@
 //Zod
 import { z } from "zod";
 import { v4 as uuidv4 } from "uuid";
+import { RoundTrip } from "./interfaces";
 
 // Zod schema
 export const formSchema = z
@@ -68,6 +69,18 @@ export const formSchema = z
     {
       message: "Return date and time are required for round trips.",
       path: ["returnDate", "returnTime"],
+    }
+  )
+  .refine(
+    (data) => {
+      if (data.returnDate) {
+        return data.dateOfService <= data.returnDate;
+      }
+      return true;
+    },
+    {
+      message: "Date of service cannot be later than the return date.",
+      path: ["dateOfService"],
     }
   );
 

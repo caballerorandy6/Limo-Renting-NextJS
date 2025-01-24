@@ -2,12 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 
-export interface PartnersTestimonialsImagesProps {
-  src: string;
-  alt: string;
-  href: string;
-}
+//Interfaces
+import { PartnersTestimonialsImagesProps } from "@/components/my-components/home/interfaces";
 
+//Arrays
 export const marqueeTestimonialsArray: PartnersTestimonialsImagesProps[] = [
   {
     src: "/testimonials/testimonials1.webp",
@@ -57,10 +55,10 @@ const MarqueeTestimonials = () => {
             <Image
               src={item.src}
               alt={item.alt}
-              width={100}
-              height={100}
+              width={1000}
+              height={200}
               priority={false}
-              className="object-cover w-full h-auto"
+              className="object-cover h-auto w-40"
             />
           </Link>
         ))}

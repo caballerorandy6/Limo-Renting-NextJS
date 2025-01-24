@@ -1,15 +1,22 @@
 "use client";
 
 import Image from "next/image";
+
+// Shadcn Components
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+
+// Custom Components
 import IncrementNumber from "@/components/my-components/about/IncrementNumber";
 import Heading from "@/components/my-components/global-components/Heading";
 import CheckIcon from "@/components/my-components/icons/CheckIcon";
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
 import LimoImageMenu from "@/components/my-components/global-components/LimoImageMenu";
-import { AboutListProps } from "@/lib/interfaces";
 
+// Interfaces
+import { AboutListProps } from "@/components/my-components/about/interfaces";
+
+// Data
 const aboutUsArray: AboutListProps[] = [
   { title: "Experienced Local Drivers", icon: <CheckIcon /> },
   { title: "Seamless Transportation", icon: <CheckIcon /> },

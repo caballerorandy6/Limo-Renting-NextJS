@@ -29,6 +29,13 @@ export function dateModified(date: Date) {
   return newDate.toLocaleDateString("en-US");
 }
 
+export const ridePrice = (
+  distance: number,
+  pricePerMiles: number,
+  duration: number,
+  pricePerHours: number
+) => distance * pricePerMiles + duration * pricePerHours;
+
 //Arrays
 export const pickUpTimeArray = [
   "12:00 AM",

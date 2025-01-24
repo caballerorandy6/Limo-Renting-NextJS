@@ -1,13 +1,15 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import ArrowRightIcon from "../icons/ArrowRightIcon";
 
-export interface ButtonProps {
-  children: string;
-  icon?: JSX.Element;
-}
+//Shadcn Components
+import { Button } from "@/components/ui/button";
+
+//Custom Components
+import ArrowRightIcon from "@/components/my-components/icons/ArrowRightIcon";
+
+//Interfaces
+import { ButtonProps } from "@/components/my-components/buttons/interfaces";
 
 const BookNowButton = ({ children, icon }: ButtonProps) => {
   const router = useRouter();

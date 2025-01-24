@@ -1,11 +1,16 @@
 "use client";
 
+//Custom Components
 import Vehicle from "@/components/my-components/fleet/Vehicle";
 import Car2Icon from "@/components/my-components/icons/Car2Icon";
 import CarSeatIcon from "@/components/my-components/icons/CarSeatIcon";
 import MinibarIcon from "@/components/my-components/icons/MinibarIcon";
-import { FeaturedVehiclesCardProps } from "@/components/my-components/fleet/Vehicle";
-import { MyCarousel } from "../global-components/MyCarousel";
+import { MyCarousel } from "@/components/my-components/global-components/MyCarousel";
+
+//Interfaces
+import { FeaturedVehiclesCardProps } from "@/components/my-components/fleet/interfaces";
+
+//Arrays
 import {
   featuredVehiclesImages1,
   featuredVehiclesImages2,
@@ -14,8 +19,7 @@ import {
   featuredVehiclesImages5,
   featuredVehiclesImages6,
   featuredVehiclesImages7,
-} from "./carouselArrays";
-
+} from "@/components/my-components/fleet/carouselArrays";
 export const featuredVehiclesArray: FeaturedVehiclesCardProps[] = [
   {
     imagesCarousel: <MyCarousel images={featuredVehiclesImages1} />,

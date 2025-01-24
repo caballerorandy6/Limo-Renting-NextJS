@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+//Shadcn Components
 import {
   NavigationMenu,
   NavigationMenuLink,
@@ -6,10 +9,13 @@ import {
   NavigationMenuItem,
 } from "@/components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+
+//Custom Components
 import BookNowButton from "@/components/my-components/buttons/BookNowButton";
+
+//Libs
 import { cn } from "@/lib/utils";
 import { menuArray } from "@/lib/utils";
-import { usePathname } from "next/navigation";
 
 const MenuNavigation = () => {
   const pathname = usePathname();
