@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 //Custom Components
-import ChevronRightIcon from "@/components/my-components/icons/ChevronRightIcon";
-import BookNowButton from "@/components/my-components/buttons/BookNowButton";
-import Footer from "@/components/my-components/footer/Footer";
+import ChevronRightIcon from "@/components/shared/icons/ChevronRightIcon";
+import BookNowButton from "@/components/shared/buttons/BookNowButton";
+import Footer from "@/components/layout/footer/Footer";
 
 //Libs
 import { menuArray } from "@/lib/utils";

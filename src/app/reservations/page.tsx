@@ -1,6 +1,6 @@
 //Custom Components
-import FormQuote from "@/components/my-components/form/FormQuote";
-import LimoImageMenu from "@/components/my-components/global-components/LimoImageMenu";
+import FormQuote from "@/components/shared/forms/FormQuote";
+import LimoImageMenu from "@/components/shared/ui-common/LimoImageMenu";
 
 const Reservations = () => {
   return (

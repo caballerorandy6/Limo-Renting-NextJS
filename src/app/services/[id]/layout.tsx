@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ChevronRightIcon from "@/components/my-components/icons/ChevronRightIcon";
-import BookNowButton from "@/components/my-components/buttons/BookNowButton";
-import FrequentlyAskedQuestions from "@/components/my-components/services/FrequentlyAskedQuestions";
-import ServicesLayoutMenu from "@/components/my-components/services/ServicesLayoutMenu";
-import Logo from "@/components/my-components/nav/Logo";
+import ChevronRightIcon from "@/components/shared/icons/ChevronRightIcon";
+import BookNowButton from "@/components/shared/buttons/BookNowButton";
+import FrequentlyAskedQuestions from "@/components/features/services/FrequentlyAskedQuestions";
+import ServicesLayoutMenu from "@/components/features/services/ServicesLayoutMenu";
+import Logo from "@/components/layout/nav/Logo";
 import { usePathname } from "next/navigation";
-import { services } from "@/components/my-components/services/Services";
-import HamburgerServiceMenu from "@/components/my-components/services/HamburgerServiceMenu";
+import { services } from "@/components/features/services/Services";
+import HamburgerServiceMenu from "@/components/features/services/HamburgerServiceMenu";
 
 const ServicesLayout = ({
   children,
