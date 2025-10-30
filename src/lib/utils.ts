@@ -2,7 +2,7 @@
 
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { MenuArray, WhyChooseUsCircleProps, PoiProps } from "@/lib/interfaces";
+import { MenuArray, WhyChooseUsCircleProps, PoiProps, VehicleProps } from '@/lib/interfaces';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -35,6 +35,20 @@ export const ridePrice = (
   duration: number,
   pricePerHours: number
 ) => distance * pricePerMiles + duration * pricePerHours;
+
+export const calculateDetailedPricing = (distance: number, duration: number, vehicle: VehicleProps, gratuityPercent: number, taxesAndFeesPercent: number) =>{
+  const distanceCost = distance * vehicle.pricePerMile;
+  const durationCost = duration * vehicle.pricePerHour;
+  const subtotal = distanceCost + durationCost;
+  const gratuity = subtotal * (gratuityPercent / 100);
+  const taxesAndFees = subtotal * (taxesAndFeesPercent / 100);
+  return {
+    subtotal,
+    gratuity,
+    taxesAndFees,
+    total: subtotal + gratuity + taxesAndFees
+  };
+}
 
 //Arrays
 export const pickUpTimeArray = [

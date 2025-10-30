@@ -1,44 +1,90 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 //Shadcn Components
 import {
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+
+// Custom Components
+import PlaceAutocompleteInput from "./PlaceAutocompleteInput";
 
 // Interfaces
 import { InputFieldProps } from "@/types/forms";
 
 const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
-  ({ name, label, placeholder, control, type, id }: InputFieldProps, ref) => (
+  ({ name, label, placeholder, control, type, id, uncontrolled }: InputFieldProps, externalRef) => (
     <FormField
       control={control}
       name={name}
-      render={({ field }) => (
-        <FormItem>
-          <FormLabel
-            htmlFor={name}
-            className="text-white uppercase text-sm font-sans"
-          >
-            {label}
-          </FormLabel>
-          <FormControl>
+      render={({ field }) => {
+        // For Google Maps autocomplete inputs, use PlaceAutocompleteInput
+        if (uncontrolled) {
+          return (
+            <FormItem>
+              <FormLabel
+                htmlFor={id || name}
+                className="text-white uppercase text-sm font-sans"
+              >
+                {label}
+              </FormLabel>
+              {/* Google Maps PlaceAutocompleteElement wrapper - fully integrated with react-hook-form */}
+              <PlaceAutocompleteInput
+                id={id || name}
+                name={field.name}
+                placeholder={placeholder}
+                value={field.value || ""}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
+                ref={field.ref}
+                className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
+              />
+              <FormMessage className="text-red-400" />
+            </FormItem>
+          );
+        }
+
+        // For controlled inputs, use the shadcn Input component
+        const mergedRef = (element: HTMLInputElement | null) => {
+          if (typeof field.ref === "function") {
+            field.ref(element);
+          }
+          if (externalRef) {
+            if (typeof externalRef === "function") {
+              externalRef(element);
+            } else {
+              externalRef.current = element;
+            }
+          }
+        };
+
+        return (
+          <FormItem>
+            <FormLabel
+              htmlFor={id || name}
+              className="text-white uppercase text-sm font-sans"
+            >
+              {label}
+            </FormLabel>
             <Input
-              id={id}
+              id={id || name}
               type={type}
               placeholder={placeholder}
               className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
-              {...field}
-              ref={ref}
+              value={field.value || ""}
+              onChange={field.onChange}
+              onBlur={field.onBlur}
+              name={field.name}
+              ref={mergedRef}
+              autoComplete="off"
             />
-          </FormControl>
-          <FormMessage className="text-red-400" />
-        </FormItem>
-      )}
+            <FormMessage className="text-red-400" />
+          </FormItem>
+        );
+      }}
     />
   )
 );

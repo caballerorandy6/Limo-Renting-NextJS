@@ -88,9 +88,9 @@ const GetVehicles = () => {
                       {ridePrice(
                         Number(distance),
                         vehicle.pricePerMile,
-                        Number(duration),
+                        Number(duration) / 60, // Convert minutes to hours
                         vehicle.pricePerHour
-                      )}
+                      ).toFixed(2)}
                     </span>
                   </div>
 
@@ -155,7 +155,9 @@ const GetVehicles = () => {
                 </CardContent>
 
                 <CardFooter className="flex flex-col gap-3 pt-4 border-t">
-                  <RideInfoButton>Reserve This Ride</RideInfoButton>
+                  <RideInfoButton vehicleName={vehicle.name}>
+                    Reserve This Ride
+                  </RideInfoButton>
                   <Link
                     href="/ride/ride-quote"
                     className="w-full text-center uppercase text-sm text-blue-500 hover:text-blue-600 font-mono hover:underline transition-colors"

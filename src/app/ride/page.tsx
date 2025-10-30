@@ -1,36 +1,47 @@
+"use client";
+
 import GetVehicles from "@/components/features/ride/GetVehicles";
 import SelectRide from "@/components/features/ride/SelectRide";
 import VehiclesSkeleton from "@/components/features/ride/VehiclesSkeleton";
-import { Suspense } from "react";
-import { genPageMetadata } from "@/lib/genPageMetadata";
+import { Suspense, useEffect, useState } from "react";
 import { JsonLdForBreadcrumb } from "@/components/seo/JsonLdForBreadcrumb";
 import { siteConfig } from "@/config/site";
-
-export const metadata = genPageMetadata({
-  title: "Book Your Ride | Miami Luxury Transportation | Instant Quotes",
-  description:
-    "Book your luxury transportation in Miami. Get instant quotes for our premium limo service, party buses, and executive cars. Professional chauffeurs, competitive rates, and exceptional service.",
-  pageRoute: "/ride",
-  keywords: [
-    "book Miami limo",
-    "luxury car booking",
-    "instant quote",
-    "Miami transportation booking",
-    "reserve limousine",
-    "book party bus",
-  ],
-});
+import { useRideInfoStore } from "@/stores/rideInfoStore";
 
 const Ride = () => {
+  const { ride } = useRideInfoStore();
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Wait for hydration to complete
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsHydrated(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show loading while hydrating
+  if (!isHydrated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-gray-600 font-mono">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   const breadcrumbItems = [
     { name: "Home", item: siteConfig.baseUrl },
     { name: "Book a Ride", item: `${siteConfig.baseUrl}/ride` },
   ];
 
   return (
-    <section id="ride" className="pt-24 lg:pt-32">
+    <section id="ride" className="py-24 lg:pt-32">
       <JsonLdForBreadcrumb itemList={breadcrumbItems} />
       <SelectRide />
+
       <Suspense fallback={<VehiclesSkeleton />}>
         <GetVehicles />
       </Suspense>

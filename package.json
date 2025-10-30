@@ -25,7 +25,7 @@
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.3",
-    "@react-google-maps/api": "^2.20.3",
+    "@react-google-maps/api": "^2.20.7",
     "@vercel/postgres": "^0.10.0",
     "@vis.gl/react-google-maps": "^1.4.0",
     "class-variance-authority": "^0.7.0",
@@ -51,6 +51,7 @@
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.58.1",
     "@types/node": "^20.17.6",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",

@@ -4,7 +4,7 @@
 import { useRouter } from "next/navigation";
 
 //React
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 //React Hook Form
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -18,14 +18,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 //Store Zustand
 import { useAddStopStore } from "@/stores/addStopStore";
-//import { useNameAndFlagStore } from "@/stores/nameAndFlagStore";
 import { useRideInfoStore } from "@/stores/rideInfoStore";
 
 //Server Actions
 import { calculateRoute } from "@/actions";
 
 //Shadcn Components
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -53,6 +51,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 //Custom Components
 import InputField from "@/components/shared/forms/InputField";
+import PlaceAutocompleteInput from "@/components/shared/forms/PlaceAutocompleteInput";
 import CheckboxField from "@/components/shared/forms/CheckBoxField";
 import LocationIcon from "@/components/shared/icons/LocationIcon";
 import CloseIcon from "@/components/shared/icons/CloseIcon";
@@ -70,44 +69,25 @@ import {
 import { format } from "date-fns";
 import Script from "next/script";
 
-// Google Maps Autocomplete Initialization
-const initAutocomplete = (
-  inputId: string,
-  callback: (place: google.maps.places.PlaceResult) => void
-) => {
-  const inputElement = document.getElementById(
-    inputId
-  ) as HTMLInputElement | null;
-  if (!inputElement) return;
-
-  const autocomplete = new google.maps.places.Autocomplete(inputElement, {
-    types: ["geocode"],
-    componentRestrictions: { country: "us" },
-    fields: ["formatted_address", "geometry"],
-  });
-
-  autocomplete.addListener("place_changed", () => {
-    const place = autocomplete.getPlace();
-    callback(place);
-  });
-};
+// Styles
+import "@/styles/google-maps-override.css";
 
 const FormQuote = () => {
   const { stops, addStop, removeStop } = useAddStopStore();
-  const { setRide, distance, duration, setDistance, setDuration, ride } =
-    useRideInfoStore();
+  const { setRide, setDistance, setDuration } = useRideInfoStore();
+
   const router = useRouter();
 
-  // Use Refs for Google Maps Autocomplete
-  const pickUpRef = useRef<HTMLInputElement | null>(null);
-  const dropOffRef = useRef<HTMLInputElement | null>(null);
+  // State to control Popover open/close
+  const [datePopoverOpen, setDatePopoverOpen] = useState(false);
+  const [returnDatePopoverOpen, setReturnDatePopoverOpen] = useState(false);
 
-  //useForm Hook
+  //useForm Hook - Always start with empty values
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       pickUpLocation: "",
-      stops: [""],
+      stops: [],
       dropOffLocation: "",
       dateOfService: undefined,
       pickUpTime: "",
@@ -124,49 +104,8 @@ const FormQuote = () => {
     },
   });
 
-  //Acces to the roundTrip value
+  //Access to the roundTrip value
   const roundTrip = form.watch("roundTrip");
-
-  useEffect(() => {
-    // Wait for the Google Maps script to load
-    const checkGoogleMaps = () => {
-      if (typeof google !== "undefined" && google.maps) {
-        if (pickUpRef.current) {
-          initAutocomplete("pickUpLocation", (place) => {
-            form.setValue("pickUpLocation", place.formatted_address || "");
-          });
-        }
-
-        if (dropOffRef.current) {
-          initAutocomplete("dropOffLocation", (place) => {
-            form.setValue("dropOffLocation", place.formatted_address || "");
-          });
-        }
-      } else {
-        // Retry after a short delay if Google Maps isn't available
-        setTimeout(checkGoogleMaps, 200);
-      }
-    };
-
-    // Start checking for Google Maps
-    checkGoogleMaps();
-  }, [form]);
-
-  //  Sync stops with form values
-  useEffect(() => {
-    stops.forEach((_, index) => {
-      const stopId = `stop-${index}`; // Generar ID único para cada input
-      const stopElement = document.getElementById(
-        stopId
-      ) as HTMLInputElement | null;
-
-      if (stopElement) {
-        initAutocomplete(stopId, (place) => {
-          form.setValue(`stops.${index}`, place.formatted_address || "");
-        });
-      }
-    });
-  }, [stops, form]);
 
   // Form submit - Using Server Action
   const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -191,12 +130,12 @@ const FormQuote = () => {
       console.log({
         distance: result.distance,
         duration: result.duration,
-        ride,
         stops,
         pickUpLocation,
         dropOffLocation,
       });
 
+      // Reset form and navigate to vehicles page
       form.reset();
       router.push("/ride");
     } catch (error) {
@@ -208,10 +147,9 @@ const FormQuote = () => {
   return (
     <>
       <Script
+        id="google-maps-api"
         src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`}
-        async
-        defer
-        strategy="lazyOnload"
+        strategy="beforeInteractive"
       />
       <Form {...form}>
         <form
@@ -229,7 +167,7 @@ const FormQuote = () => {
             control={form.control}
             type="text"
             id="pickUpLocation"
-            ref={pickUpRef}
+            uncontrolled={true}
           />
           {/* Add Stop Button */}
           <div className="flex justify-center items-center my-2">
@@ -260,21 +198,22 @@ const FormQuote = () => {
                   >
                     Stop {index + 1}:
                   </FormLabel>
-                  <FormControl>
-                    <Input
-                      id={`stop-${index}`}
-                      type="text"
-                      placeholder="Enter address, point of interest, or airport code"
-                      className="block w-full p-1 rounded text-sm pr-10"
-                      {...field}
-                    />
-                  </FormControl>
+                  {/* Google Maps PlaceAutocompleteElement - fully integrated with react-hook-form */}
+                  <PlaceAutocompleteInput
+                    id={`stop-${index}`}
+                    name={field.name}
+                    placeholder="Enter address, point of interest, or airport code"
+                    value={field.value || ""}
+                    onChange={field.onChange}
+                    onBlur={field.onBlur}
+                    ref={field.ref}
+                    className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200 pr-10"
+                  />
                   <FormMessage className="text-red-400" />
                   <Button
                     type="button"
                     onClick={() => removeStop(index)}
-                    variant={"outline"}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center border-none"
+                    className="absolute right-2 top-8 bg-red-500 hover:bg-red-700 text-white w-6 h-6 p-0 rounded flex items-center justify-center border-none transition-colors"
                     aria-label={`Remove stop ${index + 1}`}
                   >
                     <CloseIcon />
@@ -292,7 +231,7 @@ const FormQuote = () => {
             control={form.control}
             type="text"
             id="dropOffLocation"
-            ref={dropOffRef}
+            uncontrolled={true}
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-center">
             {/* Date of Service - Data Picker */}

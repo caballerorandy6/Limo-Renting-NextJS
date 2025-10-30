@@ -1,0 +1,41 @@
+/* Override Google Maps Autocomplete dropdown styles */
+
+/* Style the autocomplete dropdown */
+.pac-container {
+  font-family: monospace;
+  font-size: 0.875rem;
+  z-index: 9999;
+  border-radius: 0.25rem;
+  margin-top: 2px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.pac-item {
+  cursor: pointer;
+  padding: 8px 12px;
+  font-family: monospace;
+  line-height: 1.5;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pac-item:last-child {
+  border-bottom: none;
+}
+
+.pac-item:hover {
+  background-color: #f3f4f6;
+}
+
+.pac-item-query {
+  font-family: monospace;
+  color: #1f2937;
+}
+
+.pac-matched {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.pac-icon {
+  margin-top: 4px;
+}
