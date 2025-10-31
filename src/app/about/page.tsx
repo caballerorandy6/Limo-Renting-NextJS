@@ -27,14 +27,14 @@ const About = () => {
   ];
 
   return (
-    <>
+    <section id="about-page">
       <JsonLdForBreadcrumb itemList={breadcrumbItems} />
       <section id="about" className="min-h-screen">
         <AboutUs />
         <BookUsAbout />
         <WhyChooseUpAbout />
       </section>
-    </>
+    </section>
   );
 };
 

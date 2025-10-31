@@ -1,3 +1,5 @@
+"use client";
+
 import { Map, MapCameraChangedEvent } from "@vis.gl/react-google-maps";
 
 //Custom Components

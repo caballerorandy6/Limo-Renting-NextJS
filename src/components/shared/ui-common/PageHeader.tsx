@@ -1,0 +1,48 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+//Custom Components
+import ChevronRightIcon from "@/components/shared/icons/ChevronRightIcon";
+import BookNowButton from "@/components/shared/buttons/BookNowButton";
+
+interface PageHeaderProps {
+  pageName: string;
+}
+
+const PageHeader = ({ pageName }: PageHeaderProps) => {
+  return (
+    <div className="bg-gradient-to-tr from-gray-600 to-gray-800 w-full h-[30vh] sm:h-[40vh] md:h-[43vh] lg:h-[50vh] xl:h-[52vh] relative">
+      <Image
+        width={1000}
+        height={1000}
+        src="/limoAboutPage/limoAboutPage.webp"
+        alt="Limo About Image"
+        priority
+        className="w-full h-full object-cover absolute mix-blend-overlay"
+      />
+      <div className="relative flex flex-col items-center justify-center h-full pt-14 sm:pt-16 md:pt-24 lg:pt-30 xl:pt-36">
+        <div className="flex items-center gap-4 mb-4">
+          <Link
+            href="/"
+            className="text-white uppercase font-bold font-sans underline hover:text-red-400 transition-colors"
+          >
+            Home
+          </Link>
+
+          <ChevronRightIcon />
+
+          <span className="text-red-400 font-sans font-bold text-lg rounded">
+            {pageName}
+          </span>
+        </div>
+        <div className="flex justify-center items-center">
+          <BookNowButton>Book Now</BookNowButton>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PageHeader;
