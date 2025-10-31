@@ -1,5 +1,5 @@
 {
-  "name": "guitar-store-nextjs",
+  "name": "limo-rental-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,7 +26,6 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.3",
     "@react-google-maps/api": "^2.20.7",
-    "@vercel/postgres": "^0.10.0",
     "@vis.gl/react-google-maps": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -55,7 +54,6 @@
     "@types/node": "^20.17.6",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@types/react-places-autocomplete": "^7.2.14",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^8",
     "eslint-config-next": "^16.0.1",
