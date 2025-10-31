@@ -31,6 +31,8 @@ import PassengersIcon from "@/components/shared/icons/PassengersIcon";
 import BriefcaseIcon from "@/components/shared/icons/BriefcaseIcon";
 import LocationIcon from "@/components/shared/icons/LocationIcon";
 import CalendarIcon from "@/components/shared/icons/CalendarIcon";
+import ConfirmBookingButton from "@/components/features/ride/ConfirmBookingButton";
+import RideInfoSkeleton from "@/components/features/ride/RideInfoSkeleton";
 
 //Store
 import { useRideInfoStore } from "@/stores";
@@ -38,6 +40,7 @@ import { useRideInfoStore } from "@/stores";
 //utils
 import { ridePrice } from "@/lib/utils";
 import { vehicles } from "@/components/features/fleet/arrays";
+import { v4 as uuidv4 } from "uuid";
 
 type Params = Promise<{ name: string }>;
 
@@ -103,6 +106,9 @@ const RideInfoPage = (props: { params: Params }) => {
     champagne: false,
   });
 
+  // Special instructions state
+  const [specialInstructions, setSpecialInstructions] = useState("");
+
   // Add-ons prices
   const addOnsPrices = {
     childSeat: 10,
@@ -125,15 +131,7 @@ const RideInfoPage = (props: { params: Params }) => {
 
   // Show loading while hydrating or redirecting
   if (!isHydrated || !hasValidRide) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-gray-600 font-mono">
-            {!isHydrated ? "Loading..." : "Redirecting..."}
-          </p>
-        </div>
-      </div>
-    );
+    return <RideInfoSkeleton />;
   }
 
   // Handle case where vehicle is not found
@@ -530,6 +528,8 @@ const RideInfoPage = (props: { params: Params }) => {
                 <Textarea
                   placeholder="Any special requests or instructions for your driver..."
                   className="min-h-[100px] font-sans"
+                  value={specialInstructions}
+                  onChange={(e) => setSpecialInstructions(e.target.value)}
                 />
                 <p className="text-xs text-gray-500 font-sans mt-2">
                   Let us know about flight numbers, special needs, or any other
@@ -695,10 +695,37 @@ const RideInfoPage = (props: { params: Params }) => {
                 </CardContent>
 
                 <CardFooter className="flex flex-col gap-3 border-t pt-6">
-                  {/* TODO: Implement booking confirmation logic */}
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6 font-mono">
-                    🎯 Confirm & Book Now
-                  </Button>
+                  <ConfirmBookingButton
+                    bookingData={{
+                      rideId: uuidv4(),
+                      pickUpLocation: ride.pickUpLocation,
+                      dropOffLocation: ride.dropOffLocation,
+                      stops: ride.stops || [],
+                      dateOfService: ride.dateOfService,
+                      pickUpTime: ride.pickUpTime,
+                      typeOfService: ride.typeOfService,
+                      passengers: ride.passengers,
+                      firstName: ride.firstName,
+                      lastName: ride.lastName,
+                      emailAddress: ride.emailAddress,
+                      phoneNumber: ride.phoneNumber,
+                      roundTrip: ride.roundTrip || false,
+                      returnDate: ride.returnDate,
+                      returnTime: ride.returnTime,
+                      distance: Number(distance),
+                      duration: Number(duration),
+                      vehicleName: selectedVehicle.name,
+                      vehiclePrice: totalPrice,
+                      addOns: addOns,
+                      addOnsTotal: addOnsTotal,
+                      totalPrice:
+                        totalPrice +
+                        addOnsTotal +
+                        (totalPrice + addOnsTotal) * 0.15 +
+                        (totalPrice + addOnsTotal) * 0.1,
+                      specialInstructions: specialInstructions || undefined,
+                    }}
+                  />
                   <Link href="/reservations" className="w-full">
                     <Button variant="outline" className="w-full font-mono">
                       🔍 New Search

@@ -163,3 +163,119 @@ export async function submitRideBooking(
     };
   }
 }
+
+export interface BookingConfirmationData extends RideBookingData {
+  vehicleName: string;
+  vehiclePrice: number;
+  addOns?: {
+    childSeat?: boolean;
+    meetGreet?: boolean;
+    champagne?: boolean;
+  };
+  addOnsTotal?: number;
+  totalPrice: number;
+  specialInstructions?: string;
+}
+
+/**
+ * Server Action for confirming and booking a ride
+ * Simulates the booking process with realistic delays
+ *
+ * @param data - Complete booking confirmation data including vehicle and pricing
+ * @returns ActionResult with success status and detailed message
+ */
+export async function confirmAndBookRideAction(
+  data: BookingConfirmationData
+): Promise<{
+  success: boolean;
+  message?: string;
+  error?: string;
+  bookingId?: string;
+}> {
+  try {
+    // Validate required fields
+    if (
+      !data.pickUpLocation ||
+      !data.dropOffLocation ||
+      !data.firstName ||
+      !data.lastName ||
+      !data.emailAddress ||
+      !data.phoneNumber ||
+      !data.vehicleName
+    ) {
+      return {
+        success: false,
+        error: "Please fill in all required fields",
+      };
+    }
+
+    // Simulate: Step 1 - Validating booking details (500ms)
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    console.log("✅ Step 1: Booking details validated");
+
+    // Simulate: Step 2 - Saving to database (800ms)
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    const bookingId = `RIDE-${Date.now()}-${Math.random().toString(36).substring(7).toUpperCase()}`;
+    console.log("✅ Step 2: Booking saved to database - ID:", bookingId);
+
+    // Simulate: Step 3 - Sending confirmation email to customer (1000ms)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log("✅ Step 3: Confirmation email sent to:", data.emailAddress);
+
+    // Simulate: Step 4 - Notifying admin team (600ms)
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    console.log("✅ Step 4: Admin team notified");
+
+    // Simulate: Step 5 - Payment processing (if needed) (700ms)
+    await new Promise((resolve) => setTimeout(resolve, 700));
+    console.log("✅ Step 5: Payment processed successfully");
+
+    // Log complete booking data for reference
+    console.log("📋 Complete Booking Data:", {
+      bookingId,
+      customer: {
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.emailAddress,
+        phone: data.phoneNumber,
+      },
+      trip: {
+        from: data.pickUpLocation,
+        to: data.dropOffLocation,
+        stops: data.stops,
+        date: data.dateOfService,
+        time: data.pickUpTime,
+        distance: `${data.distance} miles`,
+        duration: `${data.duration} minutes`,
+      },
+      vehicle: {
+        name: data.vehicleName,
+        basePrice: `$${data.vehiclePrice}`,
+      },
+      pricing: {
+        vehiclePrice: `$${data.vehiclePrice}`,
+        addOns: `$${data.addOnsTotal || 0}`,
+        total: `$${data.totalPrice}`,
+      },
+      service: data.typeOfService,
+      passengers: data.passengers,
+      roundTrip: data.roundTrip,
+      ...(data.returnDate && { returnDate: data.returnDate }),
+      ...(data.returnTime && { returnTime: data.returnTime }),
+      ...(data.specialInstructions && {
+        specialInstructions: data.specialInstructions
+      }),
+    });
+
+    return {
+      success: true,
+      bookingId,
+      message: `Booking confirmed! Your confirmation number is ${bookingId}. We've sent a confirmation email to ${data.emailAddress}.`,
+    };
+  } catch (error) {
+    console.error("❌ Ride booking confirmation error:", error);
+    return {
+      success: false,
+      error: "Failed to confirm booking. Please try again later.",
+    };
+  }
+}

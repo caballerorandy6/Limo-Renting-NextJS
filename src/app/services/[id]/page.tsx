@@ -10,9 +10,6 @@ import { servicesData } from "@/config/services-data";
 //Arrays
 import { servicesAccordionArray } from "@/components/features/services/ServicesMultipleAccordion";
 
-//Interfaces
-import { ServiceDetailsProps } from "@/app/services/[id]/interfaces";
-
 // SEO Components
 import { JsonLdForBreadcrumb } from "@/components/seo/JsonLdForBreadcrumb";
 import { JsonLdForService } from "@/components/seo/JsonLdForService";
@@ -20,6 +17,10 @@ import { JsonLdForService } from "@/components/seo/JsonLdForService";
 // Config
 import { siteConfig, servicesMetadata } from "@/config/site";
 import { genPageMetadata } from "@/lib/genPageMetadata";
+
+export interface ServiceDetailsProps {
+  params: { id: string };
+}
 
 /**
  * Generate static params for all service pages
@@ -78,7 +79,10 @@ const ServiceDetails = ({ params }: ServiceDetailsProps) => {
   const breadcrumbItems = [
     { name: "Home", item: siteConfig.baseUrl },
     { name: "Services", item: `${siteConfig.baseUrl}/services` },
-    { name: service.title, item: `${siteConfig.baseUrl}/services/${params.id}` },
+    {
+      name: service.title,
+      item: `${siteConfig.baseUrl}/services/${params.id}`,
+    },
   ];
 
   return (
