@@ -13,40 +13,63 @@ interface PlaceAutocompleteInputProps {
   className?: string;
 }
 
+/**
+ * PlaceAutocompleteInput - Google Maps Place Autocomplete
+ * Uses the classic Autocomplete API
+ */
 const PlaceAutocompleteInput = forwardRef<
   HTMLInputElement,
   PlaceAutocompleteInputProps
 >(({ id, name, placeholder, value, onChange, onBlur, className }, ref) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const autocompleteInstanceRef = useRef<google.maps.places.Autocomplete | null>(null);
   const isInitializedRef = useRef(false);
 
+  // Initialize the autocomplete input once
   useEffect(() => {
-    const inputElement = inputRef.current;
-    if (!inputElement) return;
-
-    // Clean up previous instance if exists
-    if (autocompleteInstanceRef.current) {
-      google.maps.event.clearInstanceListeners(autocompleteInstanceRef.current);
-      autocompleteInstanceRef.current = null;
-      isInitializedRef.current = false;
-    }
+    const container = containerRef.current;
+    if (!container) return;
 
     // Wait for Google Maps API to load
     const initAutocomplete = () => {
-      if (typeof google === "undefined" || !google.maps || !google.maps.places) {
+      if (
+        typeof google === "undefined" ||
+        !google.maps ||
+        !google.maps.places
+      ) {
         setTimeout(initAutocomplete, 100);
         return;
       }
 
-      // Prevent double initialization
       if (isInitializedRef.current) return;
       isInitializedRef.current = true;
 
-      console.log("🗺️ Initializing Google Maps Autocomplete for:", id || name);
+      console.log(
+        "🗺️ Initializing Google Maps Autocomplete for:",
+        id || name
+      );
 
-      // Initialize Google Maps Autocomplete
-      const autocomplete = new google.maps.places.Autocomplete(inputElement, {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = name;
+      if (id) input.id = id;
+      if (placeholder) input.placeholder = placeholder;
+      input.autocomplete = "off";
+
+      input.className = cn(
+        "flex h-9 w-full border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors",
+        "file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground",
+        "placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+        "disabled:cursor-not-allowed disabled:opacity-50 bg-white hover:bg-gray-100 rounded mb-4 font-mono",
+        className
+      );
+
+      container.appendChild(input);
+      inputRef.current = input;
+
+      // Initialize Autocomplete API
+      const autocomplete = new google.maps.places.Autocomplete(input, {
         types: ["geocode", "establishment"],
         fields: ["formatted_address", "geometry", "name"],
       });
@@ -65,61 +88,58 @@ const PlaceAutocompleteInput = forwardRef<
         if (selectedAddress) {
           console.log("📍 Place selected:", selectedAddress);
           onChange(selectedAddress);
-          // Update DOM directly for visual feedback
-          if (inputElement) {
-            inputElement.value = selectedAddress;
-          }
+          input.value = selectedAddress;
         }
       });
 
-      autocompleteInstanceRef.current = autocomplete;
+      // Handle manual typing
+      const handleInput = (e: Event) => {
+        const target = e.target as HTMLInputElement;
+        onChange(target.value);
+      };
+
+      input.addEventListener("input", handleInput);
+
+      // Handle blur event
+      if (onBlur) {
+        input.addEventListener("blur", onBlur);
+      }
+
+      autocompleteRef.current = autocomplete;
+
+      // Set ref if provided
+      if (ref) {
+        if (typeof ref === "function") {
+          ref(input);
+        } else {
+          ref.current = input;
+        }
+      }
     };
 
     initAutocomplete();
 
-    // Handle manual typing
-    const handleInput = (e: Event) => {
-      const target = e.target as HTMLInputElement;
-      onChange(target.value);
-    };
-
-    inputElement.addEventListener("input", handleInput);
-
     return () => {
-      inputElement.removeEventListener("input", handleInput);
-      if (autocompleteInstanceRef.current) {
-        google.maps.event.clearInstanceListeners(autocompleteInstanceRef.current);
-        autocompleteInstanceRef.current = null;
+      if (autocompleteRef.current) {
+        google.maps.event.clearInstanceListeners(autocompleteRef.current);
+        autocompleteRef.current = null;
+      }
+      if (inputRef.current) {
+        inputRef.current.remove();
+        inputRef.current = null;
       }
       isInitializedRef.current = false;
     };
-  }, [id, name, onChange]);
+  }, []); // ✅ Solo inicializa una vez
 
-  return (
-    <input
-      ref={(el) => {
-        inputRef.current = el;
-        if (ref) {
-          if (typeof ref === "function") {
-            ref(el);
-          } else {
-            ref.current = el;
-          }
-        }
-      }}
-      id={id}
-      type="text"
-      name={name}
-      placeholder={placeholder}
-      defaultValue={value}
-      onBlur={onBlur}
-      className={cn(
-        "flex h-9 w-full border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 bg-white hover:bg-gray-100 rounded mb-4 font-mono",
-        className
-      )}
-      autoComplete="off"
-    />
-  );
+  // Sync external value changes to the input (without recreating it)
+  useEffect(() => {
+    if (inputRef.current && inputRef.current.value !== value) {
+      inputRef.current.value = value;
+    }
+  }, [value]); // ✅ Solo actualiza el valor del input existente
+
+  return <div ref={containerRef} className="w-full" />;
 });
 
 PlaceAutocompleteInput.displayName = "PlaceAutocompleteInput";

@@ -8,7 +8,7 @@ const Heading = ({ children, icon }: ButtonProps) => {
   return (
     <div className="flex gap-4">
       {icon ? icon : <CarIcon />}
-      <span className="font-mono font-bold text-xl">{children}</span>
+      <h1 className="font-mono font-bold text-xl">{children}</h1>
     </div>
   );
 };

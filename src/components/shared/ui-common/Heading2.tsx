@@ -9,9 +9,9 @@ const Heading2 = ({ children, icon }: ButtonProps) => {
     <>
       <div className="flex gap-4">
         {icon ? icon : <CarIcon />}
-        <span className="font-mono font-bold text-xl text-white">
+        <h2 className="font-mono font-bold text-xl text-white">
           {children}
-        </span>
+        </h2>
       </div>
     </>
   );

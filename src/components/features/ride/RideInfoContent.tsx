@@ -130,7 +130,14 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
       setVehiclePrice(vehiclePrice);
       setVehicleImage(selectedVehicle.images[0]);
     }
-  }, [selectedVehicle, vehiclePrice, isHydrated, setVehicleName, setVehiclePrice, setVehicleImage]);
+  }, [
+    selectedVehicle,
+    vehiclePrice,
+    isHydrated,
+    setVehicleName,
+    setVehiclePrice,
+    setVehicleImage,
+  ]);
 
   useEffect(() => {
     if (isHydrated) {
@@ -174,7 +181,8 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
               It looks like you haven&apos;t started a reservation yet.
             </p>
             <p className="text-gray-600 font-sans text-sm mb-6">
-              Please start a new booking to select your vehicle and confirm your ride details.
+              Please start a new booking to select your vehicle and confirm your
+              ride details.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/reservations" className="flex-1 sm:flex-none">
@@ -183,7 +191,10 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
                 </Button>
               </Link>
               <Link href="/" className="flex-1 sm:flex-none">
-                <Button variant="outline" className="w-full font-mono text-lg py-6">
+                <Button
+                  variant="outline"
+                  className="w-full font-mono text-lg py-6"
+                >
                   🏠 Return Home
                 </Button>
               </Link>
@@ -212,7 +223,8 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
               The selected vehicle could not be found.
             </p>
             <p className="text-gray-600 font-sans text-sm mb-6">
-              This vehicle may no longer be available. Please select another vehicle from our fleet.
+              This vehicle may no longer be available. Please select another
+              vehicle from our fleet.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href="/reservations" className="flex-1 sm:flex-none">
@@ -221,7 +233,10 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
                 </Button>
               </Link>
               <Link href="/" className="flex-1 sm:flex-none">
-                <Button variant="outline" className="w-full font-mono text-lg py-6">
+                <Button
+                  variant="outline"
+                  className="w-full font-mono text-lg py-6"
+                >
                   🏠 Return Home
                 </Button>
               </Link>
@@ -733,9 +748,7 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
                     </div>
                     <div className="flex justify-between font-sans text-sm">
                       <span className="text-gray-600">Taxes & Fees (10%)</span>
-                      <span className="font-semibold">
-                        ${taxes.toFixed(2)}
-                      </span>
+                      <span className="font-semibold">${taxes.toFixed(2)}</span>
                     </div>
 
                     <Separator className="border-2" />
