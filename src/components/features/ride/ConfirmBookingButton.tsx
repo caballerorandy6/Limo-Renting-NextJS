@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { confirmAndBookRideAction } from "@/actions/ride";
 import type { BookingConfirmationData } from "@/actions/ride";
+import { useRouter } from "next/navigation";
 
 interface ConfirmBookingButtonProps {
   bookingData: BookingConfirmationData;
@@ -17,6 +18,7 @@ export default function ConfirmBookingButton({
 }: ConfirmBookingButtonProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleConfirmBooking = async () => {
     setIsProcessing(true);
@@ -26,6 +28,7 @@ export default function ConfirmBookingButton({
       toast({
         title: "⏳ Validating booking details...",
         description: "Please wait while we confirm your information",
+        className: "max-w-md bg-green-600 text-white font-sans text-lg",
       });
 
       await new Promise((resolve) => setTimeout(resolve, 600));
@@ -34,6 +37,7 @@ export default function ConfirmBookingButton({
       toast({
         title: "💾 Saving your reservation...",
         description: "Creating your booking in our system",
+        className: "max-w-md bg-green-600 text-white font-sans",
       });
 
       await new Promise((resolve) => setTimeout(resolve, 900));
@@ -42,6 +46,7 @@ export default function ConfirmBookingButton({
       toast({
         title: "📧 Sending confirmation email...",
         description: `Email being sent to ${bookingData.emailAddress}`,
+        className: "max-w-md bg-green-600 text-white font-sans",
       });
 
       await new Promise((resolve) => setTimeout(resolve, 1100));
@@ -50,6 +55,7 @@ export default function ConfirmBookingButton({
       toast({
         title: "🔔 Notifying our team...",
         description: "Your booking is being assigned to a driver",
+        className: "max-w-md bg-green-600 text-white font-sans",
       });
 
       await new Promise((resolve) => setTimeout(resolve, 700));
@@ -58,6 +64,7 @@ export default function ConfirmBookingButton({
       toast({
         title: "💳 Processing payment...",
         description: "Finalizing your booking",
+        className: "max-w-md bg-blue-600 text-white font-sans",
       });
 
       // Call the actual server action
@@ -67,22 +74,24 @@ export default function ConfirmBookingButton({
         // Success notification
         toast({
           title: "✅ Booking Confirmed!",
-          description: result.message || "Your ride has been successfully booked!",
-          variant: "default",
+          description:
+            result.message || "Your ride has been successfully booked!",
+          variant: "custom",
         });
 
         // Log booking ID
         console.log("Booking ID:", result.bookingId);
 
-        // Optional: Redirect to success page after 2 seconds
+        // Redirect to success page with booking ID
         setTimeout(() => {
-          // window.location.href = "/booking-success";
-        }, 2000);
+          router.push(`/ride/booking-success/${result.bookingId}`);
+        }, 1500);
       } else {
         // Error notification
         toast({
           title: "❌ Booking Failed",
-          description: result.error || "Something went wrong. Please try again.",
+          description:
+            result.error || "Something went wrong. Please try again.",
           variant: "destructive",
         });
       }
