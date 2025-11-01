@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 //Shadcn Components
@@ -22,6 +23,7 @@ import { Separator } from "@/components/ui/separator";
 
 //Custom Components
 import SocialMenu from "@/components/layout/nav/SocialMenu";
+import UserAuth from "@/components/layout/nav/UserAuth";
 
 //Libs
 import { menuArray } from "@/lib/utils";
@@ -84,12 +86,21 @@ const HamburgerMenu = () => {
           )}
         >
           <SheetHeader>
-            <SheetTitle className="text-xl font-bold font-sans">
-              Menu
+            <SheetTitle className="flex justify-center items-center">
+              <Image
+                src="/logo/logo.webp"
+                alt="American Transportation Logo"
+                width={200}
+                height={60}
+                className="h-auto w-auto max-h-16"
+                priority
+              />
             </SheetTitle>
 
             <SheetDescription></SheetDescription>
           </SheetHeader>
+
+          <UserAuth variant="mobile" />
 
           <Separator className="text-white border" />
 

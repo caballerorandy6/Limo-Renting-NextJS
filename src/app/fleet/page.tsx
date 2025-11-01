@@ -1,7 +1,9 @@
-//Custom Components
+import { Suspense } from "react";
+import { getVehicles } from "@/actions/vehicles";
 import FleetVideo from "@/components/features/fleet/FleetVideo";
 import FleetInfo from "@/components/features/fleet/FleetInfo";
 import Vehicles from "@/components/features/fleet/Vehicles";
+import VehiclesSkeleton from "@/components/features/fleet/VehiclesSkeleton";
 import { genPageMetadata } from "@/lib/genPageMetadata";
 import { JsonLdForBreadcrumb } from "@/components/seo/JsonLdForBreadcrumb";
 import { siteConfig } from "@/config/site";
@@ -22,7 +24,8 @@ export const metadata = genPageMetadata({
   ],
 });
 
-const Fleet = () => {
+const Fleet = async () => {
+  const vehiclesPromise = getVehicles();
   const breadcrumbItems = [
     { name: "Home", item: siteConfig.baseUrl },
     { name: "Fleet", item: `${siteConfig.baseUrl}/fleet` },
@@ -31,10 +34,20 @@ const Fleet = () => {
   return (
     <>
       <JsonLdForBreadcrumb itemList={breadcrumbItems} />
-      <section id="fleet" className="mb-16">
+      <section id="fleet">
         <FleetVideo />
-        <FleetInfo />
-        <Vehicles />
+
+        {/* Info Section */}
+        <div className="py-16 md:py-20 lg:py-24">
+          <FleetInfo />
+        </div>
+
+        {/* Vehicles Grid Section */}
+        <div className="py-12 md:py-16 bg-gray-50">
+          <Suspense fallback={<VehiclesSkeleton />}>
+            <Vehicles vehiclesPromise={vehiclesPromise} />
+          </Suspense>
+        </div>
       </section>
     </>
   );

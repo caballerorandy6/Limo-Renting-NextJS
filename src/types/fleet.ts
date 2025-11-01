@@ -11,3 +11,17 @@ export interface FeaturedVehiclesCardProps {
   features: string;
   featuresObject: string;
 }
+
+export interface VehicleApiResponse {
+  id: string;
+  name: string;
+  quantityPassengers: number;
+  quantityBaggage: number;
+  description: string;
+  pricePerHour: string;
+  pricePerMile: string;
+  images: string[];
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
