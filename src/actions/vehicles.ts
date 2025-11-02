@@ -8,7 +8,7 @@ export async function getVehicles(): Promise<VehicleApiResponse[]> {
     const vehicles = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles`,
       {
-        next: { revalidate: 3600 }, // Revalidate every 1 hour
+        cache: "no-store", // Always fetch fresh data for admin
       }
     );
 
