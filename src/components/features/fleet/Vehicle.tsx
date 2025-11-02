@@ -6,6 +6,8 @@ import Car2Icon from "@/components/shared/icons/Car2Icon";
 import CarSeatIcon from "@/components/shared/icons/CarSeatIcon";
 import MinibarIcon from "@/components/shared/icons/MinibarIcon";
 import { VehicleApiResponse } from "@/types/fleet";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface VehicleProps {
   vehicle: VehicleApiResponse;
@@ -36,7 +38,9 @@ const Vehicle = ({ vehicle }: VehicleProps) => {
               <Car2Icon />
             </span>
             <span className="font-semibold text-sm">Passengers:</span>
-            <span className="text-sm ml-auto">{vehicle.quantityPassengers} pax</span>
+            <span className="text-sm ml-auto">
+              {vehicle.quantityPassengers} pax
+            </span>
           </div>
 
           {/* Baggage */}
@@ -45,7 +49,9 @@ const Vehicle = ({ vehicle }: VehicleProps) => {
               <CarSeatIcon />
             </span>
             <span className="font-semibold text-sm">Baggage:</span>
-            <span className="text-sm ml-auto">{vehicle.quantityBaggage} bags</span>
+            <span className="text-sm ml-auto">
+              {vehicle.quantityBaggage} bags
+            </span>
           </div>
 
           {/* Price */}
@@ -57,6 +63,18 @@ const Vehicle = ({ vehicle }: VehicleProps) => {
             <span className="text-sm font-bold text-red-600 ml-auto">
               ${vehicle.pricePerHour}/hour
             </span>
+          </div>
+
+          {/* View Details Button */}
+          <div className="pt-4">
+            <Link href={`/fleet/${vehicle.id}`} className="w-full">
+              <Button
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-md transition-colors duration-200 font-sans"
+                variant="default"
+              >
+                View Details
+              </Button>
+            </Link>
           </div>
         </div>
       </CardContent>
