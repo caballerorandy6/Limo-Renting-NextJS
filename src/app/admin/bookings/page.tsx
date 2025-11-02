@@ -85,7 +85,7 @@ export default function BookingsPage() {
         action={
           <button
             onClick={handleFilterBookings}
-            className="flex items-center gap-2 rounded-lg border border-gray-700 px-4 py-2 text-sm font-medium text-white hover:bg-gray-900 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-gray-700 px-4 py-2 text-sm font-mono font-semibold text-white hover:bg-gray-900 transition-colors"
           >
             <Filter className="h-4 w-4" />
             Filter
@@ -105,25 +105,25 @@ export default function BookingsPage() {
             <table className="w-full">
               <thead className="border-b border-gray-800 bg-gray-950">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Booking #
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Customer
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Vehicle / Service
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Date
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Total
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Status
                   </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-400 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-right text-xs font-mono font-bold text-gray-400 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
@@ -132,31 +132,31 @@ export default function BookingsPage() {
                 {bookings.map((booking) => (
                   <tr key={booking.id} className="hover:bg-gray-950 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-mono font-semibold text-white">
                         {booking.bookingNumber}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-sans font-semibold text-white">
                         {booking.customerName}
                       </div>
-                      <div className="text-sm text-gray-400">{booking.email}</div>
+                      <div className="text-sm font-mono text-gray-400">{booking.email}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-white">{booking.vehicle}</div>
-                      <div className="text-sm text-gray-400">{booking.service}</div>
+                      <div className="text-sm font-sans text-white">{booking.vehicle}</div>
+                      <div className="text-sm font-mono text-gray-400">{booking.service}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-400">{booking.date}</div>
+                      <div className="text-sm font-mono text-gray-400">{booking.date}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-sans font-semibold text-white">
                         ${booking.totalPrice}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
-                        className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${getStatusColor(
+                        className={`inline-flex rounded-full px-2 py-1 text-xs font-mono font-semibold ${getStatusColor(
                           booking.status
                         )}`}
                       >

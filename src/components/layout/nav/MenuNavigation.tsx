@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -21,8 +23,8 @@ const MenuNavigation = () => {
   const pathname = usePathname();
 
   return (
-    <NavigationMenu className="hidden xl:flex mx-auto mt-2  z-50">
-      <NavigationMenuList>
+    <NavigationMenu className="flex items-center gap-2">
+      <NavigationMenuList className="gap-1">
         {menuArray.map((link) => (
           <NavigationMenuItem key={link.id}>
             <NavigationMenuLink asChild>
@@ -30,8 +32,10 @@ const MenuNavigation = () => {
                 href={link.url}
                 className={cn(
                   navigationMenuTriggerStyle(),
-                  "font-mono font-bold hover:text-red-500 transition-colors text-lg",
-                  pathname === link.url ? "text-red-500" : "text-white"
+                  "font-mono font-semibold hover:text-red-500 transition-all duration-200 text-sm px-4 py-2 rounded-md",
+                  pathname === link.url
+                    ? "text-red-500 bg-red-500/10"
+                    : "text-white hover:bg-white/5"
                 )}
               >
                 {link.name}
@@ -40,7 +44,9 @@ const MenuNavigation = () => {
           </NavigationMenuItem>
         ))}
       </NavigationMenuList>
-      <BookNowButton>Book Now</BookNowButton>
+      <div className="ml-2">
+        <BookNowButton variant="navbar">Book Now</BookNowButton>
+      </div>
     </NavigationMenu>
   );
 };

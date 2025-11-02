@@ -105,11 +105,11 @@ export default function ContactsPage() {
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-lg font-semibold font-sans text-white">
                       {contact.name}
                     </h3>
                     <span
-                      className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${getStatusColor(
+                      className={`inline-flex rounded-full px-2 py-1 text-xs font-mono font-semibold ${getStatusColor(
                         contact.status
                       )}`}
                     >
@@ -117,7 +117,7 @@ export default function ContactsPage() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
+                  <div className="flex items-center gap-4 text-sm font-mono text-gray-400 mb-3">
                     <div className="flex items-center gap-2">
                       <Mail className="h-4 w-4" />
                       {contact.email}
@@ -128,11 +128,11 @@ export default function ContactsPage() {
                     </div>
                   </div>
 
-                  <p className="text-sm text-gray-300 mb-3 line-clamp-2">
+                  <p className="text-sm font-mono text-gray-300 mb-3 line-clamp-2">
                     {contact.message}
                   </p>
 
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs font-mono text-gray-500">
                     {formatDate(contact.createdAt)}
                   </p>
                 </div>
@@ -140,20 +140,20 @@ export default function ContactsPage() {
                 <div className="flex items-center gap-2 ml-4">
                   <button
                     onClick={() => handleViewContact(contact.id)}
-                    className="rounded-lg border border-gray-700 px-3 py-2 text-sm font-medium text-white hover:bg-gray-900 transition-colors"
+                    className="rounded-lg border border-gray-700 px-3 py-2 text-sm font-mono font-semibold text-white hover:bg-gray-900 transition-colors"
                     title="View"
                   >
                     <Eye className="h-4 w-4" />
                   </button>
                   <button
                     onClick={() => handleReply(contact.id)}
-                    className="rounded-lg bg-white px-3 py-2 text-sm font-medium text-black hover:bg-gray-200 transition-colors"
+                    className="rounded-lg bg-white px-3 py-2 text-sm font-sans font-bold text-black hover:bg-gray-200 transition-colors"
                   >
                     Reply
                   </button>
                   <button
                     onClick={() => handleDeleteContact(contact.id)}
-                    className="rounded-lg border border-gray-700 px-3 py-2 text-sm font-medium text-white hover:bg-red-900 hover:border-red-900 transition-colors"
+                    className="rounded-lg border border-gray-700 px-3 py-2 text-sm font-mono font-semibold text-white hover:bg-red-900 hover:border-red-900 transition-colors"
                     title="Delete"
                   >
                     <Trash2 className="h-4 w-4" />

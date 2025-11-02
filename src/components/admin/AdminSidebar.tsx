@@ -49,9 +49,7 @@ export default function AdminSidebar() {
     <div className="flex h-screen w-64 flex-col bg-black border-r border-gray-800">
       {/* Logo */}
       <div className="flex h-16 items-center justify-center border-b border-gray-800">
-        <h1 className="text-xl font-bold text-white font-mono">
-          ADMIN PANEL
-        </h1>
+        <h1 className="text-xl font-bold text-white font-mono">ADMIN PANEL</h1>
       </div>
 
       {/* Navigation */}
@@ -63,7 +61,7 @@ export default function AdminSidebar() {
               key={item.name}
               href={item.href}
               className={`
-                flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors
+                flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors font-sans
                 ${
                   isActive
                     ? "bg-white text-black"

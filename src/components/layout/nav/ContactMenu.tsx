@@ -25,19 +25,16 @@ const contactLinks: ContactLink[] = [
 
 const ContactMenu = () => {
   return (
-    <ul className="flex justify-center items-center gap-8 font-bold">
+    <ul className="flex items-center gap-4">
       {contactLinks.map((link) => (
-        <li
-          key={link.id}
-          className=" text-white hover:text-red-500 transition-colors py-2"
-        >
+        <li key={link.id}>
           <Link
             href={link.href}
             target="_blank"
-            className="flex gap-2 items-center"
+            className="flex items-center gap-2 text-xs font-semibold text-gray-300 hover:text-white transition-colors duration-200"
           >
-            {link.icon}
-            {link.name}
+            <span className="text-gray-400">{link.icon}</span>
+            <span className="hidden lg:inline">{link.name}</span>
           </Link>
         </li>
       ))}

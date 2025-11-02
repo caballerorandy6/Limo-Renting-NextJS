@@ -18,8 +18,8 @@ export default function EmptyState({
       <div className="rounded-full bg-gray-900 p-4">
         <Icon className="h-8 w-8 text-gray-400" />
       </div>
-      <h3 className="mt-4 text-lg font-semibold text-white">{title}</h3>
-      <p className="mt-2 text-sm text-gray-400">{description}</p>
+      <h3 className="mt-4 text-lg font-semibold font-sans text-white">{title}</h3>
+      <p className="mt-2 text-sm font-mono text-gray-400">{description}</p>
       {action && <div className="mt-6">{action}</div>}
     </div>
   );

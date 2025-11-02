@@ -10,18 +10,34 @@ import UserAuth from "@/components/layout/nav/UserAuth";
 
 const Navbar = () => {
   return (
-    <nav className="fixed w-full bg-black font-mono p-4">
-      <div className="flex justify-between xl:justify-around items-center">
-        <Logo />
-        <div className="flex xl:flex-col justify-between">
-          <div className="xl:flex hidden justify-center gap-8 items-center p-2">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full bg-black border-b border-gray-900 font-mono">
+      {/* Desktop Layout (xl: 1280px and up) */}
+      <div className="hidden xl:block">
+        <div className="container mx-auto px-6 py-3">
+          {/* Top Row: Contact, Social, Auth */}
+          <div className="flex items-center justify-end gap-6 pb-3 border-b border-gray-900">
             <ContactMenu />
+            <div className="h-4 w-px bg-gray-700" />
             <SocialMenu />
+            <div className="h-4 w-px bg-gray-700" />
             <UserAuth />
           </div>
 
-          <HamburgerMenu />
-          <MenuNavigation />
+          {/* Bottom Row: Logo and Navigation */}
+          <div className="flex items-center justify-between pt-3">
+            <Logo />
+            <MenuNavigation />
+          </div>
+        </div>
+      </div>
+
+      {/* Tablet and Mobile Layout (below xl: 1280px) */}
+      <div className="xl:hidden">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            <Logo />
+            <HamburgerMenu />
+          </div>
         </div>
       </div>
     </nav>

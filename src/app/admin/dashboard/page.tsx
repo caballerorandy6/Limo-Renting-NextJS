@@ -64,35 +64,35 @@ export default function AdminDashboard() {
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Recent Bookings */}
         <div className="rounded-lg border border-gray-800 bg-black p-6">
-          <h2 className="text-lg font-semibold text-white mb-4">
+          <h2 className="text-lg font-semibold font-sans text-white mb-4">
             Recent Bookings
           </h2>
           <div className="space-y-4">
             {/* TODO: Map real bookings data */}
             <div className="flex items-center justify-between border-b border-gray-800 pb-4">
               <div>
-                <p className="font-medium text-white">John Doe</p>
-                <p className="text-sm text-gray-400">Luxury Sedan - Airport Transfer</p>
+                <p className="font-medium font-sans text-white">John Doe</p>
+                <p className="text-sm font-mono text-gray-400">Luxury Sedan - Airport Transfer</p>
               </div>
-              <span className="rounded-full bg-green-900 px-3 py-1 text-xs font-medium text-green-300">
+              <span className="rounded-full bg-green-900 px-3 py-1 text-xs font-mono font-medium text-green-300">
                 Confirmed
               </span>
             </div>
             <div className="flex items-center justify-between border-b border-gray-800 pb-4">
               <div>
-                <p className="font-medium text-white">Jane Smith</p>
-                <p className="text-sm text-gray-400">Stretch Limo - Wedding</p>
+                <p className="font-medium font-sans text-white">Jane Smith</p>
+                <p className="text-sm font-mono text-gray-400">Stretch Limo - Wedding</p>
               </div>
-              <span className="rounded-full bg-yellow-900 px-3 py-1 text-xs font-medium text-yellow-300">
+              <span className="rounded-full bg-yellow-900 px-3 py-1 text-xs font-mono font-medium text-yellow-300">
                 Pending
               </span>
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-medium text-white">Mike Johnson</p>
-                <p className="text-sm text-gray-400">SUV - Corporate Event</p>
+                <p className="font-medium font-sans text-white">Mike Johnson</p>
+                <p className="text-sm font-mono text-gray-400">SUV - Corporate Event</p>
               </div>
-              <span className="rounded-full bg-green-900 px-3 py-1 text-xs font-medium text-green-300">
+              <span className="rounded-full bg-green-900 px-3 py-1 text-xs font-mono font-medium text-green-300">
                 Confirmed
               </span>
             </div>
@@ -101,35 +101,35 @@ export default function AdminDashboard() {
 
         {/* Recent Contacts */}
         <div className="rounded-lg border border-gray-800 bg-black p-6">
-          <h2 className="text-lg font-semibold text-white mb-4">
+          <h2 className="text-lg font-semibold font-sans text-white mb-4">
             Recent Contacts
           </h2>
           <div className="space-y-4">
             {/* TODO: Map real contacts data */}
             <div className="flex items-center justify-between border-b border-gray-800 pb-4">
               <div>
-                <p className="font-medium text-white">Sarah Williams</p>
-                <p className="text-sm text-gray-400">Inquiry about pricing...</p>
+                <p className="font-medium font-sans text-white">Sarah Williams</p>
+                <p className="text-sm font-mono text-gray-400">Inquiry about pricing...</p>
               </div>
-              <span className="rounded-full bg-blue-900 px-3 py-1 text-xs font-medium text-blue-300">
+              <span className="rounded-full bg-blue-900 px-3 py-1 text-xs font-mono font-medium text-blue-300">
                 New
               </span>
             </div>
             <div className="flex items-center justify-between border-b border-gray-800 pb-4">
               <div>
-                <p className="font-medium text-white">Robert Brown</p>
-                <p className="text-sm text-gray-400">Question about availability...</p>
+                <p className="font-medium font-sans text-white">Robert Brown</p>
+                <p className="text-sm font-mono text-gray-400">Question about availability...</p>
               </div>
-              <span className="rounded-full bg-gray-700 px-3 py-1 text-xs font-medium text-gray-300">
+              <span className="rounded-full bg-gray-700 px-3 py-1 text-xs font-mono font-medium text-gray-300">
                 Read
               </span>
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-medium text-white">Emily Davis</p>
-                <p className="text-sm text-gray-400">Corporate account setup...</p>
+                <p className="font-medium font-sans text-white">Emily Davis</p>
+                <p className="text-sm font-mono text-gray-400">Corporate account setup...</p>
               </div>
-              <span className="rounded-full bg-green-900 px-3 py-1 text-xs font-medium text-green-300">
+              <span className="rounded-full bg-green-900 px-3 py-1 text-xs font-mono font-medium text-green-300">
                 Replied
               </span>
             </div>

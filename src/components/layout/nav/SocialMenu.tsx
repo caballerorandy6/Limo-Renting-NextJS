@@ -38,16 +38,15 @@ export const socialLinks: SocialLink[] = [
 
 const SocialMenu = () => {
   return (
-    <ul className="flex justify-center items-center gap-8 font-bold">
+    <ul className="flex items-center gap-3">
       {socialLinks.map((link) => (
-        <li
-          key={link.id}
-          className="transition-all duration-300 ease-in-out transform hover:scale-150 text-white py-2"
-        >
+        <li key={link.id}>
           <Link
             href={link.href}
-            className="text-white hover:text-red-500 transition-colors font-mono dont-semibold"
+            className="text-gray-400 hover:text-white hover:scale-110 transition-all duration-200"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.name}
           >
             {link.icon}
           </Link>

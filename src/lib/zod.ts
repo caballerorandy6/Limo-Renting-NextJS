@@ -77,6 +77,38 @@ export const formSchema = z
     }
   );
 
+  export const vehicleSchema = z.object({
+    name: z.string().min(1, "Name is required").max(100, "Name is too long"),
+    quantityPassengers: z.coerce
+      .number()
+      .min(1, "Must have at least 1 passenger")
+      .max(50, "Maximum 50 passengers"),
+    quantityBaggage: z.coerce
+      .number()
+      .min(0, "Cannot be negative")
+      .max(20, "Maximum 20 baggage"),
+    description: z.string().min(10, "Description must be at least 10 characters").max(1000, "Description is too long"),
+    pricePerHour: z.coerce
+      .number()
+      .min(1, "Price must be greater than 0")
+      .max(10000, "Price is too high"),
+    pricePerMile: z.coerce
+      .number()
+      .min(0.1, "Price must be greater than 0")
+      .max(1000, "Price is too high"),
+    isActive: z.boolean().default(true),
+    image: z
+      .any()
+      .refine((files) => files?.length > 0, "Image is required")
+      .refine((files) => files?.[0]?.size <= 5000000, "Image must be less than 5MB")
+      .refine(
+        (files) => ["image/jpeg", "image/png", "image/webp"].includes(files?.[0]?.type),
+        "Only .jpg, .png, .webp formats are supported"
+      ),
+  });
+  
+  
+
 //Schema Contact Form
 // export const contactSchema = z.object({
 //   name: z

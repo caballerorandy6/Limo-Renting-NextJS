@@ -15,11 +15,11 @@ export default function StatCard({ title, value, icon: Icon, trend }: StatCardPr
     <div className="rounded-lg border border-gray-800 bg-black p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-gray-400">{title}</p>
-          <p className="mt-2 text-3xl font-bold text-white">{value}</p>
+          <p className="text-sm font-medium font-mono text-gray-400 uppercase tracking-wide">{title}</p>
+          <p className="mt-2 text-3xl font-bold font-sans text-white">{value}</p>
           {trend && (
             <p
-              className={`mt-2 text-sm ${
+              className={`mt-2 text-sm font-mono ${
                 trend.isPositive ? "text-green-500" : "text-red-500"
               }`}
             >
