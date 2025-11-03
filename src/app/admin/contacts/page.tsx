@@ -96,69 +96,67 @@ export default function ContactsPage() {
           description="Customer contact messages will appear here"
         />
       ) : (
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {contacts.map((contact) => (
             <div
               key={contact.id}
-              className="rounded-lg border border-gray-800 bg-black p-6 hover:border-gray-700 transition-colors"
+              className="rounded-lg border border-gray-800 bg-black hover:border-gray-700 transition-colors flex flex-col"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-lg font-semibold font-sans text-white">
-                      {contact.name}
-                    </h3>
-                    <span
-                      className={`inline-flex rounded-full px-2 py-1 text-xs font-mono font-semibold ${getStatusColor(
-                        contact.status
-                      )}`}
-                    >
-                      {contact.status}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-4 text-sm font-mono text-gray-400 mb-3">
-                    <div className="flex items-center gap-2">
-                      <Mail className="h-4 w-4" />
-                      {contact.email}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4" />
-                      {contact.phone}
-                    </div>
-                  </div>
-
-                  <p className="text-sm font-mono text-gray-300 mb-3 line-clamp-2">
-                    {contact.message}
-                  </p>
-
-                  <p className="text-xs font-mono text-gray-500">
-                    {formatDate(contact.createdAt)}
-                  </p>
+              <div className="p-6 flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="text-lg font-semibold font-sans text-white">
+                    {contact.name}
+                  </h3>
+                  <span
+                    className={`inline-flex rounded-full px-2 py-1 text-xs font-mono font-semibold ${getStatusColor(
+                      contact.status
+                    )}`}
+                  >
+                    {contact.status}
+                  </span>
                 </div>
 
-                <div className="flex items-center gap-2 ml-4">
-                  <button
-                    onClick={() => handleViewContact(contact.id)}
-                    className="rounded-lg border border-gray-700 px-3 py-2 text-sm font-mono font-semibold text-white hover:bg-gray-900 transition-colors"
-                    title="View"
-                  >
-                    <Eye className="h-4 w-4" />
-                  </button>
-                  <button
-                    onClick={() => handleReply(contact.id)}
-                    className="rounded-lg bg-white px-3 py-2 text-sm font-sans font-bold text-black hover:bg-gray-200 transition-colors"
-                  >
-                    Reply
-                  </button>
-                  <button
-                    onClick={() => handleDeleteContact(contact.id)}
-                    className="rounded-lg border border-gray-700 px-3 py-2 text-sm font-mono font-semibold text-white hover:bg-red-900 hover:border-red-900 transition-colors"
-                    title="Delete"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
+                <div className="space-y-2 text-sm font-mono text-gray-400 mb-3">
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    <span className="truncate">{contact.email}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 flex-shrink-0" />
+                    <span>{contact.phone}</span>
+                  </div>
                 </div>
+
+                <p className="text-sm font-mono text-gray-300 mb-3 line-clamp-3">
+                  {contact.message}
+                </p>
+
+                <p className="text-xs font-mono text-gray-500">
+                  {formatDate(contact.createdAt)}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2 p-4 border-t border-gray-800">
+                <button
+                  onClick={() => handleViewContact(contact.id)}
+                  className="flex-1 rounded-lg border border-gray-700 px-3 py-2 text-sm font-mono font-semibold text-white hover:bg-gray-900 transition-colors"
+                  title="View"
+                >
+                  <Eye className="h-4 w-4 mx-auto" />
+                </button>
+                <button
+                  onClick={() => handleReply(contact.id)}
+                  className="flex-1 rounded-lg bg-white px-3 py-2 text-sm font-sans font-bold text-black hover:bg-gray-200 transition-colors"
+                >
+                  Reply
+                </button>
+                <button
+                  onClick={() => handleDeleteContact(contact.id)}
+                  className="flex-1 rounded-lg border border-gray-700 px-3 py-2 text-sm font-mono font-semibold text-white hover:bg-red-900 hover:border-red-900 transition-colors"
+                  title="Delete"
+                >
+                  <Trash2 className="h-4 w-4 mx-auto" />
+                </button>
               </div>
             </div>
           ))}

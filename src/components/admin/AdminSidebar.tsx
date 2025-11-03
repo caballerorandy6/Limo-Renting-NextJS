@@ -53,7 +53,7 @@ export default function AdminSidebar() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-lg bg-black border border-gray-800 text-white hover:bg-gray-900"
+        className="lg:hidden fixed top-20 left-4 z-50 p-2 rounded-lg bg-black border border-gray-800 text-white hover:bg-gray-900"
       >
         {isMobileMenuOpen ? (
           <X className="h-6 w-6" />
