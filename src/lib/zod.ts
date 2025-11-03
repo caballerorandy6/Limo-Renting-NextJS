@@ -99,6 +99,17 @@ export const formSchema = z
     isActive: z.boolean().default(true),
     image: z
       .any()
+      .refine((files) => !files || files?.length === 0 || files?.[0]?.size <= 5000000, "Image must be less than 5MB")
+      .refine(
+        (files) => !files || files?.length === 0 || ["image/jpeg", "image/png", "image/webp"].includes(files?.[0]?.type),
+        "Only .jpg, .png, .webp formats are supported"
+      )
+      .optional(),
+  });
+
+  export const vehicleSchemaCreate = vehicleSchema.extend({
+    image: z
+      .any()
       .refine((files) => files?.length > 0, "Image is required")
       .refine((files) => files?.[0]?.size <= 5000000, "Image must be less than 5MB")
       .refine(

@@ -1,67 +1,75 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Plus } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import VehicleForm from "./VehicleForm";
 
 interface VehicleDialogProps {
   mode: "create" | "edit";
   vehicleId?: string;
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
-export default function VehicleDialog({ mode, vehicleId }: VehicleDialogProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function VehicleDialog({
+  mode,
+  vehicleId,
+  isOpen: externalIsOpen,
+  onOpenChange,
+}: VehicleDialogProps) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const router = useRouter();
+
+  // Use external state if provided, otherwise use internal state
+  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  const setIsOpen = onOpenChange || setInternalIsOpen;
+
+  const handleSuccess = () => {
+    setIsOpen(false);
+    router.refresh(); // Force refresh to show changes
+  };
 
   return (
-    <>
-      {mode === "create" ? (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-sans font-bold text-black hover:bg-gray-200 transition-colors"
-        >
-          <Plus className="h-4 w-4" />
-          Add Vehicle
-        </button>
-      ) : (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="text-gray-400 hover:text-white transition-colors"
-          title="Edit"
-        >
-          {/* Edit button content from parent */}
-        </button>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      {/* Only show button for create mode (no external control) */}
+      {mode === "create" && externalIsOpen === undefined && (
+        <DialogTrigger asChild>
+          <Button className="flex items-center gap-2 bg-white text-black hover:bg-gray-200 font-sans font-bold">
+            <Plus className="h-4 w-4" />
+            Add Vehicle
+          </Button>
+        </DialogTrigger>
       )}
 
-      {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/80"
-            onClick={() => setIsOpen(false)}
-          />
+      <DialogContent className="max-w-2xl border-gray-800 bg-black text-white max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-sans font-bold text-white">
+            {mode === "create" ? "Add New Vehicle" : "Edit Vehicle"}
+          </DialogTitle>
+          <DialogDescription className="text-sm font-mono text-gray-400">
+            {mode === "create"
+              ? "Add a new vehicle to your fleet"
+              : "Update vehicle information"}
+          </DialogDescription>
+        </DialogHeader>
 
-          {/* Dialog */}
-          <div className="relative z-10 w-full max-w-2xl rounded-lg border border-gray-800 bg-black p-6 shadow-xl">
-            <div className="mb-6">
-              <h2 className="text-2xl font-sans font-bold text-white">
-                {mode === "create" ? "Add New Vehicle" : "Edit Vehicle"}
-              </h2>
-              <p className="text-sm font-mono text-gray-400 mt-1">
-                {mode === "create"
-                  ? "Add a new vehicle to your fleet"
-                  : "Update vehicle information"}
-              </p>
-            </div>
-
-            <VehicleForm
-              mode={mode}
-              vehicleId={vehicleId}
-              onSuccess={() => setIsOpen(false)}
-              onCancel={() => setIsOpen(false)}
-            />
-          </div>
-        </div>
-      )}
-    </>
+        <VehicleForm
+          mode={mode}
+          vehicleId={vehicleId}
+          onSuccess={handleSuccess}
+          onCancel={() => setIsOpen(false)}
+        />
+      </DialogContent>
+    </Dialog>
   );
 }
