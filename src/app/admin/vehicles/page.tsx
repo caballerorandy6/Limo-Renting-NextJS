@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   description: "Manage your fleet of vehicles",
 };
 
+// Force dynamic rendering for admin pages to always show fresh
+// cache: 'no-store' equivalent revalidate: 0
+export const dynamic = 'force-dynamic';
+
 export default async function VehiclesPage() {
   const vehicles = await getVehiclesAdmin();
 
