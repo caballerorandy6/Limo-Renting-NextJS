@@ -7,13 +7,34 @@ import { z } from "zod";
 
 type VehicleFormData = z.infer<typeof vehicleSchema>;
 
-// Fetch all vehicles
-export async function getVehicles(): Promise<VehicleApiResponse[]> {
+// Fetch all vehicles for ADMIN (no cache - always fresh)
+export async function getVehiclesAdmin(): Promise<VehicleApiResponse[]> {
   try {
     const vehicles = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles`,
       {
         cache: "no-store", // Always fetch fresh data for admin
+      }
+    );
+
+    if (!vehicles.ok) {
+      throw new Error("Failed to fetch vehicles");
+    }
+
+    return vehicles.json();
+  } catch (error) {
+    console.error("Error fetching vehicles:", error);
+    throw error;
+  }
+}
+
+// Fetch all vehicles for PUBLIC (ISR - revalidate every 1 hour)
+export async function getVehicles(): Promise<VehicleApiResponse[]> {
+  try {
+    const vehicles = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles`,
+      {
+        next: { revalidate: 3600 }, // Revalidate every 1 hour
       }
     );
 

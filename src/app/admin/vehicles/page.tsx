@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Car } from "lucide-react";
-import { getVehicles } from "@/actions";
+import { getVehiclesAdmin } from "@/actions/vehicles";
 
 export const metadata: Metadata = {
   title: "Vehicles | Admin Dashboard",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default async function VehiclesPage() {
-  const vehicles = await getVehicles();
+  const vehicles = await getVehiclesAdmin();
 
   return (
     <div>
