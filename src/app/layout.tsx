@@ -7,6 +7,7 @@ import { GeistMono } from "geist/font/mono";
 import { genPageMetadata } from "@/lib/genPageMetadata";
 import { JsonLdForOrganization } from "@/components/seo/JsonLdForOrganization";
 import { ClerkProvider } from "@clerk/nextjs";
+import Script from "next/script";
 
 export const metadata = genPageMetadata({
   title: "Car Services in Miami - Chauffeured Car, Limo & Bus Services",
@@ -132,6 +133,12 @@ export default function RootLayout({
         <body
           className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
         >
+          {/* Google Maps API - Loaded once globally */}
+          <Script
+            id="google-maps-api"
+            src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places&loading=async`}
+            strategy="lazyOnload"
+          />
           <JsonLdForOrganization />
           <Header />
           <div className="min-h-screen">{children}</div>

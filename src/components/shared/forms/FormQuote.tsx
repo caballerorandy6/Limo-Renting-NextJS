@@ -67,7 +67,6 @@ import {
 
 //Other
 import { format } from "date-fns";
-import Script from "next/script";
 
 // Styles
 import "@/styles/google-maps-override.css";
@@ -146,12 +145,6 @@ const FormQuote = () => {
 
   return (
     <>
-      <Script
-        id="google-maps-api"
-        src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places&loading=async`}
-        strategy="lazyOnload"
-        async
-      />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -380,6 +373,7 @@ const FormQuote = () => {
 
             {/* First Name - Input */}
             <InputField
+              className="bg-gray-200 placeholder:font-mono font-mono"
               name="firstName"
               label="First Name"
               placeholder="First Name"
@@ -390,6 +384,7 @@ const FormQuote = () => {
 
             {/* Last Name - Input */}
             <InputField
+              className="bg-gray-200 placeholder:font-mono font-mono"
               name="lastName"
               label="Last Name"
               placeholder="Last Name"
@@ -400,6 +395,7 @@ const FormQuote = () => {
 
             {/* Email - Input */}
             <InputField
+              className="bg-gray-200 placeholder:font-mono font-mono"
               name="emailAddress"
               label="Email Address"
               placeholder="Email Address"
@@ -410,6 +406,7 @@ const FormQuote = () => {
 
             {/* Phone Number - Input */}
             <InputField
+              className="bg-gray-200 placeholder:font-mono font-mono"
               name="phoneNumber"
               label="Phone Number"
               placeholder="000-000-0000"

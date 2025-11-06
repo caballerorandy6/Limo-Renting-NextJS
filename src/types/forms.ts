@@ -36,4 +36,5 @@ export interface InputFieldProps {
   type: string;
   id: string;
   uncontrolled?: boolean; // For Google Maps Autocomplete compatibility
+  className?: string; // Custom className for styling
 }

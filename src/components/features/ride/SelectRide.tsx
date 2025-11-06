@@ -12,9 +12,19 @@ import { dateModified } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import TripMap from "./TripMap";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const SelectRide = () => {
   const { ride } = useRideInfoStore();
+  const router = useRouter();
+
+  // Redirect if no ride data
+  useEffect(() => {
+    if (!ride || !ride.pickUpLocation || !ride.dropOffLocation) {
+      router.push("/reservations");
+    }
+  }, [ride, router]);
 
   return (
     <div className="w-full bg-gray-100 py-6 sm:py-8 md:py-12">

@@ -15,8 +15,11 @@ import PlaceAutocompleteInput from "./PlaceAutocompleteInput";
 // Interfaces
 import { InputFieldProps } from "@/types/forms";
 
+// Utils
+import { cn } from "@/lib/utils";
+
 const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
-  ({ name, label, placeholder, control, type, id, uncontrolled }: InputFieldProps, externalRef) => (
+  ({ name, label, placeholder, control, type, id, uncontrolled, className }: InputFieldProps, externalRef) => (
     <FormField
       control={control}
       name={name}
@@ -73,7 +76,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
               id={id || name}
               type={type}
               placeholder={placeholder}
-              className="block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200"
+              className={cn("block w-full p-1 rounded mb-4 text-sm hover:bg-gray-200", className)}
               value={field.value || ""}
               onChange={field.onChange}
               onBlur={field.onBlur}
