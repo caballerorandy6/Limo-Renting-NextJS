@@ -165,6 +165,7 @@ export async function submitRideBooking(
 }
 
 export interface BookingConfirmationData extends RideBookingData {
+  vehicleId: string;
   vehicleName: string;
   vehiclePrice: number;
   addOns?: {

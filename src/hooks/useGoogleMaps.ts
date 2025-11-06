@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
 
-interface UseGoogleMapsOptions {
-  apiKey: string;
-  libraries?: string[];
-}
-
 /**
- * Custom hook for loading Google Maps API
- * Handles script loading and provides loading state
+ * Custom hook for checking Google Maps API loading status
+ *
+ * IMPORTANT: Google Maps script is loaded globally in layout.tsx
+ * This hook only CHECKS if the API is loaded, it does NOT load the script.
  *
  * @example
- * const { isLoaded, loadError } = useGoogleMaps({
- *   apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
- *   libraries: ['places', 'geometry']
- * });
+ * const { isLoaded, loadError } = useGoogleMaps();
  */
-export function useGoogleMaps({ apiKey, libraries = [] }: UseGoogleMapsOptions) {
+export function useGoogleMaps() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadError, setLoadError] = useState<Error | null>(null);
 
@@ -26,43 +20,27 @@ export function useGoogleMaps({ apiKey, libraries = [] }: UseGoogleMapsOptions) 
       return;
     }
 
-    // Check if script is already being loaded
-    if (document.querySelector(`script[src*="maps.googleapis.com"]`)) {
-      // Wait for it to load
-      const checkLoaded = setInterval(() => {
-        if (window.google && window.google.maps) {
-          setIsLoaded(true);
-          clearInterval(checkLoaded);
-        }
-      }, 100);
+    // Wait for Google Maps to load (loaded in layout.tsx)
+    const checkLoaded = setInterval(() => {
+      if (window.google && window.google.maps) {
+        setIsLoaded(true);
+        clearInterval(checkLoaded);
+      }
+    }, 100);
 
-      return () => clearInterval(checkLoaded);
-    }
-
-    // Load the script
-    const script = document.createElement("script");
-    const librariesParam = libraries.length > 0 ? `&libraries=${libraries.join(",")}` : "";
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}${librariesParam}`;
-    script.async = true;
-    script.defer = true;
-
-    script.onload = () => {
-      setIsLoaded(true);
-    };
-
-    script.onerror = () => {
-      setLoadError(new Error("Failed to load Google Maps API"));
-    };
-
-    document.head.appendChild(script);
+    // Timeout after 10 seconds
+    const timeout = setTimeout(() => {
+      if (!window.google || !window.google.maps) {
+        setLoadError(new Error("Google Maps API failed to load within 10 seconds"));
+        clearInterval(checkLoaded);
+      }
+    }, 10000);
 
     return () => {
-      // Cleanup if component unmounts before script loads
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      clearInterval(checkLoaded);
+      clearTimeout(timeout);
     };
-  }, [apiKey, libraries]);
+  }, []);
 
   return { isLoaded, loadError };
 }

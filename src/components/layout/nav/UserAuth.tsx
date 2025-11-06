@@ -1,9 +1,10 @@
 "use client";
 
-import { UserButton, SignInButton, SignUpButton, useUser } from "@clerk/nextjs";
+import { UserButton, SignInButton, SignUpButton, SignOutButton, useUser } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
-import { Shield } from "lucide-react";
+import { Shield, LogOut } from "lucide-react";
+import { useOpenMenuStore } from "@/stores/openMenuStore";
 
 type UserAuthProps = {
   variant?: "default" | "mobile";
@@ -12,9 +13,12 @@ type UserAuthProps = {
 const UserAuth = ({ variant = "default" }: UserAuthProps) => {
   const { isSignedIn, isLoaded } = useAuth();
   const { user } = useUser();
+  const { setIsOpen } = useOpenMenuStore();
 
   // Check if user is admin
   const isAdmin = user?.publicMetadata?.role === "admin";
+
+  const handleClose = () => setIsOpen(false);
 
   // Don't render anything until Clerk is loaded
   if (!isLoaded) {
@@ -31,26 +35,48 @@ const UserAuth = ({ variant = "default" }: UserAuthProps) => {
     if (variant === "mobile") {
       return (
         <div className="flex flex-col gap-3 w-full">
+          {/* User Info Display */}
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-800 border border-gray-700">
+            {user?.imageUrl ? (
+              <img
+                src={user.imageUrl}
+                alt="User avatar"
+                className="h-12 w-12 rounded-full ring-1 ring-gray-700"
+              />
+            ) : (
+              <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold text-lg">
+                {user?.firstName?.charAt(0) || user?.username?.charAt(0) || "U"}
+              </div>
+            )}
+            <div className="flex-1">
+              <p className="font-sans font-semibold text-white text-sm">
+                {user?.firstName} {user?.lastName}
+              </p>
+              <p className="font-mono text-xs text-gray-400">
+                {user?.primaryEmailAddress?.emailAddress}
+              </p>
+            </div>
+          </div>
+
           {/* Admin Dashboard Button - Only visible to admins */}
           {isAdmin && (
             <Link
               href="/admin/dashboard"
-              className="flex items-center justify-center gap-2 rounded-md border-2 border-gray-600 bg-black px-4 py-3 font-mono font-bold text-white hover:bg-gray-800 transition-colors w-full"
+              onClick={handleClose}
+              className="flex items-center justify-center gap-2 rounded-lg border-2 border-gray-600 bg-black px-4 py-3 font-mono font-bold text-white hover:bg-gray-700 transition-colors w-full"
             >
               <Shield className="h-5 w-5" />
               Admin Dashboard
             </Link>
           )}
 
-          <div className="flex items-center justify-center">
-            <UserButton
-              appearance={{
-                elements: {
-                  avatarBox: "h-12 w-12",
-                },
-              }}
-            />
-          </div>
+          {/* Sign Out Button */}
+          <SignOutButton>
+            <button className="flex items-center justify-center gap-2 rounded-lg border-2 border-red-600 bg-black px-4 py-3 font-mono font-bold text-white hover:bg-red-600 transition-all duration-200 w-full">
+              <LogOut className="h-5 w-5" />
+              Sign Out
+            </button>
+          </SignOutButton>
         </div>
       );
     }

@@ -9,17 +9,9 @@ const isPublicRoute = createRouteMatcher([
   "/contacts",
   "/fleet",
   "/services(.*)",
-  "/ride(.*)",
-  "/api(.*)",
+  "/reservations(.*)",
+  "/ride(.*)", // Booking flow - public access
 ]);
-
-// Define protected routes that require authentication
-// Uncomment and customize these when you add admin or user dashboard
-// const isProtectedRoute = createRouteMatcher([
-//   "/admin(.*)",
-//   "/dashboard(.*)",
-//   "/reservations",
-// ]);
 
 export const proxy = clerkMiddleware(async (auth, request) => {
   // Protect non-public routes

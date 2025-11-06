@@ -50,16 +50,8 @@ export const calculateDetailedPricing = (distance: number, duration: number, veh
   };
 }
 
-//Arrays
+//Arrays - Business Hours for Limousine Service (4:00 AM - 12:00 AM)
 export const pickUpTimeArray = [
-  "12:00 AM",
-  "12:30 AM",
-  "1:00 AM",
-  "1:30 AM",
-  "2:00 AM",
-  "2:30 AM",
-  "3:00 AM",
-  "3:30 AM",
   "4:00 AM",
   "4:30 AM",
   "5:00 AM",
@@ -100,18 +92,32 @@ export const pickUpTimeArray = [
   "10:30 PM",
   "11:00 PM",
   "11:30 PM",
+  "12:00 AM",
 ];
 
 export const typeOfServiceArray = [
-  "Geeter (meet and greet w/ sign)",
   "From Airport",
   "To Airport",
-  "Charter",
-  "Hourly/As Directed",
   "Point to Point",
+  "Hourly/As Directed",
+  "Charter",
   "From Seaport",
   "To Seaport",
   "Wedding",
+  "Greeter (meet and greet w/ sign)",
+];
+
+// Houston Airports
+export const houstonAirports = [
+  "George Bush Intercontinental Airport (IAH) - 2800 N Terminal Rd, Houston, TX 77032",
+  "William P. Hobby Airport (HOU) - 7800 Airport Blvd, Houston, TX 77061",
+];
+
+// Houston Seaports
+export const houstonSeaports = [
+  "Port of Houston - 111 E Loop N, Houston, TX 77029",
+  "Galveston Cruise Terminal - 2502 Harborside Dr, Galveston, TX 77550",
+  "Bayport Cruise Terminal - 8500 Bayport Blvd, Pasadena, TX 77507",
 ];
 
 export const menuArray: MenuArray[] = [
@@ -225,3 +231,19 @@ export const locations: PoiProps[] = [
     location: { lat: 25.80381, lng: -80.31653 },
   },
 ];
+
+// Booking Status Color Mapping
+export const getBookingStatusColor = (status: string): string => {
+  switch (status) {
+    case "CONFIRMED":
+      return "bg-green-900 text-green-300";
+    case "PENDING":
+      return "bg-yellow-900 text-yellow-300";
+    case "COMPLETED":
+      return "bg-blue-900 text-blue-300";
+    case "CANCELLED":
+      return "bg-red-900 text-red-300";
+    default:
+      return "bg-gray-700 text-gray-300";
+  }
+};

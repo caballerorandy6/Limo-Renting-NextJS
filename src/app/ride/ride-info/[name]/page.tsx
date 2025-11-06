@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 import RideInfoContent from "@/components/features/ride/RideInfoContent";
+import { getVehicles } from "@/actions/vehicles";
+import { notFound } from "next/navigation";
 
 type Params = Promise<{ name: string }>;
 
@@ -44,7 +46,8 @@ export async function generateMetadata(props: {
  * Esta página es un Server Component puro que:
  * 1. Genera metadata dinámica SEO-optimizada
  * 2. Extrae el vehicleName de los parámetros de la URL
- * 3. Renderiza el Client Component RideInfoContent
+ * 3. Obtiene el vehículo de la base de datos
+ * 4. Renderiza el Client Component RideInfoContent con el vehículo completo (incluyendo ID)
  *
  * El Client Component maneja:
  * - Estado de add-ons y special instructions
@@ -58,7 +61,23 @@ const RideInfoPage = async (props: { params: Params }) => {
   // Decode the vehicle name from URL
   const vehicleName = decodeURIComponent(params.name);
 
-  return <RideInfoContent vehicleName={vehicleName} />;
+  // Fetch vehicles from database
+  const vehicles = await getVehicles();
+
+  // Find the selected vehicle by name
+  const selectedVehicle = vehicles.find((v) => v.name === vehicleName);
+
+  // If vehicle not found, return 404
+  if (!selectedVehicle) {
+    notFound();
+  }
+
+  return (
+    <RideInfoContent
+      vehicleName={selectedVehicle.name}
+      vehicleId={selectedVehicle.id}
+    />
+  );
 };
 
 export default RideInfoPage;

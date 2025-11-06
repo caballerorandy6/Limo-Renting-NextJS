@@ -117,6 +117,48 @@ export const formSchema = z
         "Only .jpg, .png, .webp formats are supported"
       ),
   });
+
+  export const createBookingSchema = z.object({
+      // Contact Info
+      firstName: z.string().min(1, "First name is required"),
+      lastName: z.string().min(1, "Last name is required"),
+      email: z.string().email("Invalid email address"),
+      phone: z.string().min(1, "Phone number is required"),
+
+      // Trip Details
+      pickUpLocation: z.string().min(1, "Pick-up location is required"),
+      dropOffLocation: z.string().min(1, "Drop-off location is required"),
+      stops: z.array(z.string()).default([]),
+      dateOfService: z.coerce.date(),
+      pickUpTime: z.string().min(1, "Pick-up time is required"),
+
+      // Round Trip (optional)
+      roundTrip: z.boolean().default(false),
+      returnDate: z.coerce.date().optional().nullable(),
+      returnTime: z.string().optional().nullable(),
+
+      // Service Details
+      typeOfService: z.string().min(1, "Type of service is required"),
+      passengers: z.number().int().positive("At least 1 passenger required"),
+
+      // Vehicle & Service
+      vehicleId: z.string().min(1, "Vehicle ID is required"),
+      serviceId: z.string().optional().nullable(),
+
+      // Add-ons
+      childSeat: z.boolean().default(false),
+      meetGreet: z.boolean().default(false),
+      champagne: z.boolean().default(false),
+      addOnsTotal: z.number().nonnegative().default(0),
+
+      // Pricing & Distance
+      distance: z.number().nonnegative().optional().nullable(),
+      duration: z.number().int().nonnegative().optional().nullable(),
+      totalPrice: z.number().positive("Total price must be greater than 0"),
+
+      // Special Instructions
+      specialInstructions: z.string().optional().nullable(),
+    });
   
   
 

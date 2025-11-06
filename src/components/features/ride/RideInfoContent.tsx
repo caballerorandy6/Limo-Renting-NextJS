@@ -42,6 +42,7 @@ import { v4 as uuidv4 } from "uuid";
 
 interface RideInfoContentProps {
   vehicleName: string;
+  vehicleId: string;
 }
 
 /**
@@ -59,7 +60,7 @@ interface RideInfoContentProps {
  * - addOns, addOnsTotal, totalPrice
  * - specialInstructions
  */
-export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
+export default function RideInfoContent({ vehicleName, vehicleId }: RideInfoContentProps) {
   // Get data from store (including hydration state)
   const {
     ride,
@@ -123,40 +124,27 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
   const taxes = subtotal * 0.1;
   const totalPrice = subtotal + gratuity + taxes;
 
-  // 🔴 GUARDAR DATOS EN EL STORE cuando cambien
+  // 🔴 GUARDAR DATOS EN EL STORE cuando cambien (optimized - single useEffect)
   useEffect(() => {
-    if (selectedVehicle && isHydrated) {
-      setVehicleName(selectedVehicle.name);
-      setVehiclePrice(vehiclePrice);
-      setVehicleImage(selectedVehicle.images[0]);
-    }
+    if (!isHydrated || !selectedVehicle) return;
+
+    // Update all store values at once
+    setVehicleName(selectedVehicle.name);
+    setVehiclePrice(vehiclePrice);
+    setVehicleImage(selectedVehicle.images[0]);
+    setStoreAddOns(addOns);
+    setStoreAddOnsTotal(addOnsTotal);
+    setStoreTotalPrice(totalPrice);
+    setStoreSpecialInstructions(specialInstructions);
   }, [
+    isHydrated,
     selectedVehicle,
     vehiclePrice,
-    isHydrated,
-    setVehicleName,
-    setVehiclePrice,
-    setVehicleImage,
+    addOns,
+    addOnsTotal,
+    totalPrice,
+    specialInstructions,
   ]);
-
-  useEffect(() => {
-    if (isHydrated) {
-      setStoreAddOns(addOns);
-      setStoreAddOnsTotal(addOnsTotal);
-    }
-  }, [addOns, addOnsTotal, isHydrated, setStoreAddOns, setStoreAddOnsTotal]);
-
-  useEffect(() => {
-    if (isHydrated) {
-      setStoreTotalPrice(totalPrice);
-    }
-  }, [totalPrice, isHydrated, setStoreTotalPrice]);
-
-  useEffect(() => {
-    if (isHydrated) {
-      setStoreSpecialInstructions(specialInstructions);
-    }
-  }, [specialInstructions, isHydrated, setStoreSpecialInstructions]);
 
   // Show loading while hydrating
   if (!isHydrated) {
@@ -766,6 +754,7 @@ export default function RideInfoContent({ vehicleName }: RideInfoContentProps) {
                   <ConfirmBookingButton
                     bookingData={{
                       rideId: uuidv4(),
+                      vehicleId: vehicleId,
                       pickUpLocation: ride.pickUpLocation,
                       dropOffLocation: ride.dropOffLocation,
                       stops: ride.stops || [],
