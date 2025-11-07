@@ -7,10 +7,16 @@ interface VehicleDetailPageProps {
 }
 
 export async function generateStaticParams() {
-  const vehicles = await getVehicles();
-  return vehicles.map((vehicle) => ({
-    id: vehicle.id,
-  }));
+  try {
+    const vehicles = await getVehicles();
+    return vehicles.map((vehicle) => ({
+      id: vehicle.id,
+    }));
+  } catch (error) {
+    console.warn("Failed to fetch vehicles for static params, will render dynamically:", error);
+    // Return empty array to skip static generation and render dynamically
+    return [];
+  }
 }
 
 export async function generateMetadata({
