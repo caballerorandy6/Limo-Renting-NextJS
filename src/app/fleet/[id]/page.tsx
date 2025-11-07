@@ -6,6 +6,10 @@ interface VehicleDetailPageProps {
   params: Promise<{ id: string }>;
 }
 
+// Enable ISR - pages will be generated on-demand and cached
+export const dynamicParams = true;
+export const revalidate = 3600; // Revalidate every hour
+
 export async function generateStaticParams() {
   try {
     const vehicles = await getVehicles();
@@ -13,8 +17,8 @@ export async function generateStaticParams() {
       id: vehicle.id,
     }));
   } catch (error) {
-    console.warn("Failed to fetch vehicles for static params, will render dynamically:", error);
-    // Return empty array to skip static generation and render dynamically
+    console.warn("Failed to fetch vehicles for static params, will use ISR:", error);
+    // Return empty array - pages will be generated on-demand via ISR
     return [];
   }
 }
