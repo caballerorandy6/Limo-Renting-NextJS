@@ -105,6 +105,7 @@ export interface RideBookingData {
   dateOfService: Date;
   pickUpTime: string;
   typeOfService: string;
+  tripTypeId: string;
   passengers: string;
   firstName: string;
   lastName: string;

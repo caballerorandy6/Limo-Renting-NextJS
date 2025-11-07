@@ -81,7 +81,7 @@ export default function ConfirmBookingButton({
         roundTrip: bookingData.roundTrip,
         returnDate: bookingData.returnDate,
         returnTime: bookingData.returnTime,
-        typeOfService: bookingData.typeOfService,
+        tripTypeId: bookingData.tripTypeId,
         passengers: parseInt(bookingData.passengers),
         vehicleId: bookingData.vehicleId,
         serviceId: null,

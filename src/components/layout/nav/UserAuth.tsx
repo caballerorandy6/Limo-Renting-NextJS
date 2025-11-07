@@ -41,7 +41,7 @@ const UserAuth = ({ variant = "default" }: UserAuthProps) => {
               <img
                 src={user.imageUrl}
                 alt="User avatar"
-                className="h-12 w-12 rounded-full ring-1 ring-gray-700"
+                className="h-12 w-12 rounded-full ring-1 ring-gray-700 "
               />
             ) : (
               <div className="h-12 w-12 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold text-lg">
@@ -98,7 +98,7 @@ const UserAuth = ({ variant = "default" }: UserAuthProps) => {
         <UserButton
           appearance={{
             elements: {
-              avatarBox: "h-8 w-8 ring-1 ring-gray-700 hover:ring-white transition-all",
+              avatarBox: "h-8 w-8 ring-1 ring-black hover:ring-white transition-all",
             },
           }}
         />

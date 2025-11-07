@@ -5,7 +5,8 @@ export interface FormData {
   dropOffLocation: string;
   dateOfService: Date;
   pickUpTime: string;
-  typeOfService: string;
+  tripTypeId: string;
+  serviceId?: string;
   passengers: string;
   firstName: string;
   lastName: string;

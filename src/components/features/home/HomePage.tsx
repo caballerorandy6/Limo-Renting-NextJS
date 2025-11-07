@@ -1,7 +1,13 @@
 //Custom Components
 import Hero from "@/components/features/home/Hero";
+import { Service, TripType } from "@/actions/services";
 
-const HomePage = () => {
+interface HomePageProps {
+  services: Service[];
+  tripTypes: TripType[];
+}
+
+const HomePage = ({ services, tripTypes }: HomePageProps) => {
   return (
     <section
       id="home-page"
@@ -18,7 +24,7 @@ const HomePage = () => {
       >
         <source src="/hero/hero-video.mp4" type="video/mp4" />
       </video>
-      <Hero />
+      <Hero services={services} tripTypes={tripTypes} />
     </section>
   );
 };

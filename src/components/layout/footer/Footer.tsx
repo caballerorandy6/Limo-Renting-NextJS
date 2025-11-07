@@ -18,54 +18,66 @@ const Footer = () => {
     new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-black py-16">
-      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start">
-        <div className="flex flex-col justify-center items-center mb-8 w-4/12">
-          <Link href="/">
-            <Image
-              src="/logo/logo.webp"
-              width={1000}
-              height={1000}
-              alt="Logo"
-              className="object-cover w-[300px] lg:w-8/12 h-auto mb-2 mx-auto"
-            />
-          </Link>
+    <footer id="footer" className="bg-black py-12 md:py-16 border-t border-gray-900">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
+          {/* Logo & Social */}
+          <div className="flex flex-col items-center md:items-start space-y-6">
+            <Link href="/" className="transition-transform hover:scale-105">
+              <Image
+                src="/logo/logo.webp"
+                width={250}
+                height={100}
+                alt="American Transportation & Limo Services Logo"
+                className="w-auto h-auto max-w-[250px]"
+                priority
+              />
+            </Link>
+            <SocialMenu />
+          </div>
 
-          <SocialMenu />
+          {/* Contact Info */}
+          <div className="flex flex-col items-center">
+            <Heading4>Contact Info</Heading4>
+            <Separator className="mt-2 mb-4 border border-red-500 w-16" />
+            <ContactInfoCard />
+          </div>
+
+          {/* Quick Links */}
+          <div className="flex flex-col items-center">
+            <Heading4>Quick Links</Heading4>
+            <Separator className="mt-2 mb-4 border border-red-500 w-16" />
+            <QuickLinks />
+          </div>
         </div>
-        <div className="w-full md:w-4/12 flex flex-col justify-center">
-          <Heading4>Contact Info</Heading4>
-          <Separator className="mt-1 border border-red-500 w-10/12 md:w-11/12 mx-auto" />
-          <ContactInfoCard />
+
+        {/* Bottom Section */}
+        <Separator className="my-8 border-gray-800" />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          {/* Copyright */}
+          <p className="text-gray-400 font-sans text-sm">
+            © {currentYear()} All Rights Reserved | American Transportation & Limo Services
+          </p>
+
+          {/* Developer Credit with Logo */}
+          <p className="text-gray-400 font-sans text-sm flex items-center gap-2">
+            Designed & Developed by{" "}
+            <Link
+              href="https://rcweb.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all duration-300 ease-in-out transform hover:scale-110 inline-block"
+            >
+              <Image
+                src="/logo/rcweb.webp"
+                width={120}
+                height={40}
+                alt="RC Web Development Logo"
+                className="w-auto h-auto max-h-10"
+              />
+            </Link>
+          </p>
         </div>
-        <div className="md:w-4/12 flex flex-col text-center">
-          <Heading4>Quick Links</Heading4>
-          <Separator className="mt-1 border border-red-500 w-10/12 md:w-11/12 mx-auto" />
-          <QuickLinks />
-        </div>
-      </div>
-      <Separator className="md:mb-4 my-8 m border border-gray-400 w-10/12 md:w-11/12 mx-auto" />
-      <div className="flex flex-col md:justify-center w-10/12 mx-auto items-center md:flex-row md:gap-8">
-        <p className="text-white/80 font-sans text-xs w-4/12 md:w-6/12 text-center">
-          © {currentYear()} All Rights Reserved | American Transportation & Limo
-          Services
-        </p>
-        <Link
-          href="https://rcweb.dev"
-          target="_blank"
-          className="transition-all duration-300 ease-in-out transform hover:scale-110 flex items-center gap-2 w-4/12"
-        >
-          <Image
-            src="/logo/rcweb.webp"
-            width={200}
-            height={200}
-            alt="rcweb logo"
-            className="object-cover w-auto h-auto"
-          />
-        </Link>
-        <p className="text-white/80 font-sans text-xs w-4/12">
-          Website designed and developed by RC Web
-        </p>
       </div>
     </footer>
   );

@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "@/components/layout/header/Header";
-import Footer from "@/components/layout/footer/Footer";
+import ConditionalFooter from "@/components/layout/footer/ConditionalFooter";
 import { Toaster } from "@/components/ui/toaster";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -143,7 +143,7 @@ export default function RootLayout({
           <Header />
           <div className="min-h-screen">{children}</div>
           <Toaster />
-          <Footer />
+          <ConditionalFooter />
         </body>
       </html>
     </ClerkProvider>

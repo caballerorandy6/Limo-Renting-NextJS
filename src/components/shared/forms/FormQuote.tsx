@@ -23,6 +23,7 @@ import { useFormDraftStore } from "@/stores/formDraftStore";
 
 //Server Actions
 import { calculateRoute } from "@/actions";
+import type { Service, TripType } from "@/actions/services";
 
 //Shadcn Components
 import { Button } from "@/components/ui/button";
@@ -63,9 +64,6 @@ import {
   cn,
   generateRangeUpto50,
   pickUpTimeArray,
-  typeOfServiceArray,
-  houstonAirports,
-  houstonSeaports,
 } from "@/lib/utils";
 
 //Other
@@ -74,7 +72,12 @@ import { format } from "date-fns";
 // Styles
 import "@/styles/google-maps-override.css";
 
-const FormQuote = () => {
+interface FormQuoteProps {
+  services: Service[];
+  tripTypes: TripType[];
+}
+
+const FormQuote = ({ services = [], tripTypes = [] }: FormQuoteProps) => {
   const { stops, addStop, removeStop } = useAddStopStore();
   const { setRide, setDistance, setDuration } = useRideInfoStore();
   const { formDraft, setFormDraft, clearFormDraft, _hasHydrated } = useFormDraftStore();
@@ -94,7 +97,8 @@ const FormQuote = () => {
       dropOffLocation: "",
       dateOfService: undefined,
       pickUpTime: "",
-      typeOfService: "",
+      tripTypeId: "",
+      serviceId: undefined,
       passengers: "",
       firstName: "",
       lastName: "",
@@ -110,8 +114,8 @@ const FormQuote = () => {
   //Access to the roundTrip value
   const roundTrip = form.watch("roundTrip");
 
-  //Access to the typeOfService value
-  const typeOfService = form.watch("typeOfService");
+  //Access to the tripTypeId value
+  const tripTypeId = form.watch("tripTypeId");
 
   // Restore form data from draft when component mounts (after hydration)
   useEffect(() => {
@@ -185,29 +189,29 @@ const FormQuote = () => {
             Get an Instant Quote
           </FormDescription>
 
-          {/* Type of Service - Select */}
+          {/* Trip Type - Select */}
           <FormField
             control={form.control}
-            name="typeOfService"
+            name="tripTypeId"
             render={({ field }) => (
               <FormItem className="mb-4">
                 <FormLabel className="uppercase text-white font-sans">
-                  Type of Service
+                  Trip Type
                 </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl className="hover:bg-gray-200 transition-colors">
                     <SelectTrigger className="font-mono">
-                      <SelectValue placeholder="Select the type of service" />
+                      <SelectValue placeholder="Select the trip type" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    {typeOfServiceArray.map((service) => (
+                    {tripTypes.map((tripType) => (
                       <SelectItem
-                        key={service}
-                        value={service}
+                        key={tripType.id}
+                        value={tripType.id}
                         className="flex items-center justify-center font-mono cursor-pointer  hover:border hover:border-gray-500 hover:rounded"
                       >
-                        {service}
+                        {tripType.name}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -217,80 +221,16 @@ const FormQuote = () => {
             )}
           />
 
-          {/* Pick Up Location - Conditional Input */}
-          {typeOfService === "From Airport" ? (
-            <FormField
-              control={form.control}
-              name="pickUpLocation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-white font-sans">
-                    Pick Up Airport
-                  </FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
-                    <FormControl className="hover:bg-gray-200 transition-colors">
-                      <SelectTrigger className="font-mono">
-                        <SelectValue placeholder="Select Houston airport" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {houstonAirports.map((airport) => (
-                        <SelectItem
-                          key={airport}
-                          value={airport}
-                          className="font-mono cursor-pointer hover:border hover:border-gray-500 hover:rounded"
-                        >
-                          {airport}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className="text-red-400" />
-                </FormItem>
-              )}
-            />
-          ) : typeOfService === "From Seaport" ? (
-            <FormField
-              control={form.control}
-              name="pickUpLocation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-white font-sans">
-                    Pick Up Seaport
-                  </FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
-                    <FormControl className="hover:bg-gray-200 transition-colors">
-                      <SelectTrigger className="font-mono">
-                        <SelectValue placeholder="Select Houston seaport" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {houstonSeaports.map((seaport) => (
-                        <SelectItem
-                          key={seaport}
-                          value={seaport}
-                          className="font-mono cursor-pointer hover:border hover:border-gray-500 hover:rounded"
-                        >
-                          {seaport}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className="text-red-400" />
-                </FormItem>
-              )}
-            />
-          ) : (
-            <InputField
-              name="pickUpLocation"
-              label="Pick Up Location"
-              placeholder="Enter address, point of interest, or airport code"
-              control={form.control}
-              type="text"
-              id="pickUpLocation"
-              uncontrolled={true}
-            />
-          )}
+          {/* Pick Up Location - Generic Input */}
+          <InputField
+            name="pickUpLocation"
+            label="Pick Up Location"
+            placeholder="Enter address, point of interest, or airport code"
+            control={form.control}
+            type="text"
+            id="pickUpLocation"
+            uncontrolled={true}
+          />
           {/* Add Stop Button */}
           <div className="flex justify-center items-center my-2">
             <Button
@@ -354,80 +294,16 @@ const FormQuote = () => {
             />
           ))}
 
-          {/* Drop Off Location - Conditional Input */}
-          {typeOfService === "To Airport" ? (
-            <FormField
-              control={form.control}
-              name="dropOffLocation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-white font-sans">
-                    Drop Off Airport
-                  </FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
-                    <FormControl className="hover:bg-gray-200 transition-colors">
-                      <SelectTrigger className="font-mono">
-                        <SelectValue placeholder="Select Houston airport" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {houstonAirports.map((airport) => (
-                        <SelectItem
-                          key={airport}
-                          value={airport}
-                          className="font-mono cursor-pointer hover:border hover:border-gray-500 hover:rounded"
-                        >
-                          {airport}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className="text-red-400" />
-                </FormItem>
-              )}
-            />
-          ) : typeOfService === "To Seaport" ? (
-            <FormField
-              control={form.control}
-              name="dropOffLocation"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="uppercase text-white font-sans">
-                    Drop Off Seaport
-                  </FormLabel>
-                  <Select onValueChange={field.onChange} value={field.value}>
-                    <FormControl className="hover:bg-gray-200 transition-colors">
-                      <SelectTrigger className="font-mono">
-                        <SelectValue placeholder="Select Houston seaport" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {houstonSeaports.map((seaport) => (
-                        <SelectItem
-                          key={seaport}
-                          value={seaport}
-                          className="font-mono cursor-pointer hover:border hover:border-gray-500 hover:rounded"
-                        >
-                          {seaport}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage className="text-red-400" />
-                </FormItem>
-              )}
-            />
-          ) : (
-            <InputField
-              name="dropOffLocation"
-              label="Drop Off Location"
-              placeholder="Enter address, point of interest, or airport code"
-              control={form.control}
-              type="text"
-              id="dropOffLocation"
-              uncontrolled={true}
-            />
-          )}
+          {/* Drop Off Location - Generic Input */}
+          <InputField
+            name="dropOffLocation"
+            label="Drop Off Location"
+            placeholder="Enter address, point of interest, or airport code"
+            control={form.control}
+            type="text"
+            id="dropOffLocation"
+            uncontrolled={true}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 items-center">
             {/* Date of Service - Data Picker */}
             <FormField
@@ -438,7 +314,7 @@ const FormQuote = () => {
                   <FormLabel className="text-white uppercase text-sm font-sans">
                     Date of Service
                   </FormLabel>
-                  <Popover>
+                  <Popover open={datePopoverOpen} onOpenChange={setDatePopoverOpen}>
                     <PopoverTrigger asChild>
                       <FormControl>
                         <Button
@@ -462,7 +338,10 @@ const FormQuote = () => {
                       <Calendar
                         mode="single"
                         selected={field.value}
-                        onSelect={field.onChange}
+                        onSelect={(date) => {
+                          field.onChange(date);
+                          setDatePopoverOpen(false);
+                        }}
                         disabled={(date) =>
                           date > new Date("2100-01-01") || date < new Date()
                         }
@@ -621,7 +500,7 @@ const FormQuote = () => {
                     <FormLabel className="text-white uppercase text-sm font-sans">
                       Return Date
                     </FormLabel>
-                    <Popover>
+                    <Popover open={returnDatePopoverOpen} onOpenChange={setReturnDatePopoverOpen}>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
@@ -645,7 +524,10 @@ const FormQuote = () => {
                         <Calendar
                           mode="single"
                           selected={field.value}
-                          onSelect={field.onChange}
+                          onSelect={(date) => {
+                            field.onChange(date);
+                            setReturnDatePopoverOpen(false);
+                          }}
                           disabled={(date) =>
                             date > new Date("2100-01-01") || date < new Date()
                           }

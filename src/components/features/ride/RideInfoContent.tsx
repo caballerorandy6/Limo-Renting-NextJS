@@ -761,6 +761,7 @@ export default function RideInfoContent({ vehicleName, vehicleId }: RideInfoCont
                       dateOfService: ride.dateOfService,
                       pickUpTime: ride.pickUpTime,
                       typeOfService: ride.typeOfService,
+                      tripTypeId: ride.tripTypeId || "",
                       passengers: ride.passengers,
                       firstName: ride.firstName,
                       lastName: ride.lastName,

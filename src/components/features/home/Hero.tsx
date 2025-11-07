@@ -2,8 +2,14 @@
 import BookNowButton from "@/components/shared/buttons/BookNowButton";
 import FormQuote from "@/components/shared/forms/FormQuote";
 import DiscoverMoreButton from "@/components/shared/buttons/DiscoverMoreButton";
+import { Service, TripType } from "@/actions/services";
 
-const Hero = () => {
+interface HeroProps {
+  services: Service[];
+  tripTypes: TripType[];
+}
+
+const Hero = ({ services, tripTypes }: HeroProps) => {
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center gap-20 relative w-full lg:w-10/12 over-y-scroll md:mt-60 lg:mt-4">
       <div className="w-11/12 lg:w-6/12 text-center mx-auto">
@@ -22,7 +28,7 @@ const Hero = () => {
       </div>
 
       <div className="hidden md:flex w-8/12 lg:w-6/12 lg:mt-60  mb-16">
-        <FormQuote />
+        <FormQuote services={services} tripTypes={tripTypes} />
       </div>
     </div>
   );

@@ -5,6 +5,9 @@ import { genPageMetadata } from "@/lib/genPageMetadata";
 import { JsonLdForBreadcrumb } from "@/components/seo/JsonLdForBreadcrumb";
 import { siteConfig } from "@/config/site";
 
+//Server Actions
+import { getServices, getTripTypes } from "@/actions/services";
+
 export const metadata = genPageMetadata({
   title: "Book Your Limo | Miami Luxury Transportation | Get Instant Quote",
   description:
@@ -19,11 +22,17 @@ export const metadata = genPageMetadata({
   ],
 });
 
-const Reservations = () => {
+const Reservations = async () => {
   const breadcrumbItems = [
     { name: "Home", item: siteConfig.baseUrl },
     { name: "Reservations", item: `${siteConfig.baseUrl}/reservations` },
   ];
+
+  // Fetch services and trip types in parallel (Server Component)
+  const [services, tripTypes] = await Promise.all([
+    getServices(),
+    getTripTypes(),
+  ]);
 
   return (
     <>
@@ -31,7 +40,7 @@ const Reservations = () => {
       <section id="book-now" className="bg-black">
         <PageHeader pageName="Reservations" />
         <div className="py-16 w-11/12 sm:w-9/12 md:w-8/12 lg:w-7/12 xl:w-6/12 mx-auto">
-          <FormQuote />
+          <FormQuote services={services} tripTypes={tripTypes} />
         </div>
       </section>
     </>

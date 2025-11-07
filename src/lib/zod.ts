@@ -23,9 +23,10 @@ export const formSchema = z
     pickUpTime: z.string().refine((value) => value.trim().length > 0, {
       message: "Pick up time is required.",
     }),
-    typeOfService: z.string().refine((value) => value.trim().length > 0, {
-      message: "Type of service is required.",
+    tripTypeId: z.string().min(1, {
+      message: "Trip type is required.",
     }),
+    serviceId: z.string().optional(),
     passengers: z.string().refine((value) => value.trim().length > 0, {
       message: "Number of passengers is required.",
     }),
@@ -137,8 +138,8 @@ export const formSchema = z
       returnDate: z.coerce.date().optional().nullable(),
       returnTime: z.string().optional().nullable(),
 
-      // Service Details
-      typeOfService: z.string().min(1, "Type of service is required"),
+      // Trip & Service Details
+      tripTypeId: z.string().min(1, "Trip type is required"),
       passengers: z.number().int().positive("At least 1 passenger required"),
 
       // Vehicle & Service

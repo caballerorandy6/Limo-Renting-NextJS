@@ -12,7 +12,7 @@ export const getAllBookingsAdmin = async (
 ): Promise<BookingApiResponse[]> => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/bookings`,
+      `${process.env.NEXT_PUBLIC_API_URL}/bookings`,
       {
         cache: "no-store", // Always fetch fresh data for admin
         headers: {
@@ -36,7 +36,7 @@ export const getAllBookingsAdmin = async (
 export const createBooking = async (data: CreateBookingFormData) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/bookings`,
+      `${process.env.NEXT_PUBLIC_API_URL}/bookings`,
       {
         method: "POST",
         headers: {
@@ -69,7 +69,7 @@ export const getBookingById = async (
 ): Promise<BookingApiResponse> => {
   try {
     const booking = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/bookings/${id}`,
       {
         cache: "no-store",
         headers: {
@@ -96,7 +96,7 @@ export const deleteBookingById = async (
 ): Promise<void> => {
   try {
     const deletedBooking = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/bookings/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -122,7 +122,7 @@ export const updateBookingById = async (
 ): Promise<BookingApiResponse> => {
   try {
     const updatedBooking = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/bookings/${id}`,
       {
         method: "PUT",
         headers: {

@@ -7,11 +7,11 @@ export default function AdminLayout({
 }) {
   return (
     <div className="flex h-screen bg-gray-950">
-      {/* Sidebar */}
+      {/* Sidebar - Fixed on left */}
       <AdminSidebar />
 
-      {/* Main Content */}
-      <div className="flex-1 overflow-y-auto">
+      {/* Main Content - With margin to accommodate fixed sidebar */}
+      <div className="flex-1 overflow-y-auto lg:ml-64">
         <div className="pt-20 px-4 pb-4 lg:p-8">{children}</div>
       </div>
     </div>

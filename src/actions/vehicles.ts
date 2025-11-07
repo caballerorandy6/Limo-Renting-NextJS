@@ -11,7 +11,7 @@ type VehicleFormData = z.infer<typeof vehicleSchema>;
 export async function getVehiclesAdmin(): Promise<VehicleApiResponse[]> {
   try {
     const vehicles = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles`,
+      `${process.env.NEXT_PUBLIC_API_URL}/vehicles`,
       {
         cache: "no-store", // Always fetch fresh data for admin
       }
@@ -32,7 +32,7 @@ export async function getVehiclesAdmin(): Promise<VehicleApiResponse[]> {
 export async function getVehicles(): Promise<VehicleApiResponse[]> {
   try {
     const vehicles = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles`,
+      `${process.env.NEXT_PUBLIC_API_URL}/vehicles`,
       {
         next: { revalidate: 3600 }, // Revalidate every 1 hour
       }
@@ -53,7 +53,7 @@ export async function getVehicles(): Promise<VehicleApiResponse[]> {
 export async function getVehicleById(id: string): Promise<VehicleApiResponse> {
   try {
     const vehicle = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/vehicles/${id}`,
       {
         next: { revalidate: 3600 }, // Revalidate every 1 hour
       }
@@ -89,7 +89,7 @@ export async function createVehicle(
   };
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles`,
+    `${process.env.NEXT_PUBLIC_API_URL}/vehicles`,
     {
       method: "POST",
       headers: {
@@ -134,7 +134,7 @@ export async function updateVehicle(
   };
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles/${vehicleId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/vehicles/${vehicleId}`,
     {
       method: "PUT",
       headers: {
@@ -165,7 +165,7 @@ export async function deleteVehicle(
   token: string
 ): Promise<void> {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/vehicles/${vehicleId}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/vehicles/${vehicleId}`,
     {
       method: "DELETE",
       headers: {
