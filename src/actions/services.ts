@@ -44,7 +44,8 @@ export async function getServices(): Promise<Service[]> {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch services: ${response.statusText}`);
+      console.warn(`Failed to fetch services: ${response.statusText}`);
+      return [];
     }
 
     const services: Service[] = await response.json();
@@ -96,7 +97,8 @@ export async function getTripTypes(): Promise<TripType[]> {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch trip types: ${response.statusText}`);
+      console.warn(`Failed to fetch trip types: ${response.statusText}`);
+      return [];
     }
 
     const tripTypes: TripType[] = await response.json();

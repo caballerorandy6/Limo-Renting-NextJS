@@ -45,12 +45,13 @@ export async function getVehicles(): Promise<VehicleApiResponse[]> {
     return vehicles.json();
   } catch (error) {
     console.error("Error fetching vehicles:", error);
-    throw error;
+    // Return empty array during build instead of throwing
+    return [];
   }
 }
 
 // Fetch vehicle by ID
-export async function getVehicleById(id: string): Promise<VehicleApiResponse> {
+export async function getVehicleById(id: string): Promise<VehicleApiResponse | null> {
   try {
     const vehicle = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/vehicles/${id}`,
@@ -60,13 +61,14 @@ export async function getVehicleById(id: string): Promise<VehicleApiResponse> {
     );
 
     if (!vehicle.ok) {
-      throw new Error("Failed to fetch vehicle by ID");
+      console.warn("Failed to fetch vehicle by ID");
+      return null;
     }
 
     return vehicle.json();
   } catch (error) {
     console.error("Error fetching vehicle by ID:", error);
-    throw error;
+    return null;
   }
 }
 
