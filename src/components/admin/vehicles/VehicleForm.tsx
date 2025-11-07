@@ -64,6 +64,17 @@ export default function VehicleForm({
       setLoading(true);
       getVehicleById(vehicleId)
         .then((vehicle) => {
+          if (!vehicle) {
+            toast({
+              title: "Error",
+              description: "Vehicle not found",
+              duration: 5000,
+              variant: "destructive",
+            });
+            onCancel();
+            return;
+          }
+
           setCurrentImageUrl(vehicle.images[0] || "");
           reset({
             name: vehicle.name,
@@ -87,7 +98,7 @@ export default function VehicleForm({
         })
         .finally(() => setLoading(false));
     }
-  }, [mode, vehicleId, reset, toast]);
+  }, [mode, vehicleId, reset, toast, onCancel]);
 
   const onSubmit = async (data: VehicleFormData) => {
     try {
