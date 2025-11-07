@@ -22,13 +22,14 @@ export const getAllBookingsAdmin = async (
     );
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch bookings`);
+      console.warn(`Failed to fetch bookings: ${response.statusText}`);
+      return [];
     }
 
     return response.json();
   } catch (error) {
-    console.error("Fetch error:", error);
-    throw error;
+    console.error("Error fetching bookings:", error);
+    return []; // Return empty array instead of throwing
   }
 };
 
@@ -66,7 +67,7 @@ export const createBooking = async (data: CreateBookingFormData) => {
 export const getBookingById = async (
   id: string,
   token: string
-): Promise<BookingApiResponse> => {
+): Promise<BookingApiResponse | null> => {
   try {
     const booking = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/bookings/${id}`,
@@ -79,13 +80,14 @@ export const getBookingById = async (
     );
 
     if (!booking.ok) {
-      throw new Error(`Failed to fetch booking: ${booking.status}`);
+      console.warn(`Failed to fetch booking: ${booking.status}`);
+      return null;
     }
 
     return booking.json();
   } catch (error) {
-    console.error("Fetch error:", error);
-    throw error;
+    console.error("Error fetching booking:", error);
+    return null; // Return null instead of throwing
   }
 };
 

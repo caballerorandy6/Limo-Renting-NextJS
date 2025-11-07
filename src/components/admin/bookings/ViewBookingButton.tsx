@@ -23,8 +23,12 @@ export default function ViewBookingButton({
     startTransition(async () => {
       try {
         const bookingDetails = await getBookingById(bookingId, token);
-        setBooking(bookingDetails);
-        setOpen(true);
+        if (bookingDetails) {
+          setBooking(bookingDetails);
+          setOpen(true);
+        } else {
+          console.error("Booking not found");
+        }
       } catch (error) {
         console.error("Error fetching booking details:", error);
       }
