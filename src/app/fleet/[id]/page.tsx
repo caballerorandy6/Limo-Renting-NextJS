@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { getVehicleById, getVehicles } from "@/actions/vehicles";
 import VehicleDetail from "@/components/features/fleet/VehicleDetail";
 
@@ -29,6 +30,13 @@ export async function generateMetadata({
   const { id } = await params;
   const vehicle = await getVehicleById(id);
 
+  if (!vehicle) {
+    return {
+      title: "Vehicle Not Found - Limo Rental Fleet",
+      description: "The requested vehicle could not be found.",
+    };
+  }
+
   return {
     title: `${vehicle.name} - Limo Rental Fleet`,
     description: vehicle.description,
@@ -46,6 +54,20 @@ export async function generateMetadata({
 const VehicleDetailPage = async ({ params }: VehicleDetailPageProps) => {
   const { id } = await params;
   const vehicle = await getVehicleById(id);
+
+  if (!vehicle) {
+    return (
+      <div className="container mx-auto px-4 py-16 text-center">
+        <h1 className="text-3xl font-bold mb-4">Vehicle Not Found</h1>
+        <p className="text-gray-600 mb-8">
+          The vehicle you are looking for could not be found.
+        </p>
+        <Link href="/fleet" className="text-blue-600 hover:underline">
+          Return to Fleet
+        </Link>
+      </div>
+    );
+  }
 
   return <VehicleDetail vehicle={vehicle} />;
 };
