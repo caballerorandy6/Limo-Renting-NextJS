@@ -282,7 +282,7 @@ export default function BookingDetailsDialog({
                   Service Type
                 </p>
                 <p className="text-sm font-sans text-white">
-                  {booking.typeOfService}
+                  Point to Point
                 </p>
               </div>
               {booking.service && (

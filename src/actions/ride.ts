@@ -104,7 +104,6 @@ export interface RideBookingData {
   stops: string[];
   dateOfService: Date;
   pickUpTime: string;
-  typeOfService: string;
   tripTypeId: string;
   passengers: string;
   firstName: string;
@@ -258,7 +257,7 @@ export async function confirmAndBookRideAction(
         addOns: `$${data.addOnsTotal || 0}`,
         total: `$${data.totalPrice}`,
       },
-      service: data.typeOfService,
+      tripTypeId: data.tripTypeId,
       passengers: data.passengers,
       roundTrip: data.roundTrip,
       ...(data.returnDate && { returnDate: data.returnDate }),

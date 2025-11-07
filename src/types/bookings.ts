@@ -26,7 +26,6 @@ export type BookingApiResponse = {
   returnTime: string | null;
 
   // Service Details
-  typeOfService: string;
   passengers: number;
 
   // Add-ons

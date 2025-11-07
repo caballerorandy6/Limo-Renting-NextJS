@@ -34,7 +34,7 @@ export default function RecentBookings({ bookings }: RecentBookingsProps) {
                   {booking.firstName} {booking.lastName}
                 </p>
                 <p className="text-sm font-mono text-gray-400">
-                  {booking.vehicle.name} - {booking.typeOfService}
+                  {booking.vehicle.name} - Point to Point
                 </p>
                 <p className="text-xs font-mono text-gray-500 mt-1">
                   {new Date(booking.dateOfService).toLocaleDateString()} at{" "}

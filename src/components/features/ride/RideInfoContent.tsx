@@ -505,7 +505,7 @@ export default function RideInfoContent({ vehicleName, vehicleId }: RideInfoCont
                       Service Type
                     </p>
                     <p className="font-sans font-semibold">
-                      {ride?.typeOfService || "Not specified"}
+                      Point to Point
                     </p>
                   </div>
                 </div>
@@ -760,7 +760,6 @@ export default function RideInfoContent({ vehicleName, vehicleId }: RideInfoCont
                       stops: ride.stops || [],
                       dateOfService: ride.dateOfService,
                       pickUpTime: ride.pickUpTime,
-                      typeOfService: ride.typeOfService,
                       tripTypeId: ride.tripTypeId || "",
                       passengers: ride.passengers,
                       firstName: ride.firstName,

@@ -83,7 +83,6 @@ export default function BookingSuccessContent({
     totalPrice: totalPrice || 268.13,
 
     // Extras
-    typeOfService: ride?.typeOfService || "Airport Transfer",
     passengers: ride?.passengers || "2",
     roundTrip: ride?.roundTrip || false,
     specialInstructions: specialInstructions || "",
@@ -317,7 +316,7 @@ export default function BookingSuccessContent({
                     <div className="space-y-2">
                       <p className="text-sm font-sans text-gray-700">
                         <strong>Service Type:</strong>{" "}
-                        {mockBookingData.typeOfService}
+                        Point to Point
                       </p>
                       <p className="text-sm font-sans text-gray-700">
                         <strong>Capacity:</strong> Up to{" "}
