@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { getVehiclesAdmin } from "@/actions/vehicles";
 import { getAllBookingsAdmin } from "@/actions/bookings";
+import { getServices } from "@/actions/services";
+import { getTripTypesAdmin } from "@/actions/tripTypes";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import RecentBookings from "@/components/admin/dashboard/RecentBookings";
@@ -44,11 +46,17 @@ export default async function AdminDashboard() {
   }
 
   // Fetch data from backend
-  const vehicles = await getVehiclesAdmin();
+  const vehicles = await getVehiclesAdmin(token);
   const totalVehicles = vehicles.length;
 
   const bookings = await getAllBookingsAdmin(token);
   const totalBookings = bookings.length;
+
+  const services = await getServices();
+  const totalServices = services.length; 
+
+  const tripTypes = await getTripTypesAdmin(token);
+  const totalTripTypes = tripTypes.length;
 
   // Calculate active bookings (PENDING or CONFIRMED status)
   const activeBookings = bookings.filter(
@@ -66,10 +74,11 @@ export default async function AdminDashboard() {
   const stats = {
     totalVehicles,
     totalBookings,
-    totalServices: 8, // TODO: Fetch from services API
+    totalServices,
     totalContacts: 23, // TODO: Fetch from contacts API
     revenue: `$${totalRevenue.toFixed(2)}`,
     activeBookings,
+    totalTripTypes,
   };
 
   return (
@@ -109,6 +118,11 @@ export default async function AdminDashboard() {
         <StatCard
           title="Revenue (MTD)"
           value={stats.revenue}
+          icon={DollarSign}
+        />
+         <StatCard
+          title="Trip Types"
+          value={stats.totalTripTypes}
           icon={DollarSign}
         />
       </div>

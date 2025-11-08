@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import PageHeader from "@/components/admin/PageHeader";
 import EmptyState from "@/components/admin/EmptyState";
 import VehicleDialog from "@/components/admin/vehicles/VehicleDialog";
@@ -20,12 +22,19 @@ export const metadata: Metadata = {
   description: "Manage your fleet of vehicles",
 };
 
-// Force dynamic rendering for admin pages to always show fresh
-// cache: 'no-store' equivalent revalidate: 0
-export const dynamic = 'force-dynamic';
-
 export default async function VehiclesPage() {
-  const vehicles = await getVehiclesAdmin();
+  const { userId, getToken } = await auth();
+
+  if (!userId) {
+    redirect("/sign-in");
+  }
+
+  const token = await getToken();
+  if (!token) {
+    redirect("/sign-in");
+  }
+
+  const vehicles = await getVehiclesAdmin(token);
 
   return (
     <div>

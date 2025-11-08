@@ -8,6 +8,7 @@ import {
   Car,
   Calendar,
   Briefcase,
+  MapPin,
   MessageSquare,
   LogOut,
   Menu,
@@ -30,6 +31,11 @@ const navigation = [
     name: "Bookings",
     href: "/admin/bookings",
     icon: Calendar,
+  },
+  {
+    name: "Trip Types",
+    href: "/admin/trip-types",
+    icon: MapPin,
   },
   {
     name: "Services",
