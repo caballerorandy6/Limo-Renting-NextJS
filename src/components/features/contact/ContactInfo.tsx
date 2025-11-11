@@ -39,97 +39,108 @@ const contactInfoArray: ContactInfoProps[] = [
 
 const ContactInfo = () => {
   return (
-    <div className="w-10/12 mx-auto flex flex-col lg:flex-row justify-between gap-10 mt-16">
-      <div className="w-full md:w-10/12 lg:w-6/12 mx-auto">
-        <Heading3>Contact Info</Heading3>
-        {contactInfoArray.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col gap-4 font-sans mt-6 border shadow-md p-4 w-full"
-          >
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-              {item.phoneIcon}
-              <div>
-                <span>{item.phone}: </span>
-                <Link
-                  href={`tel:${item.phoneNumber}`}
-                  target="_blank"
-                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-                >
-                  {item.phoneNumber}
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-              {item.toolFreeIcon}
-              <div>
-                <span>{item.tollFree}: </span>
-                <Link
-                  href={`tel:${item.tollFreeNumber}`}
-                  target="_blank"
-                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-                >
-                  {item.tollFreeNumber}
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-              {item.faxIcon}
-              <div>
-                <span>{item.fax}: </span>
-                <Link
-                  href={`fax:${item.faxNumber}`}
-                  target="_blank"
-                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-                >
-                  {item.faxNumber}
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-              {item.emailIcon}
-              <div>
-                <span>{item.email}: </span>
-                <Link
-                  href={`mailto:${item.emailAddress}`}
-                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-                >
-                  {item.emailAddress}
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-              {item.emailReservationsIcon}
-              <div className="flex flex-col text-center md:flex-row md:gap-1">
-                <span>{item.emailReservations}: </span>
-                <Link
-                  href={`mailto:${item.emailAddressReservations}`}
-                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-                >
-                  {item.emailAddressReservations}
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-              {item.locationIcon}
-              <div>
-                <span>{item.location}: </span>
-                <Link
-                  href="https://maps.app.goo.gl/ejSP2wDqsKd3dYxj8"
-                  target="_blank"
-                  className="font-semibold transition-all duration-100 ease-linear transform hover:scale-105 text-blue-500 hover:text-blue-600 hover:underline"
-                >
-                  {item.locationAddress}
-                </Link>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="w-full py-16 md:py-20 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-16 xl:gap-20">
+          {/* Left Section - Contact Information */}
+          <div className="w-full lg:w-1/2 space-y-6">
+            <Heading3>Contact Info</Heading3>
+            {contactInfoArray.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-4 md:gap-5 font-sans border border-gray-200 rounded-lg shadow-md p-5 md:p-6 w-full bg-white"
+              >
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+                  <span className="flex-shrink-0">{item.phoneIcon}</span>
+                  <div className="flex flex-col sm:flex-row sm:gap-1">
+                    <span className="text-sm md:text-base">{item.phone}: </span>
+                    <Link
+                      href={`tel:${item.phoneNumber}`}
+                      target="_blank"
+                      className="font-semibold text-sm md:text-base transition-all duration-200 text-blue-500 hover:text-blue-600 hover:underline"
+                    >
+                      {item.phoneNumber}
+                    </Link>
+                  </div>
+                </div>
 
-      <div className="w-full md:w-10/12 lg:w-5/12 mx-auto">
-        <Heading3>Have Questions?</Heading3>
-        <ContactForm />
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+                  <span className="flex-shrink-0">{item.toolFreeIcon}</span>
+                  <div className="flex flex-col sm:flex-row sm:gap-1">
+                    <span className="text-sm md:text-base">{item.tollFree}: </span>
+                    <Link
+                      href={`tel:${item.tollFreeNumber}`}
+                      target="_blank"
+                      className="font-semibold text-sm md:text-base transition-all duration-200 text-blue-500 hover:text-blue-600 hover:underline"
+                    >
+                      {item.tollFreeNumber}
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+                  <span className="flex-shrink-0">{item.faxIcon}</span>
+                  <div className="flex flex-col sm:flex-row sm:gap-1">
+                    <span className="text-sm md:text-base">{item.fax}: </span>
+                    <Link
+                      href={`fax:${item.faxNumber}`}
+                      target="_blank"
+                      className="font-semibold text-sm md:text-base transition-all duration-200 text-blue-500 hover:text-blue-600 hover:underline"
+                    >
+                      {item.faxNumber}
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+                  <span className="flex-shrink-0">{item.emailIcon}</span>
+                  <div className="flex flex-col sm:flex-row sm:gap-1">
+                    <span className="text-sm md:text-base">{item.email}: </span>
+                    <Link
+                      href={`mailto:${item.emailAddress}`}
+                      className="font-semibold text-sm md:text-base transition-all duration-200 text-blue-500 hover:text-blue-600 hover:underline break-all"
+                    >
+                      {item.emailAddress}
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+                  <span className="flex-shrink-0">{item.emailReservationsIcon}</span>
+                  <div className="flex flex-col sm:flex-row sm:gap-1">
+                    <span className="text-sm md:text-base">{item.emailReservations}: </span>
+                    <Link
+                      href={`mailto:${item.emailAddressReservations}`}
+                      className="font-semibold text-sm md:text-base transition-all duration-200 text-blue-500 hover:text-blue-600 hover:underline break-all"
+                    >
+                      {item.emailAddressReservations}
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-start md:items-center">
+                  <span className="flex-shrink-0">{item.locationIcon}</span>
+                  <div className="flex flex-col sm:flex-row sm:gap-1">
+                    <span className="text-sm md:text-base">{item.location}: </span>
+                    <Link
+                      href="https://maps.app.goo.gl/ejSP2wDqsKd3dYxj8"
+                      target="_blank"
+                      className="font-semibold text-sm md:text-base transition-all duration-200 text-blue-500 hover:text-blue-600 hover:underline"
+                    >
+                      {item.locationAddress}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Section - Contact Form */}
+          <div className="w-full lg:w-1/2 space-y-6">
+            <Heading3>Have Questions?</Heading3>
+            <ContactForm />
+          </div>
+        </div>
       </div>
     </div>
   );

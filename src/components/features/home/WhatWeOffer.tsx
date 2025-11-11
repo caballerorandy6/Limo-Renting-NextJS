@@ -9,16 +9,21 @@ import Service from "@/components/features/services/Service";
 
 const WhatWeOffer = () => {
   return (
-    <section id="what-we-offer" className="w-full mx-auto bg-gray-100 pb-16">
-      <div className="w-10/12 mx-auto pt-16">
-        <Heading>What We Offer</Heading>
-        <div className="flex flex-col lg:flex-row justify-between items-center">
-          <Heading3>Our 5-Star Car Services</Heading3>
-          <div className="hidden lg:flex">
-            <ViewAllServicesButton>View All Services</ViewAllServicesButton>
+    <section id="what-we-offer" className="w-full bg-gray-100 py-16 md:py-20 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
+          <Heading>What We Offer</Heading>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <Heading3>Our 5-Star Car Services</Heading3>
+            <div className="hidden lg:block">
+              <ViewAllServicesButton>View All Services</ViewAllServicesButton>
+            </div>
           </div>
         </div>
-        <div className="w-full grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8">
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.slice(0, 3).map((item) => (
             <Service
               id={item.id}
@@ -33,7 +38,9 @@ const WhatWeOffer = () => {
             />
           ))}
         </div>
-        <div className="flex justify-center md:justify-start lg:hidden mt-4">
+
+        {/* Mobile CTA Button */}
+        <div className="flex justify-center lg:hidden mt-8 md:mt-12">
           <ViewAllServicesButton>View All Services</ViewAllServicesButton>
         </div>
       </div>

@@ -73,6 +73,7 @@ const Footer = () => {
                 width={120}
                 height={40}
                 alt="RC Web Development Logo"
+                priority={false}
                 className="w-auto h-auto max-h-10"
               />
             </Link>

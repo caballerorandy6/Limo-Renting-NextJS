@@ -409,6 +409,7 @@ export default function RideInfoContent({ vehicleName, vehicleId }: RideInfoCont
                         src={selectedVehicle.images[0]}
                         alt={selectedVehicle.name}
                         fill
+                        priority={false}
                         className="object-cover"
                       />
                     </div>

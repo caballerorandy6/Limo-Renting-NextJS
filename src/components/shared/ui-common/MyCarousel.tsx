@@ -25,7 +25,7 @@ export function MyCarousel({ images }: CarouselProps) {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-10/12 sm:w-full max-w-xs"
+      className="w-full"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}
     >
@@ -33,22 +33,22 @@ export function MyCarousel({ images }: CarouselProps) {
         {images.map((image, index) => (
           <CarouselItem key={index}>
             <Card className="border-none shadow-none">
-              <CardContent>
+              <CardContent className="p-0">
                 <Image
                   src={image}
                   alt={`carousel-image-${index}`}
                   width={1000}
                   height={1000}
                   priority={false}
-                  className="object-cover w-full h-[20vh]"
+                  className="object-cover w-full h-[180px] sm:h-[200px] md:h-[220px]"
                 />
               </CardContent>
             </Card>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="left-2" />
+      <CarouselNext className="right-2" />
     </Carousel>
   );
 }

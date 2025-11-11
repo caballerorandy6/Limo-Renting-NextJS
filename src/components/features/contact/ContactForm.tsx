@@ -88,9 +88,9 @@ const ContactForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="border shadow-md p-4 mt-6 font-sans w-full"
+        className="border border-gray-200 rounded-lg shadow-md p-5 md:p-6 font-sans w-full bg-white"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Name Field */}
           <FormField
             control={form.control}
@@ -103,10 +103,10 @@ const ContactForm = () => {
                     type="text"
                     placeholder="Name"
                     {...field}
-                    className="block w-full p-1 rounded text-sm hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
+                    className="block w-full p-2 md:p-2.5 rounded text-sm md:text-base hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
                   />
                 </FormControl>
-                <FormMessage className="text-red-500 font-sans" />
+                <FormMessage className="text-red-500 font-sans text-xs md:text-sm" />
               </FormItem>
             )}
           />
@@ -122,10 +122,10 @@ const ContactForm = () => {
                     type="text"
                     placeholder="Phone"
                     {...field}
-                    className="block w-full p-1 rounded text-sm hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
+                    className="block w-full p-2 md:p-2.5 rounded text-sm md:text-base hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
                   />
                 </FormControl>
-                <FormMessage className="text-red-500 font-sans" />
+                <FormMessage className="text-red-500 font-sans text-xs md:text-sm" />
               </FormItem>
             )}
           />
@@ -136,17 +136,17 @@ const ContactForm = () => {
           control={form.control}
           name="email"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="mt-4 md:mt-5">
               <FormControl>
                 <Input
                   id="email"
                   type="email"
                   placeholder="Email"
                   {...field}
-                  className="block w-full p-1 rounded mt-2 text-sm hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
+                  className="block w-full p-2 md:p-2.5 rounded text-sm md:text-base hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
                 />
               </FormControl>
-              <FormMessage className="text-red-500 font-sans" />
+              <FormMessage className="text-red-500 font-sans text-xs md:text-sm" />
             </FormItem>
           )}
         />
@@ -156,16 +156,16 @@ const ContactForm = () => {
           control={form.control}
           name="message"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="mt-4 md:mt-5">
               <FormControl>
                 <Textarea
                   id="message"
                   placeholder="Message"
                   {...field}
-                  className="resize-none block w-full mt-2 p-1 rounded mb-6 text-sm hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors"
+                  className="resize-none block w-full p-2 md:p-2.5 rounded text-sm md:text-base hover:bg-gray-200 placeholder:text-gray-400 placeholder:font-sans border bg-gray-100 border-gray-300 transition-colors min-h-[120px]"
                 />
               </FormControl>
-              <FormMessage className="text-red-500 font-sans" />
+              <FormMessage className="text-red-500 font-sans text-xs md:text-sm" />
             </FormItem>
           )}
         />
@@ -173,8 +173,7 @@ const ContactForm = () => {
         {/* Submit Button */}
         <Button
           type="submit"
-          className="
-          bg-blue-500 text-white cursor-pointer rounded uppercase font-mono w-full mx-auto transition-colors hover:bg-blue-600"
+          className="mt-6 md:mt-8 bg-blue-500 text-white cursor-pointer rounded uppercase font-mono w-full py-2 md:py-2.5 transition-colors hover:bg-blue-600 text-sm md:text-base"
         >
           {buttonText}
         </Button>

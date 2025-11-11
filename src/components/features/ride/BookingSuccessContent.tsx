@@ -561,7 +561,7 @@ export default function BookingSuccessContent({
                   <Separator className="my-4" />
                   <div className="text-center">
                     <Link
-                      href="/contact"
+                      href="/contacts"
                       className="text-sm font-sans text-blue-600 hover:text-blue-700 underline"
                     >
                       Contact Support

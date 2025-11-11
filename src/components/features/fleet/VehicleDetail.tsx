@@ -130,7 +130,7 @@ const VehicleDetail = ({ vehicle }: VehicleDetailProps) => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/booking" className="flex-1">
+                <Link href="/reservations" className="flex-1">
                   <Button
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 text-lg rounded-lg transition-colors duration-200"
                     size="lg"
@@ -138,7 +138,7 @@ const VehicleDetail = ({ vehicle }: VehicleDetailProps) => {
                     Book Now
                   </Button>
                 </Link>
-                <Link href="/contact" className="flex-1">
+                <Link href="/contacts" className="flex-1">
                   <Button
                     variant="outline"
                     className="w-full border-2 border-red-600 text-red-600 hover:bg-red-50 font-bold py-6 text-lg rounded-lg transition-colors duration-200"

@@ -24,21 +24,21 @@ const Vehicle = ({ vehicle }: VehicleProps) => {
       </div>
 
       {/* Content Section */}
-      <CardHeader className="pb-3 pt-5 px-5">
+      <CardHeader className="pb-4 pt-5 px-5 md:px-6">
         <CardTitle className="font-sans text-xl md:text-2xl font-bold text-gray-900 line-clamp-2 leading-tight">
           {vehicle.name}
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="px-5 pb-6 pt-2">
-        <div className="space-y-3">
+      <CardContent className="px-5 md:px-6 pb-6 pt-0">
+        <div className="space-y-3 md:space-y-4">
           {/* Passengers */}
           <div className="flex items-center gap-3 font-sans text-gray-700">
             <span className="text-gray-500 flex-shrink-0">
               <Car2Icon />
             </span>
-            <span className="font-semibold text-sm">Passengers:</span>
-            <span className="text-sm ml-auto">
+            <span className="font-semibold text-sm md:text-base">Passengers:</span>
+            <span className="text-sm md:text-base ml-auto">
               {vehicle.quantityPassengers} pax
             </span>
           </div>
@@ -48,28 +48,39 @@ const Vehicle = ({ vehicle }: VehicleProps) => {
             <span className="text-gray-500 flex-shrink-0">
               <CarSeatIcon />
             </span>
-            <span className="font-semibold text-sm">Baggage:</span>
-            <span className="text-sm ml-auto">
+            <span className="font-semibold text-sm md:text-base">Baggage:</span>
+            <span className="text-sm md:text-base ml-auto">
               {vehicle.quantityBaggage} bags
             </span>
           </div>
 
-          {/* Price */}
-          <div className="flex items-center gap-3 font-sans pt-2 border-t border-gray-200">
-            <span className="text-gray-500 flex-shrink-0">
-              <MinibarIcon />
-            </span>
-            <span className="font-semibold text-sm">Price:</span>
-            <span className="text-sm font-bold text-red-600 ml-auto">
-              ${vehicle.pricePerHour}/hour
-            </span>
+          {/* Pricing */}
+          <div className="flex flex-col gap-2 pt-3 md:pt-4 border-t border-gray-200">
+            {/* Price per Hour */}
+            <div className="flex items-center gap-3 font-sans">
+              <span className="text-gray-500 flex-shrink-0">
+                <MinibarIcon />
+              </span>
+              <span className="font-semibold text-sm md:text-base">Hourly Rate:</span>
+              <span className="text-sm md:text-base font-bold text-red-600 ml-auto">
+                ${vehicle.pricePerHour}/hr
+              </span>
+            </div>
+
+            {/* Price per Mile */}
+            <div className="flex items-center gap-3 font-sans pl-8">
+              <span className="font-semibold text-sm md:text-base text-gray-700">Per Mile:</span>
+              <span className="text-sm md:text-base font-bold text-gray-900 ml-auto">
+                ${vehicle.pricePerMile}/mi
+              </span>
+            </div>
           </div>
 
           {/* View Details Button */}
-          <div className="pt-4">
+          <div className="pt-4 md:pt-5">
             <Link href={`/fleet/${vehicle.id}`} className="w-full">
               <Button
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-md transition-colors duration-200 font-sans"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-2 md:py-2.5 rounded-md transition-colors duration-200 font-sans text-sm md:text-base"
                 variant="default"
               >
                 View Details

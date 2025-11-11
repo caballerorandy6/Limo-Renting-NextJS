@@ -88,11 +88,11 @@ const ServicesLayout = ({
               controls
               muted
               loop
-              preload="auto"
+              preload="metadata"
               playsInline
               crossOrigin="anonymous"
             >
-              <source src="/service/serviceVideo1.mp4" type="video/mp4" />
+              <source src="/service/serviceVideo1.webm" type="video/webm" />
             </video>
             <div className="relative bg-gray-900 rounded w-full p-8 mt-8 hidden lg:block">
               <Logo />

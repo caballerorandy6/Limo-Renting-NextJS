@@ -8,22 +8,27 @@ const FeaturedVehicles = async () => {
   const vehicles = await getVehicles();
 
   return (
-    <div id="featured-vehicles" className="py-16 bg-gray-100">
-      <div className="w-10/12 mx-auto">
-        <Heading>Featured Vehicles</Heading>
-        <div className="flex flex-col lg:flex-row lg:justify-between items-center">
-          <Heading3>Discover Our Luxury Fleet</Heading3>
-          <div className="w-full flex justify-start lg:justify-end">
-            <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
+    <section id="featured-vehicles" className="w-full bg-gray-100 py-16 md:py-20 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
+          <Heading>Featured Vehicles</Heading>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <Heading3>Discover Our Luxury Fleet</Heading3>
+            <div className="w-full sm:w-auto">
+              <ViewFullFleetButton>View Full Fleet</ViewFullFleetButton>
+            </div>
           </div>
         </div>
-        <div className="w-full sm:gap-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8 mx-auto justify-center">
+
+        {/* Vehicles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {vehicles.slice(0, 3).map((vehicle) => (
             <Vehicle key={vehicle.id} vehicle={vehicle} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

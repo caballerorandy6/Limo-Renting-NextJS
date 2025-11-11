@@ -30,7 +30,7 @@ const AllServices = () => {
   return (
     <>
       <JsonLdForBreadcrumb itemList={breadcrumbItems} />
-      <section id="services" className="pb-20 w-full">
+      <section id="services" className="w-full">
         <LimoImageMenu />
         <ServicesInfo />
         <Services />

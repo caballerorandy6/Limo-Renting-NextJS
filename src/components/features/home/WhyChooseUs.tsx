@@ -8,68 +8,84 @@ import WyChooseUsCircles from "@/components/features/home/WyChooseUsCircles";
 
 const WhyChooseUs = () => {
   return (
-    <div
+    <section
       id="why-choose-us"
-      className="bg-gradient-to-tr from-slate-900 via-black to-gray-900"
+      className="w-full bg-gradient-to-tr from-slate-900 via-black to-gray-900 py-16 md:py-20 lg:py-24"
     >
-      <div className="w-10/12 mx-auto pt-16 xl:pb-16 flex flex-col xl:flex-row gap-20">
-        <div className="w-full xl:w-6/12">
-          <Heading2>Why Choose Us</Heading2>
-          <h1 className="text-white text-4xl lg:text-5xl font-sans font-bold my-2">
-            What Makes Us Different
-          </h1>
-          <p className="font-sans text-white my-6 tracking-wide leading-relaxed">
-            At American Transportation & Limo Services, it’s our goal to ensure
-            that your limo rental experience provides you with the highest level
-            of luxury by offering highly customized service. We strive to always
-            exceed your initial expectations. You can see for yourself how well
-            we have achieved this goal by reading many five-star reviews of our
-            company at Yelp, Google, and Facebook.
-          </p>
-          <div className="w-full my-4 flex flex-col gap-4 text-center md:text-start">
-            <div className="border-8 border-gray-500 rounded">
-              <Image
-                src="/whyChooseUs/whyChooseUs.webp"
-                alt="Why Choose Us Image"
-                width={1000}
-                height={1000}
-                priority={false}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="w-full xl:w-6/12">
-              <h3 className="font-mono text-center xl:text-start font-bold text-white text-xl my-4 text-nowrap">
-                We Have Over 30+ Years of Chauffeur Experience
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20">
+          {/* Left Section - Content */}
+          <div className="w-full xl:w-1/2 space-y-6 md:space-y-8">
+            <div className="space-y-4">
+              <Heading2>Why Choose Us</Heading2>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-white leading-tight">
+                What Makes Us Different
               </h3>
-              <ul className="w-full flex flex-col justify-center text-white/80 font-sans tracking-wide leading-relaxed list-none text-center xl:text-start">
-                <li>Experienced Local Drivers</li>
-                <li className="my-2">Over 1000+ 5-Star Reviews</li>
-                <li>Many Convenient Services</li>
-              </ul>
             </div>
-          </div>
-          <div className="w-full mt-4 flex flex-col gap-4">
-            <ClickToCallButton>Click To Call</ClickToCallButton>
 
-            <div className="flex flex-col font-mono text-center xl:flex-row xl:justify-start xl:text-start xl:gap-8">
-              <span className="text-white font-mono mb-2 text-xl">
-                Call Us Any Time 24/7
-              </span>
-              <Link
-                href="tel:(555)123-4567"
-                target="_blank"
-                className="text-white font-bold text-xl hover:text-red-500 transition-colors"
-              >
-                (555) 123-4567
-              </Link>
+            <p className="text-base md:text-lg font-sans text-white/90 tracking-wide leading-relaxed">
+              At American Transportation & Limo Services, it's our goal to ensure
+              that your limo rental experience provides you with the highest level
+              of luxury by offering highly customized service. We strive to always
+              exceed your initial expectations. You can see for yourself how well
+              we have achieved this goal by reading many five-star reviews of our
+              company at Yelp, Google, and Facebook.
+            </p>
+
+            {/* Image and Features */}
+            <div className="space-y-6 md:space-y-8">
+              <div className="overflow-hidden rounded-lg border-8 border-gray-500">
+                <Image
+                  src="/whyChooseUs/whyChooseUs.webp"
+                  alt="Why Choose Us Image"
+                  width={1000}
+                  height={1000}
+                  priority={false}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="text-xl md:text-2xl font-mono font-bold text-white text-center xl:text-left">
+                  We Have Over 30+ Years of Chauffeur Experience
+                </h4>
+                <ul className="space-y-3 text-white/80 font-sans text-base md:text-lg tracking-wide leading-relaxed text-center xl:text-left">
+                  <li>Experienced Local Drivers</li>
+                  <li>Over 1000+ 5-Star Reviews</li>
+                  <li>Many Convenient Services</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="space-y-6 pt-4">
+              <div className="flex justify-center xl:justify-start">
+                <ClickToCallButton>Click To Call</ClickToCallButton>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-4 text-center xl:text-left">
+                <span className="text-white font-mono text-lg md:text-xl">
+                  Call Us Any Time 24/7
+                </span>
+                <Link
+                  href="tel:(555)123-4567"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white font-bold text-xl md:text-2xl hover:text-red-500 transition-colors"
+                >
+                  (555) 123-4567
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="w-6/12">
-          <WyChooseUsCircles />
+
+          {/* Right Section - Circles (Desktop Only) */}
+          <div className="hidden xl:block w-full xl:w-1/2">
+            <WyChooseUsCircles />
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

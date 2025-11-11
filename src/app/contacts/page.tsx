@@ -29,7 +29,7 @@ const Contacts = () => {
   return (
     <>
       <JsonLdForBreadcrumb itemList={breadcrumbItems} />
-      <section id="contact">
+      <section id="contact" className="w-full">
         <PageHeader pageName="Contact" />
         <ContactInfo />
         <ContactMap />

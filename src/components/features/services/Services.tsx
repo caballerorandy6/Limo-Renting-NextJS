@@ -214,25 +214,29 @@ export const services: ServiceProps[] = [
 
 const Services = () => {
   return (
-    <div className="w-10/12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8 mx-auto">
-      {services.map((item) => (
-        <Service
-          key={item.title}
-          id={item.id}
-          title={item.title}
-          description={item.description}
-          content={item.content}
-          icon={item.icon}
-          buttonName={item.buttonName}
-          href={item.href}
-          image={item.image}
-          title2={item.title2}
-          title3={item.title3}
-          text1={item.text1}
-          text2={item.text2}
-          serviceAccordion={item.serviceAccordion}
-        />
-      ))}
+    <div className="w-full py-12 md:py-16 lg:py-20 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {services.map((item) => (
+            <Service
+              key={item.title}
+              id={item.id}
+              title={item.title}
+              description={item.description}
+              content={item.content}
+              icon={item.icon}
+              buttonName={item.buttonName}
+              href={item.href}
+              image={item.image}
+              title2={item.title2}
+              title3={item.title3}
+              text1={item.text1}
+              text2={item.text2}
+              serviceAccordion={item.serviceAccordion}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

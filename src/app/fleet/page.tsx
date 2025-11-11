@@ -34,16 +34,16 @@ const Fleet = async () => {
   return (
     <>
       <JsonLdForBreadcrumb itemList={breadcrumbItems} />
-      <section id="fleet">
+      <section id="fleet" className="w-full">
         <FleetVideo />
 
         {/* Info Section */}
-        <div className="py-16 md:py-20 lg:py-24">
+        <div className="w-full py-16 md:py-20 lg:py-24">
           <FleetInfo />
         </div>
 
         {/* Vehicles Grid Section */}
-        <div className="py-12 md:py-16 bg-gray-50">
+        <div className="w-full py-16 md:py-20 lg:py-24 bg-gray-50">
           <Suspense fallback={<VehiclesSkeleton />}>
             <Vehicles vehiclesPromise={vehiclesPromise} />
           </Suspense>

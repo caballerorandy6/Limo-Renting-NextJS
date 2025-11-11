@@ -12,6 +12,7 @@ const BookUsAbout = () => {
         alt="About Our Company 3"
         width={1000}
         height={1000}
+        priority={false}
         className="object-cover w-full h-full relative mix-blend-overlay bg-gradient-to-tr from-gray-600 to-gray-800"
       />
       <div className="absolute top-[12vh] md:w-8/12 w-10/12">

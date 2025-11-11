@@ -65,24 +65,24 @@ export function CarouselTestimonials() {
   );
 
   return (
-    <div className="relative w-full mx-auto">
+    <div className="relative w-full mx-auto flex items-center justify-center">
       <QuotationMarksLeft />
       <Carousel
         plugins={[plugin.current]}
-        className="w-full"
+        className="w-full max-w-2xl"
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
-        <CarouselContent>
+        <CarouselContent className="items-center">
           {reviewsArray.map((review, index) => (
-            <CarouselItem key={index}>
-              <Card>
-                <CardContent className="flex flex-col aspect-auto justify-center pt-[4vh]">
-                  <p className="mb-2 truncate tracking-wide leading-relaxed font-sans">
+            <CarouselItem key={index} className="flex justify-center">
+              <Card className="w-full">
+                <CardContent className="flex flex-col items-center justify-center text-center px-6 py-8 md:px-8 md:py-10 min-h-[300px]">
+                  <p className="mb-6 text-sm md:text-base tracking-wide leading-relaxed font-sans line-clamp-6">
                     {review.comment}
                   </p>
-                  <div className="flex items-center gap-2">
-                    <span>{review.name}</span>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-auto">
+                    <span className="font-semibold font-sans text-base">{review.name}</span>
                     {review.stars}
                   </div>
                 </CardContent>
@@ -90,8 +90,8 @@ export function CarouselTestimonials() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="hidden sm:flex" />
+        <CarouselNext className="hidden sm:flex" />
       </Carousel>
     </div>
   );

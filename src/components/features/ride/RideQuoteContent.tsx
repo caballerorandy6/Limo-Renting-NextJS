@@ -53,9 +53,10 @@ export default function RideQuoteContent() {
   // Find the selected vehicle
   const selectedVehicle = vehicles.find((v) => v.name === vehicleName);
 
-  // Calculate estimated price based on distance
+  // Calculate estimated price based on distance AND duration
   const basePrice = selectedVehicle
-    ? Number(distance) * selectedVehicle.pricePerMile
+    ? Number(distance) * Number(selectedVehicle.pricePerMile) +
+      Number(duration) * Number(selectedVehicle.pricePerHour)
     : 0;
 
   // Calculate price range (±20% variation for quote)
@@ -332,6 +333,7 @@ export default function RideQuoteContent() {
                       src={vehicleImage || "/fleet/vehicle1.webp"}
                       alt={selectedVehicle?.name || "Selected Vehicle"}
                       fill
+                      priority={false}
                       className="object-cover"
                     />
                   </div>
@@ -373,7 +375,7 @@ export default function RideQuoteContent() {
                   </p>
                   {selectedVehicle && (
                     <p className="text-xs text-gray-500 font-mono">
-                      Base rate: ${selectedVehicle.pricePerMile}/mile
+                      Base rates: ${selectedVehicle.pricePerMile}/mile • ${selectedVehicle.pricePerHour}/hour
                     </p>
                   )}
                 </div>

@@ -27,63 +27,82 @@ const AboutUs = () => {
   return (
     <>
       <LimoImageMenu />
-      <div className="flex flex-col lg:flex-row justify-center py-16 lg:gap-20 xl:gap-10 w-10/12 mx-auto">
-        <div className="hidden relative w-6/12 h-full lg:flex justify-start mb-16">
-          <Image
-            src="/limoAboutPage/limoAboutPage1.webp"
-            alt="Limo About Page 1"
-            width="200"
-            height={1000}
-            priority
-            className="relative object-cover w-[50vh] lg:h-[45vh] h-[50vh]"
-          />
-          <Image
-            src="/limoAboutPage/limoAboutPage2.webp"
-            alt="Limo About Page 1"
-            width={1000}
-            height={1000}
-            priority
-            className="absolute object-cover hidden xl:flex lg:w-[35vh] lg:h-[35vh] top-60 left-1/3 rounded-br-3xl"
-          />
-        </div>
-        <div className="w-full lg:w-6/12">
-          <Heading>About Us</Heading>
-          <h1 className="text-black text-4xl lg:text-5xl font-sans font-bold mt-2">
-            The Best Limo Service in{" "}
-            <span className="text-red-600">Miami, FL</span>
-          </h1>
-          <p className="font-sans mt-4 tracking-wide leading-relaxed">
-            At American Transportation & Limo Services in Miami, FL, it’s our
-            goal to ensure that your limo rental experience provides you with
-            the highest level of luxury by offering highly customized service.
-            We strive to always exceed your initial expectations. You can see
-            for yourself how well we have achieved this goal by reading many
-            five-star reviews of our company at Yelp, Google, and Facebook.
-          </p>
-          <div className="flex justify-start gap-4 items-center mt-4">
-            <Card className="w-[18vh] shadow-md rounded-none">
-              <CardContent className="flex flex-col justify-center items-center pt-4 font-sans font-bold gap-2">
-                <IncrementNumber />
-                <span>Years</span>
-                <span>Experience</span>
-              </CardContent>
-            </Card>
-            <div className="flex flex-col gap-4 text-gray-400">
-              {aboutUsArray.map((item) => (
-                <div
-                  key={item.title}
-                  className="flex gap-2 items-center tracking-wide leading-relaxed"
-                >
-                  {item.icon}
-                  <span className="font-sans tracking-wide">{item.title}</span>
+      <section className="w-full py-16 md:py-20 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20">
+            {/* Left Section - Images (Desktop Only) */}
+            <div className="hidden lg:flex relative w-full lg:w-1/2 h-full justify-start">
+              <div className="relative w-full max-w-lg">
+                <Image
+                  src="/limoAboutPage/limoAboutPage1.webp"
+                  alt="Limo About Page 1"
+                  width={500}
+                  height={500}
+                  priority
+                  className="relative object-cover w-full aspect-square rounded-lg shadow-xl"
+                />
+                <Image
+                  src="/limoAboutPage/limoAboutPage2.webp"
+                  alt="Limo About Page 2"
+                  width={350}
+                  height={350}
+                  priority
+                  className="hidden xl:block absolute -bottom-12 -right-12 object-cover w-3/5 aspect-square rounded-br-3xl rounded-tl-3xl shadow-2xl border-4 border-white"
+                />
+              </div>
+            </div>
+
+            {/* Right Section - Content */}
+            <div className="w-full lg:w-1/2 space-y-6 md:space-y-8">
+              <div className="space-y-4">
+                <Heading>About Us</Heading>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-gray-900 leading-tight">
+                  The Best Limo Service in{" "}
+                  <span className="text-red-600">Miami, FL</span>
+                </h1>
+              </div>
+
+              <p className="text-base md:text-lg font-sans tracking-wide leading-relaxed text-gray-700">
+                At American Transportation & Limo Services in Miami, FL, it's our
+                goal to ensure that your limo rental experience provides you with
+                the highest level of luxury by offering highly customized service.
+                We strive to always exceed your initial expectations. You can see
+                for yourself how well we have achieved this goal by reading many
+                five-star reviews of our company at Yelp, Google, and Facebook.
+              </p>
+
+              {/* Features Section */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 pt-4">
+                <Card className="w-full sm:w-36 md:w-40 shadow-md rounded-none flex-shrink-0">
+                  <CardContent className="flex flex-col justify-center items-center py-6 md:py-8 font-sans font-bold space-y-2">
+                    <IncrementNumber />
+                    <span className="text-sm">Years</span>
+                    <span className="text-sm">Experience</span>
+                  </CardContent>
+                </Card>
+
+                <div className="flex flex-col gap-3 md:gap-4 text-gray-600">
+                  {aboutUsArray.map((item) => (
+                    <div
+                      key={item.title}
+                      className="flex items-center gap-3 tracking-wide leading-relaxed"
+                    >
+                      <span className="flex-shrink-0">{item.icon}</span>
+                      <span className="font-sans text-sm md:text-base">{item.title}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              <Separator className="my-6 md:my-8 border-gray-300" />
+
+              <div className="pt-2">
+                <BookNowButton>Book a Ride</BookNowButton>
+              </div>
             </div>
           </div>
-          <Separator className="my-8 border border-gray-400 w-full" />
-          <BookNowButton>Book a Ride</BookNowButton>
         </div>
-      </div>
+      </section>
     </>
   );
 };
