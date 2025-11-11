@@ -6,7 +6,7 @@ import { JsonLdForBreadcrumb } from "@/components/seo/JsonLdForBreadcrumb";
 import { siteConfig } from "@/config/site";
 
 //Server Actions
-import { getServices, getTripTypes } from "@/actions/services";
+import { getServices, getTripTypes, Service, TripType } from "@/actions/services";
 
 export const metadata = genPageMetadata({
   title: "Book Your Limo | Miami Luxury Transportation | Get Instant Quote",
@@ -22,6 +22,9 @@ export const metadata = genPageMetadata({
   ],
 });
 
+// Enable ISR for this page with 1 hour revalidation
+export const revalidate = 3600;
+
 const Reservations = async () => {
   const breadcrumbItems = [
     { name: "Home", item: siteConfig.baseUrl },
@@ -29,10 +32,18 @@ const Reservations = async () => {
   ];
 
   // Fetch services and trip types in parallel (Server Component)
-  const [services, tripTypes] = await Promise.all([
-    getServices(),
-    getTripTypes(),
-  ]);
+  let services: Service[] = [];
+  let tripTypes: TripType[] = [];
+
+  try {
+    [services, tripTypes] = await Promise.all([
+      getServices(),
+      getTripTypes(),
+    ]);
+  } catch (error) {
+    console.error("Error fetching form data during build:", error);
+    // Return empty arrays - form will still render, just without pre-populated options
+  }
 
   return (
     <>
