@@ -133,11 +133,11 @@ export default function RootLayout({
         <body
           className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}
         >
-          {/* Google Maps API - Loaded once globally */}
+          {/* Google Maps API with Places library for autocomplete */}
           <Script
             id="google-maps-api"
             src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places&loading=async`}
-            strategy="lazyOnload"
+            strategy="beforeInteractive"
           />
           <JsonLdForOrganization />
           <Header />

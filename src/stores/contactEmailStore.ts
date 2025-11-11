@@ -7,14 +7,17 @@ export const contactSchema = z.object({
   name: z
     .string()
     .min(2, { message: "Name is required and must be at least 2 characters." }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
+  email: z
+    .string()
+    .min(1, { message: "Email is required." })
+    .email({ message: "Please enter a valid email address." }),
   phone: z
     .string()
-    .min(10, { message: "Please enter a valid phone number with 10 digits." })
-    .max(10, {
-      message: "Please enter a valid phone number with 10 digits.",
+    .min(1, { message: "Phone number is required." })
+    .regex(/^[\d\s\-\(\)]+$/, { message: "Phone number contains invalid characters." })
+    .transform((val) => val.replace(/\D/g, "")) // Remove non-digits
+    .refine((val) => val.length === 10, {
+      message: "Phone number must have exactly 10 digits.",
     }),
   message: z.string().optional(),
 });

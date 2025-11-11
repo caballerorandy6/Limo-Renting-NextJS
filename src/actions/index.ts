@@ -3,10 +3,10 @@
  * Import actions from here to maintain consistency
  */
 
-export { submitContactForm } from "./contact";
+export { submitContactForm, getAllContacts, getContactById, updateContactStatus, deleteContact } from "./contacts";
 export { calculateRoute, submitRideBooking } from "./ride";
 export { getVehicles } from "./vehicles";
-export type { ContactFormData, ActionResult } from "./contact";
+export type { ContactFormData, ActionResult, Contact } from "./contacts";
 export type {
   RouteCalculationData,
   RouteResult,

@@ -9,7 +9,7 @@ import { useSendingEmailButtonStore } from "@/stores/sendingEmailButtonStore";
 import { contactSchema } from "@/stores/contactEmailStore";
 
 //Server Actions
-import { submitContactForm } from "@/actions";
+import { submitContactForm } from "@/actions/contacts";
 
 //Shadcn Components
 import { Input } from "@/components/ui/input";
