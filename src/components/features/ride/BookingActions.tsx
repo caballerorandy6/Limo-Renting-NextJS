@@ -131,7 +131,6 @@ export default function BookingActions({ bookingId }: BookingActionsProps) {
         });
       } catch (error) {
         // User cancelled share
-        console.log("Share cancelled");
       }
     } else {
       // Fallback: Copy to clipboard

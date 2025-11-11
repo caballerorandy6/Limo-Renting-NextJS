@@ -102,9 +102,6 @@ export default function ConfirmBookingButton({
         variant: "custom",
       });
 
-      // Log booking ID
-      console.log("Booking created:", result);
-
       // Redirect to success page with booking ID
       setTimeout(() => {
         router.push(`/ride/booking-success/${result.id}`);

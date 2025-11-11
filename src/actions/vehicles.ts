@@ -10,9 +10,6 @@ type VehicleFormData = z.infer<typeof vehicleSchema>;
 // Fetch all vehicles for ADMIN (no cache - always fresh, requires auth token)
 export async function getVehiclesAdmin(token: string): Promise<VehicleApiResponse[]> {
   try {
-    console.log("🔵 getVehiclesAdmin called with token:", token ? "✅ present" : "❌ missing");
-    console.log("🔵 API URL:", `${process.env.NEXT_PUBLIC_API_URL}/vehicles/admin/all`);
-
     const vehicles = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/vehicles/admin/all`,
       {
@@ -25,8 +22,6 @@ export async function getVehiclesAdmin(token: string): Promise<VehicleApiRespons
       }
     );
 
-    console.log("🔵 Response status:", vehicles.status, vehicles.statusText);
-
     if (!vehicles.ok) {
       const errorText = await vehicles.text();
       console.warn(`❌ Failed to fetch vehicles: ${vehicles.statusText}`, errorText);
@@ -34,7 +29,6 @@ export async function getVehiclesAdmin(token: string): Promise<VehicleApiRespons
     }
 
     const data = await vehicles.json();
-    console.log("🔵 Vehicles received:", data.length);
     return data;
   } catch (error) {
     console.error("❌ Error fetching vehicles:", error);

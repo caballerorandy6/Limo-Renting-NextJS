@@ -1,6 +1,6 @@
 "use client";
 
-import { Map, MapCameraChangedEvent } from "@vis.gl/react-google-maps";
+import { Map } from "@vis.gl/react-google-maps";
 
 //Custom Components
 import PoiMarkers from "@/components/features/contact/ContactPoiMarkers";
@@ -14,14 +14,6 @@ const MyMap = () => {
       defaultCenter={{ lat: 25.80381, lng: -80.31653 }}
       mapId={myMapId}
       className="w-10/12 h-[60vh] mt-8 mb-16 mx-auto shadow-md"
-      onCameraChanged={(ev: MapCameraChangedEvent) =>
-        console.log(
-          "camera changed:",
-          ev.detail.center,
-          "zoom:",
-          ev.detail.zoom
-        )
-      }
     >
       <PoiMarkers />
     </Map>

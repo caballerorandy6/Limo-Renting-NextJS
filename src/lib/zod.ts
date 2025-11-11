@@ -19,7 +19,7 @@ export const formSchema = z
         "Drop off location is required and must be at least 2 characters.",
     }),
     stops: z.array(z.string()).optional(),
-    dateOfService: z.date({ required_error: "Date of service is required." }),
+    dateOfService: z.date({ message: "Date of service is required." }),
     pickUpTime: z.string().refine((value) => value.trim().length > 0, {
       message: "Pick up time is required.",
     }),

@@ -22,7 +22,7 @@ export const useNameAndFlagStore = create<CountryStore>((set) => ({
 
       set({ countries: data });
     } catch (error) {
-      console.log("Error fetching countries data", error);
+      // Error fetching countries data
     }
   },
 }));

@@ -33,9 +33,10 @@ export const useContactEmailStore = create<ContactEmailStore>((set) => ({
     const result = contactSchema.safeParse(contactEmail);
     if (!result.success) {
       const errors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
-        if (err.path[0]) {
-          errors[err.path[0]] = err.message;
+      result.error.issues.forEach((err) => {
+        const fieldName = err.path[0];
+        if (fieldName && typeof fieldName === 'string') {
+          errors[fieldName] = err.message;
         }
       });
       set((state) => ({

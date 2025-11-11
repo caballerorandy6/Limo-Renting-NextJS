@@ -36,24 +36,20 @@ export default function ContactsPage() {
     },
   ];
 
-  const handleViewContact = (id: string) => {
+  const handleViewContact = (_id: string) => {
     // TODO: Implement view contact logic
-    console.log("View contact:", id);
   };
 
-  const handleDeleteContact = (id: string) => {
+  const handleDeleteContact = (_id: string) => {
     // TODO: Implement delete contact logic
-    console.log("Delete contact:", id);
   };
 
-  const handleMarkAsRead = (id: string) => {
+  const handleMarkAsRead = (_id: string) => {
     // TODO: Implement mark as read logic
-    console.log("Mark as read:", id);
   };
 
-  const handleReply = (id: string) => {
+  const handleReply = (_id: string) => {
     // TODO: Implement reply logic
-    console.log("Reply to:", id);
   };
 
   const getStatusColor = (status: string) => {

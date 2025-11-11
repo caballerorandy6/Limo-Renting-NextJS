@@ -160,14 +160,6 @@ const FormQuote = ({ services = [], tripTypes = [] }: FormQuoteProps) => {
       setDistance(result.distance || 0);
       setDuration(result.duration || 0);
 
-      console.log({
-        distance: result.distance,
-        duration: result.duration,
-        stops,
-        pickUpLocation,
-        dropOffLocation,
-      });
-
       // Clear draft, reset form, and navigate to vehicles page
       clearFormDraft();
       form.reset();

@@ -51,7 +51,6 @@ const PoiMarkers = () => {
     (ev: google.maps.MapMouseEvent) => {
       if (!map) return;
       if (!ev.latLng) return;
-      console.log("marker clicked:", ev.latLng.toString());
       map.panTo(ev.latLng);
       setCircleCenter(ev.latLng);
     },

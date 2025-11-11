@@ -149,8 +149,6 @@ export async function submitRideBooking(
     // 3. Notify admin
     // 4. Process payment if needed
 
-    console.log("Ride booking submitted:", data);
-
     return {
       success: true,
       message: "Booking submitted successfully! We'll contact you shortly.",
@@ -212,60 +210,19 @@ export async function confirmAndBookRideAction(
 
     // Simulate: Step 1 - Validating booking details (500ms)
     await new Promise((resolve) => setTimeout(resolve, 500));
-    console.log("✅ Step 1: Booking details validated");
 
     // Simulate: Step 2 - Saving to database (800ms)
     await new Promise((resolve) => setTimeout(resolve, 800));
     const bookingId = `RIDE-${Date.now()}-${Math.random().toString(36).substring(7).toUpperCase()}`;
-    console.log("✅ Step 2: Booking saved to database - ID:", bookingId);
 
     // Simulate: Step 3 - Sending confirmation email to customer (1000ms)
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("✅ Step 3: Confirmation email sent to:", data.emailAddress);
 
     // Simulate: Step 4 - Notifying admin team (600ms)
     await new Promise((resolve) => setTimeout(resolve, 600));
-    console.log("✅ Step 4: Admin team notified");
 
     // Simulate: Step 5 - Payment processing (if needed) (700ms)
     await new Promise((resolve) => setTimeout(resolve, 700));
-    console.log("✅ Step 5: Payment processed successfully");
-
-    // Log complete booking data for reference
-    console.log("📋 Complete Booking Data:", {
-      bookingId,
-      customer: {
-        name: `${data.firstName} ${data.lastName}`,
-        email: data.emailAddress,
-        phone: data.phoneNumber,
-      },
-      trip: {
-        from: data.pickUpLocation,
-        to: data.dropOffLocation,
-        stops: data.stops,
-        date: data.dateOfService,
-        time: data.pickUpTime,
-        distance: `${data.distance} miles`,
-        duration: `${data.duration} minutes`,
-      },
-      vehicle: {
-        name: data.vehicleName,
-        basePrice: `$${data.vehiclePrice}`,
-      },
-      pricing: {
-        vehiclePrice: `$${data.vehiclePrice}`,
-        addOns: `$${data.addOnsTotal || 0}`,
-        total: `$${data.totalPrice}`,
-      },
-      tripTypeId: data.tripTypeId,
-      passengers: data.passengers,
-      roundTrip: data.roundTrip,
-      ...(data.returnDate && { returnDate: data.returnDate }),
-      ...(data.returnTime && { returnTime: data.returnTime }),
-      ...(data.specialInstructions && {
-        specialInstructions: data.specialInstructions
-      }),
-    });
 
     return {
       success: true,

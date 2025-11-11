@@ -45,11 +45,6 @@ const PlaceAutocompleteInput = forwardRef<
       if (isInitializedRef.current) return;
       isInitializedRef.current = true;
 
-      console.log(
-        "🗺️ Initializing Google Maps Autocomplete for:",
-        id || name
-      );
-
       const input = document.createElement("input");
       input.type = "text";
       input.name = name;
@@ -86,7 +81,6 @@ const PlaceAutocompleteInput = forwardRef<
         }
 
         if (selectedAddress) {
-          console.log("📍 Place selected:", selectedAddress);
           onChange(selectedAddress);
           input.value = selectedAddress;
         }
