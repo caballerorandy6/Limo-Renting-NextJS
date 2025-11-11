@@ -9,6 +9,9 @@ import { getAllContacts } from "@/actions/contacts";
  * Fetches contacts from backend API and displays them
  */
 
+// Force dynamic rendering for admin routes with authentication
+export const dynamic = 'force-dynamic';
+
 export default async function ContactsPage() {
   // Fetch contacts from backend
   const contacts = await getAllContacts();
